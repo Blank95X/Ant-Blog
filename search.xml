@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>PowerShell：在此系统上禁止运行脚本</title>
+    <url>/project/2025-3-10/</url>
+    <content><![CDATA[<p>查看当前用户的执行策略：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">get-executionpolicy</span></span><br></pre></td></tr></table></figure>
+
+<p>返回 <code>Restricted</code> （默认）则是无法执行脚本。</p>
+<p>解除限制：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set-executionpolicy</span> remotesigned</span><br></pre></td></tr></table></figure>
+<p>如果运行后提示：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">Windows PowerShell 已成功更新你的执行策略，但在更具体的作业域中定义的策略覆盖该设置了。由于发生覆盖，你的外壳程序将保留当前的有效执行策略受限制。</span><br></pre></td></tr></table></figure>
+
+<p>说明当前用户的策略还未更改，继续执行：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> RemoteSigned <span class="literal">-Scope</span> CurrentUser</span><br></pre></td></tr></table></figure>
+
+<p>再次查看当前用户的执行策略，发现已更改。</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">&gt; <span class="built_in">get-executionpolicy</span></span><br><span class="line">RemoteSigned</span><br></pre></td></tr></table></figure>
+
+<p>之后就可以执行脚本了。</p>
+<hr>
+<p>参考文章</p>
+<p><a href="https://syxdevcode.github.io/2021/09/04/PowerShell%EF%BC%9A%E5%9B%A0%E4%B8%BA%E5%9C%A8%E6%AD%A4%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%A6%81%E6%AD%A2%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC%EF%BC%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">syxdevcode的博客</a></p>
+<p><a href="https://smallsquare.github.io/Powershell-disable-runing-scripts/">smallsquare的博客</a></p>
+]]></content>
+      <categories>
+        <category>疑难杂症</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>GitHubPages+hexo 部署个人在线博客</title>
     <url>/project/2025-3-9/</url>
     <content><![CDATA[<p>系统环境： <code>windows11</code></p>
@@ -44,40 +75,9 @@
 <p><a href="https://hexo.io/zh-cn/docs/github-pages.html">hexo官方教程</a></p>
 ]]></content>
       <tags>
+        <tag>windows</tag>
         <tag>hexo</tag>
-        <tag>windows</tag>
         <tag>github</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PowerShell：在此系统上禁止运行脚本</title>
-    <url>/project/2025-3-10/</url>
-    <content><![CDATA[<p>查看当前用户的执行策略：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">get-executionpolicy</span></span><br></pre></td></tr></table></figure>
-
-<p>返回 <code>Restricted</code> （默认）则是无法执行脚本。</p>
-<p>解除限制：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set-executionpolicy</span> remotesigned</span><br></pre></td></tr></table></figure>
-<p>如果运行后提示：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">Windows PowerShell 已成功更新你的执行策略，但在更具体的作业域中定义的策略覆盖该设置了。由于发生覆盖，你的外壳程序将保留当前的有效执行策略受限制。</span><br></pre></td></tr></table></figure>
-
-<p>说明当前用户的策略还未更改，继续执行：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> RemoteSigned <span class="literal">-Scope</span> CurrentUser</span><br></pre></td></tr></table></figure>
-
-<p>再次查看当前用户的执行策略，发现已更改。</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">&gt; <span class="built_in">get-executionpolicy</span></span><br><span class="line">RemoteSigned</span><br></pre></td></tr></table></figure>
-
-<p>之后就可以执行脚本了。</p>
-<hr>
-<p>参考文章</p>
-<p><a href="https://syxdevcode.github.io/2021/09/04/PowerShell%EF%BC%9A%E5%9B%A0%E4%B8%BA%E5%9C%A8%E6%AD%A4%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%A6%81%E6%AD%A2%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC%EF%BC%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">syxdevcode的博客</a></p>
-<p><a href="https://smallsquare.github.io/Powershell-disable-runing-scripts/">smallsquare的博客</a></p>
-]]></content>
-      <categories>
-        <category>疑难杂症</category>
-      </categories>
-      <tags>
-        <tag>windows</tag>
       </tags>
   </entry>
 </search>
