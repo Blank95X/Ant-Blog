@@ -47,7 +47,7 @@
 <p>部署：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
 <p>在<a href="http://localhost:4000/">localhost:4000</a>查看博客界面。</p>
-<h1 id="部署到-github-pages"><a href="#部署到-github-pages" class="headerlink" title="部署到 github pages"></a>部署到 github pages</h1><h2 id="生成-sshkey"><a href="#生成-sshkey" class="headerlink" title="生成 sshkey"></a>生成 sshkey</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -r rsa -C <span class="string">&quot;youremail2example.com&quot;</span></span><br></pre></td></tr></table></figure>
+<h1 id="部署到-github-pages"><a href="#部署到-github-pages" class="headerlink" title="部署到 github pages"></a>部署到 github pages</h1><h2 id="生成-sshkey"><a href="#生成-sshkey" class="headerlink" title="生成 sshkey"></a>生成 sshkey</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -r rsa -C <span class="string">&quot;youremail@example.com&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>一直按回车即可。如果提示 <code>sshkey</code> 已存在，可以选择覆盖（后果自负）。</p>
 <p>生成的密钥保存在 <code>C:\Users\yourusername\.ssh\id_rsa.pub</code> 这个文件中，下一步要用。</p>
