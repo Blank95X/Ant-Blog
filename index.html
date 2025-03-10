@@ -71,6 +71,60 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2025-3-10" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="2025/03/10/2025-3-10/" class="article-date">
+  <time class="dt-published" datetime="2025-03-10T09:08:19.000Z" itemprop="datePublished">2025-03-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="2025/03/10/2025-3-10/">PowerShell：在此系统上禁止运行脚本</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>查看当前用户的执行策略：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">get-executionpolicy</span></span><br></pre></td></tr></table></figure>
+
+<p>返回 <code>Restricted</code> （默认）则是无法执行脚本。</p>
+<p>解除限制：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set-executionpolicy</span> remotesigned</span><br></pre></td></tr></table></figure>
+<p>如果运行后提示：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Windows PowerShell 已成功更新你的执行策略，但在更具体的作业域中定义的策略覆盖该设置了。由于发生覆盖，你的外壳程序将保留当前的有效执行策略受限制。</span><br></pre></td></tr></table></figure>
+
+<p>说明当前用户的策略还未更改，继续执行：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> RemoteSigned <span class="literal">-Scope</span> CurrentUser</span><br></pre></td></tr></table></figure>
+
+<p>再次查看当前用户的执行策略，发现已更改。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="built_in">get-executionpolicy</span></span><br><span class="line">RemoteSigned</span><br></pre></td></tr></table></figure>
+
+<p>之后就可以执行脚本了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blank95x.github.io/project/2025/03/10/2025-3-10/" data-id="cm82uk58c0001v4a005mofi92" data-title="PowerShell：在此系统上禁止运行脚本" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-hexoAndGithub" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="2025/03/09/hexoAndGithub/" class="article-date">
@@ -85,7 +139,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="2025/03/09/hexoAndGithub/">使用 GitHubpages+hexo 部署个人在线博客</a>
+      <a class="p-name article-title" href="2025/03/09/hexoAndGithub/">GitHubpages+hexo 部署个人在线博客</a>
     </h1>
   
 
@@ -135,7 +189,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blank95x.github.io/project/2025/03/09/hexoAndGithub/" data-id="cm81srvz90000lka03pu21woz" data-title="使用 GitHubpages+hexo 部署个人在线博客" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://blank95x.github.io/project/2025/03/09/hexoAndGithub/" data-id="cm82uk5870000v4a00qsj0np1" data-title="GitHubpages+hexo 部署个人在线博客" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -178,7 +232,11 @@
       <ul>
         
           <li>
-            <a href="2025/03/09/hexoAndGithub/">使用 GitHubpages+hexo 部署个人在线博客</a>
+            <a href="2025/03/10/2025-3-10/">PowerShell：在此系统上禁止运行脚本</a>
+          </li>
+        
+          <li>
+            <a href="2025/03/09/hexoAndGithub/">GitHubpages+hexo 部署个人在线博客</a>
           </li>
         
       </ul>
