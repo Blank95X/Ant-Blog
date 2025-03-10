@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>PowerShell：在此系统上禁止运行脚本</title>
-    <url>/blog/2025-3-10/</url>
+    <url>/Blank95X/2025-3-10/</url>
     <content><![CDATA[<p>查看当前用户的执行策略：</p>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">get-executionpolicy</span></span><br></pre></td></tr></table></figure>
 
@@ -33,7 +33,7 @@
   </entry>
   <entry>
     <title>GitHubPages+hexo 部署个人在线博客</title>
-    <url>/blog/2025-3-9/</url>
+    <url>/Blank95X/2025-3-9/</url>
     <content><![CDATA[<p>系统环境： <code>windows11</code></p>
 <h1 id="安装-hexo"><a href="#安装-hexo" class="headerlink" title="安装 hexo"></a>安装 hexo</h1><p>先决条件： <code>nodejs</code> 和 <code>git</code> 环境。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
