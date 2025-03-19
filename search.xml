@@ -32,25 +32,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Acvitity 初识</title>
-    <url>/2025/03/15/AndroidDev/</url>
-    <content><![CDATA[<h1 id="要素"><a href="#要素" class="headerlink" title="要素"></a>要素</h1><p>创建一个 Activity 需要以下要素：</p>
-<p>Activity 类：</p>
-<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ActivityName</span> : <span class="type">ComponentActivity</span>() &#123;</span><br><span class="line">	<span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        <span class="comment">// code..</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>布局文件：<code>src/main/res/layout/activity_name.xml</code></p>
-<p>在 AndroidManifest.xml 文件中注册：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">&quot;.ActivityName&quot;</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">android:label</span>=<span class="string">&quot;This is ActivityName&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--如果需要作为主界面，还需要以下两个属性--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.MAIN&quot;</span> /&gt;</span> </span><br><span class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.category.LAUNCHER&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>第一个安卓 app</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>GitHubPages+hexo 部署个人在线博客</title>
     <url>/2025/03/09/2025-3-9/</url>
     <content><![CDATA[<p>系统环境： windows11</p>
@@ -100,46 +81,151 @@
       </tags>
   </entry>
   <entry>
-    <title>windows 本地部署 photoPrism</title>
-    <url>/2025/03/11/photoPrism/</url>
-    <content><![CDATA[<h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>把带地理位置信息的照片上传到 google 相册后，可以在地图中查看每张照片在地图上的标点。但是 google 相册云空间有限；使用 mod 的话总感觉有风险；并且上传照片到云上也怕隐私泄露（ google 之前拿用户照片来训练 ai ）。</p>
-<p>安卓端开源的 <a href="https://github.com/deckerst/aves">Aves 相册</a>也有这个功能，但是照片必须在本地。然而我不会把大量照片放在一部手机上，更偏向于放在桌面端设备。</p>
-<p>在网上搜索开源照片管理工具，找到了这篇<a href="https://www.cnblogs.com/ryanyangcs/p/18322866">云部署教程</a>推荐。</p>
-<h1 id="photoPrism-介绍"><a href="#photoPrism-介绍" class="headerlink" title="photoPrism 介绍"></a>photoPrism 介绍</h1><ul>
-<li>开源</li>
-<li>google 相册平替</li>
-<li>具有基本的 AI 分类功能</li>
-</ul>
-<h1 id="部署-photoPrism"><a href="#部署-photoPrism" class="headerlink" title="部署 photoPrism"></a>部署 photoPrism</h1><p>先决条件： 安装 Docker Desktop ，这里不赘述。</p>
-<h2 id="下载配置文件"><a href="#下载配置文件" class="headerlink" title="下载配置文件"></a>下载配置文件</h2><p>打开<a href="https://www.photoprism.app/plus/kb/quickstart">官方文档</a>，找到<a href="https://www.photoprism.app/plus/kb/quickstart#:~:text=Step%201%3A%20Customize%20Configuration">Step 1: Customize Configuration 部分</a>，点击 windows 右边的下载链接，下载配置文件 <code>compose.yaml</code> 。</p>
-<h2 id="初始化和启动"><a href="#初始化和启动" class="headerlink" title="初始化和启动"></a>初始化和启动</h2><p>在配置文件的路径下打开 cmd 。注意，接下来的命令会在配置文件的路径下创建 photoPrism 实例（刚开始没注意，放在桌面启动， C 盘差点炸了）。</p>
-<p>依次输入官方提供的两条命令：</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">docker compose pull</span><br><span class="line">docker compose up -d</span><br></pre></td></tr></table></figure>
+    <title>Acvitity 初识</title>
+    <url>/2025/03/15/AndroidDev/</url>
+    <content><![CDATA[<h1 id="要素"><a href="#要素" class="headerlink" title="要素"></a>要素</h1><p>创建一个 Activity 需要以下要素：</p>
+<p>Activity 类：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ActivityName</span> : <span class="type">ComponentActivity</span>() &#123;</span><br><span class="line">	<span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        <span class="comment">// code..</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>第一条命令会下载所需的 image 以及数据库；第二条命令则是以当前配置启动 photoprism 。</p>
-<p>photoPrism 默认运行在<a href="localhost:2342">本地 2342 端口</a>。启动后打开浏览器， 等待界面加载完毕。登录的账号密码为:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">账号：admin</span><br><span class="line">密码：insecure</span><br></pre></td></tr></table></figure>
+<p>布局文件： <code>src/main/res/layout/activity_name.xml</code></p>
+<p>在 AndroidManifest.xml 文件中注册：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">&quot;.ActivityName&quot;</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">android:label</span>=<span class="string">&quot;This is ActivityName&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--如果需要作为主界面，还需要以下两个属性--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.MAIN&quot;</span> /&gt;</span> </span><br><span class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.category.LAUNCHER&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>后续可以在配置文件中修改：</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">environment:</span></span><br><span class="line">    <span class="attr">PHOTOPRISM_ADMIN_USER:</span> <span class="string">&quot;admin&quot;</span></span><br><span class="line">    <span class="attr">PHOTOPRISM_ADMIN_PASSWORD:</span> <span class="string">&quot;insecure&quot;</span></span><br></pre></td></tr></table></figure>
+<h1 id="获取控件"><a href="#获取控件" class="headerlink" title="获取控件"></a>获取控件</h1><p>一般使用 <code>findViewById</code> 方法获取控件：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> textView = findViewById&lt;TextView&gt;(R.id.textView)</span><br></pre></td></tr></table></figure>
 
-<p>登陆后，点击左边侧边栏中的 Settings ，之后在右上角找到 language ，可以将界面改为中文。</p>
-<h1 id="如何加载已有图片"><a href="#如何加载已有图片" class="headerlink" title="如何加载已有图片"></a>如何加载已有图片</h1><p>打开配置文件，转到95行，可以看到 photoprism 的文件挂载路径。将 <code>~/Photos:/photoprism/originals</code> 其中的 <code>~/Photos</code> 修改为你的照片文件的路径。</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">volumes:</span></span><br><span class="line">    <span class="comment"># &quot;C:/user/username/folder:/photoprism/folder&quot;       # example</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;~/Pictures:/photoprism/originals&quot;</span>                 <span class="comment"># original media files (photos and videos)</span></span><br><span class="line">    <span class="comment"># - &quot;D:/example/family:/photoprism/originals/family&quot; # *additional* media folders can be mounted like this</span></span><br><span class="line">    <span class="comment"># - &quot;E:/:/photoprism/import&quot;                         # *optional* base folder from which files can be imported to originals</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;./storage:/photoprism/storage&quot;</span>                    <span class="comment"># *writable* storage folder for cache, database, and sidecar files (never remove)</span></span><br></pre></td></tr></table></figure>
+<p>使用 kotlin 的安卓项目中，可以在模块级 <code>build.gradle</code> 文件中启用 <code>viewBindding</code>：</p>
+<figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    ...</span><br><span class="line">    viewBinding &#123;</span><br><span class="line">        enabled = <span class="keyword">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>重新启动 photoPrism （可以在 Docker Desktop 中手动重启）。</p>
-<p>点击侧边栏的资料库，确认顶部 tab 栏的选项卡为索引，点击开始，等待加载完毕即可。加载时间取决于电脑性能以及照片数量。</p>
-<hr>
-<p>参考文档</p>
-<p><a href="https://www.cnblogs.com/ryanyangcs/p/18322866">米开朗基杨的博客</a></p>
-<p><a href="https://www.photoprism.app/plus/kb/quickstart">photoPrism 官方文档</a></p>
+<p>这样就可以直接使用控件 id 获取控件：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> binding = ActivityMainBinding.inflate(layoutInflater)</span><br><span class="line">setContentView(binding.root)</span><br><span class="line"><span class="keyword">val</span> button1 = binding.button1</span><br></pre></td></tr></table></figure>
+
+<p>同时 Android Studio 会自动生成一个 <code>import com.example.app.databinding.ActivityMainBinding</code> 语句。</p>
 ]]></content>
       <categories>
-        <category>软件工具</category>
+        <category>第一个安卓 app - Activity 初识</category>
       </categories>
       <tags>
-        <tag>windows</tag>
-        <tag>docker</tag>
+        <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Intent 意图</title>
+    <url>/2025/03/15/Intent/</url>
+    <content><![CDATA[<h1 id="Intent-意图"><a href="#Intent-意图" class="headerlink" title="Intent 意图"></a>Intent 意图</h1><ul>
+<li>在 Acitvity 之间跳转</li>
+<li>传递数据</li>
+<li>启动其他应用的 Activity</li>
+</ul>
+<p>能被外部启动的 Activity 都需要在 AndroidManifest.xml 文件中注册 <code>android:exported=&quot;true&quot;</code> 属性。</p>
+<h2 id="显式-Intent"><a href="#显式-Intent" class="headerlink" title="显式 Intent"></a>显式 Intent</h2><figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> intent = Intent(<span class="keyword">this</span>, TargetActivity::<span class="keyword">class</span>.java)</span><br><span class="line">startActivity(intent)</span><br></pre></td></tr></table></figure>
+
+<p><code>Intent</code> 构造函数的参数：</p>
+<ol>
+<li>上下文</li>
+<li>目标活动的类名</li>
+</ol>
+<p><code>SecondActivity::class.java</code> 相当于 java 中 <code>SecondActivity.class</code> 的写法。</p>
+<h2 id="隐式-Intent"><a href="#隐式-Intent" class="headerlink" title="隐式 Intent"></a>隐式 Intent</h2><p>如果一个活动可以被隐式调用，需要在 AndroidManifest.xml 文件中注册：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">&quot;.TargetActivity&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;com.example.activitytest.ACTION_START&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.category.DEFAULT&quot;</span> /&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- &lt;category android:name=&quot;com.example.activitytest.MY_CATEGORY&quot;/&gt; --&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- action 只能有一个， category 可以有多个--&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>调用：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> intent = Intent(<span class="string">&quot;com.example.activitytest.ACTION_START&quot;</span>)</span><br><span class="line">startActivity(intent)</span><br></pre></td></tr></table></figure>
+
+<p>一个 Intent 可以指定一个 action 和多个 category，只有当 action 和 category 全部匹配时，意图才会被响应。</p>
+<h2 id="传递数据"><a href="#传递数据" class="headerlink" title="传递数据"></a>传递数据</h2><p>活动1存放数据：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> intent = Intent(<span class="keyword">this</span>, TargetActivity::<span class="keyword">class</span>.java)</span><br><span class="line">intent.putExtra(<span class="string">&quot;extra_data&quot;</span>, <span class="string">&quot;Hello, TargetActivity&quot;</span>) <span class="comment">// key-value</span></span><br><span class="line">startActivity(intent)</span><br></pre></td></tr></table></figure>
+
+<p>活动2提取数据：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> extraData = intent.getStringExtra(<span class="string">&quot;extra_data&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="隐式传递的更多用法"><a href="#隐式传递的更多用法" class="headerlink" title="隐式传递的更多用法"></a>隐式传递的更多用法</h1><p>安卓系统中有一个内置 action <code>Intent.ACTION_VIEW</code> 可以打开浏览器：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> intent = Intent(Intent.ACTION_VIEW)</span><br><span class="line">intent.<span class="keyword">data</span> = Uri.parse(<span class="string">&quot;http://www.baidu.com&quot;</span>) <span class="comment">// 设置网址，可选</span></span><br><span class="line">startActivity(intent)</span><br></pre></td></tr></table></figure>
+
+<p>当一个活动在 AndroidManifest.xml 中注册了 action 为 <code>Intent.ACTION_VIEW</code> 时，那么这个活动就可以响应打开网页的请求。</p>
+<p>同时，还可以 <code>intent-filter</code> 标签中再配置一个 <code>data</code> 标签，用于更精确地指定当前 Activity 能够响应的数据。data 标签中主要可以配置以下内容：</p>
+<table>
+<thead>
+<tr>
+<th align="center">属性</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>android:scheme</code></td>
+<td align="center">指定协议</td>
+</tr>
+<tr>
+<td align="center"><code>android:host</code></td>
+<td align="center">指定主机名</td>
+</tr>
+<tr>
+<td align="center"><code>android:port</code></td>
+<td align="center">指定端口</td>
+</tr>
+<tr>
+<td align="center"><code>android:path</code></td>
+<td align="center">指定访问路径</td>
+</tr>
+<tr>
+<td align="center"><code>android:mimeType</code></td>
+<td align="center">指定可以处理的数据类型，允许使用通配符</td>
+</tr>
+</tbody></table>
+<p>只有当 data 标签中指定的内容和 Intent 中携带的 Data 完全一致时，当前 Activity 才能够响应该 Intent 。</p>
+<blockquote>
+<p>如果所有配置都正确，但是跳转的时候打开了系统默认的浏览器，将其禁用再尝试是否可以正常接收跳转浏览器的意图。</p>
+</blockquote>
+<h1 id="返回数据给上一个活动"><a href="#返回数据给上一个活动" class="headerlink" title="返回数据给上一个活动"></a>返回数据给上一个活动</h1><p>在父活动中使用 <code>startActivityForResult</code> 方法启动子活动：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> intent = Intent(<span class="keyword">this</span>, TargetActivity::<span class="keyword">class</span>.java)</span><br><span class="line">startActivityForResult(intent, <span class="number">1</span>) <span class="comment">// 1 是请求码，用于在之后的回调中判断数据来源</span></span><br></pre></td></tr></table></figure>
+
+<p>子活动返回数据：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 主逻辑</span></span><br><span class="line"><span class="keyword">val</span> intent = Intent()</span><br><span class="line">intent.putExtra(<span class="string">&quot;data_return&quot;</span>, <span class="string">&quot;Hello, MainActivity&quot;</span>)</span><br><span class="line">setResult(RESULT_OK, intent)</span><br><span class="line">finish() <span class="comment">// 销毁当前活动</span></span><br></pre></td></tr></table></figure>
+
+<p>父活动接收数据：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onActivityResult</span><span class="params">(requestCode: <span class="type">Int</span>, resultCode: <span class="type">Int</span>, <span class="keyword">data</span>: <span class="type">Intent</span>?)</span></span> &#123;</span><br><span class="line">    <span class="keyword">when</span> (requestCode) &#123;</span><br><span class="line">        <span class="number">1</span> -&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> (resultCode == Activity.RESULT_OK) &#123;</span><br><span class="line">                <span class="keyword">val</span> returnedData = <span class="keyword">data</span>?.getStringExtra(<span class="string">&quot;data_return&quot;</span>)</span><br><span class="line">                Log.d(<span class="string">&quot;MainActivity&quot;</span>, <span class="string">&quot;returned data is <span class="variable">$returnedData</span>&quot;</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过返回键返回时，子活动中重写 <code>onBackPressed</code> 方法即可：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onBackPressed</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">// code...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>第一个安卓 app - Activity 初识 - Intent</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>Intent</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>menu 控件</title>
+    <url>/2025/03/15/menu%E6%8E%A7%E4%BB%B6/</url>
+    <content><![CDATA[<h1 id="menu-控件"><a href="#menu-控件" class="headerlink" title="menu 控件"></a>menu 控件</h1><p>这里的 menu 控件是指标题栏右上角的菜单按钮。</p>
+<p>在 <code>res/menu</code> 文件夹下创建一个 xml 文件，如 <code>main.xml</code>：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">menu</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/add_item&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:title</span>=<span class="string">&quot;Add&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/remove_item&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:title</span>=<span class="string">&quot;Remove&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">menu</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在 Activity 中重写 <code>onCreateOptionsMenu</code> 方法：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreateOptionsMenu</span><span class="params">(menu: <span class="type">Menu</span>?)</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">    menuInflater.inflate(R.menu.main, menu) </span><br><span class="line">    <span class="comment">// menuInflater 这一部分其实是 kotlin 的语法糖，已经自动调用了 getter 方法</span></span><br><span class="line">    <span class="comment">/* inflate 方法接收两个参数：</span></span><br><span class="line"><span class="comment">    第一个是 menu 布局资源文件，</span></span><br><span class="line"><span class="comment">    第二个是要设置这个布局的 menu 对象</span></span><br><span class="line"><span class="comment">    （从哪里来到哪里去）*/</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment">// 返回 true 表示菜单允许菜单显示</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>之后在 Activity 中重写 <code>onOptionsItemSelected</code> 方法可以自定义菜单选项响应事件。</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onOptionsItemSelected</span><span class="params">(item: <span class="type">MenuItem</span>)</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">    <span class="keyword">when</span>(item.itemId)&#123;</span><br><span class="line">        R.id.add_item -&gt; Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;add item&quot;</span>,Toast.LENGTH_SHORT).show()</span><br><span class="line">        R.id.remove_item -&gt; Toast.makeText(<span class="keyword">this</span>,<span class="string">&quot;remove item&quot;</span>,Toast.LENGTH_SHORT).show()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="显示Toast"><a href="#显示Toast" class="headerlink" title="显示Toast"></a>显示Toast</h2><p><code>makeText()</code> 方法的参数：</p>
+<ol>
+<li>上下文</li>
+<li>toast内容（字符串）</li>
+<li>显示时长</li>
+</ol>
+<p>最后再调用 <code>show()</code> 方法即可。</p>
+<h1 id="没有标题栏"><a href="#没有标题栏" class="headerlink" title="没有标题栏"></a>没有标题栏</h1><p>在确保 <code>res/values/styles.xml</code> 文件中的 <code>AppTheme</code> 主题中设置了标题栏的情况下：</p>
+<ul>
+<li>如果使用 <code>ComponentActivity</code> 作为活动的父类，需要手动设置标题栏。</li>
+<li>使用 <code>AppCompatActivity</code> 作为活动的父类，可以自动设置标题栏。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>第一个安卓 app - 布局和控件 - menu</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
       </tags>
   </entry>
   <entry>
@@ -213,17 +299,95 @@
 <figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> p = Person()</span><br></pre></td></tr></table></figure>
 
 <p>没有像 java 中的<code>new</code>关键字。</p>
-<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><p>kotlin 中默认每一个非抽象类都是无法继承的。使用<code>open</code>关键字让类变为可继承。</p>
+<h1 id="继承与接口"><a href="#继承与接口" class="headerlink" title="继承与接口"></a>继承与接口</h1><p>kotlin 中默认每一个非抽象类都是无法继承的。使用<code>open</code>关键字让类变为可继承。</p>
 <p>抽象类无法创建实例，必须被继承后才能实例化。所以抽象类必须是可继承的。</p>
 <figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">open</span> <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">	<span class="comment">// code</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> : <span class="type">Person</span>() &#123;</span><br><span class="line">	<span class="keyword">var</span> sno = <span class="string">&quot;&quot;</span></span><br><span class="line">	<span class="keyword">var</span> grade = <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>子类使用<code>:</code>来继承父类。</p>
+<p>子类使用<code>:</code>来继承父类。同时实现接口也是这个关键字。</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> : <span class="type">Person</span>(), Study &#123;</span><br><span class="line">	<span class="keyword">var</span> sno = <span class="string">&quot;&quot;</span></span><br><span class="line">	<span class="keyword">var</span> grade = <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="单例类"><a href="#单例类" class="headerlink" title="单例类"></a>单例类</h2><p>在内存中只有一个实例的类。</p>
+<p>使用<code>object</code>关键字。</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">object</span> Singleton &#123;</span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">singletonFun</span><span class="params">()</span></span> &#123;</span><br><span class="line">		println(<span class="string">&quot;singletonFun&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="数据类"><a href="#数据类" class="headerlink" title="数据类"></a>数据类</h2><p>数据类是一种只保存数据的类。</p>
+<p>使用<code>data</code>关键字。</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">data</span> <span class="keyword">class</span> <span class="title class_">Person</span>(<span class="keyword">val</span> name: String, <span class="keyword">val</span> age: <span class="built_in">Int</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="空指针检查"><a href="#空指针检查" class="headerlink" title="空指针检查"></a>空指针检查</h1><p>kotlin 在编译时进行空指针检查，而非运行时。</p>
+<p>kotlin 默认所有参数都是非空的，如果想声明一个可为空的变量，需要在变量类型后加<code>?</code>。</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name : String? = <span class="literal">null</span></span><br></pre></td></tr></table></figure>
+
+<p><code>?</code>表示这个变量可以为空。</p>
+<h2 id="判空辅助操作符"><a href="#判空辅助操作符" class="headerlink" title="判空辅助操作符"></a>判空辅助操作符</h2><p><code>?.</code>：如果对象为空则返回 null，否则执行后面的操作。</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(a != <span class="literal">null</span>)&#123;</span><br><span class="line">	a.method()</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	<span class="literal">null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>等价于：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line">a?.method()</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><code>?:</code>：如果对象为空则返回后面的值。</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> c = <span class="keyword">if</span>(a != <span class="literal">null</span>)&#123;</span><br><span class="line">	a</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	<span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>等价于：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> c = a ?: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="非空断言"><a href="#非空断言" class="headerlink" title="非空断言"></a>非空断言</h2><p><code>!!</code>：强制忽略空指针异常检查。</p>
+<p>如：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> a!!.method()</span><br></pre></td></tr></table></figure>
+
+<p>无论 a 是否为 null ，都会执行<code>method()</code>。</p>
+<h2 id="let-函数实现一次判断"><a href="#let-函数实现一次判断" class="headerlink" title="let 函数实现一次判断"></a>let 函数实现一次判断</h2><figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(a == <span class="literal">null</span>)&#123;</span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line">a.method()</span><br><span class="line">a.method2()</span><br></pre></td></tr></table></figure>
+
+<p>等价于：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line">a?.let&#123;</span><br><span class="line">	it.method()</span><br><span class="line">	it.method2()</span><br><span class="line">&#125; <span class="comment">// lambda 表达式</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>第一个安卓 app</category>
       </categories>
       <tags>
         <tag>kotlin</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>windows 本地部署 photoPrism</title>
+    <url>/2025/03/11/photoPrism/</url>
+    <content><![CDATA[<h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>把带地理位置信息的照片上传到 google 相册后，可以在地图中查看每张照片在地图上的标点。但是 google 相册云空间有限；使用 mod 的话总感觉有风险；并且上传照片到云上也怕隐私泄露（ google 之前拿用户照片来训练 ai ）。</p>
+<p>安卓端开源的 <a href="https://github.com/deckerst/aves">Aves 相册</a>也有这个功能，但是照片必须在本地。然而我不会把大量照片放在一部手机上，更偏向于放在桌面端设备。</p>
+<p>在网上搜索开源照片管理工具，找到了这篇<a href="https://www.cnblogs.com/ryanyangcs/p/18322866">云部署教程</a>推荐。</p>
+<h1 id="photoPrism-介绍"><a href="#photoPrism-介绍" class="headerlink" title="photoPrism 介绍"></a>photoPrism 介绍</h1><ul>
+<li>开源</li>
+<li>google 相册平替</li>
+<li>具有基本的 AI 分类功能</li>
+</ul>
+<h1 id="部署-photoPrism"><a href="#部署-photoPrism" class="headerlink" title="部署 photoPrism"></a>部署 photoPrism</h1><p>先决条件： 安装 Docker Desktop ，这里不赘述。</p>
+<h2 id="下载配置文件"><a href="#下载配置文件" class="headerlink" title="下载配置文件"></a>下载配置文件</h2><p>打开<a href="https://www.photoprism.app/plus/kb/quickstart">官方文档</a>，找到<a href="https://www.photoprism.app/plus/kb/quickstart#:~:text=Step%201%3A%20Customize%20Configuration">Step 1: Customize Configuration 部分</a>，点击 windows 右边的下载链接，下载配置文件 <code>compose.yaml</code> 。</p>
+<h2 id="初始化和启动"><a href="#初始化和启动" class="headerlink" title="初始化和启动"></a>初始化和启动</h2><p>在配置文件的路径下打开 cmd 。注意，接下来的命令会在配置文件的路径下创建 photoPrism 实例（刚开始没注意，放在桌面启动， C 盘差点炸了）。</p>
+<p>依次输入官方提供的两条命令：</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">docker compose pull</span><br><span class="line">docker compose up -d</span><br></pre></td></tr></table></figure>
+
+<p>第一条命令会下载所需的 image 以及数据库；第二条命令则是以当前配置启动 photoprism 。</p>
+<p>photoPrism 默认运行在<a href="localhost:2342">本地 2342 端口</a>。启动后打开浏览器， 等待界面加载完毕。登录的账号密码为:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">账号：admin</span><br><span class="line">密码：insecure</span><br></pre></td></tr></table></figure>
+
+<p>后续可以在配置文件中修改：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">environment:</span></span><br><span class="line">    <span class="attr">PHOTOPRISM_ADMIN_USER:</span> <span class="string">&quot;admin&quot;</span></span><br><span class="line">    <span class="attr">PHOTOPRISM_ADMIN_PASSWORD:</span> <span class="string">&quot;insecure&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>登陆后，点击左边侧边栏中的 Settings ，之后在右上角找到 language ，可以将界面改为中文。</p>
+<h1 id="如何加载已有图片"><a href="#如何加载已有图片" class="headerlink" title="如何加载已有图片"></a>如何加载已有图片</h1><p>打开配置文件，转到95行，可以看到 photoprism 的文件挂载路径。将 <code>~/Photos:/photoprism/originals</code> 其中的 <code>~/Photos</code> 修改为你的照片文件的路径。</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">volumes:</span></span><br><span class="line">    <span class="comment"># &quot;C:/user/username/folder:/photoprism/folder&quot;       # example</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;~/Pictures:/photoprism/originals&quot;</span>                 <span class="comment"># original media files (photos and videos)</span></span><br><span class="line">    <span class="comment"># - &quot;D:/example/family:/photoprism/originals/family&quot; # *additional* media folders can be mounted like this</span></span><br><span class="line">    <span class="comment"># - &quot;E:/:/photoprism/import&quot;                         # *optional* base folder from which files can be imported to originals</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;./storage:/photoprism/storage&quot;</span>                    <span class="comment"># *writable* storage folder for cache, database, and sidecar files (never remove)</span></span><br></pre></td></tr></table></figure>
+
+<p>重新启动 photoPrism （可以在 Docker Desktop 中手动重启）。</p>
+<p>点击侧边栏的资料库，确认顶部 tab 栏的选项卡为索引，点击开始，等待加载完毕即可。加载时间取决于电脑性能以及照片数量。</p>
+<hr>
+<p>参考文档</p>
+<p><a href="https://www.cnblogs.com/ryanyangcs/p/18322866">米开朗基杨的博客</a></p>
+<p><a href="https://www.photoprism.app/plus/kb/quickstart">photoPrism 官方文档</a></p>
+]]></content>
+      <categories>
+        <category>软件工具</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+        <tag>docker</tag>
       </tags>
   </entry>
 </search>
