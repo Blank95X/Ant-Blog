@@ -185,7 +185,7 @@
     J --> |返回上一个Activity| B</pre>
 
 <h2 id="临时保存数据"><a href="#临时保存数据" class="headerlink" title="临时保存数据"></a>临时保存数据</h2><p>在 Activity 生命周期中，有时需要保存数据，可以使用 <code>onSaveInstanceState</code> 方法：</p>
-<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onSaveInstanceState</span><span class="params">(outState: <span class="type">Bundle</span>)</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.onSaveInstanceState(outState)</span><br><span class="line">    outState.putString(<span class="string">&quot;key&quot;</span>, <span class="string">&quot;value</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onSaveInstanceState</span><span class="params">(outState: <span class="type">Bundle</span>)</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.onSaveInstanceState(outState)</span><br><span class="line">    outState.putString(<span class="string">&quot;key&quot;</span>, <span class="string">&quot;value&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>在 <code>onCreate</code> 方法中获取：</p>
 <figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">    <span class="keyword">if</span> (savedInstanceState != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">val</span> value = savedInstanceState.getString(<span class="string">&quot;key&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -236,9 +236,33 @@
 <p>Activity 的启动模式可以在 AndroidManifest.xml 文件中设置：</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">&quot;.ActivityName&quot;</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">android:launchMode</span>=<span class="string">&quot;singleTop&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
+<h1 id="一些实践"><a href="#一些实践" class="headerlink" title="一些实践"></a>一些实践</h1><h2 id="查看当前所在-Activity"><a href="#查看当前所在-Activity" class="headerlink" title="查看当前所在 Activity"></a>查看当前所在 Activity</h2><figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line">Log.d(TAG, <span class="keyword">this</span>.toString())</span><br><span class="line">Log.d(TAG, <span class="keyword">this</span>.javaClass.simpleName)</span><br><span class="line">Log.d(TAG, javaClass.simpleName)</span><br></pre></td></tr></table></figure>
+
+<p>this 是当前 Activity 的实例引用，this.javaClass.simpleName 和 javaClass.simpleName 都是当前 Activity 的类名。</p>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">com.example.activitytest.FirstActivity@86bde1c</span><br><span class="line">FirstActivity</span><br><span class="line">FirstActivity</span><br></pre></td></tr></table></figure>
+
+<p><code>@86bde1c</code>是当前 Activity 的哈希码，默认是内存地址的十六进制表示。</p>
+<h2 id="一次性结束所有-Activity"><a href="#一次性结束所有-Activity" class="headerlink" title="一次性结束所有 Activity"></a>一次性结束所有 Activity</h2><p>维护一个单例类 ActivityCollector 作为当前所有 Activity 的集合：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">object</span> ActivityCollector &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> activities = ArrayList&lt;Activity&gt;()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">addActivity</span><span class="params">(activity: <span class="type">Activity</span>)</span></span> &#123;</span><br><span class="line">        activities.add(activity) <span class="comment">// 添加 Activity</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">removeActivity</span><span class="params">(activity: <span class="type">Activity</span>)</span></span> &#123;</span><br><span class="line">        activities.remove(activity) <span class="comment">// 移除 Activity</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">finishAll</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (activity <span class="keyword">in</span> activities) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!activity.isFinishing) &#123; <span class="comment">// 判断 Activity 是否正在销毁</span></span><br><span class="line">                activity.finish() <span class="comment">// 销毁 Activity</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>之后，在具体的 Activity 中重写 <code>onDestroy</code> 方法：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onDestroy</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.onDestroy()</span><br><span class="line">    ActivityCollector.removeActivity(<span class="keyword">this</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样，在任意处，只要调用 <code>ActivityCollector.finishAll()</code> 方法，就可以一次性结束所有 Activity，达到一次性退出程序的目的。</p>
+<h2 id="基本类"><a href="#基本类" class="headerlink" title="基本类"></a>基本类</h2><p>创建一个基本类 BaseActivity，继承自 AppCompatActivity：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">open</span> <span class="keyword">class</span> <span class="title class_">BaseActivity</span> : <span class="type">AppCompatActivity</span>() &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        Log.d(TAG, javaClass.simpleName)</span><br><span class="line">        ActivityCollector.addActivity(<span class="keyword">this</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onDestroy</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onDestroy()</span><br><span class="line">        ActivityCollector.removeActivity(<span class="keyword">this</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>之后，所有 Activity 都继承自 BaseActivity，这样就不必重写许多基本的方法。</p>
+<h2 id="启动-Activity-的最佳写法"><a href="#启动-Activity-的最佳写法" class="headerlink" title="启动 Activity 的最佳写法"></a>启动 Activity 的最佳写法</h2><p>如果一个 Activity 启动时需要传递数据，最佳写法是定义一个静态方法 <code>actionStart</code> ：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">YourActivity</span> : <span class="type">BaseActivity</span>() &#123;</span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> &#123;</span><br><span class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">actionStart</span><span class="params">(context: <span class="type">Context</span>, data1: <span class="type">String</span>, data2: <span class="type">String</span>)</span></span> &#123;</span><br><span class="line">            <span class="keyword">val</span> intent = Intent(context, YourActivity::<span class="keyword">class</span>.java)</span><br><span class="line">            intent.putExtra(<span class="string">&quot;param1&quot;</span>, data1)</span><br><span class="line">            intent.putExtra(<span class="string">&quot;param2&quot;</span>, data2)</span><br><span class="line">            context.startActivity(intent)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>kotlin规定，所有定义在 <code>companion object</code> 中的方法都可以使用类似于 java 静态方法的形式调用。</p>
+<p>这样在其他地方启动 Activity 时，只需要调用 <code>YourActivity.actionStart(context, data1, data2)</code> 方法即可。</p>
 ]]></content>
       <categories>
-        <category>第一个安卓 app - Activity 初识</category>
+        <category>第一个安卓 app</category>
+        <category>Activity 初识</category>
       </categories>
       <tags>
         <tag>Android</tag>
@@ -323,11 +347,46 @@
 <figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onBackPressed</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">// code...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>第一个安卓 app - Activity 初识</category>
+        <category>第一个安卓 app</category>
+        <category>Activity 初识</category>
       </categories>
       <tags>
         <tag>Android</tag>
         <tag>Intent</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>menu 控件</title>
+    <url>/2025/03/15/menu%E6%8E%A7%E4%BB%B6/</url>
+    <content><![CDATA[<h1 id="menu-控件"><a href="#menu-控件" class="headerlink" title="menu 控件"></a>menu 控件</h1><p>这里的 menu 控件是指标题栏右上角的菜单按钮。</p>
+<p>在 <code>res/menu</code> 文件夹下创建一个 xml 文件，如 <code>main.xml</code>：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">menu</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/add_item&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:title</span>=<span class="string">&quot;Add&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/remove_item&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:title</span>=<span class="string">&quot;Remove&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">menu</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在 Activity 中重写 <code>onCreateOptionsMenu</code> 方法：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreateOptionsMenu</span><span class="params">(menu: <span class="type">Menu</span>?)</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">    menuInflater.inflate(R.menu.main, menu) </span><br><span class="line">    <span class="comment">// menuInflater 这一部分其实是 kotlin 的语法糖，已经自动调用了 getter 方法</span></span><br><span class="line">    <span class="comment">/* inflate 方法接收两个参数：</span></span><br><span class="line"><span class="comment">    第一个是 menu 布局资源文件，</span></span><br><span class="line"><span class="comment">    第二个是要设置这个布局的 menu 对象</span></span><br><span class="line"><span class="comment">    （从哪里来到哪里去）*/</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment">// 返回 true 表示菜单允许菜单显示</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>之后在 Activity 中重写 <code>onOptionsItemSelected</code> 方法可以自定义菜单选项响应事件。</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onOptionsItemSelected</span><span class="params">(item: <span class="type">MenuItem</span>)</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">    <span class="keyword">when</span>(item.itemId)&#123;</span><br><span class="line">        R.id.add_item -&gt; Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;add item&quot;</span>,Toast.LENGTH_SHORT).show()</span><br><span class="line">        R.id.remove_item -&gt; Toast.makeText(<span class="keyword">this</span>,<span class="string">&quot;remove item&quot;</span>,Toast.LENGTH_SHORT).show()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="显示Toast"><a href="#显示Toast" class="headerlink" title="显示Toast"></a>显示Toast</h2><p><code>makeText()</code> 方法的参数：</p>
+<ol>
+<li>上下文</li>
+<li>toast内容（字符串）</li>
+<li>显示时长</li>
+</ol>
+<p>最后再调用 <code>show()</code> 方法即可。</p>
+<h1 id="没有标题栏"><a href="#没有标题栏" class="headerlink" title="没有标题栏"></a>没有标题栏</h1><p>在确保 <code>res/values/styles.xml</code> 文件中的 <code>AppTheme</code> 主题中设置了标题栏的情况下：</p>
+<ul>
+<li>如果使用 <code>ComponentActivity</code> 作为活动的父类，需要手动设置标题栏。</li>
+<li>使用 <code>AppCompatActivity</code> 作为活动的父类，可以自动设置标题栏。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>第一个安卓 app</category>
+        <category>布局和控件</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
       </tags>
   </entry>
   <entry>
@@ -441,45 +500,62 @@
 
 <p>等价于：</p>
 <figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line">a?.let&#123;</span><br><span class="line">	it.method()</span><br><span class="line">	it.method2()</span><br><span class="line">&#125; <span class="comment">// lambda 表达式</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="标准函数"><a href="#标准函数" class="headerlink" title="标准函数"></a>标准函数</h1><p>指的是 Standard.kt 文件中定义的函数。前面的 <code>let</code> 也是标准函数。</p>
+<h2 id="with"><a href="#with" class="headerlink" title="with"></a>with</h2><p>接收一个对象和一个 lambda 表达式，返回 lambda 表达式的执行结果。</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> result = with(obj) &#123;</span><br><span class="line">	<span class="comment">// obj的上下文</span></span><br><span class="line">	<span class="string">&quot;value&quot;</span> <span class="comment">// with函数的返回值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="with-函数应用举例"><a href="#with-函数应用举例" class="headerlink" title="with 函数应用举例"></a>with 函数应用举例</h3><figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> list = listOf(<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Banana&quot;</span>, <span class="string">&quot;Orange&quot;</span>, <span class="string">&quot;Pear&quot;</span>, <span class="string">&quot;Grape&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> builder = StringBuilder()</span><br><span class="line">builder.append(<span class="string">&quot;Start eating fruits.\n&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> (fruit <span class="keyword">in</span> list) &#123;</span><br><span class="line">	builder.append(fruit).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line">builder.append(<span class="string">&quot;Ate all fruits.&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> result = builder.toString()</span><br><span class="line">println(result)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Start eating fruits.</span><br><span class="line">Apple</span><br><span class="line">Banana</span><br><span class="line">Orange</span><br><span class="line">Pear</span><br><span class="line">Grape</span><br><span class="line">Ate all fruits.</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>with</code>函数：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> list = listOf(<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Banana&quot;</span>, <span class="string">&quot;Orange&quot;</span>, <span class="string">&quot;Pear&quot;</span>, <span class="string">&quot;Grape&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> result = with(StringBuilder()) &#123;</span><br><span class="line">	append(<span class="string">&quot;Start eating fruits.\n&quot;</span>)</span><br><span class="line">	<span class="keyword">for</span> (fruit <span class="keyword">in</span> list) &#123;</span><br><span class="line">		append(fruit).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	append(<span class="string">&quot;Ate all fruits.&quot;</span>)</span><br><span class="line">	toString()</span><br><span class="line">&#125;</span><br><span class="line">println(result)</span><br></pre></td></tr></table></figure>
+
+<p>with 中传入了 StringBuilder 实例，这样上下文就是 StringBuilder 实例，可以直接调用 append 方法。with 函数的返回值是最后一行代码的返回值，即 toString() 方法的返回值。</p>
+<h2 id="run"><a href="#run" class="headerlink" title="run"></a>run</h2><p>run 函数在对象的基础上调用，接受一个 lambda 表达式作为参数，返回值是 lambda 表达式的执行结果。</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> result = obj.run &#123;</span><br><span class="line">	<span class="comment">// obj的上下文</span></span><br><span class="line">	<span class="string">&quot;value&quot;</span> <span class="comment">// run函数的返回值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>那么<a href="#with-%E5%87%BD%E6%95%B0%E5%BA%94%E7%94%A8%E4%B8%BE%E4%BE%8B">with函数的例子</a>可以改写为：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> list = listOf(<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Banana&quot;</span>, <span class="string">&quot;Orange&quot;</span>, <span class="string">&quot;Pear&quot;</span>, <span class="string">&quot;Grape&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> result = StringBuilder().run &#123;</span><br><span class="line">	append(<span class="string">&quot;Start eating fruits.\n&quot;</span>)</span><br><span class="line">	<span class="keyword">for</span> (fruit <span class="keyword">in</span> list) &#123;</span><br><span class="line">		append(fruit).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	append(<span class="string">&quot;Ate all fruits.&quot;</span>)</span><br><span class="line">	toString()</span><br><span class="line">&#125;</span><br><span class="line">println(result)</span><br></pre></td></tr></table></figure>
+
+<h2 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h2><p>apply 函数和 run 函数很相似，也是在对象的基础上调用 lambda 表达式，但 apply 函数返回的是对象本身。</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> result = obj.apply &#123;</span><br><span class="line">	<span class="comment">// obj的上下文</span></span><br><span class="line">	<span class="string">&quot;value&quot;</span> <span class="comment">// apply函数的返回值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>改写<a href="#with-%E5%87%BD%E6%95%B0%E5%BA%94%E7%94%A8%E4%B8%BE%E4%BE%8B">with函数的例子</a>：</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> list = listOf(<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Banana&quot;</span>, <span class="string">&quot;Orange&quot;</span>, <span class="string">&quot;Pear&quot;</span>, <span class="string">&quot;Grape&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> result = StringBuilder().apply &#123;</span><br><span class="line">	append(<span class="string">&quot;Start eating fruits.\n&quot;</span>)</span><br><span class="line">	<span class="keyword">for</span> (fruit <span class="keyword">in</span> list) &#123;</span><br><span class="line">		append(fruit).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	append(<span class="string">&quot;Ate all fruits.&quot;</span>)</span><br><span class="line">&#125;.toString() <span class="comment">// 注意这里的 toString() 方法，是 StringBuilder.toString()</span></span><br><span class="line">println(result)</span><br></pre></td></tr></table></figure>
+
+<h1 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h1><p>kotlin 中没有静态方法的概念，但可以通过单例类或是伴生对象来实现。</p>
+<h2 id="单例类-1"><a href="#单例类-1" class="headerlink" title="单例类"></a>单例类</h2><figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">object</span> Utils &#123;</span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">doAction</span><span class="params">()</span></span> &#123;</span><br><span class="line">		println(<span class="string">&quot;do action&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>调用：<code>Utils.doAction()</code></p>
+<p>使用单例类会使得类内所有方法都是静态方法。</p>
+<h2 id="伴生对象"><a href="#伴生对象" class="headerlink" title="伴生对象"></a>伴生对象</h2><figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Utils</span> &#123;</span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">doAction1</span><span class="params">()</span></span> &#123;</span><br><span class="line">		println(<span class="string">&quot;do action1&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">companion</span> <span class="keyword">object</span> &#123;</span><br><span class="line">		<span class="function"><span class="keyword">fun</span> <span class="title">doAction2</span><span class="params">()</span></span> &#123;</span><br><span class="line">			println(<span class="string">&quot;do action2&quot;</span>)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>调用：<code>Utils.doAction2()</code></p>
+<p>对于一个普通类，伴生对象中的方法是静态方法，而类中的方法是实例方法。并且 kotlin 保证伴生对象的唯一性。</p>
+<h2 id="真正的静态方法"><a href="#真正的静态方法" class="headerlink" title="真正的静态方法"></a>真正的静态方法</h2><h3 id="JvmStatic-注解"><a href="#JvmStatic-注解" class="headerlink" title="@JvmStatic 注解"></a>@JvmStatic 注解</h3><p>kotlin 中的真正的静态方法是使用<code>@JvmStatic</code>注解。</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Utils</span> &#123;</span><br><span class="line">	<span class="keyword">companion</span> <span class="keyword">object</span> &#123;</span><br><span class="line">		<span class="meta">@JvmStatic</span></span><br><span class="line">		<span class="function"><span class="keyword">fun</span> <span class="title">doAction</span><span class="params">()</span></span> &#123;</span><br><span class="line">			println(<span class="string">&quot;do action&quot;</span>)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意， @JvmStatic 注解只能用在伴生对象中或者单例类中的方法上。</p>
+<h3 id="顶层方法"><a href="#顶层方法" class="headerlink" title="顶层方法"></a>顶层方法</h3><p>顶层方法指的是那些没有定义在任何类中的方法。</p>
+<p>想要定义顶层方法，需要在 <strong>kotlin 文件</strong>中直接定义函数，而不是定义在类中。（参考<a href="#hello-kotlin">hello kotlin</a>）</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Utils.kt</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">doAction</span><span class="params">()</span></span> &#123;</span><br><span class="line">	println(<span class="string">&quot;do action&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果是在 java 中调用这个方法，需要使用类名调用。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Java</span></span><br><span class="line">UtilsKt.doAction();</span><br><span class="line"><span class="comment">// 编译器自动生成一个 UtilsKt 类，其中包含了 doAction 方法</span></span><br></pre></td></tr></table></figure>
+
+<p>如果是在 kotlin 中调用，直接调用即可。</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Kotlin</span></span><br><span class="line">doAction()</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
-        <category>第一个安卓 app - kotlin 基本语法</category>
+        <category>第一个安卓 app</category>
+        <category>kotlin 基本语法</category>
       </categories>
       <tags>
         <tag>kotlin</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>menu 控件</title>
-    <url>/2025/03/15/menu%E6%8E%A7%E4%BB%B6/</url>
-    <content><![CDATA[<h1 id="menu-控件"><a href="#menu-控件" class="headerlink" title="menu 控件"></a>menu 控件</h1><p>这里的 menu 控件是指标题栏右上角的菜单按钮。</p>
-<p>在 <code>res/menu</code> 文件夹下创建一个 xml 文件，如 <code>main.xml</code>：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">menu</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/add_item&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:title</span>=<span class="string">&quot;Add&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/remove_item&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:title</span>=<span class="string">&quot;Remove&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">menu</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>在 Activity 中重写 <code>onCreateOptionsMenu</code> 方法：</p>
-<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreateOptionsMenu</span><span class="params">(menu: <span class="type">Menu</span>?)</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">    menuInflater.inflate(R.menu.main, menu) </span><br><span class="line">    <span class="comment">// menuInflater 这一部分其实是 kotlin 的语法糖，已经自动调用了 getter 方法</span></span><br><span class="line">    <span class="comment">/* inflate 方法接收两个参数：</span></span><br><span class="line"><span class="comment">    第一个是 menu 布局资源文件，</span></span><br><span class="line"><span class="comment">    第二个是要设置这个布局的 menu 对象</span></span><br><span class="line"><span class="comment">    （从哪里来到哪里去）*/</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment">// 返回 true 表示菜单允许菜单显示</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>之后在 Activity 中重写 <code>onOptionsItemSelected</code> 方法可以自定义菜单选项响应事件。</p>
-<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onOptionsItemSelected</span><span class="params">(item: <span class="type">MenuItem</span>)</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">    <span class="keyword">when</span>(item.itemId)&#123;</span><br><span class="line">        R.id.add_item -&gt; Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;add item&quot;</span>,Toast.LENGTH_SHORT).show()</span><br><span class="line">        R.id.remove_item -&gt; Toast.makeText(<span class="keyword">this</span>,<span class="string">&quot;remove item&quot;</span>,Toast.LENGTH_SHORT).show()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="显示Toast"><a href="#显示Toast" class="headerlink" title="显示Toast"></a>显示Toast</h2><p><code>makeText()</code> 方法的参数：</p>
-<ol>
-<li>上下文</li>
-<li>toast内容（字符串）</li>
-<li>显示时长</li>
-</ol>
-<p>最后再调用 <code>show()</code> 方法即可。</p>
-<h1 id="没有标题栏"><a href="#没有标题栏" class="headerlink" title="没有标题栏"></a>没有标题栏</h1><p>在确保 <code>res/values/styles.xml</code> 文件中的 <code>AppTheme</code> 主题中设置了标题栏的情况下：</p>
-<ul>
-<li>如果使用 <code>ComponentActivity</code> 作为活动的父类，需要手动设置标题栏。</li>
-<li>使用 <code>AppCompatActivity</code> 作为活动的父类，可以自动设置标题栏。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>第一个安卓 app - 布局和控件</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
       </tags>
   </entry>
   <entry>
@@ -523,6 +599,22 @@
       <tags>
         <tag>windows</tag>
         <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用控件</title>
+    <url>/2025/03/20/%E5%B8%B8%E7%94%A8%E6%8E%A7%E4%BB%B6/</url>
+    <content><![CDATA[<h1 id="TextView"><a href="#TextView" class="headerlink" title="TextView"></a>TextView</h1><p>用于显示文本。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">&quot;@+id/textView&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:gravity</span>=<span class="string">&quot;center&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:text</span>=<span class="string">&quot;This is TextView&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>android:gravity</code> 指定文字的对齐方式。</p>
+]]></content>
+      <categories>
+        <category>第一个安卓 app</category>
+        <category>常用控件</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
       </tags>
   </entry>
 </search>
