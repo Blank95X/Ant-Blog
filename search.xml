@@ -1,37 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>PowerShell：在此系统上禁止运行脚本</title>
-    <url>/2025/03/10/2025-3-10/</url>
-    <content><![CDATA[<p>查看当前用户的执行策略：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">get-executionpolicy</span></span><br></pre></td></tr></table></figure>
-
-<p>返回 <code>Restricted</code> （默认）则是无法执行脚本。</p>
-<p>解除限制：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set-executionpolicy</span> remotesigned</span><br></pre></td></tr></table></figure>
-<p>如果运行后提示：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">Windows PowerShell 已成功更新你的执行策略，但在更具体的作业域中定义的策略覆盖该设置了。由于发生覆盖，你的外壳程序将保留当前的有效执行策略受限制。</span><br></pre></td></tr></table></figure>
-
-<p>说明当前用户的策略还未更改，继续执行：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> RemoteSigned <span class="literal">-Scope</span> CurrentUser</span><br></pre></td></tr></table></figure>
-
-<p>再次查看当前用户的执行策略，发现已更改。</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">&gt; <span class="built_in">get-executionpolicy</span></span><br><span class="line">RemoteSigned</span><br></pre></td></tr></table></figure>
-
-<p>之后就可以执行脚本了。</p>
-<hr>
-<p>参考文章</p>
-<p><a href="https://syxdevcode.github.io/2021/09/04/PowerShell%EF%BC%9A%E5%9B%A0%E4%B8%BA%E5%9C%A8%E6%AD%A4%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%A6%81%E6%AD%A2%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC%EF%BC%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">syxdevcode的博客</a></p>
-<p><a href="https://smallsquare.github.io/Powershell-disable-runing-scripts/">smallsquare的博客</a></p>
-]]></content>
-      <categories>
-        <category>疑难杂症</category>
-      </categories>
-      <tags>
-        <tag>windows</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>GitHubPages+hexo 部署个人在线博客</title>
     <url>/2025/03/09/2025-3-9/</url>
     <content><![CDATA[<p>系统环境： windows11</p>
@@ -75,8 +44,8 @@
         <category>软件工具</category>
       </categories>
       <tags>
-        <tag>windows</tag>
         <tag>hexo</tag>
+        <tag>windows</tag>
         <tag>github</tag>
       </tags>
   </entry>
@@ -266,6 +235,37 @@
       </categories>
       <tags>
         <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PowerShell：在此系统上禁止运行脚本</title>
+    <url>/2025/03/10/2025-3-10/</url>
+    <content><![CDATA[<p>查看当前用户的执行策略：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">get-executionpolicy</span></span><br></pre></td></tr></table></figure>
+
+<p>返回 <code>Restricted</code> （默认）则是无法执行脚本。</p>
+<p>解除限制：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set-executionpolicy</span> remotesigned</span><br></pre></td></tr></table></figure>
+<p>如果运行后提示：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">Windows PowerShell 已成功更新你的执行策略，但在更具体的作业域中定义的策略覆盖该设置了。由于发生覆盖，你的外壳程序将保留当前的有效执行策略受限制。</span><br></pre></td></tr></table></figure>
+
+<p>说明当前用户的策略还未更改，继续执行：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> RemoteSigned <span class="literal">-Scope</span> CurrentUser</span><br></pre></td></tr></table></figure>
+
+<p>再次查看当前用户的执行策略，发现已更改。</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">&gt; <span class="built_in">get-executionpolicy</span></span><br><span class="line">RemoteSigned</span><br></pre></td></tr></table></figure>
+
+<p>之后就可以执行脚本了。</p>
+<hr>
+<p>参考文章</p>
+<p><a href="https://syxdevcode.github.io/2021/09/04/PowerShell%EF%BC%9A%E5%9B%A0%E4%B8%BA%E5%9C%A8%E6%AD%A4%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%A6%81%E6%AD%A2%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC%EF%BC%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">syxdevcode的博客</a></p>
+<p><a href="https://smallsquare.github.io/Powershell-disable-runing-scripts/">smallsquare的博客</a></p>
+]]></content>
+      <categories>
+        <category>疑难杂症</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
       </tags>
   </entry>
   <entry>
@@ -615,6 +615,48 @@
       </categories>
       <tags>
         <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>开发日记</title>
+    <url>/2025/03/24/%E5%BC%80%E5%8F%91%E6%97%A5%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="后端生成并返回-excel-表格，前端下载"><a href="#后端生成并返回-excel-表格，前端下载" class="headerlink" title="后端生成并返回 excel 表格，前端下载"></a>后端生成并返回 excel 表格，前端下载</h1><p>后端 Controller ：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/excel/&#123;id&#125;&quot;)</span></span><br><span class="line"><span class="keyword">public</span> ResponseEntity&lt;<span class="type">byte</span>[]&gt; exportExcel(<span class="meta">@PathVariable(&quot;id&quot;)</span> Long id) <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// 1. 读取 Excel 模板</span></span><br><span class="line">        <span class="type">ClassPathResource</span> <span class="variable">resource</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ClassPathResource</span>(<span class="string">&quot;template/bridge/bridgeSJ29.xlsx&quot;</span>);</span><br><span class="line">        <span class="type">InputStream</span> <span class="variable">templateInputStream</span> <span class="operator">=</span> resource.getInputStream();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2. 获取数据</span></span><br><span class="line">        <span class="type">BridgeSJ29</span> <span class="variable">excelData</span> <span class="operator">=</span> bridgeSJ29Service.selectBridgeSJ29ById(id);</span><br><span class="line">        <span class="keyword">if</span> (excelData == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> ResponseEntity.notFound().build();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 处理时间格式</span></span><br><span class="line">        <span class="comment">// code...</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3. 使用 ByteArrayOutputStream 代替本地文件</span></span><br><span class="line">        <span class="type">ByteArrayOutputStream</span> <span class="variable">outputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ByteArrayOutputStream</span>();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 4. 使用 EasyExcel 进行填充</span></span><br><span class="line">        EasyExcel.write(outputStream)</span><br><span class="line">                .withTemplate(templateInputStream) <span class="comment">// 绑定模板</span></span><br><span class="line">                .sheet()  <span class="comment">// 选择第一个 Sheet</span></span><br><span class="line">                .doFill(excelData); <span class="comment">// 填充数据</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 5. 关闭流</span></span><br><span class="line">        templateInputStream.close();</span><br><span class="line">        outputStream.close();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 6. 获取字节数组</span></span><br><span class="line">        <span class="type">byte</span>[] excelBytes = outputStream.toByteArray();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 7. 设置 HTTP 头</span></span><br><span class="line">        <span class="type">HttpHeaders</span> <span class="variable">headers</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HttpHeaders</span>();</span><br><span class="line">        headers.add(HttpHeaders.CONTENT_DISPOSITION, <span class="string">&quot;attachment; filename=bridgeSJ29_&quot;</span> + id + <span class="string">&quot;.xlsx&quot;</span>);</span><br><span class="line">        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);</span><br><span class="line">        headers.setContentLength(excelBytes.length);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 8. 返回字节数组，而不是 ByteArrayResource</span></span><br><span class="line">        <span class="keyword">return</span> ResponseEntity.ok()</span><br><span class="line">                .headers(headers)</span><br><span class="line">                .body(excelBytes);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        <span class="keyword">return</span> ResponseEntity.status(<span class="number">500</span>).build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样写返回的就是 excel 文件的 blob 数据，前端直接触发下载即可：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**导出Excel */</span></span><br><span class="line"><span class="keyword">async</span> <span class="title function_">handleExportExcel</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">exportExcel</span>(<span class="variable language_">this</span>.<span class="property">rowid</span>);<span class="comment">// 后端返回的response就是一个blob对象，直接下载即可</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建 Blob 并触发下载</span></span><br><span class="line">    <span class="keyword">const</span> blob = <span class="keyword">new</span> <span class="title class_">Blob</span>([response], &#123; <span class="attr">type</span>: <span class="string">&#x27;application/octet-stream&#x27;</span> &#125;);</span><br><span class="line">    <span class="keyword">const</span> link = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">    link.<span class="property">href</span> = <span class="variable constant_">URL</span>.<span class="title function_">createObjectURL</span>(blob);</span><br><span class="line">    link.<span class="property">download</span> = <span class="string">&#x27;混凝土施工记录表SJ29_&#x27;</span> + <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getTime</span>() + <span class="string">&#x27;_.xlsx&#x27;</span>;  <span class="comment">// 使用固定的文件名</span></span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(link);</span><br><span class="line">    link.<span class="title function_">click</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 清理Url对象</span></span><br><span class="line">    <span class="variable constant_">URL</span>.<span class="title function_">revokeObjectURL</span>(link.<span class="property">href</span>);</span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">removeChild</span>(link);</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">$message</span>.<span class="title function_">success</span>(<span class="string">&#x27;Excel 下载成功！&#x27;</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;Excel 下载失败:&#x27;</span>, error);</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">$message</span>.<span class="title function_">error</span>(<span class="string">&#x27;下载失败，请重试！&#x27;</span>);</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">loading</span> = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>之前写的时候 ai 一直说需要从 response 中读取头部来获取文件名，但是实际上返回的 response 没有头部。直接就是 blob 数据，连data部分都没有。所以直接下载即可。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建 Blob 并触发下载</span></span><br><span class="line"><span class="keyword">const</span> blob = <span class="keyword">new</span> <span class="title class_">Blob</span>([response], &#123; <span class="attr">type</span>: <span class="string">&#x27;application/octet-stream&#x27;</span> &#125;);</span><br><span class="line"><span class="comment">// 之前一直写的是 response.data ，一直是 undefined</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="后端返回的实体类字段名与定义的字段名不一致"><a href="#后端返回的实体类字段名与定义的字段名不一致" class="headerlink" title="后端返回的实体类字段名与定义的字段名不一致"></a>后端返回的实体类字段名与定义的字段名不一致</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>数据库中有数据，后端能接收到数据，但是前端web页面的表格中没有显示数据。</p>
+<h2 id="排查"><a href="#排查" class="headerlink" title="排查"></a>排查</h2><ul>
+<li>前端表格中对应的字段名均正确；</li>
+<li>后端实体类中对应的属性名均正确；</li>
+<li>数据库中对应的字段名均正确；</li>
+</ul>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><ol>
+<li>在前端中<strong>打印后端发送来的数据，发现与期望字段名不一致</strong>。比如期望<code>sgphb_wjj</code>，收到的却是<code>ssgxb_wjj</code>。</li>
+<li>在<strong>后端中查找相应字符串</strong>，发现实体类中的<code>getter</code>和<code>setter</code>方法的<strong>方法名与错误的字段名对应</strong>，方法体中的<strong>属性名与正确的字段名对应</strong>。猜测是<strong>方法名错误导致返回前端的字段名错误</strong>。</li>
+<li>修正方法名后，问题解决。</li>
+</ol>
+<p><img src="/3.png"></p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>截取部分AI解释如下。</p>
+<p><img src="/2.png"></p>
+<p><img src="/1.png"></p>
+<p>在这个过程中，当首字母之后连续的字母都是大写时，通常会将整个大写部分都视为一个整体，然后统一将首字母小写：</p>
+<p><code>SJ28Item1List -&gt; sj28Item1List</code></p>
+<h2 id="JsonProperty-注解"><a href="#JsonProperty-注解" class="headerlink" title="@JsonProperty 注解"></a><code>@JsonProperty</code> 注解</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.annotation.JsonProperty;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Example</span> &#123;</span><br><span class="line">    <span class="meta">@JsonProperty(&quot;customName&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在上述代码中，尽管 <code>getter</code> 和 <code>setter</code> 方法遵循 Java Bean 规范，但是由于使用了 <code>@JsonProperty(&quot;customName&quot;)</code> 注解，该属性在序列化后会被命名为 <code>customName</code> 而不是 <code>name</code>。</p>
+<p>总之，一般情况下是根据 Java Bean 规范，由 <code>getter</code> 和 <code>setter</code> 方法名来决定最终返回给前端的字段名，但可以通过注解等方式来进行自定义修改，避免受到方法名的限制。</p>
+]]></content>
+      <categories>
+        <category>施工数据采集系统</category>
+      </categories>
+      <tags>
+        <tag>springboot</tag>
+        <tag>java</tag>
       </tags>
   </entry>
 </search>
