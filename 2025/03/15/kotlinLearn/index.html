@@ -17,14 +17,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blank95x.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":16,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blank95x.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":16,"offset":12},"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="hello kotlin在 IDEA 中新建一个 kotlin 项目，添加“ kotlin 文件”（注意不是类），输入以下代码，然后构建并运行，即可在终端看到输出。 123fun main()&#123;	println(&quot;hello kotlin&quot;)&#125;  语句末尾不需要分号。 变量声明kotlin 只有两种变量声明关键字： 12val a &#x3D; 10 &#x2F;&#x2F; 不可变变量">
+    <meta name="description" content="hello kotlin在 IDEA 中新建一个 kotlin 项目，添加“ kotlin 文件”（注意不是类），输入以下代码，然后构建并运行，即可在终端看到输出。 fun main()&#123; 	println(&quot;hello kotlin&quot;) &#125;  语句末尾不需要分号。 变量声明kotlin 只有两种变量声明关键字： val a &#x3D; 10 &#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="kotlin 基本语法">
 <meta property="og:url" content="https://blank95x.github.io/2025/03/15/kotlinLearn/index.html">
 <meta property="og:site_name" content="Ant&#39;s blog">
-<meta property="og:description" content="hello kotlin在 IDEA 中新建一个 kotlin 项目，添加“ kotlin 文件”（注意不是类），输入以下代码，然后构建并运行，即可在终端看到输出。 123fun main()&#123;	println(&quot;hello kotlin&quot;)&#125;  语句末尾不需要分号。 变量声明kotlin 只有两种变量声明关键字： 12val a &#x3D; 10 &#x2F;&#x2F; 不可变变量">
+<meta property="og:description" content="hello kotlin在 IDEA 中新建一个 kotlin 项目，添加“ kotlin 文件”（注意不是类），输入以下代码，然后构建并运行，即可在终端看到输出。 fun main()&#123; 	println(&quot;hello kotlin&quot;) &#125;  语句末尾不需要分号。 变量声明kotlin 只有两种变量声明关键字： val a &#x3D; 10 &#x2F;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-03-15T08:32:30.000Z">
 <meta property="article:modified_time" content="2025-03-20T13:58:09.138Z">
@@ -245,17 +245,24 @@
     
     
     <div class="post-body" itemprop="articleBody"><h1 id="hello-kotlin"><a href="#hello-kotlin" class="headerlink" title="hello kotlin"></a>hello kotlin</h1><p>在 IDEA 中新建一个 kotlin 项目，添加“ kotlin 文件”（注意不是类），输入以下代码，然后构建并运行，即可在终端看到输出。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	println(<span class="string">&quot;hello kotlin&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun main()&#123;
+	println(&quot;hello kotlin&quot;)
+&#125;</code></pre>
 
 <p>语句末尾不需要分号。</p>
 <h1 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h1><p>kotlin 只有两种变量声明关键字：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> a = <span class="number">10</span> <span class="comment">// 不可变变量</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="number">20</span> <span class="comment">// 可变变量</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val a &#x3D; 10 &#x2F;&#x2F; 不可变变量
+var b &#x3D; 20 &#x2F;&#x2F; 可变变量</code></pre>
 
 <p>kotlin 可自动推导变量类型。也可显式声明变量类型。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> a : <span class="built_in">Int</span> = <span class="number">10</span> <span class="comment">// 显式声明</span></span><br><span class="line"><span class="keyword">val</span> a = <span class="number">10</span> <span class="comment">// 隐式声明</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val a : Int &#x3D; 10 &#x2F;&#x2F; 显式声明
+val a &#x3D; 10 &#x2F;&#x2F; 隐式声明</code></pre>
 
 <p><code>Int</code>为对象类型，而非 java 中的基本数据类型<code>int</code>。 kotlin 完全舍弃了 java 中的基本数据类型，每一个变量都是对象。</p>
-<h1 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h1><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">funName</span><span class="params">(param1 : <span class="type">Int</span> , param2 : <span class="type">Int</span>)</span></span> : <span class="built_in">Int</span>&#123;</span><br><span class="line">	<span class="comment">// code</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h1><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName(param1 : Int , param2 : Int) : Int&#123;
+	&#x2F;&#x2F; code
+	return 0
+&#125;</code></pre>
 
 <ul>
 <li><code>param1 : Int , param2 : Int</code>声明变量名及其类型</li>
@@ -263,143 +270,287 @@
 </ul>
 <p>两者都是可选的。</p>
 <h2 id="语法糖"><a href="#语法糖" class="headerlink" title="语法糖"></a>语法糖</h2><p>当函数体只有一行时，可写为：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">funName</span><span class="params">(param1 : <span class="type">Int</span> , param2 : <span class="type">Int</span>)</span></span> : <span class="built_in">Int</span> = max(param1 : <span class="built_in">Int</span> , param2 : <span class="built_in">Int</span>)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName(param1 : Int , param2 : Int) : Int &#x3D; max(param1 : Int , param2 : Int)</code></pre>
 
 <p>这里以<code>max</code>函数为例子，其作用是返回两者中较大的一个。</p>
 <h1 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h1><h2 id="if"><a href="#if" class="headerlink" title="if"></a>if</h2><p>kotlin 中 if 有返回值：条件分支中的最后一行代码的返回值。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">funName</span><span class="params">(num1 : <span class="type">Int</span> , num2 : <span class="type">Int</span>)</span></span> : <span class="built_in">Int</span>&#123;</span><br><span class="line">	<span class="keyword">val</span> value = <span class="keyword">if</span>(num1&gt;num2)&#123;</span><br><span class="line">		num1</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		num2</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> value</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName(num1 : Int , num2 : Int) : Int&#123;
+	val value &#x3D; if(num1&gt;num2)&#123;
+		num1
+	&#125;else&#123;
+		num2
+	&#125;
+	return value
+&#125;</code></pre>
 
 <p>显然<code>value</code>是多余的，可以直接返回判断体：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">funName</span><span class="params">(num1 : <span class="type">Int</span> , num2 : <span class="type">Int</span>)</span></span> : <span class="keyword">if</span>(num1&gt;num2) num1 <span class="keyword">else</span> num2</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName(num1 : Int , num2 : Int) : if(num1&gt;num2) num1 else num2</code></pre>
 
 <p>这里写成了<a href="#%E8%AF%AD%E6%B3%95%E7%B3%96">语法糖</a>。</p>
 <p>一般 if 语句不止一行，为什么也可以写成语法糖呢？我的理解是，如果函数体中只有一个逻辑块（一个判断流程，一条赋值语句等），就可以写成语法糖。</p>
 <h2 id="when"><a href="#when" class="headerlink" title="when"></a>when</h2><p>作用约等于<code>switch</code>。</p>
 <p>格式：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">when</span>( ... )&#123;</span><br><span class="line">	匹配值 -&gt; &#123; 执行逻辑 &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">when( ... )&#123;
+	匹配值 -&gt; &#123; 执行逻辑 &#125;
+&#125;</code></pre>
 
-<h3 id="精确匹配"><a href="#精确匹配" class="headerlink" title="精确匹配"></a>精确匹配</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">funName</span><span class="params">(name : <span class="type">String</span>)</span></span> = <span class="keyword">when</span>(name)&#123;</span><br><span class="line">	<span class="string">&quot;Tom&quot;</span> -&gt; &#123; <span class="number">86</span> &#125;</span><br><span class="line">	<span class="string">&quot;Jim&quot;</span> -&gt; <span class="number">77</span> <span class="comment">// 当只有一行时，花括号可以省略。</span></span><br><span class="line">	<span class="keyword">else</span> -&gt; <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="精确匹配"><a href="#精确匹配" class="headerlink" title="精确匹配"></a>精确匹配</h3><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName(name : String) &#x3D; when(name)&#123;
+	&quot;Tom&quot; -&gt; &#123; 86 &#125;
+	&quot;Jim&quot; -&gt; 77 &#x2F;&#x2F; 当只有一行时，花括号可以省略。
+	else -&gt; 0
+&#125;</code></pre>
 
-<h3 id="类型匹配"><a href="#类型匹配" class="headerlink" title="类型匹配"></a>类型匹配</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">funName</span><span class="params">(num : <span class="type">Number</span>)</span></span> = <span class="keyword">when</span>(num)&#123;</span><br><span class="line">	<span class="keyword">is</span> <span class="built_in">Int</span> -&gt; println(<span class="string">&quot;num is Int&quot;</span>)</span><br><span class="line">	<span class="keyword">is</span> <span class="built_in">Double</span> -&gt; println(<span class="string">&quot;num is Double&quot;</span>)</span><br><span class="line">	<span class="keyword">else</span> -&gt; prinln(<span class="string">&quot;num not support&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="类型匹配"><a href="#类型匹配" class="headerlink" title="类型匹配"></a>类型匹配</h3><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName(num : Number) &#x3D; when(num)&#123;
+	is Int -&gt; println(&quot;num is Int&quot;)
+	is Double -&gt; println(&quot;num is Double&quot;)
+	else -&gt; prinln(&quot;num not support&quot;)
+&#125;</code></pre>
 
 <p><code>is</code> 是 kotlin 的关键字，作用就像 java 中的<code>instanceof</code>一样。</p>
-<h3 id="无参写法"><a href="#无参写法" class="headerlink" title="无参写法"></a>无参写法</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">funName</span><span class="params">(name : <span class="type">String</span>)</span></span> = <span class="keyword">when</span>&#123;</span><br><span class="line">	name == <span class="string">&quot;Tom&quot;</span> -&gt; <span class="number">86</span></span><br><span class="line">	name == <span class="string">&quot;Jim&quot;</span> -&gt; <span class="number">77</span></span><br><span class="line">	name.startsWith(<span class="string">&quot;Mike&quot;</span>) -&gt; <span class="number">100</span></span><br><span class="line">	<span class="keyword">else</span> -&gt; <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="无参写法"><a href="#无参写法" class="headerlink" title="无参写法"></a>无参写法</h3><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName(name : String) &#x3D; when&#123;
+	name &#x3D;&#x3D; &quot;Tom&quot; -&gt; 86
+	name &#x3D;&#x3D; &quot;Jim&quot; -&gt; 77
+	name.startsWith(&quot;Mike&quot;) -&gt; 100
+	else -&gt; 0
+&#125;</code></pre>
 
 <p>可用于模糊匹配。</p>
 <p>kotlin 中比较两个对象是否相同可以用 <code>==</code>， java 中需要用<code>equals</code>函数。</p>
 <h1 id="循环控制"><a href="#循环控制" class="headerlink" title="循环控制"></a>循环控制</h1><h2 id="for-in"><a href="#for-in" class="headerlink" title="for-in"></a>for-in</h2><h3 id="区间定义"><a href="#区间定义" class="headerlink" title="区间定义"></a>区间定义</h3><p>定义一个闭区间：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> range = <span class="number">0.</span><span class="number">.10</span> <span class="comment">// 即[0,10]</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val range &#x3D; 0..10 &#x2F;&#x2F; 即[0,10]</code></pre>
 
 <p>其中<code>..</code>是关键字。</p>
 <p>左闭右开区间：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">range = <span class="number">0</span> until <span class="number">10</span> <span class="comment">// [0,10)</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">range &#x3D; 0 until 10 &#x2F;&#x2F; [0,10)</code></pre>
 
 <p>降序区间：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">range = <span class="number">10</span> downTo <span class="number">0</span> <span class="comment">// [10,0]</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">range &#x3D; 10 downTo 0 &#x2F;&#x2F; [10,0]</code></pre>
 
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">funName</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(i <span class="keyword">in</span> <span class="number">0.</span><span class="number">.10</span>)&#123;</span><br><span class="line">		<span class="comment">// code</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName()&#123;
+	for(i in 0..10)&#123;
+		&#x2F;&#x2F; code
+	&#125;
+&#125;</code></pre>
 
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">funName</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(i <span class="keyword">in</span> range)&#123;</span><br><span class="line">		<span class="comment">// code</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName()&#123;
+	for(i in range)&#123;
+		&#x2F;&#x2F; code
+	&#125;
+&#125;</code></pre>
 
 <h3 id="变量自增"><a href="#变量自增" class="headerlink" title="变量自增"></a>变量自增</h3><p>使用<code>step</code>关键字。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">funName</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(i <span class="keyword">in</span> <span class="number">0.</span><span class="number">.10</span> step <span class="number">2</span>)&#123;</span><br><span class="line">		<span class="comment">// code</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName()&#123;
+	for(i in 0..10 step 2)&#123;
+		&#x2F;&#x2F; code
+	&#125;
+&#125;</code></pre>
 
 <p>每次循环之间 i 自增2。如果不写则默认自增1。</p>
 <h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><p>Person 类：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">	<span class="keyword">var</span> name = <span class="string">&quot;&quot;</span></span><br><span class="line">	<span class="keyword">var</span> age = <span class="number">0</span></span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">eat</span><span class="params">()</span></span> &#123;</span><br><span class="line">		println(name + <span class="string">&quot; is eating. He is &quot;</span> + age + <span class="string">&quot; years old.&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class Person &#123;
+	var name &#x3D; &quot;&quot;
+	var age &#x3D; 0
+	fun eat() &#123;
+		println(name + &quot; is eating. He is &quot; + age + &quot; years old.&quot;)
+	&#125;
+&#125;</code></pre>
 
 <p>实例化：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> p = Person()</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val p &#x3D; Person()</code></pre>
 
 <p>没有像 java 中的<code>new</code>关键字。</p>
 <h1 id="继承与接口"><a href="#继承与接口" class="headerlink" title="继承与接口"></a>继承与接口</h1><p>kotlin 中默认每一个非抽象类都是无法继承的。使用<code>open</code>关键字让类变为可继承。</p>
 <p>抽象类无法创建实例，必须被继承后才能实例化。所以抽象类必须是可继承的。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">open</span> <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">	<span class="comment">// code</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> : <span class="type">Person</span>() &#123;</span><br><span class="line">	<span class="keyword">var</span> sno = <span class="string">&quot;&quot;</span></span><br><span class="line">	<span class="keyword">var</span> grade = <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">open class Person &#123;
+	&#x2F;&#x2F; code
+&#125;
+
+class Student : Person() &#123;
+	var sno &#x3D; &quot;&quot;
+	var grade &#x3D; 0
+&#125;</code></pre>
 
 <p>子类使用<code>:</code>来继承父类。同时实现接口也是这个关键字。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> : <span class="type">Person</span>(), Study &#123;</span><br><span class="line">	<span class="keyword">var</span> sno = <span class="string">&quot;&quot;</span></span><br><span class="line">	<span class="keyword">var</span> grade = <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class Student : Person(), Study &#123;
+	var sno &#x3D; &quot;&quot;
+	var grade &#x3D; 0
+&#125;</code></pre>
 
 <h2 id="单例类"><a href="#单例类" class="headerlink" title="单例类"></a>单例类</h2><p>在内存中只有一个实例的类。</p>
 <p>使用<code>object</code>关键字。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">object</span> Singleton &#123;</span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">singletonFun</span><span class="params">()</span></span> &#123;</span><br><span class="line">		println(<span class="string">&quot;singletonFun&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">object Singleton &#123;
+	fun singletonFun() &#123;
+		println(&quot;singletonFun&quot;)
+	&#125;
+&#125;</code></pre>
 <h2 id="数据类"><a href="#数据类" class="headerlink" title="数据类"></a>数据类</h2><p>数据类是一种只保存数据的类。</p>
 <p>使用<code>data</code>关键字。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data</span> <span class="keyword">class</span> <span class="title class_">Person</span>(<span class="keyword">val</span> name: String, <span class="keyword">val</span> age: <span class="built_in">Int</span>)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">data class Person(val name: String, val age: Int)</code></pre>
 
 <h1 id="空指针检查"><a href="#空指针检查" class="headerlink" title="空指针检查"></a>空指针检查</h1><p>kotlin 在编译时进行空指针检查，而非运行时。</p>
 <p>kotlin 默认所有参数都是非空的，如果想声明一个可为空的变量，需要在变量类型后加<code>?</code>。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name : String? = <span class="literal">null</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">var name : String? &#x3D; null</code></pre>
 
 <p><code>?</code>表示这个变量可以为空。</p>
 <h2 id="判空辅助操作符"><a href="#判空辅助操作符" class="headerlink" title="判空辅助操作符"></a>判空辅助操作符</h2><p><code>?.</code>：如果对象为空则返回 null，否则执行后面的操作。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(a != <span class="literal">null</span>)&#123;</span><br><span class="line">	a.method()</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	<span class="literal">null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">if(a !&#x3D; null)&#123;
+	a.method()
+&#125;else&#123;
+	null
+&#125;</code></pre>
 <p>等价于：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a?.method()</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">a?.method()</code></pre>
 
 <hr>
 <p><code>?:</code>：如果对象为空则返回后面的值。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> c = <span class="keyword">if</span>(a != <span class="literal">null</span>)&#123;</span><br><span class="line">	a</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	<span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val c &#x3D; if(a !&#x3D; null)&#123;
+	a
+&#125;else&#123;
+	0
+&#125;</code></pre>
 
 <p>等价于：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> c = a ?: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val c &#x3D; a ?: 0</code></pre>
 
 <h2 id="非空断言"><a href="#非空断言" class="headerlink" title="非空断言"></a>非空断言</h2><p><code>!!</code>：强制忽略空指针异常检查。</p>
 <p>如：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> a!!.method()</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val a!!.method()</code></pre>
 
 <p>无论 a 是否为 null ，都会执行<code>method()</code>。</p>
-<h2 id="let-函数实现一次判断"><a href="#let-函数实现一次判断" class="headerlink" title="let 函数实现一次判断"></a>let 函数实现一次判断</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(a == <span class="literal">null</span>)&#123;</span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line">a.method()</span><br><span class="line">a.method2()</span><br></pre></td></tr></table></figure>
+<h2 id="let-函数实现一次判断"><a href="#let-函数实现一次判断" class="headerlink" title="let 函数实现一次判断"></a>let 函数实现一次判断</h2><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">if(a &#x3D;&#x3D; null)&#123;
+	return
+&#125;
+a.method()
+a.method2()</code></pre>
 
 <p>等价于：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a?.let&#123;</span><br><span class="line">	it.method()</span><br><span class="line">	it.method2()</span><br><span class="line">&#125; <span class="comment">// lambda 表达式</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">a?.let&#123;
+	it.method()
+	it.method2()
+&#125; &#x2F;&#x2F; lambda 表达式</code></pre>
 
 <h1 id="标准函数"><a href="#标准函数" class="headerlink" title="标准函数"></a>标准函数</h1><p>指的是 Standard.kt 文件中定义的函数。前面的 <code>let</code> 也是标准函数。</p>
 <h2 id="with"><a href="#with" class="headerlink" title="with"></a>with</h2><p>接收一个对象和一个 lambda 表达式，返回 lambda 表达式的执行结果。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> result = with(obj) &#123;</span><br><span class="line">	<span class="comment">// obj的上下文</span></span><br><span class="line">	<span class="string">&quot;value&quot;</span> <span class="comment">// with函数的返回值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val result &#x3D; with(obj) &#123;
+	&#x2F;&#x2F; obj的上下文
+	&quot;value&quot; &#x2F;&#x2F; with函数的返回值
+&#125;</code></pre>
 
-<h3 id="with-函数应用举例"><a href="#with-函数应用举例" class="headerlink" title="with 函数应用举例"></a>with 函数应用举例</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> list = listOf(<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Banana&quot;</span>, <span class="string">&quot;Orange&quot;</span>, <span class="string">&quot;Pear&quot;</span>, <span class="string">&quot;Grape&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> builder = StringBuilder()</span><br><span class="line">builder.append(<span class="string">&quot;Start eating fruits.\n&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> (fruit <span class="keyword">in</span> list) &#123;</span><br><span class="line">	builder.append(fruit).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line">builder.append(<span class="string">&quot;Ate all fruits.&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> result = builder.toString()</span><br><span class="line">println(result)</span><br></pre></td></tr></table></figure>
+<h3 id="with-函数应用举例"><a href="#with-函数应用举例" class="headerlink" title="with 函数应用举例"></a>with 函数应用举例</h3><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val list &#x3D; listOf(&quot;Apple&quot;, &quot;Banana&quot;, &quot;Orange&quot;, &quot;Pear&quot;, &quot;Grape&quot;)
+val builder &#x3D; StringBuilder()
+builder.append(&quot;Start eating fruits.\n&quot;)
+for (fruit in list) &#123;
+	builder.append(fruit).append(&quot;\n&quot;)
+&#125;
+builder.append(&quot;Ate all fruits.&quot;)
+val result &#x3D; builder.toString()
+println(result)</code></pre>
 
 <p>输出：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Start eating fruits.</span><br><span class="line">Apple</span><br><span class="line">Banana</span><br><span class="line">Orange</span><br><span class="line">Pear</span><br><span class="line">Grape</span><br><span class="line">Ate all fruits.</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">Start eating fruits.
+Apple
+Banana
+Orange
+Pear
+Grape
+Ate all fruits.</code></pre>
 
 <p>使用<code>with</code>函数：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> list = listOf(<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Banana&quot;</span>, <span class="string">&quot;Orange&quot;</span>, <span class="string">&quot;Pear&quot;</span>, <span class="string">&quot;Grape&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> result = with(StringBuilder()) &#123;</span><br><span class="line">	append(<span class="string">&quot;Start eating fruits.\n&quot;</span>)</span><br><span class="line">	<span class="keyword">for</span> (fruit <span class="keyword">in</span> list) &#123;</span><br><span class="line">		append(fruit).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	append(<span class="string">&quot;Ate all fruits.&quot;</span>)</span><br><span class="line">	toString()</span><br><span class="line">&#125;</span><br><span class="line">println(result)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val list &#x3D; listOf(&quot;Apple&quot;, &quot;Banana&quot;, &quot;Orange&quot;, &quot;Pear&quot;, &quot;Grape&quot;)
+val result &#x3D; with(StringBuilder()) &#123;
+	append(&quot;Start eating fruits.\n&quot;)
+	for (fruit in list) &#123;
+		append(fruit).append(&quot;\n&quot;)
+	&#125;
+	append(&quot;Ate all fruits.&quot;)
+	toString()
+&#125;
+println(result)</code></pre>
 
 <p>with 中传入了 StringBuilder 实例，这样上下文就是 StringBuilder 实例，可以直接调用 append 方法。with 函数的返回值是最后一行代码的返回值，即 toString() 方法的返回值。</p>
 <h2 id="run"><a href="#run" class="headerlink" title="run"></a>run</h2><p>run 函数在对象的基础上调用，接受一个 lambda 表达式作为参数，返回值是 lambda 表达式的执行结果。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> result = obj.run &#123;</span><br><span class="line">	<span class="comment">// obj的上下文</span></span><br><span class="line">	<span class="string">&quot;value&quot;</span> <span class="comment">// run函数的返回值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val result &#x3D; obj.run &#123;
+	&#x2F;&#x2F; obj的上下文
+	&quot;value&quot; &#x2F;&#x2F; run函数的返回值
+&#125;</code></pre>
 
 <p>那么<a href="#with-%E5%87%BD%E6%95%B0%E5%BA%94%E7%94%A8%E4%B8%BE%E4%BE%8B">with函数的例子</a>可以改写为：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> list = listOf(<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Banana&quot;</span>, <span class="string">&quot;Orange&quot;</span>, <span class="string">&quot;Pear&quot;</span>, <span class="string">&quot;Grape&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> result = StringBuilder().run &#123;</span><br><span class="line">	append(<span class="string">&quot;Start eating fruits.\n&quot;</span>)</span><br><span class="line">	<span class="keyword">for</span> (fruit <span class="keyword">in</span> list) &#123;</span><br><span class="line">		append(fruit).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	append(<span class="string">&quot;Ate all fruits.&quot;</span>)</span><br><span class="line">	toString()</span><br><span class="line">&#125;</span><br><span class="line">println(result)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val list &#x3D; listOf(&quot;Apple&quot;, &quot;Banana&quot;, &quot;Orange&quot;, &quot;Pear&quot;, &quot;Grape&quot;)
+val result &#x3D; StringBuilder().run &#123;
+	append(&quot;Start eating fruits.\n&quot;)
+	for (fruit in list) &#123;
+		append(fruit).append(&quot;\n&quot;)
+	&#125;
+	append(&quot;Ate all fruits.&quot;)
+	toString()
+&#125;
+println(result)</code></pre>
 
 <h2 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h2><p>apply 函数和 run 函数很相似，也是在对象的基础上调用 lambda 表达式，但 apply 函数返回的是对象本身。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> result = obj.apply &#123;</span><br><span class="line">	<span class="comment">// obj的上下文</span></span><br><span class="line">	<span class="string">&quot;value&quot;</span> <span class="comment">// apply函数的返回值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val result &#x3D; obj.apply &#123;
+	&#x2F;&#x2F; obj的上下文
+	&quot;value&quot; &#x2F;&#x2F; apply函数的返回值
+&#125;</code></pre>
 
 <p>改写<a href="#with-%E5%87%BD%E6%95%B0%E5%BA%94%E7%94%A8%E4%B8%BE%E4%BE%8B">with函数的例子</a>：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> list = listOf(<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Banana&quot;</span>, <span class="string">&quot;Orange&quot;</span>, <span class="string">&quot;Pear&quot;</span>, <span class="string">&quot;Grape&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> result = StringBuilder().apply &#123;</span><br><span class="line">	append(<span class="string">&quot;Start eating fruits.\n&quot;</span>)</span><br><span class="line">	<span class="keyword">for</span> (fruit <span class="keyword">in</span> list) &#123;</span><br><span class="line">		append(fruit).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	append(<span class="string">&quot;Ate all fruits.&quot;</span>)</span><br><span class="line">&#125;.toString() <span class="comment">// 注意这里的 toString() 方法，是 StringBuilder.toString()</span></span><br><span class="line">println(result)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val list &#x3D; listOf(&quot;Apple&quot;, &quot;Banana&quot;, &quot;Orange&quot;, &quot;Pear&quot;, &quot;Grape&quot;)
+val result &#x3D; StringBuilder().apply &#123;
+	append(&quot;Start eating fruits.\n&quot;)
+	for (fruit in list) &#123;
+		append(fruit).append(&quot;\n&quot;)
+	&#125;
+	append(&quot;Ate all fruits.&quot;)
+&#125;.toString() &#x2F;&#x2F; 注意这里的 toString() 方法，是 StringBuilder.toString()
+println(result)</code></pre>
 
 <h1 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h1><p>kotlin 中没有静态方法的概念，但可以通过单例类或是伴生对象来实现。</p>
-<h2 id="单例类-1"><a href="#单例类-1" class="headerlink" title="单例类"></a>单例类</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">object</span> Utils &#123;</span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">doAction</span><span class="params">()</span></span> &#123;</span><br><span class="line">		println(<span class="string">&quot;do action&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="单例类-1"><a href="#单例类-1" class="headerlink" title="单例类"></a>单例类</h2><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">object Utils &#123;
+	fun doAction() &#123;
+		println(&quot;do action&quot;)
+	&#125;
+&#125;</code></pre>
 
 <p>调用：<code>Utils.doAction()</code></p>
 <p>使用单例类会使得类内所有方法都是静态方法。</p>
-<h2 id="伴生对象"><a href="#伴生对象" class="headerlink" title="伴生对象"></a>伴生对象</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Utils</span> &#123;</span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">doAction1</span><span class="params">()</span></span> &#123;</span><br><span class="line">		println(<span class="string">&quot;do action1&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">companion</span> <span class="keyword">object</span> &#123;</span><br><span class="line">		<span class="function"><span class="keyword">fun</span> <span class="title">doAction2</span><span class="params">()</span></span> &#123;</span><br><span class="line">			println(<span class="string">&quot;do action2&quot;</span>)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="伴生对象"><a href="#伴生对象" class="headerlink" title="伴生对象"></a>伴生对象</h2><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class Utils &#123;
+	fun doAction1() &#123;
+		println(&quot;do action1&quot;)
+	&#125;
+	companion object &#123;
+		fun doAction2() &#123;
+			println(&quot;do action2&quot;)
+		&#125;
+	&#125;
+&#125;</code></pre>
 
 <p>调用：<code>Utils.doAction2()</code></p>
 <p>对于一个普通类，伴生对象中的方法是静态方法，而类中的方法是实例方法。并且 kotlin 保证伴生对象的唯一性。</p>
 <h2 id="真正的静态方法"><a href="#真正的静态方法" class="headerlink" title="真正的静态方法"></a>真正的静态方法</h2><h3 id="JvmStatic-注解"><a href="#JvmStatic-注解" class="headerlink" title="@JvmStatic 注解"></a>@JvmStatic 注解</h3><p>kotlin 中的真正的静态方法是使用<code>@JvmStatic</code>注解。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Utils</span> &#123;</span><br><span class="line">	<span class="keyword">companion</span> <span class="keyword">object</span> &#123;</span><br><span class="line">		<span class="meta">@JvmStatic</span></span><br><span class="line">		<span class="function"><span class="keyword">fun</span> <span class="title">doAction</span><span class="params">()</span></span> &#123;</span><br><span class="line">			println(<span class="string">&quot;do action&quot;</span>)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class Utils &#123;
+	companion object &#123;
+		@JvmStatic
+		fun doAction() &#123;
+			println(&quot;do action&quot;)
+		&#125;
+	&#125;
+&#125;</code></pre>
 
 <p>注意， @JvmStatic 注解只能用在伴生对象中或者单例类中的方法上。</p>
 <h3 id="顶层方法"><a href="#顶层方法" class="headerlink" title="顶层方法"></a>顶层方法</h3><p>顶层方法指的是那些没有定义在任何类中的方法。</p>
 <p>想要定义顶层方法，需要在 <strong>kotlin 文件</strong>中直接定义函数，而不是定义在类中。（参考<a href="#hello-kotlin">hello kotlin</a>）</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Utils.kt</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">doAction</span><span class="params">()</span></span> &#123;</span><br><span class="line">	println(<span class="string">&quot;do action&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">&#x2F;&#x2F; Utils.kt
+fun doAction() &#123;
+	println(&quot;do action&quot;)
+&#125;</code></pre>
 
 <p>如果是在 java 中调用这个方法，需要使用类名调用。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Java</span></span><br><span class="line">UtilsKt.doAction();</span><br><span class="line"><span class="comment">// 编译器自动生成一个 UtilsKt 类，其中包含了 doAction 方法</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; Java
+UtilsKt.doAction();
+&#x2F;&#x2F; 编译器自动生成一个 UtilsKt 类，其中包含了 doAction 方法</code></pre>
 
 <p>如果是在 kotlin 中调用，直接调用即可。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Kotlin</span></span><br><span class="line">doAction()</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">&#x2F;&#x2F; Kotlin
+doAction()</code></pre>
 
 
     </div>
@@ -462,6 +613,9 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js" integrity="sha256-4mJNT2bMXxcc1GCJaxBmMPdmah5ji0Ldnd79DKd1hoM=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-AjM0J5XIbiB590BrznLEgZGLnOQWrt62s3BEq65Q/I0=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha256-9cmf7tcLdXpKsPi/2AWE93PbZpTp4M4tqzFk+lWomjU=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>

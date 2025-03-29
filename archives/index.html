@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blank95x.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":16,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blank95x.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":16,"offset":12},"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="春风若有怜花意">
 <meta property="og:type" content="website">
@@ -206,9 +206,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2025-03-24 20:04:11 / 修改时间：20:21:01" itemprop="dateCreated datePublished" datetime="2025-03-24T20:04:11+08:00">2025-03-24</time>
+      <time title="创建时间：2025-03-24 20:04:11" itemprop="dateCreated datePublished" datetime="2025-03-24T20:04:11+08:00">2025-03-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-29 15:47:30" itemprop="dateModified" datetime="2025-03-29T15:47:30+08:00">2025-03-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -231,13 +237,85 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="后端生成并返回-excel-表格，前端下载"><a href="#后端生成并返回-excel-表格，前端下载" class="headerlink" title="后端生成并返回 excel 表格，前端下载"></a>后端生成并返回 excel 表格，前端下载</h1><p>后端 Controller ：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/excel/&#123;id&#125;&quot;)</span></span><br><span class="line"><span class="keyword">public</span> ResponseEntity&lt;<span class="type">byte</span>[]&gt; exportExcel(<span class="meta">@PathVariable(&quot;id&quot;)</span> Long id) <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// 1. 读取 Excel 模板</span></span><br><span class="line">        <span class="type">ClassPathResource</span> <span class="variable">resource</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ClassPathResource</span>(<span class="string">&quot;template/bridge/bridgeSJ29.xlsx&quot;</span>);</span><br><span class="line">        <span class="type">InputStream</span> <span class="variable">templateInputStream</span> <span class="operator">=</span> resource.getInputStream();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2. 获取数据</span></span><br><span class="line">        <span class="type">BridgeSJ29</span> <span class="variable">excelData</span> <span class="operator">=</span> bridgeSJ29Service.selectBridgeSJ29ById(id);</span><br><span class="line">        <span class="keyword">if</span> (excelData == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> ResponseEntity.notFound().build();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 处理时间格式</span></span><br><span class="line">        <span class="comment">// code...</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3. 使用 ByteArrayOutputStream 代替本地文件</span></span><br><span class="line">        <span class="type">ByteArrayOutputStream</span> <span class="variable">outputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ByteArrayOutputStream</span>();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 4. 使用 EasyExcel 进行填充</span></span><br><span class="line">        EasyExcel.write(outputStream)</span><br><span class="line">                .withTemplate(templateInputStream) <span class="comment">// 绑定模板</span></span><br><span class="line">                .sheet()  <span class="comment">// 选择第一个 Sheet</span></span><br><span class="line">                .doFill(excelData); <span class="comment">// 填充数据</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 5. 关闭流</span></span><br><span class="line">        templateInputStream.close();</span><br><span class="line">        outputStream.close();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 6. 获取字节数组</span></span><br><span class="line">        <span class="type">byte</span>[] excelBytes = outputStream.toByteArray();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 7. 设置 HTTP 头</span></span><br><span class="line">        <span class="type">HttpHeaders</span> <span class="variable">headers</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HttpHeaders</span>();</span><br><span class="line">        headers.add(HttpHeaders.CONTENT_DISPOSITION, <span class="string">&quot;attachment; filename=bridgeSJ29_&quot;</span> + id + <span class="string">&quot;.xlsx&quot;</span>);</span><br><span class="line">        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);</span><br><span class="line">        headers.setContentLength(excelBytes.length);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 8. 返回字节数组，而不是 ByteArrayResource</span></span><br><span class="line">        <span class="keyword">return</span> ResponseEntity.ok()</span><br><span class="line">                .headers(headers)</span><br><span class="line">                .body(excelBytes);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        <span class="keyword">return</span> ResponseEntity.status(<span class="number">500</span>).build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">@GetMapping(&quot;&#x2F;excel&#x2F;&#123;id&#125;&quot;)
+public ResponseEntity&lt;byte[]&gt; exportExcel(@PathVariable(&quot;id&quot;) Long id) throws IOException &#123;
+    try &#123;
+        &#x2F;&#x2F; 1. 读取 Excel 模板
+        ClassPathResource resource &#x3D; new ClassPathResource(&quot;template&#x2F;bridge&#x2F;bridgeSJ29.xlsx&quot;);
+        InputStream templateInputStream &#x3D; resource.getInputStream();
+
+        &#x2F;&#x2F; 2. 获取数据
+        BridgeSJ29 excelData &#x3D; bridgeSJ29Service.selectBridgeSJ29ById(id);
+        if (excelData &#x3D;&#x3D; null) &#123;
+            return ResponseEntity.notFound().build();
+        &#125;
+
+        &#x2F;&#x2F; 处理时间格式
+        &#x2F;&#x2F; code...
+
+        &#x2F;&#x2F; 3. 使用 ByteArrayOutputStream 代替本地文件
+        ByteArrayOutputStream outputStream &#x3D; new ByteArrayOutputStream();
+
+        &#x2F;&#x2F; 4. 使用 EasyExcel 进行填充
+        EasyExcel.write(outputStream)
+                .withTemplate(templateInputStream) &#x2F;&#x2F; 绑定模板
+                .sheet()  &#x2F;&#x2F; 选择第一个 Sheet
+                .doFill(excelData); &#x2F;&#x2F; 填充数据
+
+        &#x2F;&#x2F; 5. 关闭流
+        templateInputStream.close();
+        outputStream.close();
+
+        &#x2F;&#x2F; 6. 获取字节数组
+        byte[] excelBytes &#x3D; outputStream.toByteArray();
+
+        &#x2F;&#x2F; 7. 设置 HTTP 头
+        HttpHeaders headers &#x3D; new HttpHeaders();
+        headers.add(HttpHeaders.CONTENT_DISPOSITION, &quot;attachment; filename&#x3D;bridgeSJ29_&quot; + id + &quot;.xlsx&quot;);
+        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+        headers.setContentLength(excelBytes.length);
+
+        &#x2F;&#x2F; 8. 返回字节数组，而不是 ByteArrayResource
+        return ResponseEntity.ok()
+                .headers(headers)
+                .body(excelBytes);
+    &#125; catch (Exception e) &#123;
+        e.printStackTrace();
+        return ResponseEntity.status(500).build();
+    &#125;
+&#125;</code></pre>
 
 <p>这样写返回的就是 excel 文件的 blob 数据，前端直接触发下载即可：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**导出Excel */</span></span><br><span class="line"><span class="keyword">async</span> <span class="title function_">handleExportExcel</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">exportExcel</span>(<span class="variable language_">this</span>.<span class="property">rowid</span>);<span class="comment">// 后端返回的response就是一个blob对象，直接下载即可</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建 Blob 并触发下载</span></span><br><span class="line">    <span class="keyword">const</span> blob = <span class="keyword">new</span> <span class="title class_">Blob</span>([response], &#123; <span class="attr">type</span>: <span class="string">&#x27;application/octet-stream&#x27;</span> &#125;);</span><br><span class="line">    <span class="keyword">const</span> link = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">    link.<span class="property">href</span> = <span class="variable constant_">URL</span>.<span class="title function_">createObjectURL</span>(blob);</span><br><span class="line">    link.<span class="property">download</span> = <span class="string">&#x27;混凝土施工记录表SJ29_&#x27;</span> + <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getTime</span>() + <span class="string">&#x27;_.xlsx&#x27;</span>;  <span class="comment">// 使用固定的文件名</span></span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(link);</span><br><span class="line">    link.<span class="title function_">click</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 清理Url对象</span></span><br><span class="line">    <span class="variable constant_">URL</span>.<span class="title function_">revokeObjectURL</span>(link.<span class="property">href</span>);</span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">removeChild</span>(link);</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">$message</span>.<span class="title function_">success</span>(<span class="string">&#x27;Excel 下载成功！&#x27;</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;Excel 下载失败:&#x27;</span>, error);</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">$message</span>.<span class="title function_">error</span>(<span class="string">&#x27;下载失败，请重试！&#x27;</span>);</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">loading</span> = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;**导出Excel *&#x2F;
+async handleExportExcel() &#123;
+    try &#123;
+    const response &#x3D; await exportExcel(this.rowid);&#x2F;&#x2F; 后端返回的response就是一个blob对象，直接下载即可
+
+    &#x2F;&#x2F; 创建 Blob 并触发下载
+    const blob &#x3D; new Blob([response], &#123; type: &#39;application&#x2F;octet-stream&#39; &#125;);
+    const link &#x3D; document.createElement(&#39;a&#39;);
+    link.href &#x3D; URL.createObjectURL(blob);
+    link.download &#x3D; &#39;混凝土施工记录表SJ29_&#39; + new Date().getTime() + &#39;_.xlsx&#39;;  &#x2F;&#x2F; 使用固定的文件名
+    document.body.appendChild(link);
+    link.click();
+
+    &#x2F;&#x2F; 清理Url对象
+    URL.revokeObjectURL(link.href);
+    document.body.removeChild(link);
+
+    this.$message.success(&#39;Excel 下载成功！&#39;);
+    &#125; catch (error) &#123;
+    console.error(&#39;Excel 下载失败:&#39;, error);
+    this.$message.error(&#39;下载失败，请重试！&#39;);
+    &#125; finally &#123;
+    this.loading &#x3D; false;
+    &#125;
+&#125;,</code></pre>
 
 <p>之前写的时候 ai 一直说需要从 response 中读取头部来获取文件名，但是实际上返回的 response 没有头部。直接就是 blob 数据，连data部分都没有。所以直接下载即可。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建 Blob 并触发下载</span></span><br><span class="line"><span class="keyword">const</span> blob = <span class="keyword">new</span> <span class="title class_">Blob</span>([response], &#123; <span class="attr">type</span>: <span class="string">&#x27;application/octet-stream&#x27;</span> &#125;);</span><br><span class="line"><span class="comment">// 之前一直写的是 response.data ，一直是 undefined</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 创建 Blob 并触发下载
+const blob &#x3D; new Blob([response], &#123; type: &#39;application&#x2F;octet-stream&#39; &#125;);
+&#x2F;&#x2F; 之前一直写的是 response.data ，一直是 undefined</code></pre>
 
 <h1 id="后端返回的实体类字段名与定义的字段名不一致"><a href="#后端返回的实体类字段名与定义的字段名不一致" class="headerlink" title="后端返回的实体类字段名与定义的字段名不一致"></a>后端返回的实体类字段名与定义的字段名不一致</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>数据库中有数据，后端能接收到数据，但是前端web页面的表格中没有显示数据。</p>
 <h2 id="排查"><a href="#排查" class="headerlink" title="排查"></a>排查</h2><ul>
@@ -256,10 +334,116 @@
 <p><img src="/1.png"></p>
 <p>在这个过程中，当首字母之后连续的字母都是大写时，通常会将整个大写部分都视为一个整体，然后统一将首字母小写：</p>
 <p><code>SJ28Item1List -&gt; sj28Item1List</code></p>
-<h2 id="JsonProperty-注解"><a href="#JsonProperty-注解" class="headerlink" title="@JsonProperty 注解"></a><code>@JsonProperty</code> 注解</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.annotation.JsonProperty;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Example</span> &#123;</span><br><span class="line">    <span class="meta">@JsonProperty(&quot;customName&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="JsonProperty-注解"><a href="#JsonProperty-注解" class="headerlink" title="@JsonProperty 注解"></a><code>@JsonProperty</code> 注解</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java">import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class Example &#123;
+    @JsonProperty(&quot;customName&quot;)
+    private String name;
+
+    public String getName() &#123;
+        return name;
+    &#125;
+
+    public void setName(String name) &#123;
+        this.name &#x3D; name;
+    &#125;
+&#125;</code></pre>
 
 <p>在上述代码中，尽管 <code>getter</code> 和 <code>setter</code> 方法遵循 Java Bean 规范，但是由于使用了 <code>@JsonProperty(&quot;customName&quot;)</code> 注解，该属性在序列化后会被命名为 <code>customName</code> 而不是 <code>name</code>。</p>
 <p>总之，一般情况下是根据 Java Bean 规范，由 <code>getter</code> 和 <code>setter</code> 方法名来决定最终返回给前端的字段名，但可以通过注解等方式来进行自定义修改，避免受到方法名的限制。</p>
+<h1 id="EasyExcel-实现列表填充"><a href="#EasyExcel-实现列表填充" class="headerlink" title="EasyExcel 实现列表填充"></a>EasyExcel 实现列表填充</h1><p>这里填充的是图片。模板内的占位符为 <code>&#123;.imageCell&#125;</code> 。</p>
+<p>实体类内的静态类：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">@Getter
+@Setter
+public static class Image &#123;
+    private WriteCellData&lt;Void&gt; imageCell;
+
+    &#x2F;*
+    * 为了实现单张图片的格式化（例如占多个单元格等），使用 ImageData 。
+    * EasyExcel 根据一个 WriteCellData 对象来对一个单元格进行操作。
+    * *&#x2F;
+
+    public Image(URL imageURL) throws IOException &#123;
+        this.imageCell &#x3D; createWriteCellData(imageURL);
+    &#125;
+
+    private WriteCellData&lt;Void&gt; createWriteCellData(URL url) throws IOException &#123;
+        WriteCellData&lt;Void&gt; cellData &#x3D; new WriteCellData&lt;&gt;(); &#x2F;&#x2F; 单元格操作对象
+        ImageData imageData &#x3D; new ImageData(); &#x2F;&#x2F; 图片数据对象
+
+        imageData.setImage(downloadImage(url));
+        imageData.setImageType(ImageData.ImageType.PICTURE_TYPE_PNG);
+
+        imageData.setRelativeFirstRowIndex(0);&#x2F;&#x2F; 距离占位符单元格 0 行
+        imageData.setRelativeFirstColumnIndex(0); &#x2F;&#x2F; 距离占位符单元格 0 列
+        &#x2F;&#x2F; 以上两句可以不写，毕竟本来就要填充到占位符的地方
+
+        imageData.setRelativeLastRowIndex(0); &#x2F;&#x2F; 图片占 1 行
+        imageData.setRelativeLastColumnIndex(1); &#x2F;&#x2F; 图片横向占 2 列
+
+        cellData.setImageDataList(List.of(imageData));&#x2F;&#x2F; 将图片数据对象放入一个不可变列表中，并将这个列表返回给单元格操作对象
+
+        return cellData;
+    &#125;
+
+    private byte[] downloadImage(URL url) throws IOException &#123;
+        &#x2F;&#x2F; 下载图片保存为二进制文件
+    &#125;
+&#125;</code></pre>
+
+<p>填充列表</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 构建 ExcelWriter 对象，并禁用自动关闭流，实现多次操作
+ExcelWriter excelWriter &#x3D; EasyExcel.write(outputStream)
+        .withTemplate(templateInputStream)
+        .autoCloseStream(false)
+        .build();
+
+&#x2F;&#x2F; 构建默认的 WriteSheet（这里假设只有一个 sheet）
+WriteSheet sheet &#x3D; EasyExcel.writerSheet().build();
+
+&#x2F;&#x2F; 使用 List&lt;Image&gt; 让 EasyExcel 按行填充
+List&lt;SJ24.Image&gt; imageList &#x3D; new ArrayList&lt;&gt;();
+imageList.add(new SJ24.Image(new URL(excelData.getCrackDistributionMap15()))); &#x2F;&#x2F; 第一张图片
+imageList.add(new SJ24.Image(new URL(excelData.getCrackDistributionMap25()))); &#x2F;&#x2F; 第二张图片
+excelWriter.fill(imageList, sheet);
+
+&#x2F;&#x2F; 填充文字数据
+excelWriter.fill(excelData,sheet);
+
+&#x2F;&#x2F; 结束写入，刷新数据到流中
+excelWriter.finish();</code></pre>
+
+<p>参考文档：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://easyexcel.opensource.alibaba.com/docs/current/quickstart/fill#%E5%A1%AB%E5%85%85%E5%88%97%E8%A1%A8">EasyExcel 官方文档</a></li>
+</ul>
+<h1 id="Element-UI-前端时间选择问题"><a href="#Element-UI-前端时间选择问题" class="headerlink" title="Element UI 前端时间选择问题"></a>Element UI 前端时间选择问题</h1><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;el-form-item label&#x3D;&quot;施工日期&quot; prop&#x3D;&quot;constructionTime&quot;&gt;
+    &lt;el-date-picker clearable v-model&#x3D;&quot;form.constructionTime&quot; type&#x3D;&quot;date&quot; placeholder&#x3D;&quot;请选择施工日期&quot;
+    format&#x3D;&quot;yyyy&#x2F;MM&#x2F;dd&quot; value-format&#x3D;&quot;yyyy&#x2F;MM&#x2F;dd&quot; &#x2F;&gt;
+&lt;&#x2F;el-form-item&gt;
+
+&lt;el-form-item label&#x3D;&quot;开始时间&quot; prop&#x3D;&quot;startTime&quot;&gt;
+    &lt;el-time-picker clearable v-model&#x3D;&quot;form.startTime&quot; placeholder&#x3D;&quot;请选择开始时间&quot; disabled-seconds format&#x3D;&quot;H:mm&quot;
+    value-format&#x3D;&quot;H:mm&quot; &#x2F;&gt;
+&lt;&#x2F;el-form-item&gt;
+
+&lt;el-form-item label&#x3D;&quot;结束时间&quot; prop&#x3D;&quot;endTime&quot;&gt;
+    &lt;el-time-picker clearable v-model&#x3D;&quot;form.endTime&quot; placeholder&#x3D;&quot;请选择结束时间&quot; disabled-seconds format&#x3D;&quot;H:mm&quot;
+    value-format&#x3D;&quot;H:mm&quot; &#x2F;&gt;
+&lt;&#x2F;el-form-item&gt;</code></pre>
+
+<p>以<strong>施工日期</strong>字段为例，因为设置了 <code>value-format</code> 属性，所以若<strong>数据库里</strong>的对应字段的格式与<strong>该属性规定</strong>的格式不符，前端选择时就会报错。</p>
+<p>比如数据库返回的字段值是 <code>yyyy-MM-dd</code> ， <code>value-format</code> 属性设置为 <code>yyyy/MM/dd</code> ，则在操作这个组件的时候就会报错：</p>
+<pre class="line-numbers language-none"><code class="language-none">TypeError: date.getFullYear is not a function ...
+TypeError: date.getHours is not a function ...
+...</code></pre>
+
+<p>为什么是 <code>date</code> ？可能是组件无法解析绑定值的格式的时候默认解析为 <code>Date</code> 对象了吧。</p>
+<p>所以选择将数据库中有关时间的字段设置为 <code>varchar</code> 类型，方便更改格式。（ <code>date</code> 类型的字段的格式只能是 <code>yyyy-MM-dd</code> ）</p>
+<p>参考文档：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://element.eleme.cn/#/zh-CN/component/date-picker#ri-qi-ge-shi">Element UI 官方文档</a></li>
+</ul>
 
       
     </div>
@@ -343,7 +527,12 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="TextView"><a href="#TextView" class="headerlink" title="TextView"></a>TextView</h1><p>用于显示文本。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">&quot;@+id/textView&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:gravity</span>=<span class="string">&quot;center&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:text</span>=<span class="string">&quot;This is TextView&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;TextView
+    android:id&#x3D;&quot;@+id&#x2F;textView&quot;
+    android:layout_width&#x3D;&quot;match_parent&quot;
+    android:layout_height&#x3D;&quot;wrap_content&quot;
+    android:gravity&#x3D;&quot;center&quot;
+    android:text&#x3D;&quot;This is TextView&quot;&#x2F;&gt;</code></pre>
 
 <p><code>android:gravity</code> 指定文字的对齐方式。</p>
 
@@ -440,7 +629,8 @@
 <li>启动其他应用的 Activity</li>
 </ul>
 <p>能被外部启动的 Activity 都需要在 AndroidManifest.xml 文件中注册 <code>android:exported=&quot;true&quot;</code> 属性。</p>
-<h2 id="显式-Intent"><a href="#显式-Intent" class="headerlink" title="显式 Intent"></a>显式 Intent</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> intent = Intent(<span class="keyword">this</span>, TargetActivity::<span class="keyword">class</span>.java)</span><br><span class="line">startActivity(intent)</span><br></pre></td></tr></table></figure>
+<h2 id="显式-Intent"><a href="#显式-Intent" class="headerlink" title="显式 Intent"></a>显式 Intent</h2><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val intent &#x3D; Intent(this, TargetActivity::class.java)
+startActivity(intent)</code></pre>
 
 <p><code>Intent</code> 构造函数的参数：</p>
 <ol>
@@ -449,20 +639,32 @@
 </ol>
 <p><code>SecondActivity::class.java</code> 相当于 java 中 <code>SecondActivity.class</code> 的写法。</p>
 <h2 id="隐式-Intent"><a href="#隐式-Intent" class="headerlink" title="隐式 Intent"></a>隐式 Intent</h2><p>如果一个活动可以被隐式调用，需要在 AndroidManifest.xml 文件中注册：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">&quot;.TargetActivity&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;com.example.activitytest.ACTION_START&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.category.DEFAULT&quot;</span> /&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- &lt;category android:name=&quot;com.example.activitytest.MY_CATEGORY&quot;/&gt; --&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- action 只能有一个， category 可以有多个--&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;activity android:name&#x3D;&quot;.TargetActivity&quot;&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name&#x3D;&quot;com.example.activitytest.ACTION_START&quot; &#x2F;&gt;
+        &lt;category android:name&#x3D;&quot;android.intent.category.DEFAULT&quot; &#x2F;&gt;
+        &lt;!-- &lt;category android:name&#x3D;&quot;com.example.activitytest.MY_CATEGORY&quot;&#x2F;&gt; --&gt;
+        &lt;!-- action 只能有一个， category 可以有多个--&gt;
+    &lt;&#x2F;intent-filter&gt;
+&lt;&#x2F;activity&gt;</code></pre>
 
 <p>调用：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> intent = Intent(<span class="string">&quot;com.example.activitytest.ACTION_START&quot;</span>)</span><br><span class="line">startActivity(intent)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val intent &#x3D; Intent(&quot;com.example.activitytest.ACTION_START&quot;)
+startActivity(intent)</code></pre>
 
 <p>一个 Intent 可以指定一个 action 和多个 category，只有当 action 和 category 全部匹配时，意图才会被响应。</p>
 <h2 id="传递数据"><a href="#传递数据" class="headerlink" title="传递数据"></a>传递数据</h2><p>活动1存放数据：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> intent = Intent(<span class="keyword">this</span>, TargetActivity::<span class="keyword">class</span>.java)</span><br><span class="line">intent.putExtra(<span class="string">&quot;extra_data&quot;</span>, <span class="string">&quot;Hello, TargetActivity&quot;</span>) <span class="comment">// key-value</span></span><br><span class="line">startActivity(intent)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val intent &#x3D; Intent(this, TargetActivity::class.java)
+intent.putExtra(&quot;extra_data&quot;, &quot;Hello, TargetActivity&quot;) &#x2F;&#x2F; key-value
+startActivity(intent)</code></pre>
 
 <p>活动2提取数据：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> extraData = intent.getStringExtra(<span class="string">&quot;extra_data&quot;</span>)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val extraData &#x3D; intent.getStringExtra(&quot;extra_data&quot;)</code></pre>
 
 <h1 id="隐式传递的更多用法"><a href="#隐式传递的更多用法" class="headerlink" title="隐式传递的更多用法"></a>隐式传递的更多用法</h1><p>安卓系统中有一个内置 action <code>Intent.ACTION_VIEW</code> 可以打开浏览器：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> intent = Intent(Intent.ACTION_VIEW)</span><br><span class="line">intent.<span class="keyword">data</span> = Uri.parse(<span class="string">&quot;http://www.baidu.com&quot;</span>) <span class="comment">// 设置网址，可选</span></span><br><span class="line">startActivity(intent)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val intent &#x3D; Intent(Intent.ACTION_VIEW)
+intent.data &#x3D; Uri.parse(&quot;http:&#x2F;&#x2F;www.baidu.com&quot;) &#x2F;&#x2F; 设置网址，可选
+startActivity(intent)</code></pre>
 
 <p>当一个活动在 AndroidManifest.xml 中注册了 action 为 <code>Intent.ACTION_VIEW</code> 时，那么这个活动就可以响应打开网页的请求。</p>
 <p>同时，还可以 <code>intent-filter</code> 标签中再配置一个 <code>data</code> 标签，用于更精确地指定当前 Activity 能够响应的数据。data 标签中主要可以配置以下内容：</p>
@@ -499,15 +701,31 @@
 <p>如果所有配置都正确，但是跳转的时候打开了系统默认的浏览器，将其禁用再尝试是否可以正常接收跳转浏览器的意图。</p>
 </blockquote>
 <h1 id="返回数据给上一个活动"><a href="#返回数据给上一个活动" class="headerlink" title="返回数据给上一个活动"></a>返回数据给上一个活动</h1><p>在父活动中使用 <code>startActivityForResult</code> 方法启动子活动：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> intent = Intent(<span class="keyword">this</span>, TargetActivity::<span class="keyword">class</span>.java)</span><br><span class="line">startActivityForResult(intent, <span class="number">1</span>) <span class="comment">// 1 是请求码，用于在之后的回调中判断数据来源</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val intent &#x3D; Intent(this, TargetActivity::class.java)
+startActivityForResult(intent, 1) &#x2F;&#x2F; 1 是请求码，用于在之后的回调中判断数据来源</code></pre>
 
 <p>子活动返回数据：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 主逻辑</span></span><br><span class="line"><span class="keyword">val</span> intent = Intent()</span><br><span class="line">intent.putExtra(<span class="string">&quot;data_return&quot;</span>, <span class="string">&quot;Hello, MainActivity&quot;</span>)</span><br><span class="line">setResult(RESULT_OK, intent)</span><br><span class="line">finish() <span class="comment">// 销毁当前活动</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">&#x2F;&#x2F; 主逻辑
+val intent &#x3D; Intent()
+intent.putExtra(&quot;data_return&quot;, &quot;Hello, MainActivity&quot;)
+setResult(RESULT_OK, intent)
+finish() &#x2F;&#x2F; 销毁当前活动</code></pre>
 
 <p>父活动接收数据：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onActivityResult</span><span class="params">(requestCode: <span class="type">Int</span>, resultCode: <span class="type">Int</span>, <span class="keyword">data</span>: <span class="type">Intent</span>?)</span></span> &#123;</span><br><span class="line">    <span class="keyword">when</span> (requestCode) &#123;</span><br><span class="line">        <span class="number">1</span> -&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> (resultCode == Activity.RESULT_OK) &#123;</span><br><span class="line">                <span class="keyword">val</span> returnedData = <span class="keyword">data</span>?.getStringExtra(<span class="string">&quot;data_return&quot;</span>)</span><br><span class="line">                Log.d(<span class="string">&quot;MainActivity&quot;</span>, <span class="string">&quot;returned data is <span class="variable">$returnedData</span>&quot;</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) &#123;
+    when (requestCode) &#123;
+        1 -&gt; &#123;
+            if (resultCode &#x3D;&#x3D; Activity.RESULT_OK) &#123;
+                val returnedData &#x3D; data?.getStringExtra(&quot;data_return&quot;)
+                Log.d(&quot;MainActivity&quot;, &quot;returned data is $returnedData&quot;)
+            &#125;
+        &#125;
+    &#125;
+&#125;</code></pre>
 <p>通过返回键返回时，子活动中重写 <code>onBackPressed</code> 方法即可：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onBackPressed</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">// code...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onBackPressed() &#123;
+    &#x2F;&#x2F; code...
+&#125;</code></pre>
 
       
     </div>
@@ -598,13 +816,36 @@
     <div class="post-body" itemprop="articleBody">
           <h1 id="menu-控件"><a href="#menu-控件" class="headerlink" title="menu 控件"></a>menu 控件</h1><p>这里的 menu 控件是指标题栏右上角的菜单按钮。</p>
 <p>在 <code>res/menu</code> 文件夹下创建一个 xml 文件，如 <code>main.xml</code>：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">menu</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/add_item&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:title</span>=<span class="string">&quot;Add&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/remove_item&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:title</span>=<span class="string">&quot;Remove&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">menu</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;
+&lt;menu xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res&#x2F;android&quot;&gt;
+    &lt;item
+        android:id&#x3D;&quot;@+id&#x2F;add_item&quot;
+        android:title&#x3D;&quot;Add&quot;&#x2F;&gt;
+    &lt;item
+        android:id&#x3D;&quot;@+id&#x2F;remove_item&quot;
+        android:title&#x3D;&quot;Remove&quot;&#x2F;&gt;
+&lt;&#x2F;menu&gt;</code></pre>
 
 <p>在 Activity 中重写 <code>onCreateOptionsMenu</code> 方法：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreateOptionsMenu</span><span class="params">(menu: <span class="type">Menu</span>?)</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">    menuInflater.inflate(R.menu.main, menu) </span><br><span class="line">    <span class="comment">// menuInflater 这一部分其实是 kotlin 的语法糖，已经自动调用了 getter 方法</span></span><br><span class="line">    <span class="comment">/* inflate 方法接收两个参数：</span></span><br><span class="line"><span class="comment">    第一个是 menu 布局资源文件，</span></span><br><span class="line"><span class="comment">    第二个是要设置这个布局的 menu 对象</span></span><br><span class="line"><span class="comment">    （从哪里来到哪里去）*/</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment">// 返回 true 表示菜单允许菜单显示</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onCreateOptionsMenu(menu: Menu?): Boolean &#123;
+    menuInflater.inflate(R.menu.main, menu) 
+    &#x2F;&#x2F; menuInflater 这一部分其实是 kotlin 的语法糖，已经自动调用了 getter 方法
+    &#x2F;* inflate 方法接收两个参数：
+    第一个是 menu 布局资源文件，
+    第二个是要设置这个布局的 menu 对象
+    （从哪里来到哪里去）*&#x2F;
+    return true
+    &#x2F;&#x2F; 返回 true 表示菜单允许菜单显示
+&#125;</code></pre>
 
 <p>之后在 Activity 中重写 <code>onOptionsItemSelected</code> 方法可以自定义菜单选项响应事件。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onOptionsItemSelected</span><span class="params">(item: <span class="type">MenuItem</span>)</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">    <span class="keyword">when</span>(item.itemId)&#123;</span><br><span class="line">        R.id.add_item -&gt; Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;add item&quot;</span>,Toast.LENGTH_SHORT).show()</span><br><span class="line">        R.id.remove_item -&gt; Toast.makeText(<span class="keyword">this</span>,<span class="string">&quot;remove item&quot;</span>,Toast.LENGTH_SHORT).show()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onOptionsItemSelected(item: MenuItem): Boolean &#123;
+    when(item.itemId)&#123;
+        R.id.add_item -&gt; Toast.makeText(this, &quot;add item&quot;,Toast.LENGTH_SHORT).show()
+        R.id.remove_item -&gt; Toast.makeText(this,&quot;remove item&quot;,Toast.LENGTH_SHORT).show()
+    &#125;
+    return true
+&#125;</code></pre>
 
 <h2 id="显示Toast"><a href="#显示Toast" class="headerlink" title="显示Toast"></a>显示Toast</h2><p><code>makeText()</code> 方法的参数：</p>
 <ol>
@@ -708,20 +949,39 @@
     <div class="post-body" itemprop="articleBody">
           <h1 id="要素"><a href="#要素" class="headerlink" title="要素"></a>要素</h1><p>创建一个 Activity 需要以下要素：</p>
 <p>Activity 类：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ActivityName</span> : <span class="type">ComponentActivity</span>() &#123;</span><br><span class="line">	<span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        <span class="comment">// code..</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class ActivityName : ComponentActivity() &#123;
+	override fun onCreate(savedInstanceState: Bundle?) &#123;
+        super.onCreate(savedInstanceState)
+        &#x2F;&#x2F; code..
+    &#125;
+&#125;</code></pre>
 
 <p>布局文件： <code>src/main/res/layout/activity_name.xml</code></p>
 <p>在 AndroidManifest.xml 文件中注册：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">&quot;.ActivityName&quot;</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">android:label</span>=<span class="string">&quot;This is ActivityName&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--如果需要作为主界面，还需要以下两个属性--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.MAIN&quot;</span> /&gt;</span> </span><br><span class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.category.LAUNCHER&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;activity android:name&#x3D;&quot;.ActivityName&quot; 
+    android:label&#x3D;&quot;This is ActivityName&quot;&gt;
+    &lt;!--如果需要作为主界面，还需要以下两个属性--&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name&#x3D;&quot;android.intent.action.MAIN&quot; &#x2F;&gt; 
+        &lt;category android:name&#x3D;&quot;android.intent.category.LAUNCHER&quot; &#x2F;&gt;
+    &lt;&#x2F;intent-filter&gt;
+&lt;&#x2F;activity&gt;</code></pre>
 
 <h1 id="获取控件"><a href="#获取控件" class="headerlink" title="获取控件"></a>获取控件</h1><p>一般使用 <code>findViewById</code> 方法获取控件：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> textView = findViewById&lt;TextView&gt;(R.id.textView)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val textView &#x3D; findViewById&lt;TextView&gt;(R.id.textView)</code></pre>
 
 <p>使用 kotlin 的安卓项目中，可以在模块级 <code>build.gradle</code> 文件中启用 <code>viewBindding</code>：</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    ...</span><br><span class="line">    viewBinding &#123;</span><br><span class="line">        enabled = <span class="keyword">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-gradle" data-language="gradle"><code class="language-gradle">android &#123;
+    ...
+    viewBinding &#123;
+        enabled &#x3D; true
+    &#125;
+&#125;</code></pre>
 
 <p>这样就可以直接使用控件 id 获取控件：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> binding = ActivityMainBinding.inflate(layoutInflater)</span><br><span class="line">setContentView(binding.root)</span><br><span class="line"><span class="keyword">val</span> button1 = binding.button1</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val binding &#x3D; ActivityMainBinding.inflate(layoutInflater)
+setContentView(binding.root)
+val button1 &#x3D; binding.button1</code></pre>
 
 <p>同时 Android Studio 会自动生成一个 <code>import com.example.app.databinding.ActivityMainBinding</code> 语句。</p>
 <h1 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h1><p>安卓系统使用 task 来管理 Activity ，一个 task 就是存放在返回栈中的 Activity 集合。</p>
@@ -808,10 +1068,18 @@
     J --> |返回上一个Activity| B</pre>
 
 <h2 id="临时保存数据"><a href="#临时保存数据" class="headerlink" title="临时保存数据"></a>临时保存数据</h2><p>在 Activity 生命周期中，有时需要保存数据，可以使用 <code>onSaveInstanceState</code> 方法：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onSaveInstanceState</span><span class="params">(outState: <span class="type">Bundle</span>)</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.onSaveInstanceState(outState)</span><br><span class="line">    outState.putString(<span class="string">&quot;key&quot;</span>, <span class="string">&quot;value&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onSaveInstanceState(outState: Bundle) &#123;
+    super.onSaveInstanceState(outState)
+    outState.putString(&quot;key&quot;, &quot;value&quot;)
+&#125;</code></pre>
 
 <p>在 <code>onCreate</code> 方法中获取：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">    <span class="keyword">if</span> (savedInstanceState != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">val</span> value = savedInstanceState.getString(<span class="string">&quot;key&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onCreate(savedInstanceState: Bundle?) &#123;
+    super.onCreate(savedInstanceState)
+    if (savedInstanceState !&#x3D; null) &#123;
+        val value &#x3D; savedInstanceState.getString(&quot;key&quot;)
+    &#125;
+&#125;</code></pre>
 
 <h1 id="启动模式"><a href="#启动模式" class="headerlink" title="启动模式"></a>启动模式</h1><p>Activity 的启动模式有以下几种：</p>
 <table>
@@ -857,28 +1125,75 @@
         A3 --> |启动新Activity| A1</pre>
 
 <p>Activity 的启动模式可以在 AndroidManifest.xml 文件中设置：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">&quot;.ActivityName&quot;</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">android:launchMode</span>=<span class="string">&quot;singleTop&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;activity android:name&#x3D;&quot;.ActivityName&quot; 
+    android:launchMode&#x3D;&quot;singleTop&quot;&gt;
+&lt;&#x2F;activity&gt;</code></pre>
 
-<h1 id="一些实践"><a href="#一些实践" class="headerlink" title="一些实践"></a>一些实践</h1><h2 id="查看当前所在-Activity"><a href="#查看当前所在-Activity" class="headerlink" title="查看当前所在 Activity"></a>查看当前所在 Activity</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Log.d(TAG, <span class="keyword">this</span>.toString())</span><br><span class="line">Log.d(TAG, <span class="keyword">this</span>.javaClass.simpleName)</span><br><span class="line">Log.d(TAG, javaClass.simpleName)</span><br></pre></td></tr></table></figure>
+<h1 id="一些实践"><a href="#一些实践" class="headerlink" title="一些实践"></a>一些实践</h1><h2 id="查看当前所在-Activity"><a href="#查看当前所在-Activity" class="headerlink" title="查看当前所在 Activity"></a>查看当前所在 Activity</h2><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">Log.d(TAG, this.toString())
+Log.d(TAG, this.javaClass.simpleName)
+Log.d(TAG, javaClass.simpleName)</code></pre>
 
 <p>this 是当前 Activity 的实例引用，this.javaClass.simpleName 和 javaClass.simpleName 都是当前 Activity 的类名。</p>
 <p>输出：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">com.example.activitytest.FirstActivity@86bde1c</span><br><span class="line">FirstActivity</span><br><span class="line">FirstActivity</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">com.example.activitytest.FirstActivity@86bde1c
+FirstActivity
+FirstActivity</code></pre>
 
 <p><code>@86bde1c</code>是当前 Activity 的哈希码，默认是内存地址的十六进制表示。</p>
 <h2 id="一次性结束所有-Activity"><a href="#一次性结束所有-Activity" class="headerlink" title="一次性结束所有 Activity"></a>一次性结束所有 Activity</h2><p>维护一个单例类 ActivityCollector 作为当前所有 Activity 的集合：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">object</span> ActivityCollector &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> activities = ArrayList&lt;Activity&gt;()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">addActivity</span><span class="params">(activity: <span class="type">Activity</span>)</span></span> &#123;</span><br><span class="line">        activities.add(activity) <span class="comment">// 添加 Activity</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">removeActivity</span><span class="params">(activity: <span class="type">Activity</span>)</span></span> &#123;</span><br><span class="line">        activities.remove(activity) <span class="comment">// 移除 Activity</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">finishAll</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (activity <span class="keyword">in</span> activities) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!activity.isFinishing) &#123; <span class="comment">// 判断 Activity 是否正在销毁</span></span><br><span class="line">                activity.finish() <span class="comment">// 销毁 Activity</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">object ActivityCollector &#123;
+    private val activities &#x3D; ArrayList&lt;Activity&gt;()
+
+    fun addActivity(activity: Activity) &#123;
+        activities.add(activity) &#x2F;&#x2F; 添加 Activity
+    &#125;
+
+    fun removeActivity(activity: Activity) &#123;
+        activities.remove(activity) &#x2F;&#x2F; 移除 Activity
+    &#125;
+
+    fun finishAll() &#123;
+        for (activity in activities) &#123;
+            if (!activity.isFinishing) &#123; &#x2F;&#x2F; 判断 Activity 是否正在销毁
+                activity.finish() &#x2F;&#x2F; 销毁 Activity
+            &#125;
+        &#125;
+    &#125;
+&#125;</code></pre>
 
 <p>之后，在具体的 Activity 中重写 <code>onDestroy</code> 方法：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onDestroy</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.onDestroy()</span><br><span class="line">    ActivityCollector.removeActivity(<span class="keyword">this</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onDestroy() &#123;
+    super.onDestroy()
+    ActivityCollector.removeActivity(this)
+&#125;</code></pre>
 
 <p>这样，在任意处，只要调用 <code>ActivityCollector.finishAll()</code> 方法，就可以一次性结束所有 Activity，达到一次性退出程序的目的。</p>
 <h2 id="基本类"><a href="#基本类" class="headerlink" title="基本类"></a>基本类</h2><p>创建一个基本类 BaseActivity，继承自 AppCompatActivity：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">open</span> <span class="keyword">class</span> <span class="title class_">BaseActivity</span> : <span class="type">AppCompatActivity</span>() &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        Log.d(TAG, javaClass.simpleName)</span><br><span class="line">        ActivityCollector.addActivity(<span class="keyword">this</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onDestroy</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onDestroy()</span><br><span class="line">        ActivityCollector.removeActivity(<span class="keyword">this</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">open class BaseActivity : AppCompatActivity() &#123;
+    override fun onCreate(savedInstanceState: Bundle?) &#123;
+        super.onCreate(savedInstanceState)
+        Log.d(TAG, javaClass.simpleName)
+        ActivityCollector.addActivity(this)
+    &#125;
+
+    override fun onDestroy() &#123;
+        super.onDestroy()
+        ActivityCollector.removeActivity(this)
+    &#125;
+&#125;</code></pre>
 
 <p>之后，所有 Activity 都继承自 BaseActivity，这样就不必重写许多基本的方法。</p>
 <h2 id="启动-Activity-的最佳写法"><a href="#启动-Activity-的最佳写法" class="headerlink" title="启动 Activity 的最佳写法"></a>启动 Activity 的最佳写法</h2><p>如果一个 Activity 启动时需要传递数据，最佳写法是定义一个静态方法 <code>actionStart</code> ：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">YourActivity</span> : <span class="type">BaseActivity</span>() &#123;</span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> &#123;</span><br><span class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">actionStart</span><span class="params">(context: <span class="type">Context</span>, data1: <span class="type">String</span>, data2: <span class="type">String</span>)</span></span> &#123;</span><br><span class="line">            <span class="keyword">val</span> intent = Intent(context, YourActivity::<span class="keyword">class</span>.java)</span><br><span class="line">            intent.putExtra(<span class="string">&quot;param1&quot;</span>, data1)</span><br><span class="line">            intent.putExtra(<span class="string">&quot;param2&quot;</span>, data2)</span><br><span class="line">            context.startActivity(intent)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class YourActivity : BaseActivity() &#123;
+    companion object &#123;
+        fun actionStart(context: Context, data1: String, data2: String) &#123;
+            val intent &#x3D; Intent(context, YourActivity::class.java)
+            intent.putExtra(&quot;param1&quot;, data1)
+            intent.putExtra(&quot;param2&quot;, data2)
+            context.startActivity(intent)
+        &#125;
+    &#125;
+&#125;</code></pre>
 
 <p>kotlin规定，所有定义在 <code>companion object</code> 中的方法都可以使用类似于 java 静态方法的形式调用。</p>
 <p>这样在其他地方启动 Activity 时，只需要调用 <code>YourActivity.actionStart(context, data1, data2)</code> 方法即可。</p>
@@ -971,17 +1286,24 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="hello-kotlin"><a href="#hello-kotlin" class="headerlink" title="hello kotlin"></a>hello kotlin</h1><p>在 IDEA 中新建一个 kotlin 项目，添加“ kotlin 文件”（注意不是类），输入以下代码，然后构建并运行，即可在终端看到输出。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	println(<span class="string">&quot;hello kotlin&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun main()&#123;
+	println(&quot;hello kotlin&quot;)
+&#125;</code></pre>
 
 <p>语句末尾不需要分号。</p>
 <h1 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h1><p>kotlin 只有两种变量声明关键字：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> a = <span class="number">10</span> <span class="comment">// 不可变变量</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="number">20</span> <span class="comment">// 可变变量</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val a &#x3D; 10 &#x2F;&#x2F; 不可变变量
+var b &#x3D; 20 &#x2F;&#x2F; 可变变量</code></pre>
 
 <p>kotlin 可自动推导变量类型。也可显式声明变量类型。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> a : <span class="built_in">Int</span> = <span class="number">10</span> <span class="comment">// 显式声明</span></span><br><span class="line"><span class="keyword">val</span> a = <span class="number">10</span> <span class="comment">// 隐式声明</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val a : Int &#x3D; 10 &#x2F;&#x2F; 显式声明
+val a &#x3D; 10 &#x2F;&#x2F; 隐式声明</code></pre>
 
 <p><code>Int</code>为对象类型，而非 java 中的基本数据类型<code>int</code>。 kotlin 完全舍弃了 java 中的基本数据类型，每一个变量都是对象。</p>
-<h1 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h1><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">funName</span><span class="params">(param1 : <span class="type">Int</span> , param2 : <span class="type">Int</span>)</span></span> : <span class="built_in">Int</span>&#123;</span><br><span class="line">	<span class="comment">// code</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h1><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName(param1 : Int , param2 : Int) : Int&#123;
+	&#x2F;&#x2F; code
+	return 0
+&#125;</code></pre>
 
 <ul>
 <li><code>param1 : Int , param2 : Int</code>声明变量名及其类型</li>
@@ -989,143 +1311,287 @@
 </ul>
 <p>两者都是可选的。</p>
 <h2 id="语法糖"><a href="#语法糖" class="headerlink" title="语法糖"></a>语法糖</h2><p>当函数体只有一行时，可写为：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">funName</span><span class="params">(param1 : <span class="type">Int</span> , param2 : <span class="type">Int</span>)</span></span> : <span class="built_in">Int</span> = max(param1 : <span class="built_in">Int</span> , param2 : <span class="built_in">Int</span>)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName(param1 : Int , param2 : Int) : Int &#x3D; max(param1 : Int , param2 : Int)</code></pre>
 
 <p>这里以<code>max</code>函数为例子，其作用是返回两者中较大的一个。</p>
 <h1 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h1><h2 id="if"><a href="#if" class="headerlink" title="if"></a>if</h2><p>kotlin 中 if 有返回值：条件分支中的最后一行代码的返回值。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">funName</span><span class="params">(num1 : <span class="type">Int</span> , num2 : <span class="type">Int</span>)</span></span> : <span class="built_in">Int</span>&#123;</span><br><span class="line">	<span class="keyword">val</span> value = <span class="keyword">if</span>(num1&gt;num2)&#123;</span><br><span class="line">		num1</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		num2</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> value</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName(num1 : Int , num2 : Int) : Int&#123;
+	val value &#x3D; if(num1&gt;num2)&#123;
+		num1
+	&#125;else&#123;
+		num2
+	&#125;
+	return value
+&#125;</code></pre>
 
 <p>显然<code>value</code>是多余的，可以直接返回判断体：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">funName</span><span class="params">(num1 : <span class="type">Int</span> , num2 : <span class="type">Int</span>)</span></span> : <span class="keyword">if</span>(num1&gt;num2) num1 <span class="keyword">else</span> num2</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName(num1 : Int , num2 : Int) : if(num1&gt;num2) num1 else num2</code></pre>
 
 <p>这里写成了<a href="#%E8%AF%AD%E6%B3%95%E7%B3%96">语法糖</a>。</p>
 <p>一般 if 语句不止一行，为什么也可以写成语法糖呢？我的理解是，如果函数体中只有一个逻辑块（一个判断流程，一条赋值语句等），就可以写成语法糖。</p>
 <h2 id="when"><a href="#when" class="headerlink" title="when"></a>when</h2><p>作用约等于<code>switch</code>。</p>
 <p>格式：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">when</span>( ... )&#123;</span><br><span class="line">	匹配值 -&gt; &#123; 执行逻辑 &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">when( ... )&#123;
+	匹配值 -&gt; &#123; 执行逻辑 &#125;
+&#125;</code></pre>
 
-<h3 id="精确匹配"><a href="#精确匹配" class="headerlink" title="精确匹配"></a>精确匹配</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">funName</span><span class="params">(name : <span class="type">String</span>)</span></span> = <span class="keyword">when</span>(name)&#123;</span><br><span class="line">	<span class="string">&quot;Tom&quot;</span> -&gt; &#123; <span class="number">86</span> &#125;</span><br><span class="line">	<span class="string">&quot;Jim&quot;</span> -&gt; <span class="number">77</span> <span class="comment">// 当只有一行时，花括号可以省略。</span></span><br><span class="line">	<span class="keyword">else</span> -&gt; <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="精确匹配"><a href="#精确匹配" class="headerlink" title="精确匹配"></a>精确匹配</h3><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName(name : String) &#x3D; when(name)&#123;
+	&quot;Tom&quot; -&gt; &#123; 86 &#125;
+	&quot;Jim&quot; -&gt; 77 &#x2F;&#x2F; 当只有一行时，花括号可以省略。
+	else -&gt; 0
+&#125;</code></pre>
 
-<h3 id="类型匹配"><a href="#类型匹配" class="headerlink" title="类型匹配"></a>类型匹配</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">funName</span><span class="params">(num : <span class="type">Number</span>)</span></span> = <span class="keyword">when</span>(num)&#123;</span><br><span class="line">	<span class="keyword">is</span> <span class="built_in">Int</span> -&gt; println(<span class="string">&quot;num is Int&quot;</span>)</span><br><span class="line">	<span class="keyword">is</span> <span class="built_in">Double</span> -&gt; println(<span class="string">&quot;num is Double&quot;</span>)</span><br><span class="line">	<span class="keyword">else</span> -&gt; prinln(<span class="string">&quot;num not support&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="类型匹配"><a href="#类型匹配" class="headerlink" title="类型匹配"></a>类型匹配</h3><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName(num : Number) &#x3D; when(num)&#123;
+	is Int -&gt; println(&quot;num is Int&quot;)
+	is Double -&gt; println(&quot;num is Double&quot;)
+	else -&gt; prinln(&quot;num not support&quot;)
+&#125;</code></pre>
 
 <p><code>is</code> 是 kotlin 的关键字，作用就像 java 中的<code>instanceof</code>一样。</p>
-<h3 id="无参写法"><a href="#无参写法" class="headerlink" title="无参写法"></a>无参写法</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">funName</span><span class="params">(name : <span class="type">String</span>)</span></span> = <span class="keyword">when</span>&#123;</span><br><span class="line">	name == <span class="string">&quot;Tom&quot;</span> -&gt; <span class="number">86</span></span><br><span class="line">	name == <span class="string">&quot;Jim&quot;</span> -&gt; <span class="number">77</span></span><br><span class="line">	name.startsWith(<span class="string">&quot;Mike&quot;</span>) -&gt; <span class="number">100</span></span><br><span class="line">	<span class="keyword">else</span> -&gt; <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="无参写法"><a href="#无参写法" class="headerlink" title="无参写法"></a>无参写法</h3><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName(name : String) &#x3D; when&#123;
+	name &#x3D;&#x3D; &quot;Tom&quot; -&gt; 86
+	name &#x3D;&#x3D; &quot;Jim&quot; -&gt; 77
+	name.startsWith(&quot;Mike&quot;) -&gt; 100
+	else -&gt; 0
+&#125;</code></pre>
 
 <p>可用于模糊匹配。</p>
 <p>kotlin 中比较两个对象是否相同可以用 <code>==</code>， java 中需要用<code>equals</code>函数。</p>
 <h1 id="循环控制"><a href="#循环控制" class="headerlink" title="循环控制"></a>循环控制</h1><h2 id="for-in"><a href="#for-in" class="headerlink" title="for-in"></a>for-in</h2><h3 id="区间定义"><a href="#区间定义" class="headerlink" title="区间定义"></a>区间定义</h3><p>定义一个闭区间：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> range = <span class="number">0.</span><span class="number">.10</span> <span class="comment">// 即[0,10]</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val range &#x3D; 0..10 &#x2F;&#x2F; 即[0,10]</code></pre>
 
 <p>其中<code>..</code>是关键字。</p>
 <p>左闭右开区间：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">range = <span class="number">0</span> until <span class="number">10</span> <span class="comment">// [0,10)</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">range &#x3D; 0 until 10 &#x2F;&#x2F; [0,10)</code></pre>
 
 <p>降序区间：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">range = <span class="number">10</span> downTo <span class="number">0</span> <span class="comment">// [10,0]</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">range &#x3D; 10 downTo 0 &#x2F;&#x2F; [10,0]</code></pre>
 
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">funName</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(i <span class="keyword">in</span> <span class="number">0.</span><span class="number">.10</span>)&#123;</span><br><span class="line">		<span class="comment">// code</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName()&#123;
+	for(i in 0..10)&#123;
+		&#x2F;&#x2F; code
+	&#125;
+&#125;</code></pre>
 
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">funName</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(i <span class="keyword">in</span> range)&#123;</span><br><span class="line">		<span class="comment">// code</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName()&#123;
+	for(i in range)&#123;
+		&#x2F;&#x2F; code
+	&#125;
+&#125;</code></pre>
 
 <h3 id="变量自增"><a href="#变量自增" class="headerlink" title="变量自增"></a>变量自增</h3><p>使用<code>step</code>关键字。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">funName</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(i <span class="keyword">in</span> <span class="number">0.</span><span class="number">.10</span> step <span class="number">2</span>)&#123;</span><br><span class="line">		<span class="comment">// code</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName()&#123;
+	for(i in 0..10 step 2)&#123;
+		&#x2F;&#x2F; code
+	&#125;
+&#125;</code></pre>
 
 <p>每次循环之间 i 自增2。如果不写则默认自增1。</p>
 <h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><p>Person 类：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">	<span class="keyword">var</span> name = <span class="string">&quot;&quot;</span></span><br><span class="line">	<span class="keyword">var</span> age = <span class="number">0</span></span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">eat</span><span class="params">()</span></span> &#123;</span><br><span class="line">		println(name + <span class="string">&quot; is eating. He is &quot;</span> + age + <span class="string">&quot; years old.&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class Person &#123;
+	var name &#x3D; &quot;&quot;
+	var age &#x3D; 0
+	fun eat() &#123;
+		println(name + &quot; is eating. He is &quot; + age + &quot; years old.&quot;)
+	&#125;
+&#125;</code></pre>
 
 <p>实例化：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> p = Person()</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val p &#x3D; Person()</code></pre>
 
 <p>没有像 java 中的<code>new</code>关键字。</p>
 <h1 id="继承与接口"><a href="#继承与接口" class="headerlink" title="继承与接口"></a>继承与接口</h1><p>kotlin 中默认每一个非抽象类都是无法继承的。使用<code>open</code>关键字让类变为可继承。</p>
 <p>抽象类无法创建实例，必须被继承后才能实例化。所以抽象类必须是可继承的。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">open</span> <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">	<span class="comment">// code</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> : <span class="type">Person</span>() &#123;</span><br><span class="line">	<span class="keyword">var</span> sno = <span class="string">&quot;&quot;</span></span><br><span class="line">	<span class="keyword">var</span> grade = <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">open class Person &#123;
+	&#x2F;&#x2F; code
+&#125;
+
+class Student : Person() &#123;
+	var sno &#x3D; &quot;&quot;
+	var grade &#x3D; 0
+&#125;</code></pre>
 
 <p>子类使用<code>:</code>来继承父类。同时实现接口也是这个关键字。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> : <span class="type">Person</span>(), Study &#123;</span><br><span class="line">	<span class="keyword">var</span> sno = <span class="string">&quot;&quot;</span></span><br><span class="line">	<span class="keyword">var</span> grade = <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class Student : Person(), Study &#123;
+	var sno &#x3D; &quot;&quot;
+	var grade &#x3D; 0
+&#125;</code></pre>
 
 <h2 id="单例类"><a href="#单例类" class="headerlink" title="单例类"></a>单例类</h2><p>在内存中只有一个实例的类。</p>
 <p>使用<code>object</code>关键字。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">object</span> Singleton &#123;</span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">singletonFun</span><span class="params">()</span></span> &#123;</span><br><span class="line">		println(<span class="string">&quot;singletonFun&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">object Singleton &#123;
+	fun singletonFun() &#123;
+		println(&quot;singletonFun&quot;)
+	&#125;
+&#125;</code></pre>
 <h2 id="数据类"><a href="#数据类" class="headerlink" title="数据类"></a>数据类</h2><p>数据类是一种只保存数据的类。</p>
 <p>使用<code>data</code>关键字。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data</span> <span class="keyword">class</span> <span class="title class_">Person</span>(<span class="keyword">val</span> name: String, <span class="keyword">val</span> age: <span class="built_in">Int</span>)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">data class Person(val name: String, val age: Int)</code></pre>
 
 <h1 id="空指针检查"><a href="#空指针检查" class="headerlink" title="空指针检查"></a>空指针检查</h1><p>kotlin 在编译时进行空指针检查，而非运行时。</p>
 <p>kotlin 默认所有参数都是非空的，如果想声明一个可为空的变量，需要在变量类型后加<code>?</code>。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name : String? = <span class="literal">null</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">var name : String? &#x3D; null</code></pre>
 
 <p><code>?</code>表示这个变量可以为空。</p>
 <h2 id="判空辅助操作符"><a href="#判空辅助操作符" class="headerlink" title="判空辅助操作符"></a>判空辅助操作符</h2><p><code>?.</code>：如果对象为空则返回 null，否则执行后面的操作。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(a != <span class="literal">null</span>)&#123;</span><br><span class="line">	a.method()</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	<span class="literal">null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">if(a !&#x3D; null)&#123;
+	a.method()
+&#125;else&#123;
+	null
+&#125;</code></pre>
 <p>等价于：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a?.method()</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">a?.method()</code></pre>
 
 <hr>
 <p><code>?:</code>：如果对象为空则返回后面的值。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> c = <span class="keyword">if</span>(a != <span class="literal">null</span>)&#123;</span><br><span class="line">	a</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	<span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val c &#x3D; if(a !&#x3D; null)&#123;
+	a
+&#125;else&#123;
+	0
+&#125;</code></pre>
 
 <p>等价于：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> c = a ?: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val c &#x3D; a ?: 0</code></pre>
 
 <h2 id="非空断言"><a href="#非空断言" class="headerlink" title="非空断言"></a>非空断言</h2><p><code>!!</code>：强制忽略空指针异常检查。</p>
 <p>如：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> a!!.method()</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val a!!.method()</code></pre>
 
 <p>无论 a 是否为 null ，都会执行<code>method()</code>。</p>
-<h2 id="let-函数实现一次判断"><a href="#let-函数实现一次判断" class="headerlink" title="let 函数实现一次判断"></a>let 函数实现一次判断</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(a == <span class="literal">null</span>)&#123;</span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line">a.method()</span><br><span class="line">a.method2()</span><br></pre></td></tr></table></figure>
+<h2 id="let-函数实现一次判断"><a href="#let-函数实现一次判断" class="headerlink" title="let 函数实现一次判断"></a>let 函数实现一次判断</h2><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">if(a &#x3D;&#x3D; null)&#123;
+	return
+&#125;
+a.method()
+a.method2()</code></pre>
 
 <p>等价于：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a?.let&#123;</span><br><span class="line">	it.method()</span><br><span class="line">	it.method2()</span><br><span class="line">&#125; <span class="comment">// lambda 表达式</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">a?.let&#123;
+	it.method()
+	it.method2()
+&#125; &#x2F;&#x2F; lambda 表达式</code></pre>
 
 <h1 id="标准函数"><a href="#标准函数" class="headerlink" title="标准函数"></a>标准函数</h1><p>指的是 Standard.kt 文件中定义的函数。前面的 <code>let</code> 也是标准函数。</p>
 <h2 id="with"><a href="#with" class="headerlink" title="with"></a>with</h2><p>接收一个对象和一个 lambda 表达式，返回 lambda 表达式的执行结果。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> result = with(obj) &#123;</span><br><span class="line">	<span class="comment">// obj的上下文</span></span><br><span class="line">	<span class="string">&quot;value&quot;</span> <span class="comment">// with函数的返回值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val result &#x3D; with(obj) &#123;
+	&#x2F;&#x2F; obj的上下文
+	&quot;value&quot; &#x2F;&#x2F; with函数的返回值
+&#125;</code></pre>
 
-<h3 id="with-函数应用举例"><a href="#with-函数应用举例" class="headerlink" title="with 函数应用举例"></a>with 函数应用举例</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> list = listOf(<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Banana&quot;</span>, <span class="string">&quot;Orange&quot;</span>, <span class="string">&quot;Pear&quot;</span>, <span class="string">&quot;Grape&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> builder = StringBuilder()</span><br><span class="line">builder.append(<span class="string">&quot;Start eating fruits.\n&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> (fruit <span class="keyword">in</span> list) &#123;</span><br><span class="line">	builder.append(fruit).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line">builder.append(<span class="string">&quot;Ate all fruits.&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> result = builder.toString()</span><br><span class="line">println(result)</span><br></pre></td></tr></table></figure>
+<h3 id="with-函数应用举例"><a href="#with-函数应用举例" class="headerlink" title="with 函数应用举例"></a>with 函数应用举例</h3><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val list &#x3D; listOf(&quot;Apple&quot;, &quot;Banana&quot;, &quot;Orange&quot;, &quot;Pear&quot;, &quot;Grape&quot;)
+val builder &#x3D; StringBuilder()
+builder.append(&quot;Start eating fruits.\n&quot;)
+for (fruit in list) &#123;
+	builder.append(fruit).append(&quot;\n&quot;)
+&#125;
+builder.append(&quot;Ate all fruits.&quot;)
+val result &#x3D; builder.toString()
+println(result)</code></pre>
 
 <p>输出：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Start eating fruits.</span><br><span class="line">Apple</span><br><span class="line">Banana</span><br><span class="line">Orange</span><br><span class="line">Pear</span><br><span class="line">Grape</span><br><span class="line">Ate all fruits.</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">Start eating fruits.
+Apple
+Banana
+Orange
+Pear
+Grape
+Ate all fruits.</code></pre>
 
 <p>使用<code>with</code>函数：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> list = listOf(<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Banana&quot;</span>, <span class="string">&quot;Orange&quot;</span>, <span class="string">&quot;Pear&quot;</span>, <span class="string">&quot;Grape&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> result = with(StringBuilder()) &#123;</span><br><span class="line">	append(<span class="string">&quot;Start eating fruits.\n&quot;</span>)</span><br><span class="line">	<span class="keyword">for</span> (fruit <span class="keyword">in</span> list) &#123;</span><br><span class="line">		append(fruit).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	append(<span class="string">&quot;Ate all fruits.&quot;</span>)</span><br><span class="line">	toString()</span><br><span class="line">&#125;</span><br><span class="line">println(result)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val list &#x3D; listOf(&quot;Apple&quot;, &quot;Banana&quot;, &quot;Orange&quot;, &quot;Pear&quot;, &quot;Grape&quot;)
+val result &#x3D; with(StringBuilder()) &#123;
+	append(&quot;Start eating fruits.\n&quot;)
+	for (fruit in list) &#123;
+		append(fruit).append(&quot;\n&quot;)
+	&#125;
+	append(&quot;Ate all fruits.&quot;)
+	toString()
+&#125;
+println(result)</code></pre>
 
 <p>with 中传入了 StringBuilder 实例，这样上下文就是 StringBuilder 实例，可以直接调用 append 方法。with 函数的返回值是最后一行代码的返回值，即 toString() 方法的返回值。</p>
 <h2 id="run"><a href="#run" class="headerlink" title="run"></a>run</h2><p>run 函数在对象的基础上调用，接受一个 lambda 表达式作为参数，返回值是 lambda 表达式的执行结果。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> result = obj.run &#123;</span><br><span class="line">	<span class="comment">// obj的上下文</span></span><br><span class="line">	<span class="string">&quot;value&quot;</span> <span class="comment">// run函数的返回值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val result &#x3D; obj.run &#123;
+	&#x2F;&#x2F; obj的上下文
+	&quot;value&quot; &#x2F;&#x2F; run函数的返回值
+&#125;</code></pre>
 
 <p>那么<a href="#with-%E5%87%BD%E6%95%B0%E5%BA%94%E7%94%A8%E4%B8%BE%E4%BE%8B">with函数的例子</a>可以改写为：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> list = listOf(<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Banana&quot;</span>, <span class="string">&quot;Orange&quot;</span>, <span class="string">&quot;Pear&quot;</span>, <span class="string">&quot;Grape&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> result = StringBuilder().run &#123;</span><br><span class="line">	append(<span class="string">&quot;Start eating fruits.\n&quot;</span>)</span><br><span class="line">	<span class="keyword">for</span> (fruit <span class="keyword">in</span> list) &#123;</span><br><span class="line">		append(fruit).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	append(<span class="string">&quot;Ate all fruits.&quot;</span>)</span><br><span class="line">	toString()</span><br><span class="line">&#125;</span><br><span class="line">println(result)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val list &#x3D; listOf(&quot;Apple&quot;, &quot;Banana&quot;, &quot;Orange&quot;, &quot;Pear&quot;, &quot;Grape&quot;)
+val result &#x3D; StringBuilder().run &#123;
+	append(&quot;Start eating fruits.\n&quot;)
+	for (fruit in list) &#123;
+		append(fruit).append(&quot;\n&quot;)
+	&#125;
+	append(&quot;Ate all fruits.&quot;)
+	toString()
+&#125;
+println(result)</code></pre>
 
 <h2 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h2><p>apply 函数和 run 函数很相似，也是在对象的基础上调用 lambda 表达式，但 apply 函数返回的是对象本身。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> result = obj.apply &#123;</span><br><span class="line">	<span class="comment">// obj的上下文</span></span><br><span class="line">	<span class="string">&quot;value&quot;</span> <span class="comment">// apply函数的返回值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val result &#x3D; obj.apply &#123;
+	&#x2F;&#x2F; obj的上下文
+	&quot;value&quot; &#x2F;&#x2F; apply函数的返回值
+&#125;</code></pre>
 
 <p>改写<a href="#with-%E5%87%BD%E6%95%B0%E5%BA%94%E7%94%A8%E4%B8%BE%E4%BE%8B">with函数的例子</a>：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> list = listOf(<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Banana&quot;</span>, <span class="string">&quot;Orange&quot;</span>, <span class="string">&quot;Pear&quot;</span>, <span class="string">&quot;Grape&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> result = StringBuilder().apply &#123;</span><br><span class="line">	append(<span class="string">&quot;Start eating fruits.\n&quot;</span>)</span><br><span class="line">	<span class="keyword">for</span> (fruit <span class="keyword">in</span> list) &#123;</span><br><span class="line">		append(fruit).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	append(<span class="string">&quot;Ate all fruits.&quot;</span>)</span><br><span class="line">&#125;.toString() <span class="comment">// 注意这里的 toString() 方法，是 StringBuilder.toString()</span></span><br><span class="line">println(result)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val list &#x3D; listOf(&quot;Apple&quot;, &quot;Banana&quot;, &quot;Orange&quot;, &quot;Pear&quot;, &quot;Grape&quot;)
+val result &#x3D; StringBuilder().apply &#123;
+	append(&quot;Start eating fruits.\n&quot;)
+	for (fruit in list) &#123;
+		append(fruit).append(&quot;\n&quot;)
+	&#125;
+	append(&quot;Ate all fruits.&quot;)
+&#125;.toString() &#x2F;&#x2F; 注意这里的 toString() 方法，是 StringBuilder.toString()
+println(result)</code></pre>
 
 <h1 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h1><p>kotlin 中没有静态方法的概念，但可以通过单例类或是伴生对象来实现。</p>
-<h2 id="单例类-1"><a href="#单例类-1" class="headerlink" title="单例类"></a>单例类</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">object</span> Utils &#123;</span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">doAction</span><span class="params">()</span></span> &#123;</span><br><span class="line">		println(<span class="string">&quot;do action&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="单例类-1"><a href="#单例类-1" class="headerlink" title="单例类"></a>单例类</h2><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">object Utils &#123;
+	fun doAction() &#123;
+		println(&quot;do action&quot;)
+	&#125;
+&#125;</code></pre>
 
 <p>调用：<code>Utils.doAction()</code></p>
 <p>使用单例类会使得类内所有方法都是静态方法。</p>
-<h2 id="伴生对象"><a href="#伴生对象" class="headerlink" title="伴生对象"></a>伴生对象</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Utils</span> &#123;</span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">doAction1</span><span class="params">()</span></span> &#123;</span><br><span class="line">		println(<span class="string">&quot;do action1&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">companion</span> <span class="keyword">object</span> &#123;</span><br><span class="line">		<span class="function"><span class="keyword">fun</span> <span class="title">doAction2</span><span class="params">()</span></span> &#123;</span><br><span class="line">			println(<span class="string">&quot;do action2&quot;</span>)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="伴生对象"><a href="#伴生对象" class="headerlink" title="伴生对象"></a>伴生对象</h2><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class Utils &#123;
+	fun doAction1() &#123;
+		println(&quot;do action1&quot;)
+	&#125;
+	companion object &#123;
+		fun doAction2() &#123;
+			println(&quot;do action2&quot;)
+		&#125;
+	&#125;
+&#125;</code></pre>
 
 <p>调用：<code>Utils.doAction2()</code></p>
 <p>对于一个普通类，伴生对象中的方法是静态方法，而类中的方法是实例方法。并且 kotlin 保证伴生对象的唯一性。</p>
 <h2 id="真正的静态方法"><a href="#真正的静态方法" class="headerlink" title="真正的静态方法"></a>真正的静态方法</h2><h3 id="JvmStatic-注解"><a href="#JvmStatic-注解" class="headerlink" title="@JvmStatic 注解"></a>@JvmStatic 注解</h3><p>kotlin 中的真正的静态方法是使用<code>@JvmStatic</code>注解。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Utils</span> &#123;</span><br><span class="line">	<span class="keyword">companion</span> <span class="keyword">object</span> &#123;</span><br><span class="line">		<span class="meta">@JvmStatic</span></span><br><span class="line">		<span class="function"><span class="keyword">fun</span> <span class="title">doAction</span><span class="params">()</span></span> &#123;</span><br><span class="line">			println(<span class="string">&quot;do action&quot;</span>)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class Utils &#123;
+	companion object &#123;
+		@JvmStatic
+		fun doAction() &#123;
+			println(&quot;do action&quot;)
+		&#125;
+	&#125;
+&#125;</code></pre>
 
 <p>注意， @JvmStatic 注解只能用在伴生对象中或者单例类中的方法上。</p>
 <h3 id="顶层方法"><a href="#顶层方法" class="headerlink" title="顶层方法"></a>顶层方法</h3><p>顶层方法指的是那些没有定义在任何类中的方法。</p>
 <p>想要定义顶层方法，需要在 <strong>kotlin 文件</strong>中直接定义函数，而不是定义在类中。（参考<a href="#hello-kotlin">hello kotlin</a>）</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Utils.kt</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">doAction</span><span class="params">()</span></span> &#123;</span><br><span class="line">	println(<span class="string">&quot;do action&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">&#x2F;&#x2F; Utils.kt
+fun doAction() &#123;
+	println(&quot;do action&quot;)
+&#125;</code></pre>
 
 <p>如果是在 java 中调用这个方法，需要使用类名调用。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Java</span></span><br><span class="line">UtilsKt.doAction();</span><br><span class="line"><span class="comment">// 编译器自动生成一个 UtilsKt 类，其中包含了 doAction 方法</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; Java
+UtilsKt.doAction();
+&#x2F;&#x2F; 编译器自动生成一个 UtilsKt 类，其中包含了 doAction 方法</code></pre>
 
 <p>如果是在 kotlin 中调用，直接调用即可。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Kotlin</span></span><br><span class="line">doAction()</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">&#x2F;&#x2F; Kotlin
+doAction()</code></pre>
 
 
       
@@ -1223,18 +1689,27 @@
 <h2 id="下载配置文件"><a href="#下载配置文件" class="headerlink" title="下载配置文件"></a>下载配置文件</h2><p>打开<a target="_blank" rel="noopener" href="https://www.photoprism.app/plus/kb/quickstart">官方文档</a>，找到<a target="_blank" rel="noopener" href="https://www.photoprism.app/plus/kb/quickstart#:~:text=Step%201%3A%20Customize%20Configuration">Step 1: Customize Configuration 部分</a>，点击 windows 右边的下载链接，下载配置文件 <code>compose.yaml</code> 。</p>
 <h2 id="初始化和启动"><a href="#初始化和启动" class="headerlink" title="初始化和启动"></a>初始化和启动</h2><p>在配置文件的路径下打开 cmd 。注意，接下来的命令会在配置文件的路径下创建 photoPrism 实例（刚开始没注意，放在桌面启动， C 盘差点炸了）。</p>
 <p>依次输入官方提供的两条命令：</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker compose pull</span><br><span class="line">docker compose up -d</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">docker compose pull
+docker compose up -d</code></pre>
 
 <p>第一条命令会下载所需的 image 以及数据库；第二条命令则是以当前配置启动 photoprism 。</p>
 <p>photoPrism 默认运行在<a href="localhost:2342">本地 2342 端口</a>。启动后打开浏览器， 等待界面加载完毕。登录的账号密码为:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">账号：admin</span><br><span class="line">密码：insecure</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">账号：admin
+密码：insecure</code></pre>
 
 <p>后续可以在配置文件中修改：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">environment:</span></span><br><span class="line">    <span class="attr">PHOTOPRISM_ADMIN_USER:</span> <span class="string">&quot;admin&quot;</span></span><br><span class="line">    <span class="attr">PHOTOPRISM_ADMIN_PASSWORD:</span> <span class="string">&quot;insecure&quot;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">environment:
+    PHOTOPRISM_ADMIN_USER: &quot;admin&quot;
+    PHOTOPRISM_ADMIN_PASSWORD: &quot;insecure&quot;</code></pre>
 
 <p>登陆后，点击左边侧边栏中的 Settings ，之后在右上角找到 language ，可以将界面改为中文。</p>
 <h1 id="如何加载已有图片"><a href="#如何加载已有图片" class="headerlink" title="如何加载已有图片"></a>如何加载已有图片</h1><p>打开配置文件，转到95行，可以看到 photoprism 的文件挂载路径。将 <code>~/Photos:/photoprism/originals</code> 其中的 <code>~/Photos</code> 修改为你的照片文件的路径。</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">volumes:</span></span><br><span class="line">    <span class="comment"># &quot;C:/user/username/folder:/photoprism/folder&quot;       # example</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;~/Pictures:/photoprism/originals&quot;</span>                 <span class="comment"># original media files (photos and videos)</span></span><br><span class="line">    <span class="comment"># - &quot;D:/example/family:/photoprism/originals/family&quot; # *additional* media folders can be mounted like this</span></span><br><span class="line">    <span class="comment"># - &quot;E:/:/photoprism/import&quot;                         # *optional* base folder from which files can be imported to originals</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;./storage:/photoprism/storage&quot;</span>                    <span class="comment"># *writable* storage folder for cache, database, and sidecar files (never remove)</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">volumes:
+    # &quot;C:&#x2F;user&#x2F;username&#x2F;folder:&#x2F;photoprism&#x2F;folder&quot;       # example
+    - &quot;~&#x2F;Pictures:&#x2F;photoprism&#x2F;originals&quot;                 # original media files (photos and videos)
+    # - &quot;D:&#x2F;example&#x2F;family:&#x2F;photoprism&#x2F;originals&#x2F;family&quot; # *additional* media folders can be mounted like this
+    # - &quot;E:&#x2F;:&#x2F;photoprism&#x2F;import&quot;                         # *optional* base folder from which files can be imported to originals
+    - &quot;.&#x2F;storage:&#x2F;photoprism&#x2F;storage&quot;                    # *writable* storage folder for cache, database, and sidecar files (never remove)</code></pre>
 
 <p>重新启动 photoPrism （可以在 Docker Desktop 中手动重启）。</p>
 <p>点击侧边栏的资料库，确认顶部 tab 栏的选项卡为索引，点击开始，等待加载完毕即可。加载时间取决于电脑性能以及照片数量。</p>
@@ -1321,19 +1796,20 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>查看当前用户的执行策略：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">get-executionpolicy</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">get-executionpolicy</code></pre>
 
 <p>返回 <code>Restricted</code> （默认）则是无法执行脚本。</p>
 <p>解除限制：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set-executionpolicy</span> remotesigned</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">set-executionpolicy remotesigned</code></pre>
 <p>如果运行后提示：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Windows PowerShell 已成功更新你的执行策略，但在更具体的作业域中定义的策略覆盖该设置了。由于发生覆盖，你的外壳程序将保留当前的有效执行策略受限制。</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">Windows PowerShell 已成功更新你的执行策略，但在更具体的作业域中定义的策略覆盖该设置了。由于发生覆盖，你的外壳程序将保留当前的有效执行策略受限制。</code></pre>
 
 <p>说明当前用户的策略还未更改，继续执行：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> RemoteSigned <span class="literal">-Scope</span> CurrentUser</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">Set-ExecutionPolicy RemoteSigned -Scope CurrentUser</code></pre>
 
 <p>再次查看当前用户的执行策略，发现已更改。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="built_in">get-executionpolicy</span></span><br><span class="line">RemoteSigned</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">&gt; get-executionpolicy
+RemoteSigned</code></pre>
 
 <p>之后就可以执行脚本了。</p>
 <hr>
@@ -1426,18 +1902,20 @@
     <div class="post-body" itemprop="articleBody">
           <p>系统环境： windows11</p>
 <h1 id="安装-hexo"><a href="#安装-hexo" class="headerlink" title="安装 hexo"></a>安装 hexo</h1><p>先决条件： <code>nodejs</code> 和 <code>git</code> 环境，这里不赘述。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install -g hexo-cli</code></pre>
 
 <p>验证是否安装成功：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo -v</code></pre>
 
 <h1 id="本地部署"><a href="#本地部署" class="headerlink" title="本地部署"></a>本地部署</h1><p>初始化：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;floder&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;floder&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo init &lt;floder&gt;
+cd &lt;floder&gt;
+npm install</code></pre>
 
 <p>部署：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo server</code></pre>
 <p>在<a target="_blank" rel="noopener" href="http://localhost:4000/">localhost:4000</a>查看博客界面。</p>
-<h1 id="部署到-github-pages"><a href="#部署到-github-pages" class="headerlink" title="部署到 github pages"></a>部署到 github pages</h1><h2 id="生成-sshkey"><a href="#生成-sshkey" class="headerlink" title="生成 sshkey"></a>生成 sshkey</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -r rsa -C <span class="string">&quot;youremail@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+<h1 id="部署到-github-pages"><a href="#部署到-github-pages" class="headerlink" title="部署到 github pages"></a>部署到 github pages</h1><h2 id="生成-sshkey"><a href="#生成-sshkey" class="headerlink" title="生成 sshkey"></a>生成 sshkey</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ssh-keygen -r rsa -C &quot;youremail@example.com&quot;</code></pre>
 
 <p>一直按回车即可。如果提示 sshkey 已存在，选择覆盖（后果自负）。</p>
 <p>生成的密钥保存在 <code>C:\Users\yourusername\.ssh\id_rsa.pub</code> 这个文件中，下一步要用。</p>
@@ -1446,14 +1924,18 @@
 <p><code>Title</code> 随意填写，<code>Key type</code> 选择 <code>Authentication Key</code> 。用任意文本编辑器打开上一步生成的密钥文件，复制里面所有内容，粘贴到 <code>key</code> 部分。然后点击 <code>Add SSH key</code> 确认。</p>
 <h2 id="填写仓库配置"><a href="#填写仓库配置" class="headerlink" title="填写仓库配置"></a>填写仓库配置</h2><p>回到本地博客的文件夹内，找到 <code>_config.yml</code> 这个文件，打开。</p>
 <p>在文件末尾找到：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">deploy:
+  type: &#39;&#39;</code></pre>
 <p>改成：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">https://github.com/explame/explame.github.io.git</span> <span class="comment"># 你的仓库的 git 链接</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span> <span class="comment"># 也可能是 master ，具体查看自己的仓库。</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">deploy:
+  type: git
+  repository: https:&#x2F;&#x2F;github.com&#x2F;explame&#x2F;explame.github.io.git # 你的仓库的 git 链接
+  branch: main # 也可能是 master ，具体查看自己的仓库。</code></pre>
 
-<h2 id="安装一键部署工具并上传"><a href="#安装一键部署工具并上传" class="headerlink" title="安装一键部署工具并上传"></a>安装一键部署工具并上传</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<h2 id="安装一键部署工具并上传"><a href="#安装一键部署工具并上传" class="headerlink" title="安装一键部署工具并上传"></a>安装一键部署工具并上传</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install hexo-deployer-git --save</code></pre>
 
 <p>清理文件并上传：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo deploy</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo clean &amp;&amp; hexo deploy</code></pre>
 
 <p>片刻之后可以查看名为你的仓库名的URL，看看是否部署成功。</p>
 <p>例子： <a target="_blank" rel="noopener" href="http://yourusername.github.io/">http://yourusername.github.io</a></p>
@@ -1517,6 +1999,9 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js" integrity="sha256-4mJNT2bMXxcc1GCJaxBmMPdmah5ji0Ldnd79DKd1hoM=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-AjM0J5XIbiB590BrznLEgZGLnOQWrt62s3BEq65Q/I0=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha256-9cmf7tcLdXpKsPi/2AWE93PbZpTp4M4tqzFk+lWomjU=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>

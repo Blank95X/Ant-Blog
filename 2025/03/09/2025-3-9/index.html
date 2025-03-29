@@ -17,20 +17,20 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blank95x.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":16,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blank95x.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":16,"offset":12},"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="系统环境： windows11 安装 hexo先决条件： nodejs 和 git 环境，这里不赘述。 1npm install -g hexo-cli  验证是否安装成功： 1hexo -v  本地部署初始化： 123hexo init &lt;floder&gt;cd &lt;floder&gt;npm install  部署： 1hexo server 在localhost:4000查看博客">
+    <meta name="description" content="系统环境： windows11 安装 hexo先决条件： nodejs 和 git 环境，这里不赘述。 npm install -g hexo-cli  验证是否安装成功： hexo -v  本地部署初始化： hexo init &lt;floder&gt; cd &lt;floder&gt; npm install  部署： hexo server 在localhost:4000查看博客界面。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GitHubPages+hexo 部署个人在线博客">
 <meta property="og:url" content="https://blank95x.github.io/2025/03/09/2025-3-9/index.html">
 <meta property="og:site_name" content="Ant&#39;s blog">
-<meta property="og:description" content="系统环境： windows11 安装 hexo先决条件： nodejs 和 git 环境，这里不赘述。 1npm install -g hexo-cli  验证是否安装成功： 1hexo -v  本地部署初始化： 123hexo init &lt;floder&gt;cd &lt;floder&gt;npm install  部署： 1hexo server 在localhost:4000查看博客">
+<meta property="og:description" content="系统环境： windows11 安装 hexo先决条件： nodejs 和 git 环境，这里不赘述。 npm install -g hexo-cli  验证是否安装成功： hexo -v  本地部署初始化： hexo init &lt;floder&gt; cd &lt;floder&gt; npm install  部署： hexo server 在localhost:4000查看博客界面。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-03-09T14:32:34.000Z">
 <meta property="article:modified_time" content="2025-03-15T08:33:51.338Z">
 <meta property="article:author" content="Ant">
-<meta property="article:tag" content="hexo">
 <meta property="article:tag" content="windows">
+<meta property="article:tag" content="hexo">
 <meta property="article:tag" content="github">
 <meta name="twitter:card" content="summary">
 
@@ -244,18 +244,20 @@
     
     <div class="post-body" itemprop="articleBody"><p>系统环境： windows11</p>
 <h1 id="安装-hexo"><a href="#安装-hexo" class="headerlink" title="安装 hexo"></a>安装 hexo</h1><p>先决条件： <code>nodejs</code> 和 <code>git</code> 环境，这里不赘述。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install -g hexo-cli</code></pre>
 
 <p>验证是否安装成功：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo -v</code></pre>
 
 <h1 id="本地部署"><a href="#本地部署" class="headerlink" title="本地部署"></a>本地部署</h1><p>初始化：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;floder&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;floder&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo init &lt;floder&gt;
+cd &lt;floder&gt;
+npm install</code></pre>
 
 <p>部署：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo server</code></pre>
 <p>在<a target="_blank" rel="noopener" href="http://localhost:4000/">localhost:4000</a>查看博客界面。</p>
-<h1 id="部署到-github-pages"><a href="#部署到-github-pages" class="headerlink" title="部署到 github pages"></a>部署到 github pages</h1><h2 id="生成-sshkey"><a href="#生成-sshkey" class="headerlink" title="生成 sshkey"></a>生成 sshkey</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -r rsa -C <span class="string">&quot;youremail@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+<h1 id="部署到-github-pages"><a href="#部署到-github-pages" class="headerlink" title="部署到 github pages"></a>部署到 github pages</h1><h2 id="生成-sshkey"><a href="#生成-sshkey" class="headerlink" title="生成 sshkey"></a>生成 sshkey</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ssh-keygen -r rsa -C &quot;youremail@example.com&quot;</code></pre>
 
 <p>一直按回车即可。如果提示 sshkey 已存在，选择覆盖（后果自负）。</p>
 <p>生成的密钥保存在 <code>C:\Users\yourusername\.ssh\id_rsa.pub</code> 这个文件中，下一步要用。</p>
@@ -264,14 +266,18 @@
 <p><code>Title</code> 随意填写，<code>Key type</code> 选择 <code>Authentication Key</code> 。用任意文本编辑器打开上一步生成的密钥文件，复制里面所有内容，粘贴到 <code>key</code> 部分。然后点击 <code>Add SSH key</code> 确认。</p>
 <h2 id="填写仓库配置"><a href="#填写仓库配置" class="headerlink" title="填写仓库配置"></a>填写仓库配置</h2><p>回到本地博客的文件夹内，找到 <code>_config.yml</code> 这个文件，打开。</p>
 <p>在文件末尾找到：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">deploy:
+  type: &#39;&#39;</code></pre>
 <p>改成：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">https://github.com/explame/explame.github.io.git</span> <span class="comment"># 你的仓库的 git 链接</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span> <span class="comment"># 也可能是 master ，具体查看自己的仓库。</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">deploy:
+  type: git
+  repository: https:&#x2F;&#x2F;github.com&#x2F;explame&#x2F;explame.github.io.git # 你的仓库的 git 链接
+  branch: main # 也可能是 master ，具体查看自己的仓库。</code></pre>
 
-<h2 id="安装一键部署工具并上传"><a href="#安装一键部署工具并上传" class="headerlink" title="安装一键部署工具并上传"></a>安装一键部署工具并上传</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<h2 id="安装一键部署工具并上传"><a href="#安装一键部署工具并上传" class="headerlink" title="安装一键部署工具并上传"></a>安装一键部署工具并上传</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install hexo-deployer-git --save</code></pre>
 
 <p>清理文件并上传：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo deploy</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo clean &amp;&amp; hexo deploy</code></pre>
 
 <p>片刻之后可以查看名为你的仓库名的URL，看看是否部署成功。</p>
 <p>例子： <a target="_blank" rel="noopener" href="http://yourusername.github.io/">http://yourusername.github.io</a></p>
@@ -287,8 +293,8 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
               <a href="/tags/windows/" rel="tag"><i class="fa fa-tag"></i> windows</a>
+              <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
               <a href="/tags/github/" rel="tag"><i class="fa fa-tag"></i> github</a>
           </div>
 
@@ -341,6 +347,9 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js" integrity="sha256-4mJNT2bMXxcc1GCJaxBmMPdmah5ji0Ldnd79DKd1hoM=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-AjM0J5XIbiB590BrznLEgZGLnOQWrt62s3BEq65Q/I0=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha256-9cmf7tcLdXpKsPi/2AWE93PbZpTp4M4tqzFk+lWomjU=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>

@@ -17,20 +17,20 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blank95x.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":16,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blank95x.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":16,"offset":12},"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="后端生成并返回 excel 表格，前端下载后端 Controller ： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647@GetMapping(&quot;&#x2F;excel&#x2F;&#123;id&#125;&quot;)public ResponseEntity&lt;byte[]&amp;">
+    <meta name="description" content="后端生成并返回 excel 表格，前端下载后端 Controller ： @GetMapping(&quot;&#x2F;excel&#x2F;&#123;id&#125;&quot;) public ResponseEntity&lt;byte[]&gt; exportExcel(@PathVariable(&quot;id&quot;) Long id) throws IOException">
 <meta property="og:type" content="article">
 <meta property="og:title" content="开发日记">
 <meta property="og:url" content="https://blank95x.github.io/2025/03/24/%E5%BC%80%E5%8F%91%E6%97%A5%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Ant&#39;s blog">
-<meta property="og:description" content="后端生成并返回 excel 表格，前端下载后端 Controller ： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647@GetMapping(&quot;&#x2F;excel&#x2F;&#123;id&#125;&quot;)public ResponseEntity&lt;byte[]&amp;">
+<meta property="og:description" content="后端生成并返回 excel 表格，前端下载后端 Controller ： @GetMapping(&quot;&#x2F;excel&#x2F;&#123;id&#125;&quot;) public ResponseEntity&lt;byte[]&gt; exportExcel(@PathVariable(&quot;id&quot;) Long id) throws IOException">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blank95x.github.io/3.png">
 <meta property="og:image" content="https://blank95x.github.io/2.png">
 <meta property="og:image" content="https://blank95x.github.io/1.png">
 <meta property="article:published_time" content="2025-03-24T12:04:11.000Z">
-<meta property="article:modified_time" content="2025-03-24T12:21:01.101Z">
+<meta property="article:modified_time" content="2025-03-29T07:47:30.985Z">
 <meta property="article:author" content="Ant">
 <meta property="article:tag" content="springboot">
 <meta property="article:tag" content="java">
@@ -143,7 +143,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF%E7%94%9F%E6%88%90%E5%B9%B6%E8%BF%94%E5%9B%9E-excel-%E8%A1%A8%E6%A0%BC%EF%BC%8C%E5%89%8D%E7%AB%AF%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.</span> <span class="nav-text">后端生成并返回 excel 表格，前端下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF%E8%BF%94%E5%9B%9E%E7%9A%84%E5%AE%9E%E4%BD%93%E7%B1%BB%E5%AD%97%E6%AE%B5%E5%90%8D%E4%B8%8E%E5%AE%9A%E4%B9%89%E7%9A%84%E5%AD%97%E6%AE%B5%E5%90%8D%E4%B8%8D%E4%B8%80%E8%87%B4"><span class="nav-number">2.</span> <span class="nav-text">后端返回的实体类字段名与定义的字段名不一致</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">2.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%92%E6%9F%A5"><span class="nav-number">2.2.</span> <span class="nav-text">排查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3"><span class="nav-number">2.3.</span> <span class="nav-text">解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E7%90%86"><span class="nav-number">2.4.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JsonProperty-%E6%B3%A8%E8%A7%A3"><span class="nav-number">2.5.</span> <span class="nav-text">@JsonProperty 注解</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF%E7%94%9F%E6%88%90%E5%B9%B6%E8%BF%94%E5%9B%9E-excel-%E8%A1%A8%E6%A0%BC%EF%BC%8C%E5%89%8D%E7%AB%AF%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.</span> <span class="nav-text">后端生成并返回 excel 表格，前端下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF%E8%BF%94%E5%9B%9E%E7%9A%84%E5%AE%9E%E4%BD%93%E7%B1%BB%E5%AD%97%E6%AE%B5%E5%90%8D%E4%B8%8E%E5%AE%9A%E4%B9%89%E7%9A%84%E5%AD%97%E6%AE%B5%E5%90%8D%E4%B8%8D%E4%B8%80%E8%87%B4"><span class="nav-number">2.</span> <span class="nav-text">后端返回的实体类字段名与定义的字段名不一致</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">2.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%92%E6%9F%A5"><span class="nav-number">2.2.</span> <span class="nav-text">排查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3"><span class="nav-number">2.3.</span> <span class="nav-text">解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E7%90%86"><span class="nav-number">2.4.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JsonProperty-%E6%B3%A8%E8%A7%A3"><span class="nav-number">2.5.</span> <span class="nav-text">@JsonProperty 注解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#EasyExcel-%E5%AE%9E%E7%8E%B0%E5%88%97%E8%A1%A8%E5%A1%AB%E5%85%85"><span class="nav-number">3.</span> <span class="nav-text">EasyExcel 实现列表填充</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Element-UI-%E5%89%8D%E7%AB%AF%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9%E9%97%AE%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">Element UI 前端时间选择问题</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -216,9 +216,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2025-03-24 20:04:11 / 修改时间：20:21:01" itemprop="dateCreated datePublished" datetime="2025-03-24T20:04:11+08:00">2025-03-24</time>
+      <time title="创建时间：2025-03-24 20:04:11" itemprop="dateCreated datePublished" datetime="2025-03-24T20:04:11+08:00">2025-03-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-29 15:47:30" itemprop="dateModified" datetime="2025-03-29T15:47:30+08:00">2025-03-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -240,13 +246,85 @@
     
     
     <div class="post-body" itemprop="articleBody"><h1 id="后端生成并返回-excel-表格，前端下载"><a href="#后端生成并返回-excel-表格，前端下载" class="headerlink" title="后端生成并返回 excel 表格，前端下载"></a>后端生成并返回 excel 表格，前端下载</h1><p>后端 Controller ：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/excel/&#123;id&#125;&quot;)</span></span><br><span class="line"><span class="keyword">public</span> ResponseEntity&lt;<span class="type">byte</span>[]&gt; exportExcel(<span class="meta">@PathVariable(&quot;id&quot;)</span> Long id) <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// 1. 读取 Excel 模板</span></span><br><span class="line">        <span class="type">ClassPathResource</span> <span class="variable">resource</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ClassPathResource</span>(<span class="string">&quot;template/bridge/bridgeSJ29.xlsx&quot;</span>);</span><br><span class="line">        <span class="type">InputStream</span> <span class="variable">templateInputStream</span> <span class="operator">=</span> resource.getInputStream();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2. 获取数据</span></span><br><span class="line">        <span class="type">BridgeSJ29</span> <span class="variable">excelData</span> <span class="operator">=</span> bridgeSJ29Service.selectBridgeSJ29ById(id);</span><br><span class="line">        <span class="keyword">if</span> (excelData == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> ResponseEntity.notFound().build();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 处理时间格式</span></span><br><span class="line">        <span class="comment">// code...</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3. 使用 ByteArrayOutputStream 代替本地文件</span></span><br><span class="line">        <span class="type">ByteArrayOutputStream</span> <span class="variable">outputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ByteArrayOutputStream</span>();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 4. 使用 EasyExcel 进行填充</span></span><br><span class="line">        EasyExcel.write(outputStream)</span><br><span class="line">                .withTemplate(templateInputStream) <span class="comment">// 绑定模板</span></span><br><span class="line">                .sheet()  <span class="comment">// 选择第一个 Sheet</span></span><br><span class="line">                .doFill(excelData); <span class="comment">// 填充数据</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 5. 关闭流</span></span><br><span class="line">        templateInputStream.close();</span><br><span class="line">        outputStream.close();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 6. 获取字节数组</span></span><br><span class="line">        <span class="type">byte</span>[] excelBytes = outputStream.toByteArray();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 7. 设置 HTTP 头</span></span><br><span class="line">        <span class="type">HttpHeaders</span> <span class="variable">headers</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HttpHeaders</span>();</span><br><span class="line">        headers.add(HttpHeaders.CONTENT_DISPOSITION, <span class="string">&quot;attachment; filename=bridgeSJ29_&quot;</span> + id + <span class="string">&quot;.xlsx&quot;</span>);</span><br><span class="line">        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);</span><br><span class="line">        headers.setContentLength(excelBytes.length);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 8. 返回字节数组，而不是 ByteArrayResource</span></span><br><span class="line">        <span class="keyword">return</span> ResponseEntity.ok()</span><br><span class="line">                .headers(headers)</span><br><span class="line">                .body(excelBytes);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        <span class="keyword">return</span> ResponseEntity.status(<span class="number">500</span>).build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">@GetMapping(&quot;&#x2F;excel&#x2F;&#123;id&#125;&quot;)
+public ResponseEntity&lt;byte[]&gt; exportExcel(@PathVariable(&quot;id&quot;) Long id) throws IOException &#123;
+    try &#123;
+        &#x2F;&#x2F; 1. 读取 Excel 模板
+        ClassPathResource resource &#x3D; new ClassPathResource(&quot;template&#x2F;bridge&#x2F;bridgeSJ29.xlsx&quot;);
+        InputStream templateInputStream &#x3D; resource.getInputStream();
+
+        &#x2F;&#x2F; 2. 获取数据
+        BridgeSJ29 excelData &#x3D; bridgeSJ29Service.selectBridgeSJ29ById(id);
+        if (excelData &#x3D;&#x3D; null) &#123;
+            return ResponseEntity.notFound().build();
+        &#125;
+
+        &#x2F;&#x2F; 处理时间格式
+        &#x2F;&#x2F; code...
+
+        &#x2F;&#x2F; 3. 使用 ByteArrayOutputStream 代替本地文件
+        ByteArrayOutputStream outputStream &#x3D; new ByteArrayOutputStream();
+
+        &#x2F;&#x2F; 4. 使用 EasyExcel 进行填充
+        EasyExcel.write(outputStream)
+                .withTemplate(templateInputStream) &#x2F;&#x2F; 绑定模板
+                .sheet()  &#x2F;&#x2F; 选择第一个 Sheet
+                .doFill(excelData); &#x2F;&#x2F; 填充数据
+
+        &#x2F;&#x2F; 5. 关闭流
+        templateInputStream.close();
+        outputStream.close();
+
+        &#x2F;&#x2F; 6. 获取字节数组
+        byte[] excelBytes &#x3D; outputStream.toByteArray();
+
+        &#x2F;&#x2F; 7. 设置 HTTP 头
+        HttpHeaders headers &#x3D; new HttpHeaders();
+        headers.add(HttpHeaders.CONTENT_DISPOSITION, &quot;attachment; filename&#x3D;bridgeSJ29_&quot; + id + &quot;.xlsx&quot;);
+        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+        headers.setContentLength(excelBytes.length);
+
+        &#x2F;&#x2F; 8. 返回字节数组，而不是 ByteArrayResource
+        return ResponseEntity.ok()
+                .headers(headers)
+                .body(excelBytes);
+    &#125; catch (Exception e) &#123;
+        e.printStackTrace();
+        return ResponseEntity.status(500).build();
+    &#125;
+&#125;</code></pre>
 
 <p>这样写返回的就是 excel 文件的 blob 数据，前端直接触发下载即可：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**导出Excel */</span></span><br><span class="line"><span class="keyword">async</span> <span class="title function_">handleExportExcel</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">exportExcel</span>(<span class="variable language_">this</span>.<span class="property">rowid</span>);<span class="comment">// 后端返回的response就是一个blob对象，直接下载即可</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建 Blob 并触发下载</span></span><br><span class="line">    <span class="keyword">const</span> blob = <span class="keyword">new</span> <span class="title class_">Blob</span>([response], &#123; <span class="attr">type</span>: <span class="string">&#x27;application/octet-stream&#x27;</span> &#125;);</span><br><span class="line">    <span class="keyword">const</span> link = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">    link.<span class="property">href</span> = <span class="variable constant_">URL</span>.<span class="title function_">createObjectURL</span>(blob);</span><br><span class="line">    link.<span class="property">download</span> = <span class="string">&#x27;混凝土施工记录表SJ29_&#x27;</span> + <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getTime</span>() + <span class="string">&#x27;_.xlsx&#x27;</span>;  <span class="comment">// 使用固定的文件名</span></span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(link);</span><br><span class="line">    link.<span class="title function_">click</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 清理Url对象</span></span><br><span class="line">    <span class="variable constant_">URL</span>.<span class="title function_">revokeObjectURL</span>(link.<span class="property">href</span>);</span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">removeChild</span>(link);</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">$message</span>.<span class="title function_">success</span>(<span class="string">&#x27;Excel 下载成功！&#x27;</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;Excel 下载失败:&#x27;</span>, error);</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">$message</span>.<span class="title function_">error</span>(<span class="string">&#x27;下载失败，请重试！&#x27;</span>);</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">loading</span> = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;**导出Excel *&#x2F;
+async handleExportExcel() &#123;
+    try &#123;
+    const response &#x3D; await exportExcel(this.rowid);&#x2F;&#x2F; 后端返回的response就是一个blob对象，直接下载即可
+
+    &#x2F;&#x2F; 创建 Blob 并触发下载
+    const blob &#x3D; new Blob([response], &#123; type: &#39;application&#x2F;octet-stream&#39; &#125;);
+    const link &#x3D; document.createElement(&#39;a&#39;);
+    link.href &#x3D; URL.createObjectURL(blob);
+    link.download &#x3D; &#39;混凝土施工记录表SJ29_&#39; + new Date().getTime() + &#39;_.xlsx&#39;;  &#x2F;&#x2F; 使用固定的文件名
+    document.body.appendChild(link);
+    link.click();
+
+    &#x2F;&#x2F; 清理Url对象
+    URL.revokeObjectURL(link.href);
+    document.body.removeChild(link);
+
+    this.$message.success(&#39;Excel 下载成功！&#39;);
+    &#125; catch (error) &#123;
+    console.error(&#39;Excel 下载失败:&#39;, error);
+    this.$message.error(&#39;下载失败，请重试！&#39;);
+    &#125; finally &#123;
+    this.loading &#x3D; false;
+    &#125;
+&#125;,</code></pre>
 
 <p>之前写的时候 ai 一直说需要从 response 中读取头部来获取文件名，但是实际上返回的 response 没有头部。直接就是 blob 数据，连data部分都没有。所以直接下载即可。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建 Blob 并触发下载</span></span><br><span class="line"><span class="keyword">const</span> blob = <span class="keyword">new</span> <span class="title class_">Blob</span>([response], &#123; <span class="attr">type</span>: <span class="string">&#x27;application/octet-stream&#x27;</span> &#125;);</span><br><span class="line"><span class="comment">// 之前一直写的是 response.data ，一直是 undefined</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 创建 Blob 并触发下载
+const blob &#x3D; new Blob([response], &#123; type: &#39;application&#x2F;octet-stream&#39; &#125;);
+&#x2F;&#x2F; 之前一直写的是 response.data ，一直是 undefined</code></pre>
 
 <h1 id="后端返回的实体类字段名与定义的字段名不一致"><a href="#后端返回的实体类字段名与定义的字段名不一致" class="headerlink" title="后端返回的实体类字段名与定义的字段名不一致"></a>后端返回的实体类字段名与定义的字段名不一致</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>数据库中有数据，后端能接收到数据，但是前端web页面的表格中没有显示数据。</p>
 <h2 id="排查"><a href="#排查" class="headerlink" title="排查"></a>排查</h2><ul>
@@ -265,10 +343,116 @@
 <p><img src="/1.png"></p>
 <p>在这个过程中，当首字母之后连续的字母都是大写时，通常会将整个大写部分都视为一个整体，然后统一将首字母小写：</p>
 <p><code>SJ28Item1List -&gt; sj28Item1List</code></p>
-<h2 id="JsonProperty-注解"><a href="#JsonProperty-注解" class="headerlink" title="@JsonProperty 注解"></a><code>@JsonProperty</code> 注解</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.annotation.JsonProperty;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Example</span> &#123;</span><br><span class="line">    <span class="meta">@JsonProperty(&quot;customName&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="JsonProperty-注解"><a href="#JsonProperty-注解" class="headerlink" title="@JsonProperty 注解"></a><code>@JsonProperty</code> 注解</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java">import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class Example &#123;
+    @JsonProperty(&quot;customName&quot;)
+    private String name;
+
+    public String getName() &#123;
+        return name;
+    &#125;
+
+    public void setName(String name) &#123;
+        this.name &#x3D; name;
+    &#125;
+&#125;</code></pre>
 
 <p>在上述代码中，尽管 <code>getter</code> 和 <code>setter</code> 方法遵循 Java Bean 规范，但是由于使用了 <code>@JsonProperty(&quot;customName&quot;)</code> 注解，该属性在序列化后会被命名为 <code>customName</code> 而不是 <code>name</code>。</p>
 <p>总之，一般情况下是根据 Java Bean 规范，由 <code>getter</code> 和 <code>setter</code> 方法名来决定最终返回给前端的字段名，但可以通过注解等方式来进行自定义修改，避免受到方法名的限制。</p>
+<h1 id="EasyExcel-实现列表填充"><a href="#EasyExcel-实现列表填充" class="headerlink" title="EasyExcel 实现列表填充"></a>EasyExcel 实现列表填充</h1><p>这里填充的是图片。模板内的占位符为 <code>&#123;.imageCell&#125;</code> 。</p>
+<p>实体类内的静态类：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">@Getter
+@Setter
+public static class Image &#123;
+    private WriteCellData&lt;Void&gt; imageCell;
+
+    &#x2F;*
+    * 为了实现单张图片的格式化（例如占多个单元格等），使用 ImageData 。
+    * EasyExcel 根据一个 WriteCellData 对象来对一个单元格进行操作。
+    * *&#x2F;
+
+    public Image(URL imageURL) throws IOException &#123;
+        this.imageCell &#x3D; createWriteCellData(imageURL);
+    &#125;
+
+    private WriteCellData&lt;Void&gt; createWriteCellData(URL url) throws IOException &#123;
+        WriteCellData&lt;Void&gt; cellData &#x3D; new WriteCellData&lt;&gt;(); &#x2F;&#x2F; 单元格操作对象
+        ImageData imageData &#x3D; new ImageData(); &#x2F;&#x2F; 图片数据对象
+
+        imageData.setImage(downloadImage(url));
+        imageData.setImageType(ImageData.ImageType.PICTURE_TYPE_PNG);
+
+        imageData.setRelativeFirstRowIndex(0);&#x2F;&#x2F; 距离占位符单元格 0 行
+        imageData.setRelativeFirstColumnIndex(0); &#x2F;&#x2F; 距离占位符单元格 0 列
+        &#x2F;&#x2F; 以上两句可以不写，毕竟本来就要填充到占位符的地方
+
+        imageData.setRelativeLastRowIndex(0); &#x2F;&#x2F; 图片占 1 行
+        imageData.setRelativeLastColumnIndex(1); &#x2F;&#x2F; 图片横向占 2 列
+
+        cellData.setImageDataList(List.of(imageData));&#x2F;&#x2F; 将图片数据对象放入一个不可变列表中，并将这个列表返回给单元格操作对象
+
+        return cellData;
+    &#125;
+
+    private byte[] downloadImage(URL url) throws IOException &#123;
+        &#x2F;&#x2F; 下载图片保存为二进制文件
+    &#125;
+&#125;</code></pre>
+
+<p>填充列表</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 构建 ExcelWriter 对象，并禁用自动关闭流，实现多次操作
+ExcelWriter excelWriter &#x3D; EasyExcel.write(outputStream)
+        .withTemplate(templateInputStream)
+        .autoCloseStream(false)
+        .build();
+
+&#x2F;&#x2F; 构建默认的 WriteSheet（这里假设只有一个 sheet）
+WriteSheet sheet &#x3D; EasyExcel.writerSheet().build();
+
+&#x2F;&#x2F; 使用 List&lt;Image&gt; 让 EasyExcel 按行填充
+List&lt;SJ24.Image&gt; imageList &#x3D; new ArrayList&lt;&gt;();
+imageList.add(new SJ24.Image(new URL(excelData.getCrackDistributionMap15()))); &#x2F;&#x2F; 第一张图片
+imageList.add(new SJ24.Image(new URL(excelData.getCrackDistributionMap25()))); &#x2F;&#x2F; 第二张图片
+excelWriter.fill(imageList, sheet);
+
+&#x2F;&#x2F; 填充文字数据
+excelWriter.fill(excelData,sheet);
+
+&#x2F;&#x2F; 结束写入，刷新数据到流中
+excelWriter.finish();</code></pre>
+
+<p>参考文档：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://easyexcel.opensource.alibaba.com/docs/current/quickstart/fill#%E5%A1%AB%E5%85%85%E5%88%97%E8%A1%A8">EasyExcel 官方文档</a></li>
+</ul>
+<h1 id="Element-UI-前端时间选择问题"><a href="#Element-UI-前端时间选择问题" class="headerlink" title="Element UI 前端时间选择问题"></a>Element UI 前端时间选择问题</h1><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;el-form-item label&#x3D;&quot;施工日期&quot; prop&#x3D;&quot;constructionTime&quot;&gt;
+    &lt;el-date-picker clearable v-model&#x3D;&quot;form.constructionTime&quot; type&#x3D;&quot;date&quot; placeholder&#x3D;&quot;请选择施工日期&quot;
+    format&#x3D;&quot;yyyy&#x2F;MM&#x2F;dd&quot; value-format&#x3D;&quot;yyyy&#x2F;MM&#x2F;dd&quot; &#x2F;&gt;
+&lt;&#x2F;el-form-item&gt;
+
+&lt;el-form-item label&#x3D;&quot;开始时间&quot; prop&#x3D;&quot;startTime&quot;&gt;
+    &lt;el-time-picker clearable v-model&#x3D;&quot;form.startTime&quot; placeholder&#x3D;&quot;请选择开始时间&quot; disabled-seconds format&#x3D;&quot;H:mm&quot;
+    value-format&#x3D;&quot;H:mm&quot; &#x2F;&gt;
+&lt;&#x2F;el-form-item&gt;
+
+&lt;el-form-item label&#x3D;&quot;结束时间&quot; prop&#x3D;&quot;endTime&quot;&gt;
+    &lt;el-time-picker clearable v-model&#x3D;&quot;form.endTime&quot; placeholder&#x3D;&quot;请选择结束时间&quot; disabled-seconds format&#x3D;&quot;H:mm&quot;
+    value-format&#x3D;&quot;H:mm&quot; &#x2F;&gt;
+&lt;&#x2F;el-form-item&gt;</code></pre>
+
+<p>以<strong>施工日期</strong>字段为例，因为设置了 <code>value-format</code> 属性，所以若<strong>数据库里</strong>的对应字段的格式与<strong>该属性规定</strong>的格式不符，前端选择时就会报错。</p>
+<p>比如数据库返回的字段值是 <code>yyyy-MM-dd</code> ， <code>value-format</code> 属性设置为 <code>yyyy/MM/dd</code> ，则在操作这个组件的时候就会报错：</p>
+<pre class="line-numbers language-none"><code class="language-none">TypeError: date.getFullYear is not a function ...
+TypeError: date.getHours is not a function ...
+...</code></pre>
+
+<p>为什么是 <code>date</code> ？可能是组件无法解析绑定值的格式的时候默认解析为 <code>Date</code> 对象了吧。</p>
+<p>所以选择将数据库中有关时间的字段设置为 <code>varchar</code> 类型，方便更改格式。（ <code>date</code> 类型的字段的格式只能是 <code>yyyy-MM-dd</code> ）</p>
+<p>参考文档：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://element.eleme.cn/#/zh-CN/component/date-picker#ri-qi-ge-shi">Element UI 官方文档</a></li>
+</ul>
 
     </div>
 
@@ -331,6 +515,9 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js" integrity="sha256-4mJNT2bMXxcc1GCJaxBmMPdmah5ji0Ldnd79DKd1hoM=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-AjM0J5XIbiB590BrznLEgZGLnOQWrt62s3BEq65Q/I0=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha256-9cmf7tcLdXpKsPi/2AWE93PbZpTp4M4tqzFk+lWomjU=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>

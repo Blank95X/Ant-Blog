@@ -17,14 +17,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blank95x.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":16,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blank95x.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":16,"offset":12},"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Intent 意图 在 Acitvity 之间跳转 传递数据 启动其他应用的 Activity  能被外部启动的 Activity 都需要在 AndroidManifest.xml 文件中注册 android:exported&#x3D;&quot;true&quot; 属性。 显式 Intent12val intent &#x3D; Intent(this, TargetActivity::class.java)s">
+    <meta name="description" content="Intent 意图 在 Acitvity 之间跳转 传递数据 启动其他应用的 Activity  能被外部启动的 Activity 都需要在 AndroidManifest.xml 文件中注册 android:exported&#x3D;&quot;true&quot; 属性。 显式 Intentval intent &#x3D; Intent(this, TargetActivity::class.jav">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Intent 意图">
 <meta property="og:url" content="https://blank95x.github.io/2025/03/15/Intent/index.html">
 <meta property="og:site_name" content="Ant&#39;s blog">
-<meta property="og:description" content="Intent 意图 在 Acitvity 之间跳转 传递数据 启动其他应用的 Activity  能被外部启动的 Activity 都需要在 AndroidManifest.xml 文件中注册 android:exported&#x3D;&quot;true&quot; 属性。 显式 Intent12val intent &#x3D; Intent(this, TargetActivity::class.java)s">
+<meta property="og:description" content="Intent 意图 在 Acitvity 之间跳转 传递数据 启动其他应用的 Activity  能被外部启动的 Activity 都需要在 AndroidManifest.xml 文件中注册 android:exported&#x3D;&quot;true&quot; 属性。 显式 Intentval intent &#x3D; Intent(this, TargetActivity::class.jav">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-03-15T14:20:25.000Z">
 <meta property="article:modified_time" content="2025-03-20T13:10:51.636Z">
@@ -251,7 +251,8 @@
 <li>启动其他应用的 Activity</li>
 </ul>
 <p>能被外部启动的 Activity 都需要在 AndroidManifest.xml 文件中注册 <code>android:exported=&quot;true&quot;</code> 属性。</p>
-<h2 id="显式-Intent"><a href="#显式-Intent" class="headerlink" title="显式 Intent"></a>显式 Intent</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> intent = Intent(<span class="keyword">this</span>, TargetActivity::<span class="keyword">class</span>.java)</span><br><span class="line">startActivity(intent)</span><br></pre></td></tr></table></figure>
+<h2 id="显式-Intent"><a href="#显式-Intent" class="headerlink" title="显式 Intent"></a>显式 Intent</h2><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val intent &#x3D; Intent(this, TargetActivity::class.java)
+startActivity(intent)</code></pre>
 
 <p><code>Intent</code> 构造函数的参数：</p>
 <ol>
@@ -260,20 +261,32 @@
 </ol>
 <p><code>SecondActivity::class.java</code> 相当于 java 中 <code>SecondActivity.class</code> 的写法。</p>
 <h2 id="隐式-Intent"><a href="#隐式-Intent" class="headerlink" title="隐式 Intent"></a>隐式 Intent</h2><p>如果一个活动可以被隐式调用，需要在 AndroidManifest.xml 文件中注册：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">&quot;.TargetActivity&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;com.example.activitytest.ACTION_START&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.category.DEFAULT&quot;</span> /&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- &lt;category android:name=&quot;com.example.activitytest.MY_CATEGORY&quot;/&gt; --&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- action 只能有一个， category 可以有多个--&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;activity android:name&#x3D;&quot;.TargetActivity&quot;&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name&#x3D;&quot;com.example.activitytest.ACTION_START&quot; &#x2F;&gt;
+        &lt;category android:name&#x3D;&quot;android.intent.category.DEFAULT&quot; &#x2F;&gt;
+        &lt;!-- &lt;category android:name&#x3D;&quot;com.example.activitytest.MY_CATEGORY&quot;&#x2F;&gt; --&gt;
+        &lt;!-- action 只能有一个， category 可以有多个--&gt;
+    &lt;&#x2F;intent-filter&gt;
+&lt;&#x2F;activity&gt;</code></pre>
 
 <p>调用：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> intent = Intent(<span class="string">&quot;com.example.activitytest.ACTION_START&quot;</span>)</span><br><span class="line">startActivity(intent)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val intent &#x3D; Intent(&quot;com.example.activitytest.ACTION_START&quot;)
+startActivity(intent)</code></pre>
 
 <p>一个 Intent 可以指定一个 action 和多个 category，只有当 action 和 category 全部匹配时，意图才会被响应。</p>
 <h2 id="传递数据"><a href="#传递数据" class="headerlink" title="传递数据"></a>传递数据</h2><p>活动1存放数据：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> intent = Intent(<span class="keyword">this</span>, TargetActivity::<span class="keyword">class</span>.java)</span><br><span class="line">intent.putExtra(<span class="string">&quot;extra_data&quot;</span>, <span class="string">&quot;Hello, TargetActivity&quot;</span>) <span class="comment">// key-value</span></span><br><span class="line">startActivity(intent)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val intent &#x3D; Intent(this, TargetActivity::class.java)
+intent.putExtra(&quot;extra_data&quot;, &quot;Hello, TargetActivity&quot;) &#x2F;&#x2F; key-value
+startActivity(intent)</code></pre>
 
 <p>活动2提取数据：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> extraData = intent.getStringExtra(<span class="string">&quot;extra_data&quot;</span>)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val extraData &#x3D; intent.getStringExtra(&quot;extra_data&quot;)</code></pre>
 
 <h1 id="隐式传递的更多用法"><a href="#隐式传递的更多用法" class="headerlink" title="隐式传递的更多用法"></a>隐式传递的更多用法</h1><p>安卓系统中有一个内置 action <code>Intent.ACTION_VIEW</code> 可以打开浏览器：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> intent = Intent(Intent.ACTION_VIEW)</span><br><span class="line">intent.<span class="keyword">data</span> = Uri.parse(<span class="string">&quot;http://www.baidu.com&quot;</span>) <span class="comment">// 设置网址，可选</span></span><br><span class="line">startActivity(intent)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val intent &#x3D; Intent(Intent.ACTION_VIEW)
+intent.data &#x3D; Uri.parse(&quot;http:&#x2F;&#x2F;www.baidu.com&quot;) &#x2F;&#x2F; 设置网址，可选
+startActivity(intent)</code></pre>
 
 <p>当一个活动在 AndroidManifest.xml 中注册了 action 为 <code>Intent.ACTION_VIEW</code> 时，那么这个活动就可以响应打开网页的请求。</p>
 <p>同时，还可以 <code>intent-filter</code> 标签中再配置一个 <code>data</code> 标签，用于更精确地指定当前 Activity 能够响应的数据。data 标签中主要可以配置以下内容：</p>
@@ -310,15 +323,31 @@
 <p>如果所有配置都正确，但是跳转的时候打开了系统默认的浏览器，将其禁用再尝试是否可以正常接收跳转浏览器的意图。</p>
 </blockquote>
 <h1 id="返回数据给上一个活动"><a href="#返回数据给上一个活动" class="headerlink" title="返回数据给上一个活动"></a>返回数据给上一个活动</h1><p>在父活动中使用 <code>startActivityForResult</code> 方法启动子活动：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> intent = Intent(<span class="keyword">this</span>, TargetActivity::<span class="keyword">class</span>.java)</span><br><span class="line">startActivityForResult(intent, <span class="number">1</span>) <span class="comment">// 1 是请求码，用于在之后的回调中判断数据来源</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val intent &#x3D; Intent(this, TargetActivity::class.java)
+startActivityForResult(intent, 1) &#x2F;&#x2F; 1 是请求码，用于在之后的回调中判断数据来源</code></pre>
 
 <p>子活动返回数据：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 主逻辑</span></span><br><span class="line"><span class="keyword">val</span> intent = Intent()</span><br><span class="line">intent.putExtra(<span class="string">&quot;data_return&quot;</span>, <span class="string">&quot;Hello, MainActivity&quot;</span>)</span><br><span class="line">setResult(RESULT_OK, intent)</span><br><span class="line">finish() <span class="comment">// 销毁当前活动</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">&#x2F;&#x2F; 主逻辑
+val intent &#x3D; Intent()
+intent.putExtra(&quot;data_return&quot;, &quot;Hello, MainActivity&quot;)
+setResult(RESULT_OK, intent)
+finish() &#x2F;&#x2F; 销毁当前活动</code></pre>
 
 <p>父活动接收数据：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onActivityResult</span><span class="params">(requestCode: <span class="type">Int</span>, resultCode: <span class="type">Int</span>, <span class="keyword">data</span>: <span class="type">Intent</span>?)</span></span> &#123;</span><br><span class="line">    <span class="keyword">when</span> (requestCode) &#123;</span><br><span class="line">        <span class="number">1</span> -&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> (resultCode == Activity.RESULT_OK) &#123;</span><br><span class="line">                <span class="keyword">val</span> returnedData = <span class="keyword">data</span>?.getStringExtra(<span class="string">&quot;data_return&quot;</span>)</span><br><span class="line">                Log.d(<span class="string">&quot;MainActivity&quot;</span>, <span class="string">&quot;returned data is <span class="variable">$returnedData</span>&quot;</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) &#123;
+    when (requestCode) &#123;
+        1 -&gt; &#123;
+            if (resultCode &#x3D;&#x3D; Activity.RESULT_OK) &#123;
+                val returnedData &#x3D; data?.getStringExtra(&quot;data_return&quot;)
+                Log.d(&quot;MainActivity&quot;, &quot;returned data is $returnedData&quot;)
+            &#125;
+        &#125;
+    &#125;
+&#125;</code></pre>
 <p>通过返回键返回时，子活动中重写 <code>onBackPressed</code> 方法即可：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onBackPressed</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">// code...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onBackPressed() &#123;
+    &#x2F;&#x2F; code...
+&#125;</code></pre>
 
     </div>
 
@@ -381,6 +410,9 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js" integrity="sha256-4mJNT2bMXxcc1GCJaxBmMPdmah5ji0Ldnd79DKd1hoM=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-AjM0J5XIbiB590BrznLEgZGLnOQWrt62s3BEq65Q/I0=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha256-9cmf7tcLdXpKsPi/2AWE93PbZpTp4M4tqzFk+lWomjU=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
