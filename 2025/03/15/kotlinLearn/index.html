@@ -15,16 +15,16 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blank95x.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":16,"offset":12},"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blank95x.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":16,"offset":12},"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="hello kotlin在 IDEA 中新建一个 kotlin 项目，添加“ kotlin 文件”（注意不是类），输入以下代码，然后构建并运行，即可在终端看到输出。 fun main()&#123; 	println(&quot;hello kotlin&quot;) &#125;  语句末尾不需要分号。 变量声明kotlin 只有两种变量声明关键字： val a &#x3D; 10 &#x2F;">
+    <meta name="description" content="hello kotlin 在 IDEA 中新建一个 kotlin 项目，添加“ kotlin 文件”（注意不是类），输入以下代码，然后构建并运行，即可在终端看到输出。 fun main()&#123; 	println(&quot;hello kotlin&quot;) &#125; 语句末尾不需要分号。  变量声明 kotlin 只有两种变量声明关键字： val a &#x3D; 10 &amp;#x">
 <meta property="og:type" content="article">
 <meta property="og:title" content="kotlin 基本语法">
 <meta property="og:url" content="https://blank95x.github.io/2025/03/15/kotlinLearn/index.html">
 <meta property="og:site_name" content="Ant&#39;s blog">
-<meta property="og:description" content="hello kotlin在 IDEA 中新建一个 kotlin 项目，添加“ kotlin 文件”（注意不是类），输入以下代码，然后构建并运行，即可在终端看到输出。 fun main()&#123; 	println(&quot;hello kotlin&quot;) &#125;  语句末尾不需要分号。 变量声明kotlin 只有两种变量声明关键字： val a &#x3D; 10 &#x2F;">
+<meta property="og:description" content="hello kotlin 在 IDEA 中新建一个 kotlin 项目，添加“ kotlin 文件”（注意不是类），输入以下代码，然后构建并运行，即可在终端看到输出。 fun main()&#123; 	println(&quot;hello kotlin&quot;) &#125; 语句末尾不需要分号。  变量声明 kotlin 只有两种变量声明关键字： val a &#x3D; 10 &amp;#x">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-03-15T08:32:30.000Z">
 <meta property="article:modified_time" content="2025-03-20T13:58:09.138Z">
@@ -54,7 +54,7 @@
   </noscript>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+<body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
 
   <main class="main">
@@ -138,7 +138,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#hello-kotlin"><span class="nav-number">1.</span> <span class="nav-text">hello kotlin</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E"><span class="nav-number">2.</span> <span class="nav-text">变量声明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E"><span class="nav-number">3.</span> <span class="nav-text">函数声明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E7%B3%96"><span class="nav-number">3.1.</span> <span class="nav-text">语法糖</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="nav-number">4.</span> <span class="nav-text">流程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#if"><span class="nav-number">4.1.</span> <span class="nav-text">if</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#when"><span class="nav-number">4.2.</span> <span class="nav-text">when</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B2%BE%E7%A1%AE%E5%8C%B9%E9%85%8D"><span class="nav-number">4.2.1.</span> <span class="nav-text">精确匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E5%8C%B9%E9%85%8D"><span class="nav-number">4.2.2.</span> <span class="nav-text">类型匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E5%8F%82%E5%86%99%E6%B3%95"><span class="nav-number">4.2.3.</span> <span class="nav-text">无参写法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6"><span class="nav-number">5.</span> <span class="nav-text">循环控制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#for-in"><span class="nav-number">5.1.</span> <span class="nav-text">for-in</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E9%97%B4%E5%AE%9A%E4%B9%89"><span class="nav-number">5.1.1.</span> <span class="nav-text">区间定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-number">5.1.2.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E8%87%AA%E5%A2%9E"><span class="nav-number">5.1.3.</span> <span class="nav-text">变量自增</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="nav-number">6.</span> <span class="nav-text">面向对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E4%B8%8E%E6%8E%A5%E5%8F%A3"><span class="nav-number">7.</span> <span class="nav-text">继承与接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E4%BE%8B%E7%B1%BB"><span class="nav-number">7.1.</span> <span class="nav-text">单例类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB"><span class="nav-number">7.2.</span> <span class="nav-text">数据类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A9%BA%E6%8C%87%E9%92%88%E6%A3%80%E6%9F%A5"><span class="nav-number">8.</span> <span class="nav-text">空指针检查</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A4%E7%A9%BA%E8%BE%85%E5%8A%A9%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-number">8.1.</span> <span class="nav-text">判空辅助操作符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E7%A9%BA%E6%96%AD%E8%A8%80"><span class="nav-number">8.2.</span> <span class="nav-text">非空断言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#let-%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E5%88%A4%E6%96%AD"><span class="nav-number">8.3.</span> <span class="nav-text">let 函数实现一次判断</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E5%87%BD%E6%95%B0"><span class="nav-number">9.</span> <span class="nav-text">标准函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#with"><span class="nav-number">9.1.</span> <span class="nav-text">with</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#with-%E5%87%BD%E6%95%B0%E5%BA%94%E7%94%A8%E4%B8%BE%E4%BE%8B"><span class="nav-number">9.1.1.</span> <span class="nav-text">with 函数应用举例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#run"><span class="nav-number">9.2.</span> <span class="nav-text">run</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apply"><span class="nav-number">9.3.</span> <span class="nav-text">apply</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="nav-number">10.</span> <span class="nav-text">静态方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E4%BE%8B%E7%B1%BB-1"><span class="nav-number">10.1.</span> <span class="nav-text">单例类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%B4%E7%94%9F%E5%AF%B9%E8%B1%A1"><span class="nav-number">10.2.</span> <span class="nav-text">伴生对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="nav-number">10.3.</span> <span class="nav-text">真正的静态方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JvmStatic-%E6%B3%A8%E8%A7%A3"><span class="nav-number">10.3.1.</span> <span class="nav-text">@JvmStatic 注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B6%E5%B1%82%E6%96%B9%E6%B3%95"><span class="nav-number">10.3.2.</span> <span class="nav-text">顶层方法</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#hello-kotlin"><span class="nav-number">1.</span> <span class="nav-text"> hello kotlin</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E"><span class="nav-number">2.</span> <span class="nav-text"> 变量声明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E"><span class="nav-number">3.</span> <span class="nav-text"> 函数声明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E7%B3%96"><span class="nav-number">3.1.</span> <span class="nav-text"> 语法糖</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="nav-number">4.</span> <span class="nav-text"> 流程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#if"><span class="nav-number">4.1.</span> <span class="nav-text"> if</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#when"><span class="nav-number">4.2.</span> <span class="nav-text"> when</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B2%BE%E7%A1%AE%E5%8C%B9%E9%85%8D"><span class="nav-number">4.2.1.</span> <span class="nav-text"> 精确匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E5%8C%B9%E9%85%8D"><span class="nav-number">4.2.2.</span> <span class="nav-text"> 类型匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E5%8F%82%E5%86%99%E6%B3%95"><span class="nav-number">4.2.3.</span> <span class="nav-text"> 无参写法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6"><span class="nav-number">5.</span> <span class="nav-text"> 循环控制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#for-in"><span class="nav-number">5.1.</span> <span class="nav-text"> for-in</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E9%97%B4%E5%AE%9A%E4%B9%89"><span class="nav-number">5.1.1.</span> <span class="nav-text"> 区间定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-number">5.1.2.</span> <span class="nav-text"> 例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E8%87%AA%E5%A2%9E"><span class="nav-number">5.1.3.</span> <span class="nav-text"> 变量自增</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="nav-number">6.</span> <span class="nav-text"> 面向对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E4%B8%8E%E6%8E%A5%E5%8F%A3"><span class="nav-number">7.</span> <span class="nav-text"> 继承与接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E4%BE%8B%E7%B1%BB"><span class="nav-number">7.1.</span> <span class="nav-text"> 单例类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB"><span class="nav-number">7.2.</span> <span class="nav-text"> 数据类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A9%BA%E6%8C%87%E9%92%88%E6%A3%80%E6%9F%A5"><span class="nav-number">8.</span> <span class="nav-text"> 空指针检查</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A4%E7%A9%BA%E8%BE%85%E5%8A%A9%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-number">8.1.</span> <span class="nav-text"> 判空辅助操作符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E7%A9%BA%E6%96%AD%E8%A8%80"><span class="nav-number">8.2.</span> <span class="nav-text"> 非空断言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#let-%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E5%88%A4%E6%96%AD"><span class="nav-number">8.3.</span> <span class="nav-text"> let 函数实现一次判断</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E5%87%BD%E6%95%B0"><span class="nav-number">9.</span> <span class="nav-text"> 标准函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#with"><span class="nav-number">9.1.</span> <span class="nav-text"> with</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#with-%E5%87%BD%E6%95%B0%E5%BA%94%E7%94%A8%E4%B8%BE%E4%BE%8B"><span class="nav-number">9.1.1.</span> <span class="nav-text"> with 函数应用举例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#run"><span class="nav-number">9.2.</span> <span class="nav-text"> run</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apply"><span class="nav-number">9.3.</span> <span class="nav-text"> apply</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="nav-number">10.</span> <span class="nav-text"> 静态方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E4%BE%8B%E7%B1%BB-2"><span class="nav-number">10.1.</span> <span class="nav-text"> 单例类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%B4%E7%94%9F%E5%AF%B9%E8%B1%A1"><span class="nav-number">10.2.</span> <span class="nav-text"> 伴生对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="nav-number">10.3.</span> <span class="nav-text"> 真正的静态方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jvmstatic-%E6%B3%A8%E8%A7%A3"><span class="nav-number">10.3.1.</span> <span class="nav-text"> @JvmStatic 注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B6%E5%B1%82%E6%96%B9%E6%B3%95"><span class="nav-number">10.3.2.</span> <span class="nav-text"> 顶层方法</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -244,36 +244,37 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="hello-kotlin"><a href="#hello-kotlin" class="headerlink" title="hello kotlin"></a>hello kotlin</h1><p>在 IDEA 中新建一个 kotlin 项目，添加“ kotlin 文件”（注意不是类），输入以下代码，然后构建并运行，即可在终端看到输出。</p>
+    <div class="post-body" itemprop="articleBody"><h1 id="hello-kotlin"><a class="markdownIt-Anchor" href="#hello-kotlin"></a> hello kotlin</h1>
+<p>在 IDEA 中新建一个 kotlin 项目，添加“ kotlin 文件”（注意不是类），输入以下代码，然后构建并运行，即可在终端看到输出。</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun main()&#123;
 	println(&quot;hello kotlin&quot;)
 &#125;</code></pre>
-
 <p>语句末尾不需要分号。</p>
-<h1 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h1><p>kotlin 只有两种变量声明关键字：</p>
+<h1 id="变量声明"><a class="markdownIt-Anchor" href="#变量声明"></a> 变量声明</h1>
+<p>kotlin 只有两种变量声明关键字：</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val a &#x3D; 10 &#x2F;&#x2F; 不可变变量
 var b &#x3D; 20 &#x2F;&#x2F; 可变变量</code></pre>
-
 <p>kotlin 可自动推导变量类型。也可显式声明变量类型。</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val a : Int &#x3D; 10 &#x2F;&#x2F; 显式声明
 val a &#x3D; 10 &#x2F;&#x2F; 隐式声明</code></pre>
-
 <p><code>Int</code>为对象类型，而非 java 中的基本数据类型<code>int</code>。 kotlin 完全舍弃了 java 中的基本数据类型，每一个变量都是对象。</p>
-<h1 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h1><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName(param1 : Int , param2 : Int) : Int&#123;
+<h1 id="函数声明"><a class="markdownIt-Anchor" href="#函数声明"></a> 函数声明</h1>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName(param1 : Int , param2 : Int) : Int&#123;
 	&#x2F;&#x2F; code
 	return 0
 &#125;</code></pre>
-
 <ul>
 <li><code>param1 : Int , param2 : Int</code>声明变量名及其类型</li>
 <li><code>: Int</code>声明返回值类型，不声明时返回空。</li>
 </ul>
 <p>两者都是可选的。</p>
-<h2 id="语法糖"><a href="#语法糖" class="headerlink" title="语法糖"></a>语法糖</h2><p>当函数体只有一行时，可写为：</p>
+<h2 id="语法糖"><a class="markdownIt-Anchor" href="#语法糖"></a> 语法糖</h2>
+<p>当函数体只有一行时，可写为：</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName(param1 : Int , param2 : Int) : Int &#x3D; max(param1 : Int , param2 : Int)</code></pre>
-
 <p>这里以<code>max</code>函数为例子，其作用是返回两者中较大的一个。</p>
-<h1 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h1><h2 id="if"><a href="#if" class="headerlink" title="if"></a>if</h2><p>kotlin 中 if 有返回值：条件分支中的最后一行代码的返回值。</p>
+<h1 id="流程控制"><a class="markdownIt-Anchor" href="#流程控制"></a> 流程控制</h1>
+<h2 id="if"><a class="markdownIt-Anchor" href="#if"></a> if</h2>
+<p>kotlin 中 if 有返回值：条件分支中的最后一行代码的返回值。</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName(num1 : Int , num2 : Int) : Int&#123;
 	val value &#x3D; if(num1&gt;num2)&#123;
 		num1
@@ -282,71 +283,69 @@ val a &#x3D; 10 &#x2F;&#x2F; 隐式声明</code></pre>
 	&#125;
 	return value
 &#125;</code></pre>
-
 <p>显然<code>value</code>是多余的，可以直接返回判断体：</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName(num1 : Int , num2 : Int) : if(num1&gt;num2) num1 else num2</code></pre>
-
 <p>这里写成了<a href="#%E8%AF%AD%E6%B3%95%E7%B3%96">语法糖</a>。</p>
 <p>一般 if 语句不止一行，为什么也可以写成语法糖呢？我的理解是，如果函数体中只有一个逻辑块（一个判断流程，一条赋值语句等），就可以写成语法糖。</p>
-<h2 id="when"><a href="#when" class="headerlink" title="when"></a>when</h2><p>作用约等于<code>switch</code>。</p>
+<h2 id="when"><a class="markdownIt-Anchor" href="#when"></a> when</h2>
+<p>作用约等于<code>switch</code>。</p>
 <p>格式：</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">when( ... )&#123;
 	匹配值 -&gt; &#123; 执行逻辑 &#125;
 &#125;</code></pre>
-
-<h3 id="精确匹配"><a href="#精确匹配" class="headerlink" title="精确匹配"></a>精确匹配</h3><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName(name : String) &#x3D; when(name)&#123;
+<h3 id="精确匹配"><a class="markdownIt-Anchor" href="#精确匹配"></a> 精确匹配</h3>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName(name : String) &#x3D; when(name)&#123;
 	&quot;Tom&quot; -&gt; &#123; 86 &#125;
 	&quot;Jim&quot; -&gt; 77 &#x2F;&#x2F; 当只有一行时，花括号可以省略。
 	else -&gt; 0
 &#125;</code></pre>
-
-<h3 id="类型匹配"><a href="#类型匹配" class="headerlink" title="类型匹配"></a>类型匹配</h3><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName(num : Number) &#x3D; when(num)&#123;
+<h3 id="类型匹配"><a class="markdownIt-Anchor" href="#类型匹配"></a> 类型匹配</h3>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName(num : Number) &#x3D; when(num)&#123;
 	is Int -&gt; println(&quot;num is Int&quot;)
 	is Double -&gt; println(&quot;num is Double&quot;)
 	else -&gt; prinln(&quot;num not support&quot;)
 &#125;</code></pre>
-
 <p><code>is</code> 是 kotlin 的关键字，作用就像 java 中的<code>instanceof</code>一样。</p>
-<h3 id="无参写法"><a href="#无参写法" class="headerlink" title="无参写法"></a>无参写法</h3><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName(name : String) &#x3D; when&#123;
+<h3 id="无参写法"><a class="markdownIt-Anchor" href="#无参写法"></a> 无参写法</h3>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName(name : String) &#x3D; when&#123;
 	name &#x3D;&#x3D; &quot;Tom&quot; -&gt; 86
 	name &#x3D;&#x3D; &quot;Jim&quot; -&gt; 77
 	name.startsWith(&quot;Mike&quot;) -&gt; 100
 	else -&gt; 0
 &#125;</code></pre>
-
 <p>可用于模糊匹配。</p>
 <p>kotlin 中比较两个对象是否相同可以用 <code>==</code>， java 中需要用<code>equals</code>函数。</p>
-<h1 id="循环控制"><a href="#循环控制" class="headerlink" title="循环控制"></a>循环控制</h1><h2 id="for-in"><a href="#for-in" class="headerlink" title="for-in"></a>for-in</h2><h3 id="区间定义"><a href="#区间定义" class="headerlink" title="区间定义"></a>区间定义</h3><p>定义一个闭区间：</p>
+<h1 id="循环控制"><a class="markdownIt-Anchor" href="#循环控制"></a> 循环控制</h1>
+<h2 id="for-in"><a class="markdownIt-Anchor" href="#for-in"></a> for-in</h2>
+<h3 id="区间定义"><a class="markdownIt-Anchor" href="#区间定义"></a> 区间定义</h3>
+<p>定义一个闭区间：</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val range &#x3D; 0..10 &#x2F;&#x2F; 即[0,10]</code></pre>
-
 <p>其中<code>..</code>是关键字。</p>
 <p>左闭右开区间：</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">range &#x3D; 0 until 10 &#x2F;&#x2F; [0,10)</code></pre>
-
 <p>降序区间：</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">range &#x3D; 10 downTo 0 &#x2F;&#x2F; [10,0]</code></pre>
-
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName()&#123;
+<h3 id="例子"><a class="markdownIt-Anchor" href="#例子"></a> 例子</h3>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName()&#123;
 	for(i in 0..10)&#123;
 		&#x2F;&#x2F; code
 	&#125;
 &#125;</code></pre>
-
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName()&#123;
 	for(i in range)&#123;
 		&#x2F;&#x2F; code
 	&#125;
 &#125;</code></pre>
-
-<h3 id="变量自增"><a href="#变量自增" class="headerlink" title="变量自增"></a>变量自增</h3><p>使用<code>step</code>关键字。</p>
+<h3 id="变量自增"><a class="markdownIt-Anchor" href="#变量自增"></a> 变量自增</h3>
+<p>使用<code>step</code>关键字。</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun funName()&#123;
 	for(i in 0..10 step 2)&#123;
 		&#x2F;&#x2F; code
 	&#125;
 &#125;</code></pre>
-
 <p>每次循环之间 i 自增2。如果不写则默认自增1。</p>
-<h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><p>Person 类：</p>
+<h1 id="面向对象"><a class="markdownIt-Anchor" href="#面向对象"></a> 面向对象</h1>
+<p>Person 类：</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class Person &#123;
 	var name &#x3D; &quot;&quot;
 	var age &#x3D; 0
@@ -354,12 +353,11 @@ val a &#x3D; 10 &#x2F;&#x2F; 隐式声明</code></pre>
 		println(name + &quot; is eating. He is &quot; + age + &quot; years old.&quot;)
 	&#125;
 &#125;</code></pre>
-
 <p>实例化：</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val p &#x3D; Person()</code></pre>
-
 <p>没有像 java 中的<code>new</code>关键字。</p>
-<h1 id="继承与接口"><a href="#继承与接口" class="headerlink" title="继承与接口"></a>继承与接口</h1><p>kotlin 中默认每一个非抽象类都是无法继承的。使用<code>open</code>关键字让类变为可继承。</p>
+<h1 id="继承与接口"><a class="markdownIt-Anchor" href="#继承与接口"></a> 继承与接口</h1>
+<p>kotlin 中默认每一个非抽象类都是无法继承的。使用<code>open</code>关键字让类变为可继承。</p>
 <p>抽象类无法创建实例，必须被继承后才能实例化。所以抽象类必须是可继承的。</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">open class Person &#123;
 	&#x2F;&#x2F; code
@@ -369,30 +367,30 @@ class Student : Person() &#123;
 	var sno &#x3D; &quot;&quot;
 	var grade &#x3D; 0
 &#125;</code></pre>
-
 <p>子类使用<code>:</code>来继承父类。同时实现接口也是这个关键字。</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class Student : Person(), Study &#123;
 	var sno &#x3D; &quot;&quot;
 	var grade &#x3D; 0
 &#125;</code></pre>
-
-<h2 id="单例类"><a href="#单例类" class="headerlink" title="单例类"></a>单例类</h2><p>在内存中只有一个实例的类。</p>
+<h2 id="单例类"><a class="markdownIt-Anchor" href="#单例类"></a> 单例类</h2>
+<p>在内存中只有一个实例的类。</p>
 <p>使用<code>object</code>关键字。</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">object Singleton &#123;
 	fun singletonFun() &#123;
 		println(&quot;singletonFun&quot;)
 	&#125;
 &#125;</code></pre>
-<h2 id="数据类"><a href="#数据类" class="headerlink" title="数据类"></a>数据类</h2><p>数据类是一种只保存数据的类。</p>
+<h2 id="数据类"><a class="markdownIt-Anchor" href="#数据类"></a> 数据类</h2>
+<p>数据类是一种只保存数据的类。</p>
 <p>使用<code>data</code>关键字。</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">data class Person(val name: String, val age: Int)</code></pre>
-
-<h1 id="空指针检查"><a href="#空指针检查" class="headerlink" title="空指针检查"></a>空指针检查</h1><p>kotlin 在编译时进行空指针检查，而非运行时。</p>
+<h1 id="空指针检查"><a class="markdownIt-Anchor" href="#空指针检查"></a> 空指针检查</h1>
+<p>kotlin 在编译时进行空指针检查，而非运行时。</p>
 <p>kotlin 默认所有参数都是非空的，如果想声明一个可为空的变量，需要在变量类型后加<code>?</code>。</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">var name : String? &#x3D; null</code></pre>
-
 <p><code>?</code>表示这个变量可以为空。</p>
-<h2 id="判空辅助操作符"><a href="#判空辅助操作符" class="headerlink" title="判空辅助操作符"></a>判空辅助操作符</h2><p><code>?.</code>：如果对象为空则返回 null，否则执行后面的操作。</p>
+<h2 id="判空辅助操作符"><a class="markdownIt-Anchor" href="#判空辅助操作符"></a> 判空辅助操作符</h2>
+<p><code>?.</code>：如果对象为空则返回 null，否则执行后面的操作。</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">if(a !&#x3D; null)&#123;
 	a.method()
 &#125;else&#123;
@@ -400,43 +398,41 @@ class Student : Person() &#123;
 &#125;</code></pre>
 <p>等价于：</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">a?.method()</code></pre>
-
-<hr>
+<hr />
 <p><code>?:</code>：如果对象为空则返回后面的值。</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val c &#x3D; if(a !&#x3D; null)&#123;
 	a
 &#125;else&#123;
 	0
 &#125;</code></pre>
-
 <p>等价于：</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val c &#x3D; a ?: 0</code></pre>
-
-<h2 id="非空断言"><a href="#非空断言" class="headerlink" title="非空断言"></a>非空断言</h2><p><code>!!</code>：强制忽略空指针异常检查。</p>
+<h2 id="非空断言"><a class="markdownIt-Anchor" href="#非空断言"></a> 非空断言</h2>
+<p><code>!!</code>：强制忽略空指针异常检查。</p>
 <p>如：</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val a!!.method()</code></pre>
-
 <p>无论 a 是否为 null ，都会执行<code>method()</code>。</p>
-<h2 id="let-函数实现一次判断"><a href="#let-函数实现一次判断" class="headerlink" title="let 函数实现一次判断"></a>let 函数实现一次判断</h2><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">if(a &#x3D;&#x3D; null)&#123;
+<h2 id="let-函数实现一次判断"><a class="markdownIt-Anchor" href="#let-函数实现一次判断"></a> let 函数实现一次判断</h2>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">if(a &#x3D;&#x3D; null)&#123;
 	return
 &#125;
 a.method()
 a.method2()</code></pre>
-
 <p>等价于：</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">a?.let&#123;
 	it.method()
 	it.method2()
 &#125; &#x2F;&#x2F; lambda 表达式</code></pre>
-
-<h1 id="标准函数"><a href="#标准函数" class="headerlink" title="标准函数"></a>标准函数</h1><p>指的是 Standard.kt 文件中定义的函数。前面的 <code>let</code> 也是标准函数。</p>
-<h2 id="with"><a href="#with" class="headerlink" title="with"></a>with</h2><p>接收一个对象和一个 lambda 表达式，返回 lambda 表达式的执行结果。</p>
+<h1 id="标准函数"><a class="markdownIt-Anchor" href="#标准函数"></a> 标准函数</h1>
+<p>指的是 Standard.kt 文件中定义的函数。前面的 <code>let</code> 也是标准函数。</p>
+<h2 id="with"><a class="markdownIt-Anchor" href="#with"></a> with</h2>
+<p>接收一个对象和一个 lambda 表达式，返回 lambda 表达式的执行结果。</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val result &#x3D; with(obj) &#123;
 	&#x2F;&#x2F; obj的上下文
 	&quot;value&quot; &#x2F;&#x2F; with函数的返回值
 &#125;</code></pre>
-
-<h3 id="with-函数应用举例"><a href="#with-函数应用举例" class="headerlink" title="with 函数应用举例"></a>with 函数应用举例</h3><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val list &#x3D; listOf(&quot;Apple&quot;, &quot;Banana&quot;, &quot;Orange&quot;, &quot;Pear&quot;, &quot;Grape&quot;)
+<h3 id="with-函数应用举例"><a class="markdownIt-Anchor" href="#with-函数应用举例"></a> with 函数应用举例</h3>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val list &#x3D; listOf(&quot;Apple&quot;, &quot;Banana&quot;, &quot;Orange&quot;, &quot;Pear&quot;, &quot;Grape&quot;)
 val builder &#x3D; StringBuilder()
 builder.append(&quot;Start eating fruits.\n&quot;)
 for (fruit in list) &#123;
@@ -445,7 +441,6 @@ for (fruit in list) &#123;
 builder.append(&quot;Ate all fruits.&quot;)
 val result &#x3D; builder.toString()
 println(result)</code></pre>
-
 <p>输出：</p>
 <pre class="line-numbers language-none"><code class="language-none">Start eating fruits.
 Apple
@@ -454,7 +449,6 @@ Orange
 Pear
 Grape
 Ate all fruits.</code></pre>
-
 <p>使用<code>with</code>函数：</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val list &#x3D; listOf(&quot;Apple&quot;, &quot;Banana&quot;, &quot;Orange&quot;, &quot;Pear&quot;, &quot;Grape&quot;)
 val result &#x3D; with(StringBuilder()) &#123;
@@ -466,14 +460,13 @@ val result &#x3D; with(StringBuilder()) &#123;
 	toString()
 &#125;
 println(result)</code></pre>
-
 <p>with 中传入了 StringBuilder 实例，这样上下文就是 StringBuilder 实例，可以直接调用 append 方法。with 函数的返回值是最后一行代码的返回值，即 toString() 方法的返回值。</p>
-<h2 id="run"><a href="#run" class="headerlink" title="run"></a>run</h2><p>run 函数在对象的基础上调用，接受一个 lambda 表达式作为参数，返回值是 lambda 表达式的执行结果。</p>
+<h2 id="run"><a class="markdownIt-Anchor" href="#run"></a> run</h2>
+<p>run 函数在对象的基础上调用，接受一个 lambda 表达式作为参数，返回值是 lambda 表达式的执行结果。</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val result &#x3D; obj.run &#123;
 	&#x2F;&#x2F; obj的上下文
 	&quot;value&quot; &#x2F;&#x2F; run函数的返回值
 &#125;</code></pre>
-
 <p>那么<a href="#with-%E5%87%BD%E6%95%B0%E5%BA%94%E7%94%A8%E4%B8%BE%E4%BE%8B">with函数的例子</a>可以改写为：</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val list &#x3D; listOf(&quot;Apple&quot;, &quot;Banana&quot;, &quot;Orange&quot;, &quot;Pear&quot;, &quot;Grape&quot;)
 val result &#x3D; StringBuilder().run &#123;
@@ -485,13 +478,12 @@ val result &#x3D; StringBuilder().run &#123;
 	toString()
 &#125;
 println(result)</code></pre>
-
-<h2 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h2><p>apply 函数和 run 函数很相似，也是在对象的基础上调用 lambda 表达式，但 apply 函数返回的是对象本身。</p>
+<h2 id="apply"><a class="markdownIt-Anchor" href="#apply"></a> apply</h2>
+<p>apply 函数和 run 函数很相似，也是在对象的基础上调用 lambda 表达式，但 apply 函数返回的是对象本身。</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val result &#x3D; obj.apply &#123;
 	&#x2F;&#x2F; obj的上下文
 	&quot;value&quot; &#x2F;&#x2F; apply函数的返回值
 &#125;</code></pre>
-
 <p>改写<a href="#with-%E5%87%BD%E6%95%B0%E5%BA%94%E7%94%A8%E4%B8%BE%E4%BE%8B">with函数的例子</a>：</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val list &#x3D; listOf(&quot;Apple&quot;, &quot;Banana&quot;, &quot;Orange&quot;, &quot;Pear&quot;, &quot;Grape&quot;)
 val result &#x3D; StringBuilder().apply &#123;
@@ -502,17 +494,18 @@ val result &#x3D; StringBuilder().apply &#123;
 	append(&quot;Ate all fruits.&quot;)
 &#125;.toString() &#x2F;&#x2F; 注意这里的 toString() 方法，是 StringBuilder.toString()
 println(result)</code></pre>
-
-<h1 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h1><p>kotlin 中没有静态方法的概念，但可以通过单例类或是伴生对象来实现。</p>
-<h2 id="单例类-1"><a href="#单例类-1" class="headerlink" title="单例类"></a>单例类</h2><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">object Utils &#123;
+<h1 id="静态方法"><a class="markdownIt-Anchor" href="#静态方法"></a> 静态方法</h1>
+<p>kotlin 中没有静态方法的概念，但可以通过单例类或是伴生对象来实现。</p>
+<h2 id="单例类-2"><a class="markdownIt-Anchor" href="#单例类-2"></a> 单例类</h2>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">object Utils &#123;
 	fun doAction() &#123;
 		println(&quot;do action&quot;)
 	&#125;
 &#125;</code></pre>
-
 <p>调用：<code>Utils.doAction()</code></p>
 <p>使用单例类会使得类内所有方法都是静态方法。</p>
-<h2 id="伴生对象"><a href="#伴生对象" class="headerlink" title="伴生对象"></a>伴生对象</h2><pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class Utils &#123;
+<h2 id="伴生对象"><a class="markdownIt-Anchor" href="#伴生对象"></a> 伴生对象</h2>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class Utils &#123;
 	fun doAction1() &#123;
 		println(&quot;do action1&quot;)
 	&#125;
@@ -522,10 +515,11 @@ println(result)</code></pre>
 		&#125;
 	&#125;
 &#125;</code></pre>
-
 <p>调用：<code>Utils.doAction2()</code></p>
 <p>对于一个普通类，伴生对象中的方法是静态方法，而类中的方法是实例方法。并且 kotlin 保证伴生对象的唯一性。</p>
-<h2 id="真正的静态方法"><a href="#真正的静态方法" class="headerlink" title="真正的静态方法"></a>真正的静态方法</h2><h3 id="JvmStatic-注解"><a href="#JvmStatic-注解" class="headerlink" title="@JvmStatic 注解"></a>@JvmStatic 注解</h3><p>kotlin 中的真正的静态方法是使用<code>@JvmStatic</code>注解。</p>
+<h2 id="真正的静态方法"><a class="markdownIt-Anchor" href="#真正的静态方法"></a> 真正的静态方法</h2>
+<h3 id="jvmstatic-注解"><a class="markdownIt-Anchor" href="#jvmstatic-注解"></a> @JvmStatic 注解</h3>
+<p>kotlin 中的真正的静态方法是使用<code>@JvmStatic</code>注解。</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class Utils &#123;
 	companion object &#123;
 		@JvmStatic
@@ -534,24 +528,21 @@ println(result)</code></pre>
 		&#125;
 	&#125;
 &#125;</code></pre>
-
 <p>注意， @JvmStatic 注解只能用在伴生对象中或者单例类中的方法上。</p>
-<h3 id="顶层方法"><a href="#顶层方法" class="headerlink" title="顶层方法"></a>顶层方法</h3><p>顶层方法指的是那些没有定义在任何类中的方法。</p>
+<h3 id="顶层方法"><a class="markdownIt-Anchor" href="#顶层方法"></a> 顶层方法</h3>
+<p>顶层方法指的是那些没有定义在任何类中的方法。</p>
 <p>想要定义顶层方法，需要在 <strong>kotlin 文件</strong>中直接定义函数，而不是定义在类中。（参考<a href="#hello-kotlin">hello kotlin</a>）</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">&#x2F;&#x2F; Utils.kt
 fun doAction() &#123;
 	println(&quot;do action&quot;)
 &#125;</code></pre>
-
 <p>如果是在 java 中调用这个方法，需要使用类名调用。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; Java
 UtilsKt.doAction();
 &#x2F;&#x2F; 编译器自动生成一个 UtilsKt 类，其中包含了 doAction 方法</code></pre>
-
 <p>如果是在 kotlin 中调用，直接调用即可。</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">&#x2F;&#x2F; Kotlin
 doAction()</code></pre>
-
 
     </div>
 
@@ -612,11 +603,16 @@ doAction()</code></pre>
 
 
   
+  <script size="200" alpha="0.2" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js" integrity="sha256-4mJNT2bMXxcc1GCJaxBmMPdmah5ji0Ldnd79DKd1hoM=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-AjM0J5XIbiB590BrznLEgZGLnOQWrt62s3BEq65Q/I0=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha256-9cmf7tcLdXpKsPi/2AWE93PbZpTp4M4tqzFk+lWomjU=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
 <script src="/js/third-party/search/local-search.js"></script>
@@ -626,12 +622,19 @@ doAction()</code></pre>
   <script src="/js/third-party/tags/mermaid.js"></script>
 
 
+  <script src="/js/third-party/fancybox.js"></script>
 
 
 
   
 
 
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 
