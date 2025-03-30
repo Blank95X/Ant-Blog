@@ -152,7 +152,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -169,6 +169,202 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/2025/03/30/nextLearn/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Ant">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ant's blog">
+      <meta itemprop="description" content="春风若有怜花意">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Ant's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/03/30/nextLearn/" class="post-title-link" itemprop="url">hexo+next 使用备忘</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-03-30 12:26:09 / 修改时间：13:40:19" itemprop="dateCreated datePublished" datetime="2025-03-30T12:26:09+08:00">2025-03-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">软件工具</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="标签插件实现的高级块"><a class="markdownIt-Anchor" href="#标签插件实现的高级块"></a> 标签插件实现的高级块</h1>
+<h2 id="引用链接"><a class="markdownIt-Anchor" href="#引用链接"></a> 引用链接</h2>
+<pre class="line-numbers language-none"><code class="language-none">&#123;% lg %&#125;
+链接名 | 链接 | 说明 | 链接头图URL
+% ...
+&#123;% endlg %&#125;</code></pre>
+<p>一个块里可以有多个链接。可以用 <code>%</code> 注释一条链接。</p>
+<h3 id="例子"><a class="markdownIt-Anchor" href="#例子"></a> 例子</h3>
+<pre class="line-numbers language-none"><code class="language-none">&#123;% lg %&#125;
+EasyExcel 官方文档 | https:&#x2F;&#x2F;easyexcel.opensource.alibaba.com&#x2F;docs&#x2F;current&#x2F; | 关于Easyexcel | https:&#x2F;&#x2F;easyexcel.opensource.alibaba.com&#x2F;img&#x2F;favicon.ico
+Element UI 官方文档 | https:&#x2F;&#x2F;element.eleme.cn&#x2F;#&#x2F;zh-CN | Element UI | https:&#x2F;&#x2F;element.eleme.cn&#x2F;favicon.ico
+% Element UI 官方文档 | https:&#x2F;&#x2F;element.eleme.cn&#x2F;#&#x2F;zh-CN | Element UI | https:&#x2F;&#x2F;element.eleme.cn&#x2F;favicon.ico
+&#123;% endlg %&#125;</code></pre>
+<div class="link-grid"><div class="link-grid-container">
+<object class="link-grid-image" data="https://easyexcel.opensource.alibaba.com/img/favicon.ico"></object>
+<p>EasyExcel 官方文档</p><p>关于Easyexcel</p>
+<a target="_blank" rel="noopener" href="https://easyexcel.opensource.alibaba.com/docs/current/"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://element.eleme.cn/favicon.ico"></object>
+<p>Element UI 官方文档</p><p>Element UI</p>
+<a target="_blank" rel="noopener" href="https://element.eleme.cn/#/zh-CN"></a>
+</div></div>
+<hr />
+<h2 id="note-块"><a class="markdownIt-Anchor" href="#note-块"></a> note 块</h2>
+<pre class="line-numbers language-none"><code class="language-none">&#123;% note [class] [no-icon] [summary] %&#125;
+Any content (support inline tags too).
+&#123;% endnote %&#125;</code></pre>
+<p><code>[class]</code> ：可选参数，支持的值： default | primary | success | info | warning | danger。<br />
+<code>[no-icon]</code> ：可选参数。禁用注释中的图标。<br />
+<code>[summary]</code> ：可选参数。可选的注释摘要。</p>
+<h3 id="例子-2"><a class="markdownIt-Anchor" href="#例子-2"></a> 例子</h3>
+<pre class="line-numbers language-none"><code class="language-none">&#123;% note %&#125;
+无样式 note 块
+&#123;% endnote %&#125;</code></pre>
+<div class="note "><p>无样式 note 块</p>
+</div>
+<pre class="line-numbers language-none"><code class="language-none">&#123;% note default %&#125;
+default 块
+&#123;% endnote %&#125;</code></pre>
+<div class="note default"><p>default 块</p>
+</div>
+<div class="note info"><p>info 块</p>
+</div>
+<div class="note danger"><p>danger 块</p>
+</div>
+<div class="note success"><p>success 块<br />
+这是一个 success 样式的 note 块</p>
+</div>
+<pre class="line-numbers language-none"><code class="language-none">&#123;% note primary 摘要 %&#125;
+这是一个具有摘要的 primary 样式的 note 块
+&#123;% endnote %&#125;</code></pre>
+<details class="note primary"><summary><p>摘要</p>
+</summary>
+<p>这是一个具有摘要的 primary 样式的 note 块</p>
+
+</details>
+<p>在 note 块中的 markdown 语法和在块外面是一样的。</p>
+<div class="link-grid"><div class="link-grid-container">
+<object class="link-grid-image" data="https://theme-next.js.org/images/next.png"></object>
+<p>Next 主题标签插件</p><p>note</p>
+<a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/tag-plugins/note"></a>
+</div></div>
+<hr />
+<h1 id="mermaid-渲染"><a class="markdownIt-Anchor" href="#mermaid-渲染"></a> mermaid 渲染</h1>
+<p>为博客开启 mermaid 渲染，需要引入 js 。在 <code>themes\next\layout\_partials\footer.njk</code> 中添加以下内容：</p>
+<pre class="line-numbers language-njk" data-language="njk"><code class="language-njk">&#123;%- if theme.mermaid.enable  %&#125;
+  &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;mermaid@11.5.0&#x2F;dist&#x2F;mermaid.min.js&#39;&gt;&lt;&#x2F;script&gt;
+  &lt;script&gt;
+    if (window.mermaid) &#123;
+      mermaid.initialize(&#123;theme: &#39;default&#39;&#125;);
+    &#125;
+  &lt;&#x2F;script&gt;
+&#123;% endif %&#125;</code></pre>
+<p>不过 next 主题已经提供了 mermaid 渲染。只需要在主题配置中打开即可：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># Mermaid tag
+mermaid:
+  enable: true
+  # Available themes: default | dark | forest | neutral
+  theme:
+    light: forest
+    dark: dark</code></pre>
+<h2 id="例子-3"><a class="markdownIt-Anchor" href="#例子-3"></a> 例子</h2>
+<pre class="line-numbers language-none"><code class="language-none">&#123;% mermaid graph LR %&#125;
+A[Hard] --&gt;|Text| B(Round)
+B --&gt; C&#123;Decision&#125;
+C --&gt;|One| D[Result 1]
+C --&gt;|Two| E[Result 2]
+&#123;% endmermaid %&#125;
+
+&#96; &#96; &#96;mermaid
+graph LR
+A[Hard] --&gt;|Text| B(Round)
+B --&gt; C&#123;Decision&#125;
+C --&gt;|One| D[Result 1]
+C --&gt;|Two| E[Result 2]
+&#96; &#96; &#96;</code></pre>
+<p>next 的 mermaid 块：</p>
+<pre>
+<code class="mermaid">
+graph LR
+A[Hard] --&gt;|Text| B(Round)
+B --&gt; C{Decision}
+C --&gt;|One| D[Result 1]
+C --&gt;|Two| E[Result 2]
+</code>
+</pre>
+<p>markdown 的代码块：</p>
+<pre class="mermaid">graph LR
+A[Hard] -->|Text| B(Round)
+B --> C{Decision}
+C -->|One| D[Result 1]
+C -->|Two| E[Result 2]</pre>
+<p>为啥 markdown 绘制的图有背景？</p>
+<div class="link-grid"><div class="link-grid-container">
+<object class="link-grid-image" data="\images\apple-touch-icon-next.png"></object>
+<p>Next主题</p><p>mermaid 标签</p>
+<a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/tag-plugins/mermaid"></a>
+</div></div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1974,13 +2170,6 @@ npm install</code></pre>
   <footer class="footer">
     <div class="footer-inner">
 
-  <script src='https://cdn.jsdelivr.net/npm/mermaid@11.5.0/dist/mermaid.min.js'></script>
-  <script>
-    if (window.mermaid) {
-      mermaid.initialize({theme: 'default'});
-    }
-  </script>
-
 
     </div>
   </footer>
@@ -2005,7 +2194,6 @@ npm install</code></pre>
 
 
   
-  <script size="200" alpha="0.2" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js" integrity="sha256-4mJNT2bMXxcc1GCJaxBmMPdmah5ji0Ldnd79DKd1hoM=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-AjM0J5XIbiB590BrznLEgZGLnOQWrt62s3BEq65Q/I0=" crossorigin="anonymous"></script>
@@ -2020,7 +2208,7 @@ npm install</code></pre>
 <script src="/js/third-party/search/local-search.js"></script>
 
 
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"forest","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
   <script src="/js/third-party/tags/mermaid.js"></script>
 
 
