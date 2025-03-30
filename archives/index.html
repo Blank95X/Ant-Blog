@@ -157,6 +157,14 @@
       </div>
   </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:Ant.567@qq.com" title="QQ-Mail → mailto:Ant.567@qq.com" rel="noopener me" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
 
         </div>
       </div>
@@ -178,7 +186,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/2025/03/30/nextLearn/">
+    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/1060342639.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -196,7 +204,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/30/nextLearn/" class="post-title-link" itemprop="url">hexo+next 使用备忘</a>
+          <a href="/1060342639.html" class="post-title-link" itemprop="url">hexo+next 使用备忘</a>
         </h2>
 
         <div class="post-meta-container">
@@ -208,7 +216,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2025-03-30 12:26:09 / 修改时间：13:40:19" itemprop="dateCreated datePublished" datetime="2025-03-30T12:26:09+08:00">2025-03-30</time>
+      <time title="创建时间：2025-03-30 12:26:09 / 修改时间：17:43:36" itemprop="dateCreated datePublished" datetime="2025-03-30T12:26:09+08:00">2025-03-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -348,6 +356,21 @@ C -->|Two| E[Result 2]</pre>
 <p>Next主题</p><p>mermaid 标签</p>
 <a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/tag-plugins/mermaid"></a>
 </div></div>
+<h1 id="为博客增加版权声明"><a class="markdownIt-Anchor" href="#为博客增加版权声明"></a> 为博客增加版权声明</h1>
+<p>next 主题自带此功能，只需要在 <code>_config.next.yaml</code> 中打开即可：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">creative_commons:
+  # Available values: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | cc-zero
+  license: by-nc-sa
+  # Available values: big | small
+  size: small
+  sidebar: true # 在侧边栏显示
+  post: true # 为每篇博客显示</code></pre>
+<p>可以自定义样式，具体参考：</p>
+<div class="link-grid"><div class="link-grid-container">
+<object class="link-grid-image" data="https://i.imgur.com/kWTWXvI.jpg"></object>
+<p>Gui Blog</p><p>网站的工具人</p>
+<a target="_blank" rel="noopener" href="https://guiblogs.com/hexo30-21/"></a>
+</div></div>
 
       
     </div>
@@ -374,7 +397,7 @@ C -->|Two| E[Result 2]</pre>
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/2025/03/24/%E5%BC%80%E5%8F%91%E6%97%A5%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/786968787.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -392,7 +415,7 @@ C -->|Two| E[Result 2]</pre>
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/24/%E5%BC%80%E5%8F%91%E6%97%A5%E8%AE%B0/" class="post-title-link" itemprop="url">开发日记</a>
+          <a href="/786968787.html" class="post-title-link" itemprop="url">开发日记</a>
         </h2>
 
         <div class="post-meta-container">
@@ -410,7 +433,7 @@ C -->|Two| E[Result 2]</pre>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-29 19:13:01" itemprop="dateModified" datetime="2025-03-29T19:13:01+08:00">2025-03-29</time>
+      <time title="修改时间：2025-03-30 18:03:57" itemprop="dateModified" datetime="2025-03-30T18:03:57+08:00">2025-03-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -641,13 +664,18 @@ excelWriter.finish();</code></pre>
 <pre class="line-numbers language-none"><code class="language-none">TypeError: date.getFullYear is not a function ...
 TypeError: date.getHours is not a function ...
 ...</code></pre>
-<p>为什么是 <code>date</code> ？可能是组件无法解析绑定值的格式的时候默认解析为 <code>Date</code> 对象了吧。</p>
+<details class="note info"><summary><p>为什么是 <code>date</code> ？</p>
+</summary>
+<p>可能是组件无法解析绑定值的格式的时候默认解析为 <code>Date</code> 对象了吧。</p>
+
+</details>
 <p>所以选择将数据库中有关时间的字段设置为 <code>varchar</code> 类型，方便更改格式。（ <code>date</code> 类型的字段的格式只能是 <code>yyyy-MM-dd</code> ）</p>
 <div class="link-grid"><div class="link-grid-container">
 <object class="link-grid-image" data="https://element.eleme.cn/favicon.ico"></object>
 <p>Element UI 官方文档</p><p>日期选择器</p>
 <a target="_blank" rel="noopener" href="https://element.eleme.cn/#/zh-CN/component/date-picker#ri-qi-ge-shi"></a>
 </div></div>
+<p>&lt;%- mail_to(‘Ant.567@qq.com’) %&gt;</p>
 
       
     </div>
@@ -674,7 +702,7 @@ TypeError: date.getHours is not a function ...
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/2025/03/20/%E5%B8%B8%E7%94%A8%E6%8E%A7%E4%BB%B6/">
+    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/3355239386.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -692,7 +720,7 @@ TypeError: date.getHours is not a function ...
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/20/%E5%B8%B8%E7%94%A8%E6%8E%A7%E4%BB%B6/" class="post-title-link" itemprop="url">常用控件</a>
+          <a href="/3355239386.html" class="post-title-link" itemprop="url">常用控件</a>
         </h2>
 
         <div class="post-meta-container">
@@ -702,9 +730,15 @@ TypeError: date.getHours is not a function ...
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2025-03-20 21:59:48 / 修改时间：22:21:56" itemprop="dateCreated datePublished" datetime="2025-03-20T21:59:48+08:00">2025-03-20</time>
+      <time title="创建时间：2025-03-20 21:59:48" itemprop="dateCreated datePublished" datetime="2025-03-20T21:59:48+08:00">2025-03-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-30 17:22:23" itemprop="dateModified" datetime="2025-03-30T17:22:23+08:00">2025-03-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -765,7 +799,7 @@ TypeError: date.getHours is not a function ...
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/2025/03/15/Intent/">
+    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/3728271331.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -783,7 +817,7 @@ TypeError: date.getHours is not a function ...
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/15/Intent/" class="post-title-link" itemprop="url">Intent 意图</a>
+          <a href="/3728271331.html" class="post-title-link" itemprop="url">Intent 意图</a>
         </h2>
 
         <div class="post-meta-container">
@@ -801,7 +835,7 @@ TypeError: date.getHours is not a function ...
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-20 21:10:51" itemprop="dateModified" datetime="2025-03-20T21:10:51+08:00">2025-03-20</time>
+      <time title="修改时间：2025-03-30 17:22:23" itemprop="dateModified" datetime="2025-03-30T17:22:23+08:00">2025-03-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -956,7 +990,7 @@ finish() &#x2F;&#x2F; 销毁当前活动</code></pre>
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/2025/03/15/menu%E6%8E%A7%E4%BB%B6/">
+    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/3976894431.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -974,7 +1008,7 @@ finish() &#x2F;&#x2F; 销毁当前活动</code></pre>
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/15/menu%E6%8E%A7%E4%BB%B6/" class="post-title-link" itemprop="url">menu 控件</a>
+          <a href="/3976894431.html" class="post-title-link" itemprop="url">menu 控件</a>
         </h2>
 
         <div class="post-meta-container">
@@ -992,7 +1026,7 @@ finish() &#x2F;&#x2F; 销毁当前活动</code></pre>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-20 21:10:51" itemprop="dateModified" datetime="2025-03-20T21:10:51+08:00">2025-03-20</time>
+      <time title="修改时间：2025-03-30 17:22:23" itemprop="dateModified" datetime="2025-03-30T17:22:23+08:00">2025-03-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1089,7 +1123,7 @@ finish() &#x2F;&#x2F; 销毁当前活动</code></pre>
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/2025/03/15/Activity/">
+    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/1273076805.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1107,7 +1141,7 @@ finish() &#x2F;&#x2F; 销毁当前活动</code></pre>
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/15/Activity/" class="post-title-link" itemprop="url">Acvitity 初识</a>
+          <a href="/1273076805.html" class="post-title-link" itemprop="url">Acvitity 初识</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1125,7 +1159,7 @@ finish() &#x2F;&#x2F; 销毁当前活动</code></pre>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-20 21:14:52" itemprop="dateModified" datetime="2025-03-20T21:14:52+08:00">2025-03-20</time>
+      <time title="修改时间：2025-03-30 17:22:23" itemprop="dateModified" datetime="2025-03-30T17:22:23+08:00">2025-03-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1427,7 +1461,7 @@ FirstActivity</code></pre>
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/2025/03/15/kotlinLearn/">
+    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/2766814441.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1445,7 +1479,7 @@ FirstActivity</code></pre>
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/15/kotlinLearn/" class="post-title-link" itemprop="url">kotlin 基本语法</a>
+          <a href="/2766814441.html" class="post-title-link" itemprop="url">kotlin 基本语法</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1463,7 +1497,7 @@ FirstActivity</code></pre>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-20 21:58:09" itemprop="dateModified" datetime="2025-03-20T21:58:09+08:00">2025-03-20</time>
+      <time title="修改时间：2025-03-30 17:22:23" itemprop="dateModified" datetime="2025-03-30T17:22:23+08:00">2025-03-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1814,7 +1848,7 @@ doAction()</code></pre>
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/2025/03/11/photoPrism/">
+    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/2888069175.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1832,7 +1866,7 @@ doAction()</code></pre>
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/11/photoPrism/" class="post-title-link" itemprop="url">windows 本地部署 photoPrism</a>
+          <a href="/2888069175.html" class="post-title-link" itemprop="url">windows 本地部署 photoPrism</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1850,7 +1884,7 @@ doAction()</code></pre>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-12 19:33:41" itemprop="dateModified" datetime="2025-03-12T19:33:41+08:00">2025-03-12</time>
+      <time title="修改时间：2025-03-30 17:22:23" itemprop="dateModified" datetime="2025-03-30T17:22:23+08:00">2025-03-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1940,7 +1974,7 @@ docker compose up -d</code></pre>
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/2025/03/10/2025-3-10/">
+    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/2106263798.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1958,7 +1992,7 @@ docker compose up -d</code></pre>
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/10/2025-3-10/" class="post-title-link" itemprop="url">PowerShell：在此系统上禁止运行脚本</a>
+          <a href="/2106263798.html" class="post-title-link" itemprop="url">PowerShell：在此系统上禁止运行脚本</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1976,7 +2010,7 @@ docker compose up -d</code></pre>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-29 19:21:11" itemprop="dateModified" datetime="2025-03-29T19:21:11+08:00">2025-03-29</time>
+      <time title="修改时间：2025-03-30 17:22:23" itemprop="dateModified" datetime="2025-03-30T17:22:23+08:00">2025-03-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -2045,7 +2079,7 @@ RemoteSigned</code></pre>
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/2025/03/09/2025-3-9/">
+    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/13345652.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -2063,7 +2097,7 @@ RemoteSigned</code></pre>
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/09/2025-3-9/" class="post-title-link" itemprop="url">GitHubPages+hexo 部署个人在线博客</a>
+          <a href="/13345652.html" class="post-title-link" itemprop="url">GitHubPages+hexo 部署个人在线博客</a>
         </h2>
 
         <div class="post-meta-container">
@@ -2081,7 +2115,7 @@ RemoteSigned</code></pre>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-15 16:33:51" itemprop="dateModified" datetime="2025-03-15T16:33:51+08:00">2025-03-15</time>
+      <time title="修改时间：2025-03-30 17:22:23" itemprop="dateModified" datetime="2025-03-30T17:22:23+08:00">2025-03-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">

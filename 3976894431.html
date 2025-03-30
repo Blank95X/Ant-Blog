@@ -19,28 +19,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blank95x.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":16,"offset":12},"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="起因 把带地理位置信息的照片上传到 google 相册后，可以在地图中查看每张照片在地图上的标点。但是 google 相册云空间有限；使用 mod 的话总感觉有风险；并且上传照片到云上也怕隐私泄露（ google 之前拿用户照片来训练 ai ）。 安卓端开源的 Aves 相册也有这个功能，但是照片必须在本地。然而我不会把大量照片放在一部手机上，更偏向于放在桌面端设备。 在网上搜索开源照片管理工具">
+    <meta name="description" content="menu 控件 这里的 menu 控件是指标题栏右上角的菜单按钮。 在 res&#x2F;menu 文件夹下创建一个 xml 文件，如 main.xml： &lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt; &lt;menu xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="windows 本地部署 photoPrism">
-<meta property="og:url" content="https://blank95x.github.io/2025/03/11/photoPrism/index.html">
+<meta property="og:title" content="menu 控件">
+<meta property="og:url" content="https://blank95x.github.io/3976894431.html">
 <meta property="og:site_name" content="Ant&#39;s blog">
-<meta property="og:description" content="起因 把带地理位置信息的照片上传到 google 相册后，可以在地图中查看每张照片在地图上的标点。但是 google 相册云空间有限；使用 mod 的话总感觉有风险；并且上传照片到云上也怕隐私泄露（ google 之前拿用户照片来训练 ai ）。 安卓端开源的 Aves 相册也有这个功能，但是照片必须在本地。然而我不会把大量照片放在一部手机上，更偏向于放在桌面端设备。 在网上搜索开源照片管理工具">
+<meta property="og:description" content="menu 控件 这里的 menu 控件是指标题栏右上角的菜单按钮。 在 res&#x2F;menu 文件夹下创建一个 xml 文件，如 main.xml： &lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt; &lt;menu xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-03-11T15:14:50.000Z">
-<meta property="article:modified_time" content="2025-03-12T11:33:41.253Z">
+<meta property="article:published_time" content="2025-03-15T13:32:18.000Z">
+<meta property="article:modified_time" content="2025-03-30T09:22:23.510Z">
 <meta property="article:author" content="Ant">
-<meta property="article:tag" content="windows">
-<meta property="article:tag" content="docker">
+<meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://blank95x.github.io/2025/03/11/photoPrism/">
+<link rel="canonical" href="https://blank95x.github.io/3976894431.html">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blank95x.github.io/2025/03/11/photoPrism/","path":"2025/03/11/photoPrism/","title":"windows 本地部署 photoPrism"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blank95x.github.io/3976894431.html","path":"3976894431.html","title":"menu 控件"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>windows 本地部署 photoPrism | Ant's blog</title>
+<title>menu 控件 | Ant's blog</title>
   
 
 
@@ -139,7 +138,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B5%B7%E5%9B%A0"><span class="nav-number">1.</span> <span class="nav-text"> 起因</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#photoprism-%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.</span> <span class="nav-text"> photoPrism 介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2-photoprism"><span class="nav-number">3.</span> <span class="nav-text"> 部署 photoPrism</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">3.1.</span> <span class="nav-text"> 下载配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%92%8C%E5%90%AF%E5%8A%A8"><span class="nav-number">3.2.</span> <span class="nav-text"> 初始化和启动</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%8A%A0%E8%BD%BD%E5%B7%B2%E6%9C%89%E5%9B%BE%E7%89%87"><span class="nav-number">4.</span> <span class="nav-text"> 如何加载已有图片</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#menu-%E6%8E%A7%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text"> menu 控件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%BE%E7%A4%BAtoast"><span class="nav-number">1.1.</span> <span class="nav-text"> 显示Toast</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B2%A1%E6%9C%89%E6%A0%87%E9%A2%98%E6%A0%8F"><span class="nav-number">2.</span> <span class="nav-text"> 没有标题栏</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -162,6 +161,14 @@
       </div>
   </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:Ant.567@qq.com" title="QQ-Mail → mailto:Ant.567@qq.com" rel="noopener me" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
 
         </div>
       </div>
@@ -184,7 +191,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/2025/03/11/photoPrism/">
+    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/3976894431.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -197,12 +204,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="windows 本地部署 photoPrism | Ant's blog">
+      <meta itemprop="name" content="menu 控件 | Ant's blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          windows 本地部署 photoPrism
+          menu 控件
         </h1>
 
         <div class="post-meta-container">
@@ -213,14 +220,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2025-03-11 23:14:50" itemprop="dateCreated datePublished" datetime="2025-03-11T23:14:50+08:00">2025-03-11</time>
+      <time title="创建时间：2025-03-15 21:32:18" itemprop="dateCreated datePublished" datetime="2025-03-15T21:32:18+08:00">2025-03-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-12 19:33:41" itemprop="dateModified" datetime="2025-03-12T19:33:41+08:00">2025-03-12</time>
+      <time title="修改时间：2025-03-30 17:22:23" itemprop="dateModified" datetime="2025-03-30T17:22:23+08:00">2025-03-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -228,7 +235,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">软件工具</span></a>
+          <a href="/categories/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AE%89%E5%8D%93-app/" itemprop="url" rel="index"><span itemprop="name">第一个安卓 app</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AE%89%E5%8D%93-app/%E5%B8%83%E5%B1%80%E5%92%8C%E6%8E%A7%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">布局和控件</span></a>
         </span>
     </span>
 
@@ -241,48 +252,51 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="起因"><a class="markdownIt-Anchor" href="#起因"></a> 起因</h1>
-<p>把带地理位置信息的照片上传到 google 相册后，可以在地图中查看每张照片在地图上的标点。但是 google 相册云空间有限；使用 mod 的话总感觉有风险；并且上传照片到云上也怕隐私泄露（ google 之前拿用户照片来训练 ai ）。</p>
-<p>安卓端开源的 <a target="_blank" rel="noopener" href="https://github.com/deckerst/aves">Aves 相册</a>也有这个功能，但是照片必须在本地。然而我不会把大量照片放在一部手机上，更偏向于放在桌面端设备。</p>
-<p>在网上搜索开源照片管理工具，找到了这篇<a target="_blank" rel="noopener" href="https://www.cnblogs.com/ryanyangcs/p/18322866">云部署教程</a>推荐。</p>
-<h1 id="photoprism-介绍"><a class="markdownIt-Anchor" href="#photoprism-介绍"></a> photoPrism 介绍</h1>
+    <div class="post-body" itemprop="articleBody"><h1 id="menu-控件"><a class="markdownIt-Anchor" href="#menu-控件"></a> menu 控件</h1>
+<p>这里的 menu 控件是指标题栏右上角的菜单按钮。</p>
+<p>在 <code>res/menu</code> 文件夹下创建一个 xml 文件，如 <code>main.xml</code>：</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;
+&lt;menu xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res&#x2F;android&quot;&gt;
+    &lt;item
+        android:id&#x3D;&quot;@+id&#x2F;add_item&quot;
+        android:title&#x3D;&quot;Add&quot;&#x2F;&gt;
+    &lt;item
+        android:id&#x3D;&quot;@+id&#x2F;remove_item&quot;
+        android:title&#x3D;&quot;Remove&quot;&#x2F;&gt;
+&lt;&#x2F;menu&gt;</code></pre>
+<p>在 Activity 中重写 <code>onCreateOptionsMenu</code> 方法：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onCreateOptionsMenu(menu: Menu?): Boolean &#123;
+    menuInflater.inflate(R.menu.main, menu) 
+    &#x2F;&#x2F; menuInflater 这一部分其实是 kotlin 的语法糖，已经自动调用了 getter 方法
+    &#x2F;* inflate 方法接收两个参数：
+    第一个是 menu 布局资源文件，
+    第二个是要设置这个布局的 menu 对象
+    （从哪里来到哪里去）*&#x2F;
+    return true
+    &#x2F;&#x2F; 返回 true 表示菜单允许菜单显示
+&#125;</code></pre>
+<p>之后在 Activity 中重写 <code>onOptionsItemSelected</code> 方法可以自定义菜单选项响应事件。</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onOptionsItemSelected(item: MenuItem): Boolean &#123;
+    when(item.itemId)&#123;
+        R.id.add_item -&gt; Toast.makeText(this, &quot;add item&quot;,Toast.LENGTH_SHORT).show()
+        R.id.remove_item -&gt; Toast.makeText(this,&quot;remove item&quot;,Toast.LENGTH_SHORT).show()
+    &#125;
+    return true
+&#125;</code></pre>
+<h2 id="显示toast"><a class="markdownIt-Anchor" href="#显示toast"></a> 显示Toast</h2>
+<p><code>makeText()</code> 方法的参数：</p>
+<ol>
+<li>上下文</li>
+<li>toast内容（字符串）</li>
+<li>显示时长</li>
+</ol>
+<p>最后再调用 <code>show()</code> 方法即可。</p>
+<h1 id="没有标题栏"><a class="markdownIt-Anchor" href="#没有标题栏"></a> 没有标题栏</h1>
+<p>在确保 <code>res/values/styles.xml</code> 文件中的 <code>AppTheme</code> 主题中设置了标题栏的情况下：</p>
 <ul>
-<li>开源</li>
-<li>google 相册平替</li>
-<li>具有基本的 AI 分类功能</li>
+<li>如果使用 <code>ComponentActivity</code> 作为活动的父类，需要手动设置标题栏。</li>
+<li>使用 <code>AppCompatActivity</code> 作为活动的父类，可以自动设置标题栏。</li>
 </ul>
-<h1 id="部署-photoprism"><a class="markdownIt-Anchor" href="#部署-photoprism"></a> 部署 photoPrism</h1>
-<p>先决条件： 安装 Docker Desktop ，这里不赘述。</p>
-<h2 id="下载配置文件"><a class="markdownIt-Anchor" href="#下载配置文件"></a> 下载配置文件</h2>
-<p>打开<a target="_blank" rel="noopener" href="https://www.photoprism.app/plus/kb/quickstart">官方文档</a>，找到<a target="_blank" rel="noopener" href="https://www.photoprism.app/plus/kb/quickstart#:~:text=Step%201%3A%20Customize%20Configuration">Step 1: Customize Configuration 部分</a>，点击 windows 右边的下载链接，下载配置文件 <code>compose.yaml</code> 。</p>
-<h2 id="初始化和启动"><a class="markdownIt-Anchor" href="#初始化和启动"></a> 初始化和启动</h2>
-<p>在配置文件的路径下打开 cmd 。注意，接下来的命令会在配置文件的路径下创建 photoPrism 实例（刚开始没注意，放在桌面启动， C 盘差点炸了）。</p>
-<p>依次输入官方提供的两条命令：</p>
-<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">docker compose pull
-docker compose up -d</code></pre>
-<p>第一条命令会下载所需的 image 以及数据库；第二条命令则是以当前配置启动 photoprism 。</p>
-<p>photoPrism 默认运行在<a href="localhost:2342">本地 2342 端口</a>。启动后打开浏览器， 等待界面加载完毕。登录的账号密码为:</p>
-<pre class="line-numbers language-none"><code class="language-none">账号：admin
-密码：insecure</code></pre>
-<p>后续可以在配置文件中修改：</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">environment:
-    PHOTOPRISM_ADMIN_USER: &quot;admin&quot;
-    PHOTOPRISM_ADMIN_PASSWORD: &quot;insecure&quot;</code></pre>
-<p>登陆后，点击左边侧边栏中的 Settings ，之后在右上角找到 language ，可以将界面改为中文。</p>
-<h1 id="如何加载已有图片"><a class="markdownIt-Anchor" href="#如何加载已有图片"></a> 如何加载已有图片</h1>
-<p>打开配置文件，转到95行，可以看到 photoprism 的文件挂载路径。将 <code>~/Photos:/photoprism/originals</code> 其中的 <code>~/Photos</code> 修改为你的照片文件的路径。</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">volumes:
-    # &quot;C:&#x2F;user&#x2F;username&#x2F;folder:&#x2F;photoprism&#x2F;folder&quot;       # example
-    - &quot;~&#x2F;Pictures:&#x2F;photoprism&#x2F;originals&quot;                 # original media files (photos and videos)
-    # - &quot;D:&#x2F;example&#x2F;family:&#x2F;photoprism&#x2F;originals&#x2F;family&quot; # *additional* media folders can be mounted like this
-    # - &quot;E:&#x2F;:&#x2F;photoprism&#x2F;import&quot;                         # *optional* base folder from which files can be imported to originals
-    - &quot;.&#x2F;storage:&#x2F;photoprism&#x2F;storage&quot;                    # *writable* storage folder for cache, database, and sidecar files (never remove)</code></pre>
-<p>重新启动 photoPrism （可以在 Docker Desktop 中手动重启）。</p>
-<p>点击侧边栏的资料库，确认顶部 tab 栏的选项卡为索引，点击开始，等待加载完毕即可。加载时间取决于电脑性能以及照片数量。</p>
-<hr />
-<p>参考文档</p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ryanyangcs/p/18322866">米开朗基杨的博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.photoprism.app/plus/kb/quickstart">photoPrism 官方文档</a></p>
 
     </div>
 
@@ -291,9 +305,25 @@ docker compose up -d</code></pre>
     
 
     <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ant
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://blank95x.github.io/3976894431.html" title="menu 控件">https://blank95x.github.io/3976894431.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
           <div class="post-tags">
-              <a href="/tags/windows/" rel="tag"><i class="fa fa-tag"></i> windows</a>
-              <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> docker</a>
+              <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
           </div>
 
         
