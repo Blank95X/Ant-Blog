@@ -19,28 +19,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blank95x.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":16,"offset":12},"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Intent 意图  在 Acitvity 之间跳转 传递数据 启动其他应用的 Activity  能被外部启动的 Activity 都需要在 AndroidManifest.xml 文件中注册 android:exported&#x3D;&quot;true&quot; 属性。  显式 Intent val intent &#x3D; Intent(this, TargetActivity::class">
+    <meta name="description" content="常用布局  LinearLayout 线性布局，元素呈线性排列，不多解释。 android:orientation 属性可以指定控件的排列方式，默认为水平排列。 控件常用属性：    属性名 值 说明     android:layout_gravity top,bottom,left,right 对齐方向     RelativeLayout 相对布局，元素可以相对于父容器确定位置，也可以相对">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Intent 意图">
-<meta property="og:url" content="https://blank95x.github.io/3728271331.html">
+<meta property="og:title" content="界面布局">
+<meta property="og:url" content="https://blank95x.github.io/3340243686.html">
 <meta property="og:site_name" content="Ant&#39;s blog">
-<meta property="og:description" content="Intent 意图  在 Acitvity 之间跳转 传递数据 启动其他应用的 Activity  能被外部启动的 Activity 都需要在 AndroidManifest.xml 文件中注册 android:exported&#x3D;&quot;true&quot; 属性。  显式 Intent val intent &#x3D; Intent(this, TargetActivity::class">
+<meta property="og:description" content="常用布局  LinearLayout 线性布局，元素呈线性排列，不多解释。 android:orientation 属性可以指定控件的排列方式，默认为水平排列。 控件常用属性：    属性名 值 说明     android:layout_gravity top,bottom,left,right 对齐方向     RelativeLayout 相对布局，元素可以相对于父容器确定位置，也可以相对">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-03-15T14:20:25.000Z">
-<meta property="article:modified_time" content="2025-03-30T14:07:11.455Z">
+<meta property="article:published_time" content="2025-03-30T14:06:04.000Z">
+<meta property="article:modified_time" content="2025-03-30T15:19:12.264Z">
 <meta property="article:author" content="Ant">
 <meta property="article:tag" content="Android">
-<meta property="article:tag" content="Intent">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://blank95x.github.io/3728271331.html">
+<link rel="canonical" href="https://blank95x.github.io/3340243686.html">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blank95x.github.io/3728271331.html","path":"3728271331.html","title":"Intent 意图"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blank95x.github.io/3340243686.html","path":"3340243686.html","title":"界面布局"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Intent 意图 | Ant's blog</title>
+<title>界面布局 | Ant's blog</title>
   
 
 
@@ -139,7 +138,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#intent-%E6%84%8F%E5%9B%BE"><span class="nav-number">1.</span> <span class="nav-text"> Intent 意图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%BE%E5%BC%8F-intent"><span class="nav-number">1.1.</span> <span class="nav-text"> 显式 Intent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9A%90%E5%BC%8F-intent"><span class="nav-number">1.2.</span> <span class="nav-text"> 隐式 Intent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE"><span class="nav-number">1.3.</span> <span class="nav-text"> 传递数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9A%90%E5%BC%8F%E4%BC%A0%E9%80%92%E7%9A%84%E6%9B%B4%E5%A4%9A%E7%94%A8%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text"> 隐式传递的更多用法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E6%95%B0%E6%8D%AE%E7%BB%99%E4%B8%8A%E4%B8%80%E4%B8%AA%E6%B4%BB%E5%8A%A8"><span class="nav-number">3.</span> <span class="nav-text"> 返回数据给上一个活动</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%B8%83%E5%B1%80"><span class="nav-number">1.</span> <span class="nav-text"> 常用布局</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#linearlayout"><span class="nav-number">1.1.</span> <span class="nav-text"> LinearLayout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#relativelayout"><span class="nav-number">1.2.</span> <span class="nav-text"> RelativeLayout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#framelayout"><span class="nav-number">1.3.</span> <span class="nav-text"> FrameLayout</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A7%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text"> 自定义控件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.1.</span> <span class="nav-text"> 步骤</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -192,7 +191,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/3728271331.html">
+    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/3340243686.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -205,12 +204,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Intent 意图 | Ant's blog">
+      <meta itemprop="name" content="界面布局 | Ant's blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Intent 意图
+          界面布局
         </h1>
 
         <div class="post-meta-container">
@@ -220,15 +219,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2025-03-15 22:20:25" itemprop="dateCreated datePublished" datetime="2025-03-15T22:20:25+08:00">2025-03-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-30 22:07:11" itemprop="dateModified" datetime="2025-03-30T22:07:11+08:00">2025-03-30</time>
+      <time title="创建时间：2025-03-30 22:06:04 / 修改时间：23:19:12" itemprop="dateCreated datePublished" datetime="2025-03-30T22:06:04+08:00">2025-03-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -240,7 +233,7 @@
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AE%89%E5%8D%93-app/Activity/" itemprop="url" rel="index"><span itemprop="name">Activity</span></a>
+          <a href="/categories/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AE%89%E5%8D%93-app/%E5%B8%83%E5%B1%80%E5%92%8C%E6%8E%A7%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">布局和控件</span></a>
         </span>
     </span>
 
@@ -253,109 +246,145 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="intent-意图"><a class="markdownIt-Anchor" href="#intent-意图"></a> Intent 意图</h1>
-<ul>
-<li>在 Acitvity 之间跳转</li>
-<li>传递数据</li>
-<li>启动其他应用的 Activity</li>
-</ul>
-<p>能被外部启动的 Activity 都需要在 AndroidManifest.xml 文件中注册 <code>android:exported=&quot;true&quot;</code> 属性。</p>
-<h2 id="显式-intent"><a class="markdownIt-Anchor" href="#显式-intent"></a> 显式 Intent</h2>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val intent &#x3D; Intent(this, TargetActivity::class.java)
-startActivity(intent)</code></pre>
-<p><code>Intent</code> 构造函数的参数：</p>
-<ol>
-<li>上下文</li>
-<li>目标活动的类名</li>
-</ol>
-<p><code>SecondActivity::class.java</code> 相当于 java 中 <code>SecondActivity.class</code> 的写法。</p>
-<h2 id="隐式-intent"><a class="markdownIt-Anchor" href="#隐式-intent"></a> 隐式 Intent</h2>
-<p>如果一个活动可以被隐式调用，需要在 AndroidManifest.xml 文件中注册：</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;activity android:name&#x3D;&quot;.TargetActivity&quot;&gt;
-    &lt;intent-filter&gt;
-        &lt;action android:name&#x3D;&quot;com.example.activitytest.ACTION_START&quot; &#x2F;&gt;
-        &lt;category android:name&#x3D;&quot;android.intent.category.DEFAULT&quot; &#x2F;&gt;
-        &lt;!-- &lt;category android:name&#x3D;&quot;com.example.activitytest.MY_CATEGORY&quot;&#x2F;&gt; --&gt;
-        &lt;!-- action 只能有一个， category 可以有多个--&gt;
-    &lt;&#x2F;intent-filter&gt;
-&lt;&#x2F;activity&gt;</code></pre>
-<p>调用：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val intent &#x3D; Intent(&quot;com.example.activitytest.ACTION_START&quot;)
-startActivity(intent)</code></pre>
-<p>一个 Intent 可以指定一个 action 和多个 category，只有当 action 和 category 全部匹配时，意图才会被响应。</p>
-<h2 id="传递数据"><a class="markdownIt-Anchor" href="#传递数据"></a> 传递数据</h2>
-<p>活动1存放数据：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val intent &#x3D; Intent(this, TargetActivity::class.java)
-intent.putExtra(&quot;extra_data&quot;, &quot;Hello, TargetActivity&quot;) &#x2F;&#x2F; key-value
-startActivity(intent)</code></pre>
-<p>活动2提取数据：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val extraData &#x3D; intent.getStringExtra(&quot;extra_data&quot;)</code></pre>
-<h1 id="隐式传递的更多用法"><a class="markdownIt-Anchor" href="#隐式传递的更多用法"></a> 隐式传递的更多用法</h1>
-<p>安卓系统中有一个内置 action <code>Intent.ACTION_VIEW</code> 可以打开浏览器：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val intent &#x3D; Intent(Intent.ACTION_VIEW)
-intent.data &#x3D; Uri.parse(&quot;http:&#x2F;&#x2F;www.baidu.com&quot;) &#x2F;&#x2F; 设置网址，可选
-startActivity(intent)</code></pre>
-<p>当一个活动在 AndroidManifest.xml 中注册了 action 为 <code>Intent.ACTION_VIEW</code> 时，那么这个活动就可以响应打开网页的请求。</p>
-<p>同时，还可以 <code>intent-filter</code> 标签中再配置一个 <code>data</code> 标签，用于更精确地指定当前 Activity 能够响应的数据。data 标签中主要可以配置以下内容：</p>
+    <div class="post-body" itemprop="articleBody"><h1 id="常用布局"><a class="markdownIt-Anchor" href="#常用布局"></a> 常用布局</h1>
+<h2 id="linearlayout"><a class="markdownIt-Anchor" href="#linearlayout"></a> LinearLayout</h2>
+<p>线性布局，元素呈线性排列，不多解释。</p>
+<p><code>android:orientation</code> 属性可以指定控件的排列方式，默认为水平排列。</p>
+<p>控件常用属性：</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">属性</th>
+<th style="text-align:center">属性名</th>
+<th style="text-align:center">值</th>
 <th style="text-align:center">说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><code>android:scheme</code></td>
-<td style="text-align:center">指定协议</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>android:host</code></td>
-<td style="text-align:center">指定主机名</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>android:port</code></td>
-<td style="text-align:center">指定端口</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>android:path</code></td>
-<td style="text-align:center">指定访问路径</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>android:mimeType</code></td>
-<td style="text-align:center">指定可以处理的数据类型，允许使用通配符</td>
+<td style="text-align:center">android:layout_<mark>gravity</mark></td>
+<td style="text-align:center">top,bottom,left,right</td>
+<td style="text-align:center">对齐方向</td>
 </tr>
 </tbody>
 </table>
-<p>只有当 data 标签中指定的内容和 Intent 中携带的 Data 完全一致时，当前 Activity 才能够响应该 Intent 。</p>
-<blockquote>
-<p>如果所有配置都正确，但是跳转的时候打开了系统默认的浏览器，将其禁用再尝试是否可以正常接收跳转浏览器的意图。</p>
-</blockquote>
-<h1 id="返回数据给上一个活动"><a class="markdownIt-Anchor" href="#返回数据给上一个活动"></a> 返回数据给上一个活动</h1>
-<p>在父活动中使用 <code>startActivityForResult</code> 方法启动子活动：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val intent &#x3D; Intent(this, TargetActivity::class.java)
-startActivityForResult(intent, 1) &#x2F;&#x2F; 1 是请求码，用于在之后的回调中判断数据来源</code></pre>
-<p>子活动返回数据：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">&#x2F;&#x2F; 主逻辑
-val intent &#x3D; Intent()
-intent.putExtra(&quot;data_return&quot;, &quot;Hello, MainActivity&quot;)
-setResult(RESULT_OK, intent)
-finish() &#x2F;&#x2F; 销毁当前活动</code></pre>
-<p>父活动接收数据：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) &#123;
-    when (requestCode) &#123;
-        1 -&gt; &#123;
-            if (resultCode &#x3D;&#x3D; Activity.RESULT_OK) &#123;
-                val returnedData &#x3D; data?.getStringExtra(&quot;data_return&quot;)
-                Log.d(&quot;MainActivity&quot;, &quot;returned data is $returnedData&quot;)
-            &#125;
-        &#125;
+<h2 id="relativelayout"><a class="markdownIt-Anchor" href="#relativelayout"></a> RelativeLayout</h2>
+<p>相对布局，元素可以相对于父容器确定位置，也可以相对于其他控件。</p>
+<p>控件常用属性：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性名</th>
+<th style="text-align:center">值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">android:layout_<mark>centerInParent</mark></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">处于父容器<mark>中心</mark></td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignParentTop</mark></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">与父容器<mark>顶部</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignParentBottom</mark></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">与父容器<mark>底部</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignParentLeft</mark></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">与父容器<mark>左边</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignParentRight</mark></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">与父容器<mark>右边</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>above</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">位于控件<mark>上方</mark></td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>below</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">位于控件<mark>下方</mark></td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>toLeftOf</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">位于控件<mark>左侧</mark></td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>toRightOf</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">位于控件<mark>右侧</mark></td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignTop</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">与控件<mark>上边缘</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignBottom</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">与控件<mark>下边缘</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignLeft</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">与控件<mark>左边缘</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignRight</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">与控件<mark>右边缘</mark>对齐</td>
+</tr>
+</tbody>
+</table>
+<h2 id="framelayout"><a class="markdownIt-Anchor" href="#framelayout"></a> FrameLayout</h2>
+<p>帧布局。不够灵活，应用较少。</p>
+<h1 id="自定义控件"><a class="markdownIt-Anchor" href="#自定义控件"></a> 自定义控件</h1>
+<p>安卓中的布局与控件的继承关系：</p>
+<pre class="mermaid">graph TD
+    View --> TextView
+    View --> ImageView
+    View --> ViewGroup
+    TextView --> EditText
+    TextView --> Button
+    ViewGroup --> LinearLayout
+    ViewGroup --> RelativeLayout
+    ViewGroup --> Others[……]</pre>
+<p>View是Android中最基本的一种UI组件，它可以在屏幕上绘制一块矩形区域，并能响应这块区域的各种事件。</p>
+<p>ViewGroup是一种特殊的View，它可以包含很多子View和子ViewGroup，是一个用于放置控件和布局的容器。</p>
+<h2 id="步骤"><a class="markdownIt-Anchor" href="#步骤"></a> 步骤</h2>
+<p>布局与布局之间是可以相互嵌套的。</p>
+<p>控件必须依赖于布局。所以实际上就是自定义布局，其中有自定义的控件。</p>
+<pre class="mermaid">graph LR
+    A[class文件
+    逻辑控制] --- |绑定| B[xml 文件
+    布局设置]
+
+    A --> |完整类路径| C[其他布局文件中引入]</pre>
+<ul>
+<li>编写一个 class 作为逻辑控制，并与自定义的布局绑定（在 class 文件中编写加载布局等逻辑）。</li>
+</ul>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class YourLayout(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) &#123;
+    &#x2F;&#x2F; 如果自定义控件依赖于 LinearLayout 布局，那么对应的 class 也继承于 LinearLayout 类。
+    init &#123;
+        LayoutInflater.from(context).inflate(R.layout.title, this) &#x2F;&#x2F; 绑定自定义的布局
+       &#x2F;&#x2F; code ...
     &#125;
 &#125;</code></pre>
-<p>通过返回键返回时，子活动中重写 <code>onBackPressed</code> 方法即可：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onBackPressed() &#123;
-    &#x2F;&#x2F; code...
-&#125;</code></pre>
+<ul>
+<li>在布局中引入。需要写入完整的类路径。</li>
+</ul>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;com.example.YourPackage.YourLayout
+... &#x2F;&gt;</code></pre>
 
     </div>
 
@@ -373,7 +402,7 @@ finish() &#x2F;&#x2F; 销毁当前活动</code></pre>
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://blank95x.github.io/3728271331.html" title="Intent 意图">https://blank95x.github.io/3728271331.html</a>
+      <a href="https://blank95x.github.io/3340243686.html" title="界面布局">https://blank95x.github.io/3340243686.html</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -383,7 +412,6 @@ finish() &#x2F;&#x2F; 销毁当前活动</code></pre>
 
           <div class="post-tags">
               <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
-              <a href="/tags/Intent/" rel="tag"><i class="fa fa-tag"></i> Intent</a>
           </div>
 
         

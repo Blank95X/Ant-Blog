@@ -343,7 +343,7 @@ FirstActivity</code></pre>
 ]]></content>
       <categories>
         <category>第一个安卓 app</category>
-        <category>Activity 初识</category>
+        <category>Activity</category>
       </categories>
       <tags>
         <tag>Android</tag>
@@ -458,11 +458,68 @@ finish() &#x2F;&#x2F; 销毁当前活动</code></pre>
 ]]></content>
       <categories>
         <category>第一个安卓 app</category>
-        <category>Activity 初识</category>
+        <category>Activity</category>
       </categories>
       <tags>
         <tag>Android</tag>
         <tag>Intent</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>menu 控件</title>
+    <url>/3976894431.html</url>
+    <content><![CDATA[<h1 id="menu-控件"><a class="markdownIt-Anchor" href="#menu-控件"></a> menu 控件</h1>
+<p>这里的 menu 控件是指标题栏右上角的菜单按钮。</p>
+<p>在 <code>res/menu</code> 文件夹下创建一个 xml 文件，如 <code>main.xml</code>：</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;
+&lt;menu xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res&#x2F;android&quot;&gt;
+    &lt;item
+        android:id&#x3D;&quot;@+id&#x2F;add_item&quot;
+        android:title&#x3D;&quot;Add&quot;&#x2F;&gt;
+    &lt;item
+        android:id&#x3D;&quot;@+id&#x2F;remove_item&quot;
+        android:title&#x3D;&quot;Remove&quot;&#x2F;&gt;
+&lt;&#x2F;menu&gt;</code></pre>
+<p>在 Activity 中重写 <code>onCreateOptionsMenu</code> 方法：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onCreateOptionsMenu(menu: Menu?): Boolean &#123;
+    menuInflater.inflate(R.menu.main, menu) 
+    &#x2F;&#x2F; menuInflater 这一部分其实是 kotlin 的语法糖，已经自动调用了 getter 方法
+    &#x2F;* inflate 方法接收两个参数：
+    第一个是 menu 布局资源文件，
+    第二个是要设置这个布局的 menu 对象
+    （从哪里来到哪里去）*&#x2F;
+    return true
+    &#x2F;&#x2F; 返回 true 表示菜单允许菜单显示
+&#125;</code></pre>
+<p>之后在 Activity 中重写 <code>onOptionsItemSelected</code> 方法可以自定义菜单选项响应事件。</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onOptionsItemSelected(item: MenuItem): Boolean &#123;
+    when(item.itemId)&#123;
+        R.id.add_item -&gt; Toast.makeText(this, &quot;add item&quot;,Toast.LENGTH_SHORT).show()
+        R.id.remove_item -&gt; Toast.makeText(this,&quot;remove item&quot;,Toast.LENGTH_SHORT).show()
+    &#125;
+    return true
+&#125;</code></pre>
+<h2 id="显示toast"><a class="markdownIt-Anchor" href="#显示toast"></a> 显示Toast</h2>
+<p><code>makeText()</code> 方法的参数：</p>
+<ol>
+<li>上下文</li>
+<li>toast内容（字符串）</li>
+<li>显示时长</li>
+</ol>
+<p>最后再调用 <code>show()</code> 方法即可。</p>
+<h1 id="没有标题栏"><a class="markdownIt-Anchor" href="#没有标题栏"></a> 没有标题栏</h1>
+<p>在确保 <code>res/values/styles.xml</code> 文件中的 <code>AppTheme</code> 主题中设置了标题栏的情况下：</p>
+<ul>
+<li>如果使用 <code>ComponentActivity</code> 作为活动的父类，需要手动设置标题栏。</li>
+<li>使用 <code>AppCompatActivity</code> 作为活动的父类，可以自动设置标题栏。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>第一个安卓 app</category>
+        <category>布局和控件</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
       </tags>
   </entry>
   <entry>
@@ -770,67 +827,9 @@ doAction()</code></pre>
 ]]></content>
       <categories>
         <category>第一个安卓 app</category>
-        <category>kotlin 基本语法</category>
       </categories>
       <tags>
         <tag>kotlin</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>menu 控件</title>
-    <url>/3976894431.html</url>
-    <content><![CDATA[<h1 id="menu-控件"><a class="markdownIt-Anchor" href="#menu-控件"></a> menu 控件</h1>
-<p>这里的 menu 控件是指标题栏右上角的菜单按钮。</p>
-<p>在 <code>res/menu</code> 文件夹下创建一个 xml 文件，如 <code>main.xml</code>：</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;
-&lt;menu xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res&#x2F;android&quot;&gt;
-    &lt;item
-        android:id&#x3D;&quot;@+id&#x2F;add_item&quot;
-        android:title&#x3D;&quot;Add&quot;&#x2F;&gt;
-    &lt;item
-        android:id&#x3D;&quot;@+id&#x2F;remove_item&quot;
-        android:title&#x3D;&quot;Remove&quot;&#x2F;&gt;
-&lt;&#x2F;menu&gt;</code></pre>
-<p>在 Activity 中重写 <code>onCreateOptionsMenu</code> 方法：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onCreateOptionsMenu(menu: Menu?): Boolean &#123;
-    menuInflater.inflate(R.menu.main, menu) 
-    &#x2F;&#x2F; menuInflater 这一部分其实是 kotlin 的语法糖，已经自动调用了 getter 方法
-    &#x2F;* inflate 方法接收两个参数：
-    第一个是 menu 布局资源文件，
-    第二个是要设置这个布局的 menu 对象
-    （从哪里来到哪里去）*&#x2F;
-    return true
-    &#x2F;&#x2F; 返回 true 表示菜单允许菜单显示
-&#125;</code></pre>
-<p>之后在 Activity 中重写 <code>onOptionsItemSelected</code> 方法可以自定义菜单选项响应事件。</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onOptionsItemSelected(item: MenuItem): Boolean &#123;
-    when(item.itemId)&#123;
-        R.id.add_item -&gt; Toast.makeText(this, &quot;add item&quot;,Toast.LENGTH_SHORT).show()
-        R.id.remove_item -&gt; Toast.makeText(this,&quot;remove item&quot;,Toast.LENGTH_SHORT).show()
-    &#125;
-    return true
-&#125;</code></pre>
-<h2 id="显示toast"><a class="markdownIt-Anchor" href="#显示toast"></a> 显示Toast</h2>
-<p><code>makeText()</code> 方法的参数：</p>
-<ol>
-<li>上下文</li>
-<li>toast内容（字符串）</li>
-<li>显示时长</li>
-</ol>
-<p>最后再调用 <code>show()</code> 方法即可。</p>
-<h1 id="没有标题栏"><a class="markdownIt-Anchor" href="#没有标题栏"></a> 没有标题栏</h1>
-<p>在确保 <code>res/values/styles.xml</code> 文件中的 <code>AppTheme</code> 主题中设置了标题栏的情况下：</p>
-<ul>
-<li>如果使用 <code>ComponentActivity</code> 作为活动的父类，需要手动设置标题栏。</li>
-<li>使用 <code>AppCompatActivity</code> 作为活动的父类，可以自动设置标题栏。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>第一个安卓 app</category>
-        <category>布局和控件</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
       </tags>
   </entry>
   <entry>
@@ -881,8 +880,7 @@ default 块
 </div>
 <div class="note danger"><p>danger 块</p>
 </div>
-<div class="note success"><p>success 块<br />
-这是一个 success 样式的 note 块</p>
+<div class="note success"><p>success 块</p>
 </div>
 <pre class="line-numbers language-none"><code class="language-none">&#123;% note primary 摘要 %&#125;
 这是一个具有摘要的 primary 样式的 note 块
@@ -900,7 +898,7 @@ default 块
 </div></div>
 <hr />
 <h1 id="mermaid-渲染"><a class="markdownIt-Anchor" href="#mermaid-渲染"></a> mermaid 渲染</h1>
-<p>为博客开启 mermaid 渲染，需要引入 js 。在 <code>themes\next\layout\_partials\footer.njk</code> 中添加以下内容：</p>
+<p>如果使用 markdown 语法绘制mermaid，需要引入 js 。在 <code>themes\next\layout\_partials\footer.njk</code> 中添加以下内容：</p>
 <pre class="line-numbers language-njk" data-language="njk"><code class="language-njk">&#123;%- if theme.mermaid.enable  %&#125;
   &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;mermaid@11.5.0&#x2F;dist&#x2F;mermaid.min.js&#39;&gt;&lt;&#x2F;script&gt;
   &lt;script&gt;
@@ -909,7 +907,7 @@ default 块
     &#125;
   &lt;&#x2F;script&gt;
 &#123;% endif %&#125;</code></pre>
-<p>不过 next 主题已经提供了 mermaid 渲染。只需要在主题配置中打开即可：</p>
+<p>如果使用 next 主题提供的 mermaid 渲染，在主题配置中打开即可：</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># Mermaid tag
 mermaid:
   enable: true
@@ -917,6 +915,8 @@ mermaid:
   theme:
     light: forest
     dark: dark</code></pre>
+<div class="note info"><p>以上只是本人的猜测，未经测试。</p>
+</div>
 <h2 id="例子-3"><a class="markdownIt-Anchor" href="#例子-3"></a> 例子</h2>
 <pre class="line-numbers language-none"><code class="language-none">&#123;% mermaid graph LR %&#125;
 A[Hard] --&gt;|Text| B(Round)
@@ -942,7 +942,7 @@ C --&gt;|One| D[Result 1]
 C --&gt;|Two| E[Result 2]
 </code>
 </pre>
-<p>markdown 的代码块：</p>
+<p>markdown 的 mermaid 块：</p>
 <pre class="mermaid">graph LR
 A[Hard] -->|Text| B(Round)
 B --> C{Decision}
@@ -1047,7 +1047,7 @@ docker compose up -d</code></pre>
 ]]></content>
       <categories>
         <category>第一个安卓 app</category>
-        <category>常用控件</category>
+        <category>布局和控件</category>
       </categories>
       <tags>
         <tag>Android</tag>
@@ -1284,6 +1284,157 @@ TypeError: date.getHours is not a function ...
       <tags>
         <tag>springboot</tag>
         <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>界面布局</title>
+    <url>/3340243686.html</url>
+    <content><![CDATA[<h1 id="常用布局"><a class="markdownIt-Anchor" href="#常用布局"></a> 常用布局</h1>
+<h2 id="linearlayout"><a class="markdownIt-Anchor" href="#linearlayout"></a> LinearLayout</h2>
+<p>线性布局，元素呈线性排列，不多解释。</p>
+<p><code>android:orientation</code> 属性可以指定控件的排列方式，默认为水平排列。</p>
+<p>控件常用属性：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性名</th>
+<th style="text-align:center">值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">android:layout_<mark>gravity</mark></td>
+<td style="text-align:center">top,bottom,left,right</td>
+<td style="text-align:center">对齐方向</td>
+</tr>
+</tbody>
+</table>
+<h2 id="relativelayout"><a class="markdownIt-Anchor" href="#relativelayout"></a> RelativeLayout</h2>
+<p>相对布局，元素可以相对于父容器确定位置，也可以相对于其他控件。</p>
+<p>控件常用属性：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性名</th>
+<th style="text-align:center">值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">android:layout_<mark>centerInParent</mark></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">处于父容器<mark>中心</mark></td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignParentTop</mark></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">与父容器<mark>顶部</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignParentBottom</mark></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">与父容器<mark>底部</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignParentLeft</mark></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">与父容器<mark>左边</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignParentRight</mark></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">与父容器<mark>右边</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>above</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">位于控件<mark>上方</mark></td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>below</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">位于控件<mark>下方</mark></td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>toLeftOf</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">位于控件<mark>左侧</mark></td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>toRightOf</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">位于控件<mark>右侧</mark></td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignTop</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">与控件<mark>上边缘</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignBottom</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">与控件<mark>下边缘</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignLeft</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">与控件<mark>左边缘</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignRight</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">与控件<mark>右边缘</mark>对齐</td>
+</tr>
+</tbody>
+</table>
+<h2 id="framelayout"><a class="markdownIt-Anchor" href="#framelayout"></a> FrameLayout</h2>
+<p>帧布局。不够灵活，应用较少。</p>
+<h1 id="自定义控件"><a class="markdownIt-Anchor" href="#自定义控件"></a> 自定义控件</h1>
+<p>安卓中的布局与控件的继承关系：</p>
+<pre class="mermaid">graph TD
+    View --> TextView
+    View --> ImageView
+    View --> ViewGroup
+    TextView --> EditText
+    TextView --> Button
+    ViewGroup --> LinearLayout
+    ViewGroup --> RelativeLayout
+    ViewGroup --> Others[……]</pre>
+<p>View是Android中最基本的一种UI组件，它可以在屏幕上绘制一块矩形区域，并能响应这块区域的各种事件。</p>
+<p>ViewGroup是一种特殊的View，它可以包含很多子View和子ViewGroup，是一个用于放置控件和布局的容器。</p>
+<h2 id="步骤"><a class="markdownIt-Anchor" href="#步骤"></a> 步骤</h2>
+<p>布局与布局之间是可以相互嵌套的。</p>
+<p>控件必须依赖于布局。所以实际上就是自定义布局，其中有自定义的控件。</p>
+<pre class="mermaid">graph LR
+    A[class文件
+    逻辑控制] --- |绑定| B[xml 文件
+    布局设置]
+
+    A --> |完整类路径| C[其他布局文件中引入]</pre>
+<ul>
+<li>编写一个 class 作为逻辑控制，并与自定义的布局绑定（在 class 文件中编写加载布局等逻辑）。</li>
+</ul>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class YourLayout(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) &#123;
+    &#x2F;&#x2F; 如果自定义控件依赖于 LinearLayout 布局，那么对应的 class 也继承于 LinearLayout 类。
+    init &#123;
+        LayoutInflater.from(context).inflate(R.layout.title, this) &#x2F;&#x2F; 绑定自定义的布局
+       &#x2F;&#x2F; code ...
+    &#125;
+&#125;</code></pre>
+<ul>
+<li>在布局中引入。需要写入完整的类路径。</li>
+</ul>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;com.example.YourPackage.YourLayout
+... &#x2F;&gt;</code></pre>
+]]></content>
+      <categories>
+        <category>第一个安卓 app</category>
+        <category>布局和控件</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
       </tags>
   </entry>
 </search>
