@@ -147,7 +147,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -177,6 +177,237 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/2888069175.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Ant">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ant's blog">
+      <meta itemprop="description" content="春风若有怜花意">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Ant's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2888069175.html" class="post-title-link" itemprop="url">windows 本地部署 photoPrism</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-03-11 23:14:50" itemprop="dateCreated datePublished" datetime="2025-03-11T23:14:50+08:00">2025-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-30 17:22:23" itemprop="dateModified" datetime="2025-03-30T17:22:23+08:00">2025-03-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">软件工具</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="起因"><a class="markdownIt-Anchor" href="#起因"></a> 起因</h1>
+<p>把带地理位置信息的照片上传到 google 相册后，可以在地图中查看每张照片在地图上的标点。但是 google 相册云空间有限；使用 mod 的话总感觉有风险；并且上传照片到云上也怕隐私泄露（ google 之前拿用户照片来训练 ai ）。</p>
+<p>安卓端开源的 <a target="_blank" rel="noopener" href="https://github.com/deckerst/aves">Aves 相册</a>也有这个功能，但是照片必须在本地。然而我不会把大量照片放在一部手机上，更偏向于放在桌面端设备。</p>
+<p>在网上搜索开源照片管理工具，找到了这篇<a target="_blank" rel="noopener" href="https://www.cnblogs.com/ryanyangcs/p/18322866">云部署教程</a>推荐。</p>
+<h1 id="photoprism-介绍"><a class="markdownIt-Anchor" href="#photoprism-介绍"></a> photoPrism 介绍</h1>
+<ul>
+<li>开源</li>
+<li>google 相册平替</li>
+<li>具有基本的 AI 分类功能</li>
+</ul>
+<h1 id="部署-photoprism"><a class="markdownIt-Anchor" href="#部署-photoprism"></a> 部署 photoPrism</h1>
+<p>先决条件： 安装 Docker Desktop ，这里不赘述。</p>
+<h2 id="下载配置文件"><a class="markdownIt-Anchor" href="#下载配置文件"></a> 下载配置文件</h2>
+<p>打开<a target="_blank" rel="noopener" href="https://www.photoprism.app/plus/kb/quickstart">官方文档</a>，找到<a target="_blank" rel="noopener" href="https://www.photoprism.app/plus/kb/quickstart#:~:text=Step%201%3A%20Customize%20Configuration">Step 1: Customize Configuration 部分</a>，点击 windows 右边的下载链接，下载配置文件 <code>compose.yaml</code> 。</p>
+<h2 id="初始化和启动"><a class="markdownIt-Anchor" href="#初始化和启动"></a> 初始化和启动</h2>
+<p>在配置文件的路径下打开 cmd 。注意，接下来的命令会在配置文件的路径下创建 photoPrism 实例（刚开始没注意，放在桌面启动， C 盘差点炸了）。</p>
+<p>依次输入官方提供的两条命令：</p>
+<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">docker compose pull
+docker compose up -d</code></pre>
+<p>第一条命令会下载所需的 image 以及数据库；第二条命令则是以当前配置启动 photoprism 。</p>
+<p>photoPrism 默认运行在<a href="localhost:2342">本地 2342 端口</a>。启动后打开浏览器， 等待界面加载完毕。登录的账号密码为:</p>
+<pre class="line-numbers language-none"><code class="language-none">账号：admin
+密码：insecure</code></pre>
+<p>后续可以在配置文件中修改：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">environment:
+    PHOTOPRISM_ADMIN_USER: &quot;admin&quot;
+    PHOTOPRISM_ADMIN_PASSWORD: &quot;insecure&quot;</code></pre>
+<p>登陆后，点击左边侧边栏中的 Settings ，之后在右上角找到 language ，可以将界面改为中文。</p>
+<h1 id="如何加载已有图片"><a class="markdownIt-Anchor" href="#如何加载已有图片"></a> 如何加载已有图片</h1>
+<p>打开配置文件，转到95行，可以看到 photoprism 的文件挂载路径。将 <code>~/Photos:/photoprism/originals</code> 其中的 <code>~/Photos</code> 修改为你的照片文件的路径。</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">volumes:
+    # &quot;C:&#x2F;user&#x2F;username&#x2F;folder:&#x2F;photoprism&#x2F;folder&quot;       # example
+    - &quot;~&#x2F;Pictures:&#x2F;photoprism&#x2F;originals&quot;                 # original media files (photos and videos)
+    # - &quot;D:&#x2F;example&#x2F;family:&#x2F;photoprism&#x2F;originals&#x2F;family&quot; # *additional* media folders can be mounted like this
+    # - &quot;E:&#x2F;:&#x2F;photoprism&#x2F;import&quot;                         # *optional* base folder from which files can be imported to originals
+    - &quot;.&#x2F;storage:&#x2F;photoprism&#x2F;storage&quot;                    # *writable* storage folder for cache, database, and sidecar files (never remove)</code></pre>
+<p>重新启动 photoPrism （可以在 Docker Desktop 中手动重启）。</p>
+<p>点击侧边栏的资料库，确认顶部 tab 栏的选项卡为索引，点击开始，等待加载完毕即可。加载时间取决于电脑性能以及照片数量。</p>
+<hr />
+<p>参考文档</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ryanyangcs/p/18322866">米开朗基杨的博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.photoprism.app/plus/kb/quickstart">photoPrism 官方文档</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/2106263798.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Ant">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ant's blog">
+      <meta itemprop="description" content="春风若有怜花意">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Ant's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2106263798.html" class="post-title-link" itemprop="url">PowerShell：在此系统上禁止运行脚本</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-03-10 17:08:19" itemprop="dateCreated datePublished" datetime="2025-03-10T17:08:19+08:00">2025-03-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-30 17:22:23" itemprop="dateModified" datetime="2025-03-30T17:22:23+08:00">2025-03-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/" itemprop="url" rel="index"><span itemprop="name">疑难杂症</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>查看当前用户的执行策略：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">get-executionpolicy</code></pre>
+<p>返回 <code>Restricted</code> （默认）则是无法执行脚本。</p>
+<p>解除限制：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">set-executionpolicy remotesigned</code></pre>
+<p>如果运行后提示：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">Windows PowerShell 已成功更新你的执行策略，但在更具体的作业域中定义的策略覆盖该设置了。由于发生覆盖，你的外壳程序将保留当前的有效执行策略受限制。</code></pre>
+<p>说明当前用户的策略还未更改，继续执行：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">Set-ExecutionPolicy RemoteSigned -Scope CurrentUser</code></pre>
+<p>再次查看当前用户的执行策略，发现已更改。</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">&gt; get-executionpolicy
+RemoteSigned</code></pre>
+<p>之后就可以执行脚本了。</p>
+<div class="link-grid"><div class="link-grid-container">
+<object class="link-grid-image" data="https://syxdevcode.github.io/images/favicon-32x32-next.png"></object>
+<p>syxdevcode的博客</p><p>PowerShell：因为在此系统上禁止运行脚本，解决方法</p>
+<a target="_blank" rel="noopener" href="https://syxdevcode.github.io/2021/09/04/PowerShell%EF%BC%9A%E5%9B%A0%E4%B8%BA%E5%9C%A8%E6%AD%A4%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%A6%81%E6%AD%A2%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC%EF%BC%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://smallsquare.github.io/img/creeper.png"></object>
+<p>smallsquare的博客</p><p>解决Powershell阻止脚本运行遇到的问题 Powershell禁用运行脚本的解决方案</p>
+<a target="_blank" rel="noopener" href="https://smallsquare.github.io/Powershell-disable-runing-scripts/"></a>
+</div></div>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 

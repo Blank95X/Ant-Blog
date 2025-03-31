@@ -147,7 +147,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -186,6 +186,275 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/3338553697.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Ant">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ant's blog">
+      <meta itemprop="description" content="春风若有怜花意">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Ant's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/3338553697.html" class="post-title-link" itemprop="url">新建博客时自动以时间命名文件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-03-31 22:02:50 / 修改时间：23:17:19" itemprop="dateCreated datePublished" datetime="2025-03-31T22:02:50+08:00">2025-03-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">软件工具</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="配置-js-脚本"><a class="markdownIt-Anchor" href="#配置-js-脚本"></a> 配置 js 脚本</h1>
+<p>在 blog 根目录下新建文件 <code>new_post_with_date.js</code> ：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">const &#123; exec &#125; &#x3D; require(&#39;child_process&#39;);
+const moment &#x3D; require(&#39;moment&#39;);
+
+&#x2F;&#x2F; 获取当前日期时间，格式为 &#39;YYYY-MM-DD-HH-mm-ss&#39;
+const dateTime &#x3D; moment().format(&#39;YYYY-MM-DD-HH-mm-ss&#39;);
+
+&#x2F;&#x2F; 定义文章标题
+const title &#x3D; &#96;$&#123;dateTime&#125;&#96;;
+
+&#x2F;&#x2F; 执行 Hexo new 命令创建新文章
+exec(&#96;hexo new &quot;$&#123;title&#125;&quot;&#96;, (error, stdout, stderr) &#x3D;&gt; &#123;
+    if (error) &#123;
+        console.error(&#96;执行出错: $&#123;error&#125;&#96;);
+        return;
+    &#125;
+    console.log(stdout);
+    if (stderr) &#123;
+        console.error(&#96;标准错误: $&#123;stderr&#125;&#96;);
+    &#125;
+&#125;);</code></pre>
+<p>之后安装 <code>moment</code> 库来处理时间和日期：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install monent</code></pre>
+<h1 id="新建博客"><a class="markdownIt-Anchor" href="#新建博客"></a> 新建博客</h1>
+<p>这样新建博客需要使用 <code>node new_post_with_date.js</code> 命令，生成的文件自动以当前时间命名。</p>
+<p>可以修改 <code>new_post_with_date.js</code> 文件来自定义生成的文件名。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/1266698458.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Ant">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ant's blog">
+      <meta itemprop="description" content="春风若有怜花意">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Ant's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1266698458.html" class="post-title-link" itemprop="url">springboot 初识</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-03-31 21:47:03 / 修改时间：23:19:43" itemprop="dateCreated datePublished" datetime="2025-03-31T21:47:03+08:00">2025-03-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/spring/" itemprop="url" rel="index"><span itemprop="name">spring</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/spring/springboot/" itemprop="url" rel="index"><span itemprop="name">springboot</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="springboot-是什么"><a class="markdownIt-Anchor" href="#springboot-是什么"></a> springboot 是什么</h1>
+<p>springboot 是 spring 框架的一个子部件，用于快速构建 spring web 项目。</p>
+<h2 id="快速构建"><a class="markdownIt-Anchor" href="#快速构建"></a> 快速构建</h2>
+<ol>
+<li>创建 maven 工程</li>
+<li>导入起步依赖：spring-boot-starter-web</li>
+<li>提供启动类</li>
+<li>编写 Controller</li>
+</ol>
+<p>如果使用 IDEA 进行构建，只需要手动进行第四步，其他的会自动完成。</p>
+<p>启动类：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; springboot工程启动类
+@SpringBootApplication
+public class SpringbootQuickstartApplication &#123;
+
+    public static void main(String[] args) &#123;
+        SpringApplication.run(SpringbootQuickstartApplication.class, args);
+        &#x2F;&#x2F; 两个参数：当前类的class文件、启动参数
+    &#125;
+
+&#125;</code></pre>
+<p>编写 Controller ：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">@RestController
+public class HelloController &#123;
+    @RequestMapping(&quot;&#x2F;hello&quot;)
+    public String hello() &#123;
+        return &quot;hello!&quot;;
+    &#125;
+&#125;</code></pre>
+<p>运行项目后，访问 localhost:8080/hello ，可以看到 <code>hello!</code> 这个字符串。</p>
+<div class="note info"><p>手动创建工程只需要创建文件即可，比如：</p>
+<ol>
+<li><code>pom.xml</code> 文件，并手动导入依赖；</li>
+<li>启动类</li>
+<li>Controller<br />
+有了这三个文件就可以启动了，这是一个最小的 springboot 项目。</li>
+</ol>
+</div>
+<hr />
+<h1 id="applicationproperties-配置文件"><a class="markdownIt-Anchor" href="#applicationproperties-配置文件"></a> application.properties 配置文件</h1>
+<p><code>/resources</code> 目录下的 <code>application.properties</code> 或者 <code>application.yml</code> 是项目的配置文件。它们的作用是相同的，只是语法格式不同。<code>springboot</code> 会自动识别并读取其中的配置。</p>
+<h2 id="编写配置信息"><a class="markdownIt-Anchor" href="#编写配置信息"></a> 编写配置信息</h2>
+<p>以修改项目相关配置为例：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">server:
+    port: 9090 # 项目启动端口
+    servlet:
+        context-path: &#x2F;root # 站点虚拟根路径</code></pre>
+<h2 id="获取配置信息"><a class="markdownIt-Anchor" href="#获取配置信息"></a> 获取配置信息</h2>
+<p>有一个自定义类 <code>getConfigInfo</code> ：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class getConfigInfo &#123;
+    public int one;
+    public String two;
+    public boolean three;
+&#125;</code></pre>
+<p>配置文件如下：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">key:
+    one: 1
+    two: er
+    three: true</code></pre>
+<p>需要获取配置信息时，使用 <code>@Value</code> 注解：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class getConfigInfo &#123;
+    @Value(&quot;$&#123;key.one&#125;&quot;)
+    public int one;
+
+    @Value(&quot;$&#123;key.two&#125;&quot;)
+    public String two;
+
+    @Value(&quot;$&#123;key.three&#125;&quot;)
+    public boolean three;
+&#125;</code></pre>
+<p>如果字段名太多呢？显然它们都有一个共同的前缀 <code>key</code> 。那么就可以使用 <code>@ConfigurationProperties</code> 注解：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">@ConfigurationProperties(prefix &#x3D; &quot;key&quot;) &#x2F;&#x2F; prefix 的值是共同前缀
+public class getConfigInfo &#123;
+    public int one;
+    public String two;
+    public boolean three;
+&#125;</code></pre>
+<p>使用该注解来<strong>自动获取键值</strong>的前提是类中的<strong>属性名</strong>与配置文件中的<strong>键名</strong>一致。</p>
+<div class="link-grid"><div class="link-grid-container">
+<object class="link-grid-image" data="https://docs.spring.io/spring-boot/_/img/spring-logo.svg"></object>
+<p>Spring 官方文档</p><p>Common Application Properties</p>
+<a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/appendix/application-properties/index.html#appendix.application-properties"></a>
+</div></div>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/3340243686.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -214,9 +483,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2025-03-30 22:06:04 / 修改时间：23:19:12" itemprop="dateCreated datePublished" datetime="2025-03-30T22:06:04+08:00">2025-03-30</time>
+      <time title="创建时间：2025-03-30 22:06:04" itemprop="dateCreated datePublished" datetime="2025-03-30T22:06:04+08:00">2025-03-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-31 12:49:34" itemprop="dateModified" datetime="2025-03-31T12:49:34+08:00">2025-03-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -358,14 +633,10 @@
 <p>View是Android中最基本的一种UI组件，它可以在屏幕上绘制一块矩形区域，并能响应这块区域的各种事件。</p>
 <p>ViewGroup是一种特殊的View，它可以包含很多子View和子ViewGroup，是一个用于放置控件和布局的容器。</p>
 <h2 id="步骤"><a class="markdownIt-Anchor" href="#步骤"></a> 步骤</h2>
-<p>布局与布局之间是可以相互嵌套的。</p>
-<p>控件必须依赖于布局。所以实际上就是自定义布局，其中有自定义的控件。</p>
+<p>布局与布局之间是可以相互嵌套的；控件必须依赖于布局。所以实际上就是自定义布局，其中有自定义的控件。</p>
 <pre class="mermaid">graph LR
-    A[class文件
-    逻辑控制] --- |绑定| B[xml 文件
-    布局设置]
-
-    A --> |完整类路径| C[其他布局文件中引入]</pre>
+    xml文件设计布局 --> |加载| A[class文件控制逻辑]
+    A --> |完整类路径| 其他布局文件中引入</pre>
 <ul>
 <li>编写一个 class 作为逻辑控制，并与自定义的布局绑定（在 class 文件中编写加载布局等逻辑）。</li>
 </ul>
@@ -2041,237 +2312,6 @@ UtilsKt.doAction();
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">&#x2F;&#x2F; Kotlin
 doAction()</code></pre>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/2888069175.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Ant">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ant's blog">
-      <meta itemprop="description" content="春风若有怜花意">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Ant's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2888069175.html" class="post-title-link" itemprop="url">windows 本地部署 photoPrism</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-03-11 23:14:50" itemprop="dateCreated datePublished" datetime="2025-03-11T23:14:50+08:00">2025-03-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-30 17:22:23" itemprop="dateModified" datetime="2025-03-30T17:22:23+08:00">2025-03-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">软件工具</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="起因"><a class="markdownIt-Anchor" href="#起因"></a> 起因</h1>
-<p>把带地理位置信息的照片上传到 google 相册后，可以在地图中查看每张照片在地图上的标点。但是 google 相册云空间有限；使用 mod 的话总感觉有风险；并且上传照片到云上也怕隐私泄露（ google 之前拿用户照片来训练 ai ）。</p>
-<p>安卓端开源的 <a target="_blank" rel="noopener" href="https://github.com/deckerst/aves">Aves 相册</a>也有这个功能，但是照片必须在本地。然而我不会把大量照片放在一部手机上，更偏向于放在桌面端设备。</p>
-<p>在网上搜索开源照片管理工具，找到了这篇<a target="_blank" rel="noopener" href="https://www.cnblogs.com/ryanyangcs/p/18322866">云部署教程</a>推荐。</p>
-<h1 id="photoprism-介绍"><a class="markdownIt-Anchor" href="#photoprism-介绍"></a> photoPrism 介绍</h1>
-<ul>
-<li>开源</li>
-<li>google 相册平替</li>
-<li>具有基本的 AI 分类功能</li>
-</ul>
-<h1 id="部署-photoprism"><a class="markdownIt-Anchor" href="#部署-photoprism"></a> 部署 photoPrism</h1>
-<p>先决条件： 安装 Docker Desktop ，这里不赘述。</p>
-<h2 id="下载配置文件"><a class="markdownIt-Anchor" href="#下载配置文件"></a> 下载配置文件</h2>
-<p>打开<a target="_blank" rel="noopener" href="https://www.photoprism.app/plus/kb/quickstart">官方文档</a>，找到<a target="_blank" rel="noopener" href="https://www.photoprism.app/plus/kb/quickstart#:~:text=Step%201%3A%20Customize%20Configuration">Step 1: Customize Configuration 部分</a>，点击 windows 右边的下载链接，下载配置文件 <code>compose.yaml</code> 。</p>
-<h2 id="初始化和启动"><a class="markdownIt-Anchor" href="#初始化和启动"></a> 初始化和启动</h2>
-<p>在配置文件的路径下打开 cmd 。注意，接下来的命令会在配置文件的路径下创建 photoPrism 实例（刚开始没注意，放在桌面启动， C 盘差点炸了）。</p>
-<p>依次输入官方提供的两条命令：</p>
-<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">docker compose pull
-docker compose up -d</code></pre>
-<p>第一条命令会下载所需的 image 以及数据库；第二条命令则是以当前配置启动 photoprism 。</p>
-<p>photoPrism 默认运行在<a href="localhost:2342">本地 2342 端口</a>。启动后打开浏览器， 等待界面加载完毕。登录的账号密码为:</p>
-<pre class="line-numbers language-none"><code class="language-none">账号：admin
-密码：insecure</code></pre>
-<p>后续可以在配置文件中修改：</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">environment:
-    PHOTOPRISM_ADMIN_USER: &quot;admin&quot;
-    PHOTOPRISM_ADMIN_PASSWORD: &quot;insecure&quot;</code></pre>
-<p>登陆后，点击左边侧边栏中的 Settings ，之后在右上角找到 language ，可以将界面改为中文。</p>
-<h1 id="如何加载已有图片"><a class="markdownIt-Anchor" href="#如何加载已有图片"></a> 如何加载已有图片</h1>
-<p>打开配置文件，转到95行，可以看到 photoprism 的文件挂载路径。将 <code>~/Photos:/photoprism/originals</code> 其中的 <code>~/Photos</code> 修改为你的照片文件的路径。</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">volumes:
-    # &quot;C:&#x2F;user&#x2F;username&#x2F;folder:&#x2F;photoprism&#x2F;folder&quot;       # example
-    - &quot;~&#x2F;Pictures:&#x2F;photoprism&#x2F;originals&quot;                 # original media files (photos and videos)
-    # - &quot;D:&#x2F;example&#x2F;family:&#x2F;photoprism&#x2F;originals&#x2F;family&quot; # *additional* media folders can be mounted like this
-    # - &quot;E:&#x2F;:&#x2F;photoprism&#x2F;import&quot;                         # *optional* base folder from which files can be imported to originals
-    - &quot;.&#x2F;storage:&#x2F;photoprism&#x2F;storage&quot;                    # *writable* storage folder for cache, database, and sidecar files (never remove)</code></pre>
-<p>重新启动 photoPrism （可以在 Docker Desktop 中手动重启）。</p>
-<p>点击侧边栏的资料库，确认顶部 tab 栏的选项卡为索引，点击开始，等待加载完毕即可。加载时间取决于电脑性能以及照片数量。</p>
-<hr />
-<p>参考文档</p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ryanyangcs/p/18322866">米开朗基杨的博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.photoprism.app/plus/kb/quickstart">photoPrism 官方文档</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blank95x.github.io/2106263798.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Ant">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ant's blog">
-      <meta itemprop="description" content="春风若有怜花意">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Ant's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2106263798.html" class="post-title-link" itemprop="url">PowerShell：在此系统上禁止运行脚本</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-03-10 17:08:19" itemprop="dateCreated datePublished" datetime="2025-03-10T17:08:19+08:00">2025-03-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-30 17:22:23" itemprop="dateModified" datetime="2025-03-30T17:22:23+08:00">2025-03-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/" itemprop="url" rel="index"><span itemprop="name">疑难杂症</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>查看当前用户的执行策略：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">get-executionpolicy</code></pre>
-<p>返回 <code>Restricted</code> （默认）则是无法执行脚本。</p>
-<p>解除限制：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">set-executionpolicy remotesigned</code></pre>
-<p>如果运行后提示：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">Windows PowerShell 已成功更新你的执行策略，但在更具体的作业域中定义的策略覆盖该设置了。由于发生覆盖，你的外壳程序将保留当前的有效执行策略受限制。</code></pre>
-<p>说明当前用户的策略还未更改，继续执行：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">Set-ExecutionPolicy RemoteSigned -Scope CurrentUser</code></pre>
-<p>再次查看当前用户的执行策略，发现已更改。</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">&gt; get-executionpolicy
-RemoteSigned</code></pre>
-<p>之后就可以执行脚本了。</p>
-<div class="link-grid"><div class="link-grid-container">
-<object class="link-grid-image" data="https://syxdevcode.github.io/images/favicon-32x32-next.png"></object>
-<p>syxdevcode的博客</p><p>PowerShell：因为在此系统上禁止运行脚本，解决方法</p>
-<a target="_blank" rel="noopener" href="https://syxdevcode.github.io/2021/09/04/PowerShell%EF%BC%9A%E5%9B%A0%E4%B8%BA%E5%9C%A8%E6%AD%A4%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%A6%81%E6%AD%A2%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC%EF%BC%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"></a>
-</div><div class="link-grid-container">
-<object class="link-grid-image" data="https://smallsquare.github.io/img/creeper.png"></object>
-<p>smallsquare的博客</p><p>解决Powershell阻止脚本运行遇到的问题 Powershell禁用运行脚本的解决方案</p>
-<a target="_blank" rel="noopener" href="https://smallsquare.github.io/Powershell-disable-runing-scripts/"></a>
-</div></div>
       
     </div>
 
