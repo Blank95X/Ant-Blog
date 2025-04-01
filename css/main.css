@@ -1360,7 +1360,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #d9ff91;
+  background: #ffd2b4;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2776,4 +2776,22 @@ header.header {
   .sidebar-active .footer-fixed {
     left: 320px;
   }
+}
+.post-warning {
+  background: linear-gradient(135deg, #fff3cd 0%, #ffecb3 100%);
+  color: #856404;
+  padding: 15px;
+  border-left: 6px solid #ff9800;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.post-warning p {
+  margin: 0;
+  line-height: 1.6;
+}
+.post-warning strong {
+  font-weight: 700;
 }

@@ -1,44 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>新建博客时自动以时间命名文件</title>
-    <url>/3338553697.html</url>
-    <content><![CDATA[<h1 id="配置-js-脚本"><a class="markdownIt-Anchor" href="#配置-js-脚本"></a> 配置 js 脚本</h1>
-<p>在 blog 根目录下新建文件 <code>new_post_with_date.js</code> ：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">const &#123; exec &#125; &#x3D; require(&#39;child_process&#39;);
-const moment &#x3D; require(&#39;moment&#39;);
-
-&#x2F;&#x2F; 获取当前日期时间，格式为 &#39;YYYY-MM-DD-HH-mm-ss&#39;
-const dateTime &#x3D; moment().format(&#39;YYYY-MM-DD-HH-mm-ss&#39;);
-
-&#x2F;&#x2F; 定义文章标题
-const title &#x3D; &#96;$&#123;dateTime&#125;&#96;;
-
-&#x2F;&#x2F; 执行 Hexo new 命令创建新文章
-exec(&#96;hexo new &quot;$&#123;title&#125;&quot;&#96;, (error, stdout, stderr) &#x3D;&gt; &#123;
-    if (error) &#123;
-        console.error(&#96;执行出错: $&#123;error&#125;&#96;);
-        return;
-    &#125;
-    console.log(stdout);
-    if (stderr) &#123;
-        console.error(&#96;标准错误: $&#123;stderr&#125;&#96;);
-    &#125;
-&#125;);</code></pre>
-<p>之后安装 <code>moment</code> 库来处理时间和日期：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install monent</code></pre>
-<h1 id="新建博客"><a class="markdownIt-Anchor" href="#新建博客"></a> 新建博客</h1>
-<p>这样新建博客需要使用 <code>node new_post_with_date.js</code> 命令，生成的文件自动以当前时间命名。</p>
-<p>可以修改 <code>new_post_with_date.js</code> 文件来自定义生成的文件名。</p>
-]]></content>
-      <categories>
-        <category>软件工具</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>springboot 初识</title>
     <url>/1266698458.html</url>
     <content><![CDATA[<h1 id="springboot-是什么"><a class="markdownIt-Anchor" href="#springboot-是什么"></a> springboot 是什么</h1>
@@ -133,6 +95,254 @@ public class getConfigInfo &#123;
       </tags>
   </entry>
   <entry>
+    <title>bean 对象</title>
+    <url>/978272554.html</url>
+    <content><![CDATA[<h1 id="自动扫描-bean-对象"><a class="markdownIt-Anchor" href="#自动扫描-bean-对象"></a> 自动扫描 bean 对象</h1>
+<p>在 springboot 中，扫描 bean 的路径由注解 <code>@ComponentScan</code> 指定：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">@ComponentScan(basePackages &#x3D; &quot;com.example.demo&quot;)</code></pre>
+<p>springboot 的启动类注解已经包含了这个注解：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">@SpringBootConfiguration
+@EnableAutoConfiguration
+@ComponentScan
+public @interface SpringBootApplication&#123;
+    &#x2F;&#x2F; code ...
+&#125;</code></pre>
+<p>springboot 默认扫描<strong>启动类所在的包及其子包</strong>。所以只需要在规定的路径内编写代码，即可自动扫描。</p>
+<p>如果希望可以扫描启动类的包之外的 bean ，可以为其添加注解 <code>@ComponentScan</code> 来指定。</p>
+<h1 id="bean-注册"><a class="markdownIt-Anchor" href="#bean-注册"></a> bean 注册</h1>
+<p>基础的注册注解：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">注解</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>@Component</code></td>
+<td style="text-align:center">声明 bean 的基础注解</td>
+<td style="text-align:center">不属于以下三类时使用</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>@Controller</code></td>
+<td style="text-align:center"><code>@Component</code> 的衍生注解</td>
+<td style="text-align:center">标注于控制类</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>@Service</code></td>
+<td style="text-align:center"><code>@Component</code> 的衍生注解</td>
+<td style="text-align:center">标注于业务类</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>@Repository</code></td>
+<td style="text-align:center"><code>@Component</code> 的衍生注解</td>
+<td style="text-align:center">标注于数据访问类</td>
+</tr>
+</tbody>
+</table>
+<p>如果 bean 对象来自第三方，是无法使用 <code>@Component</code> 及其衍生注解的。</p>
+<h2 id="注册第三方-bean"><a class="markdownIt-Anchor" href="#注册第三方-bean"></a> 注册第三方 bean</h2>
+<h3 id="bean-注解"><a class="markdownIt-Anchor" href="#bean-注解"></a> @Bean 注解</h3>
+<p>可以在启动类中使用：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">@springBootApplication
+public class SpringBootRegisterApplicationf&#123;
+    
+    &#x2F;&#x2F;将方法返回值交给Ioc容器管理，成为Ioc容器的bean对象 
+    @Bean
+    public OtherBean otherBean()&#123;
+        return new OtherBean();
+    &#125; 
+
+    &#x2F;&#x2F; 验证注入是否成功
+    public static void main(String[] args) &#123;
+        &#x2F;&#x2F; 获取当前容器
+        ApplicationContext context &#x3D; SpringApplication.run(SpringbootQuickstartApplication.class, args);
+        &#x2F;&#x2F; 获取注入的 Bean
+        OtherBean otherBean &#x3D; context.getBean(OtherBean.class);
+        &#x2F;&#x2F; 如果没有报错说明注入成功
+        System.out.println(otherBean);
+    &#125;
+
+&#125;</code></pre>
+<p>注入的 Bean 对象的默认名为方法名。可以自定义名字：</p>
+<pre class="line-numbers language-diff" data-language="diff"><code class="language-diff">- @Bean
++ @Bean(name &#x3D; &quot;yourName&quot;)
++ @Bean(&quot;yourName&quot;)</code></pre>
+<pre class="line-numbers language-diff" data-language="diff"><code class="language-diff">&#x2F;&#x2F; 获取注入的 Bean
+- OtherBean otherBean &#x3D; context.getBean(OtherBean.class);
++ OtherBean otherBean &#x3D; context.getBean(&quot;yourName&quot;);</code></pre>
+<p>但是启动类不应该做这些工作。可以使用 <code>@Configuration</code> 来指定配置类。注意<strong>配置类需要在启动类所在包或其子包</strong>。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">@Configuration
+public class SpringBootRegisterApplication&#123;
+    @Bean
+    public OtherBean otherBean()&#123;
+        return new OtherBean();
+    &#125;
+&#125;</code></pre>
+<p>使用同样的方法在启动类中验证。</p>
+<details class="note info"><summary><p>需要使用 ioc 中已存在的对象？</p>
+</summary>
+<p>如果方法的内部需要使用到ioc容器中已经存在的 bean 对象，那么只需要在方法上声明即可，springboot 会自动的注入：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">@Configuration
+public class SpringBootRegisterApplication&#123;
+    @Bean
+    public OtherBean otherBean(AnotherBean anotherBean)&#123;
+        &#x2F;&#x2F; 无报错则获取成功
+        System.out.println(&quot;otherBean:&quot;+anotherBean);
+        return new OtherBean();
+    &#125;
+&#125;</code></pre>
+
+</details>
+<h3 id="import-注解"><a class="markdownIt-Anchor" href="#import-注解"></a> @Import 注解</h3>
+<p>如果<strong>配置类在启动类所在的包的外部</strong>呢？这时候可以使用 <code>@Import</code> 注解。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">@SpringBootApplication
+@Import(yourConfigClass.class)
+public class SpringbootBeanInApplication &#123;
+
+    public static void main(String[] args) &#123;
+       &#x2F;&#x2F; code ...
+    &#125;
+&#125;</code></pre>
+<p>当然也可以把配置类的完整类路径传递给 <code>@Import</code> 注解。</p>
+<pre class="line-numbers language-diff" data-language="diff"><code class="language-diff">- @Import(yourConfigClass.class)
++ @Import(&quot;com.example.demo.config.yourConfigClass&quot;)</code></pre>
+<p>有多个配置类需要传入时，可以写为数组的形式。</p>
+<pre class="line-numbers language-diff" data-language="diff"><code class="language-diff">- @Import(yourConfigClass.class)
++ @Import(FirstConfigClass,SecondConfigClass,ThirdConfigClass)</code></pre>
+<details class="note info"><summary><p>配置类太多？</p>
+</summary>
+<p>如果配置类太多，那么 <code>@Import</code> 注解就会很长。可以通过实现 <code>ImportSelector</code> 接口来解决。</p>
+<p>首先在 <code>resources</code> 目录下新建一个文件 <code>common.imports</code> ，里面写入需要导入的配置类的完整类路径：</p>
+<pre class="line-numbers language-none"><code class="language-none">com.example.demo.config.FirstConfigClass
+com.example.demo.config.SecondConfigClass
+com.example.demo.config.ThirdConfigClass
+...</code></pre>
+<p>然后新建配置总类，实现 <code>ImportSelector</code> 接口：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class CommonImportselector implements Importselector &#123;
+    @override
+    public String[] selectImports(AnnotationMetadata importingClassMetadata) &#123;
+        &#x2F;&#x2F;读取配置文件的内容
+        List &lt;String&gt; imports &#x3D; new ArrayList&lt;&gt;();
+        Inputstream is &#x3D; CommonImportSelector.class.getclassLoader().getResourceAsstream(&quot;common.imports&quot;);
+        BufferedReader br &#x3D; new BufferedReader(new InputstreamReader(is));
+        String line &#x3D; null;
+        try &#123;
+            while ((line &#x3D; br.readLine()) !&#x3D; nul)
+                &#x2F;&#x2F; 添加到字符串数组中
+                imports.add(line);
+        &#125; catch（ IOException e） &#123;
+            throw new RuntimeException(e);
+            finally &#123;
+                if (br !&#x3D; null) &#123;
+                    try &#123;
+                        &#x2F;&#x2F; 关闭流
+                        br.close();
+                    &#125; catch (IoExceptione) &#123;
+                        throw newRuntimeException(e);
+                    &#125;
+                &#125;
+                &#x2F;&#x2F; 返回字符串数组
+                return imports.toArray(new String[0]);
+            &#125;
+        &#125;
+    &#125;
+&#125;</code></pre>
+<p>这样只需要在启动类中使用 <code>@Import(CommonImportSelector.class)</code> 即可。它会自动执行方法 <code>selectImports()</code> ，并获取其返回值作为配置类。</p>
+<details class="note primary"><summary><p>不想每次都写配置总类的路径？</p>
+</summary>
+<p>可以自定义一个包装注解。在 IDEA 中新建一个注解类：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">@Target(ElementType.TYPE) &#x2F;&#x2F; 表明该注解可以在类上使用
+@Retention(RetentionPolicy.RUNTIME) &#x2F;&#x2F; 表明该注解会保留在运行时阶段
+@Import(CommonImportSelector.class) &#x2F;&#x2F; 导入刚刚编写的配置总类
+public @interface EnableCommonConfig &#123;
+    &#x2F;&#x2F; 不用写其他内容
+&#125;</code></pre>
+<p>这样在启动类中只需要使用 <code>@EnableCommonConfig</code> 即可。</p>
+</details>
+</details>
+]]></content>
+      <categories>
+        <category>springboot</category>
+      </categories>
+      <tags>
+        <tag>springboot</tag>
+        <tag>bean</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PowerShell：在此系统上禁止运行脚本</title>
+    <url>/2106263798.html</url>
+    <content><![CDATA[<p>查看当前用户的执行策略：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">get-executionpolicy</code></pre>
+<p>返回 <code>Restricted</code> （默认）则是无法执行脚本。</p>
+<p>解除限制：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">set-executionpolicy remotesigned</code></pre>
+<p>如果运行后提示：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">Windows PowerShell 已成功更新你的执行策略，但在更具体的作业域中定义的策略覆盖该设置了。由于发生覆盖，你的外壳程序将保留当前的有效执行策略受限制。</code></pre>
+<p>说明当前用户的策略还未更改，继续执行：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">Set-ExecutionPolicy RemoteSigned -Scope CurrentUser</code></pre>
+<p>再次查看当前用户的执行策略，发现已更改。</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">&gt; get-executionpolicy
+RemoteSigned</code></pre>
+<p>之后就可以执行脚本了。</p>
+<div class="link-grid"><div class="link-grid-container">
+<object class="link-grid-image" data="https://syxdevcode.github.io/images/favicon-32x32-next.png"></object>
+<p>syxdevcode的博客</p><p>PowerShell：因为在此系统上禁止运行脚本，解决方法</p>
+<a href="https://syxdevcode.github.io/2021/09/04/PowerShell%EF%BC%9A%E5%9B%A0%E4%B8%BA%E5%9C%A8%E6%AD%A4%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%A6%81%E6%AD%A2%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC%EF%BC%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://smallsquare.github.io/img/creeper.png"></object>
+<p>smallsquare的博客</p><p>解决Powershell阻止脚本运行遇到的问题 Powershell禁用运行脚本的解决方案</p>
+<a href="https://smallsquare.github.io/Powershell-disable-runing-scripts/"></a>
+</div></div>]]></content>
+      <categories>
+        <category>疑难杂症</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>新建博客时自动以时间命名文件</title>
+    <url>/3338553697.html</url>
+    <content><![CDATA[<h1 id="配置-js-脚本"><a class="markdownIt-Anchor" href="#配置-js-脚本"></a> 配置 js 脚本</h1>
+<p>在 blog 根目录下新建文件 <code>new_post_with_date.js</code> ：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">const &#123; exec &#125; &#x3D; require(&#39;child_process&#39;);
+const moment &#x3D; require(&#39;moment&#39;);
+
+&#x2F;&#x2F; 获取当前日期时间，格式为 &#39;YYYY-MM-DD-HH-mm-ss&#39;
+const dateTime &#x3D; moment().format(&#39;YYYY-MM-DD-HH-mm-ss&#39;);
+
+&#x2F;&#x2F; 定义文章标题
+const title &#x3D; &#96;$&#123;dateTime&#125;&#96;;
+
+&#x2F;&#x2F; 执行 Hexo new 命令创建新文章
+exec(&#96;hexo new &quot;$&#123;title&#125;&quot;&#96;, (error, stdout, stderr) &#x3D;&gt; &#123;
+    if (error) &#123;
+        console.error(&#96;执行出错: $&#123;error&#125;&#96;);
+        return;
+    &#125;
+    console.log(stdout);
+    if (stderr) &#123;
+        console.error(&#96;标准错误: $&#123;stderr&#125;&#96;);
+    &#125;
+&#125;);</code></pre>
+<p>之后安装 <code>moment</code> 库来处理时间和日期：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install monent</code></pre>
+<h1 id="新建博客"><a class="markdownIt-Anchor" href="#新建博客"></a> 新建博客</h1>
+<p>这样新建博客需要使用 <code>node new_post_with_date.js</code> 命令，生成的文件自动以当前时间命名。</p>
+<p>可以修改 <code>new_post_with_date.js</code> 文件来自定义生成的文件名。</p>
+]]></content>
+      <categories>
+        <category>软件工具</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>GitHubPages+hexo 部署个人在线博客</title>
     <url>/13345652.html</url>
     <content><![CDATA[<p>系统环境： windows11</p>
@@ -182,41 +392,271 @@ npm install</code></pre>
         <category>软件工具</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
         <tag>windows</tag>
+        <tag>hexo</tag>
         <tag>github</tag>
       </tags>
   </entry>
   <entry>
-    <title>PowerShell：在此系统上禁止运行脚本</title>
-    <url>/2106263798.html</url>
-    <content><![CDATA[<p>查看当前用户的执行策略：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">get-executionpolicy</code></pre>
-<p>返回 <code>Restricted</code> （默认）则是无法执行脚本。</p>
-<p>解除限制：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">set-executionpolicy remotesigned</code></pre>
-<p>如果运行后提示：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">Windows PowerShell 已成功更新你的执行策略，但在更具体的作业域中定义的策略覆盖该设置了。由于发生覆盖，你的外壳程序将保留当前的有效执行策略受限制。</code></pre>
-<p>说明当前用户的策略还未更改，继续执行：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">Set-ExecutionPolicy RemoteSigned -Scope CurrentUser</code></pre>
-<p>再次查看当前用户的执行策略，发现已更改。</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">&gt; get-executionpolicy
-RemoteSigned</code></pre>
-<p>之后就可以执行脚本了。</p>
-<div class="link-grid"><div class="link-grid-container">
-<object class="link-grid-image" data="https://syxdevcode.github.io/images/favicon-32x32-next.png"></object>
-<p>syxdevcode的博客</p><p>PowerShell：因为在此系统上禁止运行脚本，解决方法</p>
-<a href="https://syxdevcode.github.io/2021/09/04/PowerShell%EF%BC%9A%E5%9B%A0%E4%B8%BA%E5%9C%A8%E6%AD%A4%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%A6%81%E6%AD%A2%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC%EF%BC%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"></a>
-</div><div class="link-grid-container">
-<object class="link-grid-image" data="https://smallsquare.github.io/img/creeper.png"></object>
-<p>smallsquare的博客</p><p>解决Powershell阻止脚本运行遇到的问题 Powershell禁用运行脚本的解决方案</p>
-<a href="https://smallsquare.github.io/Powershell-disable-runing-scripts/"></a>
-</div></div>]]></content>
+    <title>Acvitity 初识</title>
+    <url>/1273076805.html</url>
+    <content><![CDATA[<h1 id="要素"><a class="markdownIt-Anchor" href="#要素"></a> 要素</h1>
+<p>创建一个 Activity 需要以下要素：</p>
+<p>Activity 类：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class ActivityName : ComponentActivity() &#123;
+	override fun onCreate(savedInstanceState: Bundle?) &#123;
+        super.onCreate(savedInstanceState)
+        &#x2F;&#x2F; code..
+    &#125;
+&#125;</code></pre>
+<p>布局文件： <code>src/main/res/layout/activity_name.xml</code></p>
+<p>在 AndroidManifest.xml 文件中注册：</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;activity android:name&#x3D;&quot;.ActivityName&quot; 
+    android:label&#x3D;&quot;This is ActivityName&quot;&gt;
+    &lt;!--如果需要作为主界面，还需要以下两个属性--&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name&#x3D;&quot;android.intent.action.MAIN&quot; &#x2F;&gt; 
+        &lt;category android:name&#x3D;&quot;android.intent.category.LAUNCHER&quot; &#x2F;&gt;
+    &lt;&#x2F;intent-filter&gt;
+&lt;&#x2F;activity&gt;</code></pre>
+<h1 id="获取控件"><a class="markdownIt-Anchor" href="#获取控件"></a> 获取控件</h1>
+<p>一般使用 <code>findViewById</code> 方法获取控件：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val textView &#x3D; findViewById&lt;TextView&gt;(R.id.textView)</code></pre>
+<p>使用 kotlin 的安卓项目中，可以在模块级 <code>build.gradle</code> 文件中启用 <code>viewBindding</code>：</p>
+<pre class="line-numbers language-gradle" data-language="gradle"><code class="language-gradle">android &#123;
+    ...
+    viewBinding &#123;
+        enabled &#x3D; true
+    &#125;
+&#125;</code></pre>
+<p>这样就可以直接使用控件 id 获取控件：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val binding &#x3D; ActivityMainBinding.inflate(layoutInflater)
+setContentView(binding.root)
+val button1 &#x3D; binding.button1</code></pre>
+<p>同时 Android Studio 会自动生成一个 <code>import com.example.app.databinding.ActivityMainBinding</code> 语句。</p>
+<h1 id="生命周期"><a class="markdownIt-Anchor" href="#生命周期"></a> 生命周期</h1>
+<p>安卓系统使用 task 来管理 Activity ，一个 task 就是存放在返回栈中的 Activity 集合。</p>
+<p>每个 Activity 都有一个生命周期，包括以下几个状态：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">状态</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">运行状态</td>
+<td style="text-align:center">完全可见，位于栈顶</td>
+</tr>
+<tr>
+<td style="text-align:center">暂停状态</td>
+<td style="text-align:center">可见，不位于栈顶</td>
+</tr>
+<tr>
+<td style="text-align:center">停止状态</td>
+<td style="text-align:center">完全不可见，不位于栈顶</td>
+</tr>
+<tr>
+<td style="text-align:center">销毁状态</td>
+<td style="text-align:center">从栈中移除</td>
+</tr>
+</tbody>
+</table>
+<p>对应的回调方法：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>onCreate</code></td>
+<td style="text-align:center">创建时调用</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>onStart</code></td>
+<td style="text-align:center">启动时调用</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>onResume</code></td>
+<td style="text-align:center">恢复时调用</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>onPause</code></td>
+<td style="text-align:center">暂停时调用</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>onStop</code></td>
+<td style="text-align:center">停止（完全不可见）时调用</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>onReStart</code></td>
+<td style="text-align:center">重启时调用</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>onDestroy</code></td>
+<td style="text-align:center">销毁时调用</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid">graph TD
+    A((启动Activity)) --> B[onCreate]
+    B --> C[onStart]
+    C --> D[onResume]
+    D --> E((Activity运行中))
+
+    E --> |其他Activity来到前台| F[onPause] 
+
+    F --> |Activity不再可见| G[onStop]
+    G --> |Activity被销毁| H[onDestroy]
+    H --> I((关闭Activity))
+
+    F --> |返回上一个Activity| D
+    
+    G --> |返回上一个Activity| K[onReStart]
+    K --> C
+
+    G & F --> |其他优先级高的程序需要内存| J((杀掉进程))
+    J --> |返回上一个Activity| B</pre>
+<h2 id="临时保存数据"><a class="markdownIt-Anchor" href="#临时保存数据"></a> 临时保存数据</h2>
+<p>在 Activity 生命周期中，有时需要保存数据，可以使用 <code>onSaveInstanceState</code> 方法：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onSaveInstanceState(outState: Bundle) &#123;
+    super.onSaveInstanceState(outState)
+    outState.putString(&quot;key&quot;, &quot;value&quot;)
+&#125;</code></pre>
+<p>在 <code>onCreate</code> 方法中获取：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onCreate(savedInstanceState: Bundle?) &#123;
+    super.onCreate(savedInstanceState)
+    if (savedInstanceState !&#x3D; null) &#123;
+        val value &#x3D; savedInstanceState.getString(&quot;key&quot;)
+    &#125;
+&#125;</code></pre>
+<h1 id="启动模式"><a class="markdownIt-Anchor" href="#启动模式"></a> 启动模式</h1>
+<p>Activity 的启动模式有以下几种：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">模式</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>standard</code>（默认）</td>
+<td style="text-align:center">每次启动都会创建一个新的 Activity 实例，不管栈中是否已经存在</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>singleTop</code></td>
+<td style="text-align:center">如果栈顶是该 Activity 实例，则直接使用；否则创建新实例</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>singleTask</code></td>
+<td style="text-align:center">如果栈中已经存在该 Activity 实例，则将其上方的 Activity 实例全部出栈；否则创建新实例</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>singleInstance</code></td>
+<td style="text-align:center">该 Activity 实例独立于其他 Activity 实例，单独存在一个任务栈中</td>
+</tr>
+</tbody>
+</table>
+<p>singleInstance 模式图解：</p>
+<pre class="mermaid">graph LR
+    subgraph 返回栈A
+        A1[Activity1]
+        A2[Activity2]
+
+        A1 --> |返回| A2
+    end
+
+    subgraph 返回栈B
+        A3[Activity3]
+    end
+
+        A2 --> |返回| A3
+        A2 --> |启动新Activity| A3
+
+        A3 --> |启动新Activity| A1</pre>
+<p>Activity 的启动模式可以在 AndroidManifest.xml 文件中设置：</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;activity android:name&#x3D;&quot;.ActivityName&quot; 
+    android:launchMode&#x3D;&quot;singleTop&quot;&gt;
+&lt;&#x2F;activity&gt;</code></pre>
+<h1 id="一些实践"><a class="markdownIt-Anchor" href="#一些实践"></a> 一些实践</h1>
+<h2 id="查看当前所在-activity"><a class="markdownIt-Anchor" href="#查看当前所在-activity"></a> 查看当前所在 Activity</h2>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">Log.d(TAG, this.toString())
+Log.d(TAG, this.javaClass.simpleName)
+Log.d(TAG, javaClass.simpleName)</code></pre>
+<p>this 是当前 Activity 的实例引用，this.javaClass.simpleName 和 javaClass.simpleName 都是当前 Activity 的类名。</p>
+<p>输出：</p>
+<pre class="line-numbers language-none"><code class="language-none">com.example.activitytest.FirstActivity@86bde1c
+FirstActivity
+FirstActivity</code></pre>
+<p><code>@86bde1c</code>是当前 Activity 的哈希码，默认是内存地址的十六进制表示。</p>
+<h2 id="一次性结束所有-activity"><a class="markdownIt-Anchor" href="#一次性结束所有-activity"></a> 一次性结束所有 Activity</h2>
+<p>维护一个单例类 ActivityCollector 作为当前所有 Activity 的集合：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">object ActivityCollector &#123;
+    private val activities &#x3D; ArrayList&lt;Activity&gt;()
+
+    fun addActivity(activity: Activity) &#123;
+        activities.add(activity) &#x2F;&#x2F; 添加 Activity
+    &#125;
+
+    fun removeActivity(activity: Activity) &#123;
+        activities.remove(activity) &#x2F;&#x2F; 移除 Activity
+    &#125;
+
+    fun finishAll() &#123;
+        for (activity in activities) &#123;
+            if (!activity.isFinishing) &#123; &#x2F;&#x2F; 判断 Activity 是否正在销毁
+                activity.finish() &#x2F;&#x2F; 销毁 Activity
+            &#125;
+        &#125;
+    &#125;
+&#125;</code></pre>
+<p>之后，在具体的 Activity 中重写 <code>onDestroy</code> 方法：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onDestroy() &#123;
+    super.onDestroy()
+    ActivityCollector.removeActivity(this)
+&#125;</code></pre>
+<p>这样，在任意处，只要调用 <code>ActivityCollector.finishAll()</code> 方法，就可以一次性结束所有 Activity，达到一次性退出程序的目的。</p>
+<h2 id="基本类"><a class="markdownIt-Anchor" href="#基本类"></a> 基本类</h2>
+<p>创建一个基本类 BaseActivity，继承自 AppCompatActivity：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">open class BaseActivity : AppCompatActivity() &#123;
+    override fun onCreate(savedInstanceState: Bundle?) &#123;
+        super.onCreate(savedInstanceState)
+        Log.d(TAG, javaClass.simpleName)
+        ActivityCollector.addActivity(this)
+    &#125;
+
+    override fun onDestroy() &#123;
+        super.onDestroy()
+        ActivityCollector.removeActivity(this)
+    &#125;
+&#125;</code></pre>
+<p>之后，所有 Activity 都继承自 BaseActivity，这样就不必重写许多基本的方法。</p>
+<h2 id="启动-activity-的最佳写法"><a class="markdownIt-Anchor" href="#启动-activity-的最佳写法"></a> 启动 Activity 的最佳写法</h2>
+<p>如果一个 Activity 启动时需要传递数据，最佳写法是定义一个静态方法 <code>actionStart</code> ：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class YourActivity : BaseActivity() &#123;
+    companion object &#123;
+        fun actionStart(context: Context, data1: String, data2: String) &#123;
+            val intent &#x3D; Intent(context, YourActivity::class.java)
+            intent.putExtra(&quot;param1&quot;, data1)
+            intent.putExtra(&quot;param2&quot;, data2)
+            context.startActivity(intent)
+        &#125;
+    &#125;
+&#125;</code></pre>
+<p>kotlin规定，所有定义在 <code>companion object</code> 中的方法都可以使用类似于 java 静态方法的形式调用。</p>
+<p>这样在其他地方启动 Activity 时，只需要调用 <code>YourActivity.actionStart(context, data1, data2)</code> 方法即可。</p>
+]]></content>
       <categories>
-        <category>疑难杂症</category>
+        <category>第一个安卓 app</category>
+        <category>Activity</category>
       </categories>
       <tags>
-        <tag>windows</tag>
+        <tag>Android</tag>
       </tags>
   </entry>
   <entry>
@@ -903,289 +1343,6 @@ docker compose up -d</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>Acvitity 初识</title>
-    <url>/1273076805.html</url>
-    <content><![CDATA[<h1 id="要素"><a class="markdownIt-Anchor" href="#要素"></a> 要素</h1>
-<p>创建一个 Activity 需要以下要素：</p>
-<p>Activity 类：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class ActivityName : ComponentActivity() &#123;
-	override fun onCreate(savedInstanceState: Bundle?) &#123;
-        super.onCreate(savedInstanceState)
-        &#x2F;&#x2F; code..
-    &#125;
-&#125;</code></pre>
-<p>布局文件： <code>src/main/res/layout/activity_name.xml</code></p>
-<p>在 AndroidManifest.xml 文件中注册：</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;activity android:name&#x3D;&quot;.ActivityName&quot; 
-    android:label&#x3D;&quot;This is ActivityName&quot;&gt;
-    &lt;!--如果需要作为主界面，还需要以下两个属性--&gt;
-    &lt;intent-filter&gt;
-        &lt;action android:name&#x3D;&quot;android.intent.action.MAIN&quot; &#x2F;&gt; 
-        &lt;category android:name&#x3D;&quot;android.intent.category.LAUNCHER&quot; &#x2F;&gt;
-    &lt;&#x2F;intent-filter&gt;
-&lt;&#x2F;activity&gt;</code></pre>
-<h1 id="获取控件"><a class="markdownIt-Anchor" href="#获取控件"></a> 获取控件</h1>
-<p>一般使用 <code>findViewById</code> 方法获取控件：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val textView &#x3D; findViewById&lt;TextView&gt;(R.id.textView)</code></pre>
-<p>使用 kotlin 的安卓项目中，可以在模块级 <code>build.gradle</code> 文件中启用 <code>viewBindding</code>：</p>
-<pre class="line-numbers language-gradle" data-language="gradle"><code class="language-gradle">android &#123;
-    ...
-    viewBinding &#123;
-        enabled &#x3D; true
-    &#125;
-&#125;</code></pre>
-<p>这样就可以直接使用控件 id 获取控件：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val binding &#x3D; ActivityMainBinding.inflate(layoutInflater)
-setContentView(binding.root)
-val button1 &#x3D; binding.button1</code></pre>
-<p>同时 Android Studio 会自动生成一个 <code>import com.example.app.databinding.ActivityMainBinding</code> 语句。</p>
-<h1 id="生命周期"><a class="markdownIt-Anchor" href="#生命周期"></a> 生命周期</h1>
-<p>安卓系统使用 task 来管理 Activity ，一个 task 就是存放在返回栈中的 Activity 集合。</p>
-<p>每个 Activity 都有一个生命周期，包括以下几个状态：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">状态</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">运行状态</td>
-<td style="text-align:center">完全可见，位于栈顶</td>
-</tr>
-<tr>
-<td style="text-align:center">暂停状态</td>
-<td style="text-align:center">可见，不位于栈顶</td>
-</tr>
-<tr>
-<td style="text-align:center">停止状态</td>
-<td style="text-align:center">完全不可见，不位于栈顶</td>
-</tr>
-<tr>
-<td style="text-align:center">销毁状态</td>
-<td style="text-align:center">从栈中移除</td>
-</tr>
-</tbody>
-</table>
-<p>对应的回调方法：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">方法</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>onCreate</code></td>
-<td style="text-align:center">创建时调用</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>onStart</code></td>
-<td style="text-align:center">启动时调用</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>onResume</code></td>
-<td style="text-align:center">恢复时调用</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>onPause</code></td>
-<td style="text-align:center">暂停时调用</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>onStop</code></td>
-<td style="text-align:center">停止（完全不可见）时调用</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>onReStart</code></td>
-<td style="text-align:center">重启时调用</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>onDestroy</code></td>
-<td style="text-align:center">销毁时调用</td>
-</tr>
-</tbody>
-</table>
-<pre class="mermaid">graph TD
-    A((启动Activity)) --> B[onCreate]
-    B --> C[onStart]
-    C --> D[onResume]
-    D --> E((Activity运行中))
-
-    E --> |其他Activity来到前台| F[onPause] 
-
-    F --> |Activity不再可见| G[onStop]
-    G --> |Activity被销毁| H[onDestroy]
-    H --> I((关闭Activity))
-
-    F --> |返回上一个Activity| D
-    
-    G --> |返回上一个Activity| K[onReStart]
-    K --> C
-
-    G & F --> |其他优先级高的程序需要内存| J((杀掉进程))
-    J --> |返回上一个Activity| B</pre>
-<h2 id="临时保存数据"><a class="markdownIt-Anchor" href="#临时保存数据"></a> 临时保存数据</h2>
-<p>在 Activity 生命周期中，有时需要保存数据，可以使用 <code>onSaveInstanceState</code> 方法：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onSaveInstanceState(outState: Bundle) &#123;
-    super.onSaveInstanceState(outState)
-    outState.putString(&quot;key&quot;, &quot;value&quot;)
-&#125;</code></pre>
-<p>在 <code>onCreate</code> 方法中获取：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onCreate(savedInstanceState: Bundle?) &#123;
-    super.onCreate(savedInstanceState)
-    if (savedInstanceState !&#x3D; null) &#123;
-        val value &#x3D; savedInstanceState.getString(&quot;key&quot;)
-    &#125;
-&#125;</code></pre>
-<h1 id="启动模式"><a class="markdownIt-Anchor" href="#启动模式"></a> 启动模式</h1>
-<p>Activity 的启动模式有以下几种：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">模式</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>standard</code>（默认）</td>
-<td style="text-align:center">每次启动都会创建一个新的 Activity 实例，不管栈中是否已经存在</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>singleTop</code></td>
-<td style="text-align:center">如果栈顶是该 Activity 实例，则直接使用；否则创建新实例</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>singleTask</code></td>
-<td style="text-align:center">如果栈中已经存在该 Activity 实例，则将其上方的 Activity 实例全部出栈；否则创建新实例</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>singleInstance</code></td>
-<td style="text-align:center">该 Activity 实例独立于其他 Activity 实例，单独存在一个任务栈中</td>
-</tr>
-</tbody>
-</table>
-<p>singleInstance 模式图解：</p>
-<pre class="mermaid">graph LR
-    subgraph 返回栈A
-        A1[Activity1]
-        A2[Activity2]
-
-        A1 --> |返回| A2
-    end
-
-    subgraph 返回栈B
-        A3[Activity3]
-    end
-
-        A2 --> |返回| A3
-        A2 --> |启动新Activity| A3
-
-        A3 --> |启动新Activity| A1</pre>
-<p>Activity 的启动模式可以在 AndroidManifest.xml 文件中设置：</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;activity android:name&#x3D;&quot;.ActivityName&quot; 
-    android:launchMode&#x3D;&quot;singleTop&quot;&gt;
-&lt;&#x2F;activity&gt;</code></pre>
-<h1 id="一些实践"><a class="markdownIt-Anchor" href="#一些实践"></a> 一些实践</h1>
-<h2 id="查看当前所在-activity"><a class="markdownIt-Anchor" href="#查看当前所在-activity"></a> 查看当前所在 Activity</h2>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">Log.d(TAG, this.toString())
-Log.d(TAG, this.javaClass.simpleName)
-Log.d(TAG, javaClass.simpleName)</code></pre>
-<p>this 是当前 Activity 的实例引用，this.javaClass.simpleName 和 javaClass.simpleName 都是当前 Activity 的类名。</p>
-<p>输出：</p>
-<pre class="line-numbers language-none"><code class="language-none">com.example.activitytest.FirstActivity@86bde1c
-FirstActivity
-FirstActivity</code></pre>
-<p><code>@86bde1c</code>是当前 Activity 的哈希码，默认是内存地址的十六进制表示。</p>
-<h2 id="一次性结束所有-activity"><a class="markdownIt-Anchor" href="#一次性结束所有-activity"></a> 一次性结束所有 Activity</h2>
-<p>维护一个单例类 ActivityCollector 作为当前所有 Activity 的集合：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">object ActivityCollector &#123;
-    private val activities &#x3D; ArrayList&lt;Activity&gt;()
-
-    fun addActivity(activity: Activity) &#123;
-        activities.add(activity) &#x2F;&#x2F; 添加 Activity
-    &#125;
-
-    fun removeActivity(activity: Activity) &#123;
-        activities.remove(activity) &#x2F;&#x2F; 移除 Activity
-    &#125;
-
-    fun finishAll() &#123;
-        for (activity in activities) &#123;
-            if (!activity.isFinishing) &#123; &#x2F;&#x2F; 判断 Activity 是否正在销毁
-                activity.finish() &#x2F;&#x2F; 销毁 Activity
-            &#125;
-        &#125;
-    &#125;
-&#125;</code></pre>
-<p>之后，在具体的 Activity 中重写 <code>onDestroy</code> 方法：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onDestroy() &#123;
-    super.onDestroy()
-    ActivityCollector.removeActivity(this)
-&#125;</code></pre>
-<p>这样，在任意处，只要调用 <code>ActivityCollector.finishAll()</code> 方法，就可以一次性结束所有 Activity，达到一次性退出程序的目的。</p>
-<h2 id="基本类"><a class="markdownIt-Anchor" href="#基本类"></a> 基本类</h2>
-<p>创建一个基本类 BaseActivity，继承自 AppCompatActivity：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">open class BaseActivity : AppCompatActivity() &#123;
-    override fun onCreate(savedInstanceState: Bundle?) &#123;
-        super.onCreate(savedInstanceState)
-        Log.d(TAG, javaClass.simpleName)
-        ActivityCollector.addActivity(this)
-    &#125;
-
-    override fun onDestroy() &#123;
-        super.onDestroy()
-        ActivityCollector.removeActivity(this)
-    &#125;
-&#125;</code></pre>
-<p>之后，所有 Activity 都继承自 BaseActivity，这样就不必重写许多基本的方法。</p>
-<h2 id="启动-activity-的最佳写法"><a class="markdownIt-Anchor" href="#启动-activity-的最佳写法"></a> 启动 Activity 的最佳写法</h2>
-<p>如果一个 Activity 启动时需要传递数据，最佳写法是定义一个静态方法 <code>actionStart</code> ：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class YourActivity : BaseActivity() &#123;
-    companion object &#123;
-        fun actionStart(context: Context, data1: String, data2: String) &#123;
-            val intent &#x3D; Intent(context, YourActivity::class.java)
-            intent.putExtra(&quot;param1&quot;, data1)
-            intent.putExtra(&quot;param2&quot;, data2)
-            context.startActivity(intent)
-        &#125;
-    &#125;
-&#125;</code></pre>
-<p>kotlin规定，所有定义在 <code>companion object</code> 中的方法都可以使用类似于 java 静态方法的形式调用。</p>
-<p>这样在其他地方启动 Activity 时，只需要调用 <code>YourActivity.actionStart(context, data1, data2)</code> 方法即可。</p>
-]]></content>
-      <categories>
-        <category>第一个安卓 app</category>
-        <category>Activity</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常用控件</title>
-    <url>/3355239386.html</url>
-    <content><![CDATA[<h1 id="textview"><a class="markdownIt-Anchor" href="#textview"></a> TextView</h1>
-<p>用于显示文本。</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;TextView
-    android:id&#x3D;&quot;@+id&#x2F;textView&quot;
-    android:layout_width&#x3D;&quot;match_parent&quot;
-    android:layout_height&#x3D;&quot;wrap_content&quot;
-    android:gravity&#x3D;&quot;center&quot;
-    android:text&#x3D;&quot;This is TextView&quot;&#x2F;&gt;</code></pre>
-<p><code>android:gravity</code> 指定文字的对齐方式。</p>
-]]></content>
-      <categories>
-        <category>第一个安卓 app</category>
-        <category>布局和控件</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>开发日记</title>
     <url>/786968787.html</url>
     <content><![CDATA[<h1 id="后端生成并返回-excel-表格前端下载"><a class="markdownIt-Anchor" href="#后端生成并返回-excel-表格前端下载"></a> 后端生成并返回 excel 表格，前端下载</h1>
@@ -1416,6 +1573,27 @@ TypeError: date.getHours is not a function ...
       <tags>
         <tag>springboot</tag>
         <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用控件</title>
+    <url>/3355239386.html</url>
+    <content><![CDATA[<h1 id="textview"><a class="markdownIt-Anchor" href="#textview"></a> TextView</h1>
+<p>用于显示文本。</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;TextView
+    android:id&#x3D;&quot;@+id&#x2F;textView&quot;
+    android:layout_width&#x3D;&quot;match_parent&quot;
+    android:layout_height&#x3D;&quot;wrap_content&quot;
+    android:gravity&#x3D;&quot;center&quot;
+    android:text&#x3D;&quot;This is TextView&quot;&#x2F;&gt;</code></pre>
+<p><code>android:gravity</code> 指定文字的对齐方式。</p>
+]]></content>
+      <categories>
+        <category>第一个安卓 app</category>
+        <category>布局和控件</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
       </tags>
   </entry>
   <entry>
