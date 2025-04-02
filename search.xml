@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>springboot 初识</title>
-    <url>/1266698458.html</url>
+    <url>/Ant-Blog/1266698458.html</url>
     <content><![CDATA[<h1 id="springboot-是什么"><a class="markdownIt-Anchor" href="#springboot-是什么"></a> springboot 是什么</h1>
 <p>springboot 是 spring 框架的一个子部件，用于快速构建 spring web 项目。</p>
 <h2 id="快速构建"><a class="markdownIt-Anchor" href="#快速构建"></a> 快速构建</h2>
@@ -96,7 +96,7 @@ public class getConfigInfo &#123;
   </entry>
   <entry>
     <title>新建博客时自动以时间命名文件</title>
-    <url>/3338553697.html</url>
+    <url>/Ant-Blog/3338553697.html</url>
     <content><![CDATA[<h1 id="配置-js-脚本"><a class="markdownIt-Anchor" href="#配置-js-脚本"></a> 配置 js 脚本</h1>
 <p>在 blog 根目录下新建文件 <code>new_post_with_date.js</code> ：</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">const &#123; exec &#125; &#x3D; require(&#39;child_process&#39;);
@@ -133,186 +133,8 @@ exec(&#96;hexo new &quot;$&#123;title&#125;&quot;&#96;, (error, stdout, stderr) 
       </tags>
   </entry>
   <entry>
-    <title>bean 对象</title>
-    <url>/978272554.html</url>
-    <content><![CDATA[<h1 id="自动扫描-bean-对象"><a class="markdownIt-Anchor" href="#自动扫描-bean-对象"></a> 自动扫描 bean 对象</h1>
-<p>在 springboot 中，扫描 bean 的路径由注解 <code>@ComponentScan</code> 指定：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">@ComponentScan(basePackages &#x3D; &quot;com.example.demo&quot;)</code></pre>
-<p>springboot 的启动类注解已经包含了这个注解：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">@SpringBootConfiguration
-@EnableAutoConfiguration
-@ComponentScan
-public @interface SpringBootApplication&#123;
-    &#x2F;&#x2F; code ...
-&#125;</code></pre>
-<p>springboot 默认扫描<strong>启动类所在的包及其子包</strong>。所以只需要在规定的路径内编写代码，即可自动扫描。</p>
-<p>如果希望可以扫描启动类的包之外的 bean ，可以为其添加注解 <code>@ComponentScan</code> 来指定。</p>
-<h1 id="bean-注册"><a class="markdownIt-Anchor" href="#bean-注册"></a> bean 注册</h1>
-<p>基础的注册注解：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">注解</th>
-<th style="text-align:center">说明</th>
-<th style="text-align:center">位置</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>@Component</code></td>
-<td style="text-align:center">声明 bean 的基础注解</td>
-<td style="text-align:center">不属于以下三类时使用</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>@Controller</code></td>
-<td style="text-align:center"><code>@Component</code> 的衍生注解</td>
-<td style="text-align:center">标注于控制类</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>@Service</code></td>
-<td style="text-align:center"><code>@Component</code> 的衍生注解</td>
-<td style="text-align:center">标注于业务类</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>@Repository</code></td>
-<td style="text-align:center"><code>@Component</code> 的衍生注解</td>
-<td style="text-align:center">标注于数据访问类</td>
-</tr>
-</tbody>
-</table>
-<p>如果 bean 对象来自第三方，是无法使用 <code>@Component</code> 及其衍生注解的。</p>
-<h2 id="注册第三方-bean"><a class="markdownIt-Anchor" href="#注册第三方-bean"></a> 注册第三方 bean</h2>
-<h3 id="bean-注解"><a class="markdownIt-Anchor" href="#bean-注解"></a> @Bean 注解</h3>
-<p>可以在启动类中使用：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">@springBootApplication
-public class SpringBootRegisterApplicationf&#123;
-    
-    &#x2F;&#x2F;将方法返回值交给Ioc容器管理，成为Ioc容器的bean对象 
-    @Bean
-    public OtherBean otherBean()&#123;
-        return new OtherBean();
-    &#125; 
-
-    &#x2F;&#x2F; 验证注入是否成功
-    public static void main(String[] args) &#123;
-        &#x2F;&#x2F; 获取当前容器
-        ApplicationContext context &#x3D; SpringApplication.run(SpringbootQuickstartApplication.class, args);
-        &#x2F;&#x2F; 获取注入的 Bean
-        OtherBean otherBean &#x3D; context.getBean(OtherBean.class);
-        &#x2F;&#x2F; 如果没有报错说明注入成功
-        System.out.println(otherBean);
-    &#125;
-
-&#125;</code></pre>
-<p>注入的 Bean 对象的默认名为方法名。可以自定义名字：</p>
-<pre class="line-numbers language-diff" data-language="diff"><code class="language-diff">- @Bean
-+ @Bean(name &#x3D; &quot;yourName&quot;)
-+ @Bean(&quot;yourName&quot;)</code></pre>
-<pre class="line-numbers language-diff" data-language="diff"><code class="language-diff">&#x2F;&#x2F; 获取注入的 Bean
-- OtherBean otherBean &#x3D; context.getBean(OtherBean.class);
-+ OtherBean otherBean &#x3D; context.getBean(&quot;yourName&quot;);</code></pre>
-<p>但是启动类不应该做这些工作。可以使用 <code>@Configuration</code> 来指定配置类。注意<strong>配置类需要在启动类所在包或其子包</strong>。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">@Configuration
-public class SpringBootRegisterApplication&#123;
-    @Bean
-    public OtherBean otherBean()&#123;
-        return new OtherBean();
-    &#125;
-&#125;</code></pre>
-<p>使用同样的方法在启动类中验证。</p>
-<details class="note info"><summary><p>需要使用 ioc 中已存在的对象？</p>
-</summary>
-<p>如果方法的内部需要使用到ioc容器中已经存在的 bean 对象，那么只需要在方法上声明即可，springboot 会自动的注入：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">@Configuration
-public class SpringBootRegisterApplication&#123;
-    @Bean
-    public OtherBean otherBean(AnotherBean anotherBean)&#123;
-        &#x2F;&#x2F; 无报错则获取成功
-        System.out.println(&quot;otherBean:&quot;+anotherBean);
-        return new OtherBean();
-    &#125;
-&#125;</code></pre>
-
-</details>
-<h3 id="import-注解"><a class="markdownIt-Anchor" href="#import-注解"></a> @Import 注解</h3>
-<p>如果<strong>配置类在启动类所在的包的外部</strong>呢？这时候可以使用 <code>@Import</code> 注解。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">@SpringBootApplication
-@Import(yourConfigClass.class)
-public class SpringbootBeanInApplication &#123;
-
-    public static void main(String[] args) &#123;
-       &#x2F;&#x2F; code ...
-    &#125;
-&#125;</code></pre>
-<p>当然也可以把配置类的完整类路径传递给 <code>@Import</code> 注解。</p>
-<pre class="line-numbers language-diff" data-language="diff"><code class="language-diff">- @Import(yourConfigClass.class)
-+ @Import(&quot;com.example.demo.config.yourConfigClass&quot;)</code></pre>
-<p>有多个配置类需要传入时，可以写为数组的形式。</p>
-<pre class="line-numbers language-diff" data-language="diff"><code class="language-diff">- @Import(yourConfigClass.class)
-+ @Import(FirstConfigClass,SecondConfigClass,ThirdConfigClass)</code></pre>
-<details class="note info"><summary><p>配置类太多？</p>
-</summary>
-<p>如果配置类太多，那么 <code>@Import</code> 注解就会很长。可以通过实现 <code>ImportSelector</code> 接口来解决。</p>
-<p>首先在 <code>resources</code> 目录下新建一个文件 <code>common.imports</code> ，里面写入需要导入的配置类的完整类路径：</p>
-<pre class="line-numbers language-none"><code class="language-none">com.example.demo.config.FirstConfigClass
-com.example.demo.config.SecondConfigClass
-com.example.demo.config.ThirdConfigClass
-...</code></pre>
-<p>然后新建配置总类，实现 <code>ImportSelector</code> 接口：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class CommonImportselector implements Importselector &#123;
-    @override
-    public String[] selectImports(AnnotationMetadata importingClassMetadata) &#123;
-        &#x2F;&#x2F;读取配置文件的内容
-        List &lt;String&gt; imports &#x3D; new ArrayList&lt;&gt;();
-        Inputstream is &#x3D; CommonImportSelector.class.getclassLoader().getResourceAsstream(&quot;common.imports&quot;);
-        BufferedReader br &#x3D; new BufferedReader(new InputstreamReader(is));
-        String line &#x3D; null;
-        try &#123;
-            while ((line &#x3D; br.readLine()) !&#x3D; nul)
-                &#x2F;&#x2F; 添加到字符串数组中
-                imports.add(line);
-        &#125; catch（ IOException e） &#123;
-            throw new RuntimeException(e);
-            finally &#123;
-                if (br !&#x3D; null) &#123;
-                    try &#123;
-                        &#x2F;&#x2F; 关闭流
-                        br.close();
-                    &#125; catch (IoExceptione) &#123;
-                        throw newRuntimeException(e);
-                    &#125;
-                &#125;
-                &#x2F;&#x2F; 返回字符串数组
-                return imports.toArray(new String[0]);
-            &#125;
-        &#125;
-    &#125;
-&#125;</code></pre>
-<p>这样只需要在启动类中使用 <code>@Import(CommonImportSelector.class)</code> 即可。它会自动执行方法 <code>selectImports()</code> ，并获取其返回值作为配置类。</p>
-<details class="note primary"><summary><p>不想每次都写配置总类的路径？</p>
-</summary>
-<p>可以自定义一个包装注解。在 IDEA 中新建一个注解类：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">@Target(ElementType.TYPE) &#x2F;&#x2F; 表明该注解可以在类上使用
-@Retention(RetentionPolicy.RUNTIME) &#x2F;&#x2F; 表明该注解会保留在运行时阶段
-@Import(CommonImportSelector.class) &#x2F;&#x2F; 导入刚刚编写的配置总类
-public @interface EnableCommonConfig &#123;
-    &#x2F;&#x2F; 不用写其他内容
-&#125;</code></pre>
-<p>这样在启动类中只需要使用 <code>@EnableCommonConfig</code> 即可。</p>
-</details>
-</details>
-]]></content>
-      <categories>
-        <category>springboot</category>
-      </categories>
-      <tags>
-        <tag>springboot</tag>
-        <tag>bean</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>next 主题中如何使用 custom file 功能</title>
-    <url>/2288148155.html</url>
+    <url>/Ant-Blog/2288148155.html</url>
     <content><![CDATA[<!--
 # 三个路径的区别
 
@@ -503,7 +325,7 @@ document.addEventListener(&quot;DOMContentLoaded&quot;, checkPostOutdated);
   </entry>
   <entry>
     <title>PowerShell：在此系统上禁止运行脚本</title>
-    <url>/2106263798.html</url>
+    <url>/Ant-Blog/2106263798.html</url>
     <content><![CDATA[<p>查看当前用户的执行策略：</p>
 <pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">get-executionpolicy</code></pre>
 <p>返回 <code>Restricted</code> （默认）则是无法执行脚本。</p>
@@ -534,8 +356,241 @@ RemoteSigned</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>bean 对象</title>
+    <url>/Ant-Blog/978272554.html</url>
+    <content><![CDATA[<h1 id="自动扫描-bean-对象"><a class="markdownIt-Anchor" href="#自动扫描-bean-对象"></a> 自动扫描 bean 对象</h1>
+<p>在 springboot 中，扫描 bean 的路径由注解 <code>@ComponentScan</code> 指定：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">@ComponentScan(basePackages &#x3D; &quot;com.example.demo&quot;)</code></pre>
+<p>springboot 的启动类注解已经包含了这个注解：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">@SpringBootConfiguration
+@EnableAutoConfiguration
+@ComponentScan
+public @interface SpringBootApplication&#123;
+    &#x2F;&#x2F; code ...
+&#125;</code></pre>
+<p>springboot 默认扫描<strong>启动类所在的包及其子包</strong>。所以只需要在规定的路径内编写代码，即可自动扫描。</p>
+<p>如果希望可以扫描启动类的包之外的 bean ，可以为其添加注解 <code>@ComponentScan</code> 来指定。</p>
+<h1 id="bean-注册"><a class="markdownIt-Anchor" href="#bean-注册"></a> bean 注册</h1>
+<p>基础的注册注解：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">注解</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>@Component</code></td>
+<td style="text-align:center">声明 bean 的基础注解</td>
+<td style="text-align:center">不属于以下三类时使用</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>@Controller</code></td>
+<td style="text-align:center"><code>@Component</code> 的衍生注解</td>
+<td style="text-align:center">标注于控制类</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>@Service</code></td>
+<td style="text-align:center"><code>@Component</code> 的衍生注解</td>
+<td style="text-align:center">标注于业务类</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>@Repository</code></td>
+<td style="text-align:center"><code>@Component</code> 的衍生注解</td>
+<td style="text-align:center">标注于数据访问类</td>
+</tr>
+</tbody>
+</table>
+<p>如果 bean 对象来自第三方，是无法使用 <code>@Component</code> 及其衍生注解的。</p>
+<h2 id="注册第三方-bean"><a class="markdownIt-Anchor" href="#注册第三方-bean"></a> 注册第三方 bean</h2>
+<h3 id="bean-注解"><a class="markdownIt-Anchor" href="#bean-注解"></a> @Bean 注解</h3>
+<p>可以在启动类中使用：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">@springBootApplication
+public class SpringBootRegisterApplicationf&#123;
+    
+    &#x2F;&#x2F;将方法返回值交给Ioc容器管理，成为Ioc容器的bean对象 
+    @Bean
+    public OtherBean otherBean()&#123;
+        return new OtherBean();
+    &#125; 
+
+    &#x2F;&#x2F; 验证注入是否成功
+    public static void main(String[] args) &#123;
+        &#x2F;&#x2F; 获取当前容器
+        ApplicationContext context &#x3D; SpringApplication.run(SpringbootQuickstartApplication.class, args);
+        &#x2F;&#x2F; 获取注入的 Bean
+        OtherBean otherBean &#x3D; context.getBean(OtherBean.class);
+        &#x2F;&#x2F; 如果没有报错说明注入成功
+        System.out.println(otherBean);
+    &#125;
+
+&#125;</code></pre>
+<p>注入的 Bean 对象的默认名为方法名。可以自定义名字：</p>
+<pre class="line-numbers language-diff" data-language="diff"><code class="language-diff">- @Bean
++ @Bean(name &#x3D; &quot;yourName&quot;)
++ @Bean(&quot;yourName&quot;)</code></pre>
+<pre class="line-numbers language-diff" data-language="diff"><code class="language-diff">&#x2F;&#x2F; 获取注入的 Bean
+- OtherBean otherBean &#x3D; context.getBean(OtherBean.class);
++ OtherBean otherBean &#x3D; context.getBean(&quot;yourName&quot;);</code></pre>
+<p>但是启动类不应该做这些工作。可以使用 <code>@Configuration</code> 来指定配置类。注意<strong>配置类需要在启动类所在包或其子包</strong>。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">@Configuration
+public class SpringBootRegisterApplication&#123;
+    @Bean
+    public OtherBean otherBean()&#123;
+        return new OtherBean();
+    &#125;
+&#125;</code></pre>
+<p>使用同样的方法在启动类中验证。</p>
+<details class="note info"><summary><p>需要使用 ioc 中已存在的对象？</p>
+</summary>
+<p>如果方法的内部需要使用到ioc容器中已经存在的 bean 对象，那么只需要在方法上声明即可，springboot 会自动的注入：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">@Configuration
+public class SpringBootRegisterApplication&#123;
+    @Bean
+    public OtherBean otherBean(AnotherBean anotherBean)&#123;
+        &#x2F;&#x2F; 无报错则获取成功
+        System.out.println(&quot;otherBean:&quot;+anotherBean);
+        return new OtherBean();
+    &#125;
+&#125;</code></pre>
+
+</details>
+<h3 id="import-注解"><a class="markdownIt-Anchor" href="#import-注解"></a> @Import 注解</h3>
+<p>如果<strong>配置类在启动类所在的包的外部</strong>呢？这时候可以使用 <code>@Import</code> 注解。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">@SpringBootApplication
+@Import(yourConfigClass.class)
+public class SpringbootBeanInApplication &#123;
+
+    public static void main(String[] args) &#123;
+       &#x2F;&#x2F; code ...
+    &#125;
+&#125;</code></pre>
+<p>当然也可以把配置类的完整类路径传递给 <code>@Import</code> 注解。</p>
+<pre class="line-numbers language-diff" data-language="diff"><code class="language-diff">- @Import(yourConfigClass.class)
++ @Import(&quot;com.example.demo.config.yourConfigClass&quot;)</code></pre>
+<p>有多个配置类需要传入时，可以写为数组的形式。</p>
+<pre class="line-numbers language-diff" data-language="diff"><code class="language-diff">- @Import(yourConfigClass.class)
++ @Import(FirstConfigClass,SecondConfigClass,ThirdConfigClass)</code></pre>
+<details class="note info"><summary><p>配置类太多？</p>
+</summary>
+<p>如果配置类太多，那么 <code>@Import</code> 注解就会很长。可以通过实现 <code>ImportSelector</code> 接口来解决。</p>
+<p>首先在 <code>resources</code> 目录下新建一个文件 <code>common.imports</code> ，里面写入需要导入的配置类的完整类路径：</p>
+<pre class="line-numbers language-none"><code class="language-none">com.example.demo.config.FirstConfigClass
+com.example.demo.config.SecondConfigClass
+com.example.demo.config.ThirdConfigClass
+...</code></pre>
+<p>然后新建配置总类，实现 <code>ImportSelector</code> 接口：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">public class CommonImportselector implements Importselector &#123;
+    @override
+    public String[] selectImports(AnnotationMetadata importingClassMetadata) &#123;
+        &#x2F;&#x2F;读取配置文件的内容
+        List &lt;String&gt; imports &#x3D; new ArrayList&lt;&gt;();
+        Inputstream is &#x3D; CommonImportSelector.class.getclassLoader().getResourceAsstream(&quot;common.imports&quot;);
+        BufferedReader br &#x3D; new BufferedReader(new InputstreamReader(is));
+        String line &#x3D; null;
+        try &#123;
+            while ((line &#x3D; br.readLine()) !&#x3D; nul)
+                &#x2F;&#x2F; 添加到字符串数组中
+                imports.add(line);
+        &#125; catch（ IOException e） &#123;
+            throw new RuntimeException(e);
+            finally &#123;
+                if (br !&#x3D; null) &#123;
+                    try &#123;
+                        &#x2F;&#x2F; 关闭流
+                        br.close();
+                    &#125; catch (IoExceptione) &#123;
+                        throw newRuntimeException(e);
+                    &#125;
+                &#125;
+                &#x2F;&#x2F; 返回字符串数组
+                return imports.toArray(new String[0]);
+            &#125;
+        &#125;
+    &#125;
+&#125;</code></pre>
+<p>这样只需要在启动类中使用 <code>@Import(CommonImportSelector.class)</code> 即可。它会自动执行方法 <code>selectImports()</code> ，并获取其返回值作为配置类。</p>
+<details class="note primary"><summary><p>不想每次都写配置总类的路径？</p>
+</summary>
+<p>可以自定义一个包装注解。在 IDEA 中新建一个注解类：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">@Target(ElementType.TYPE) &#x2F;&#x2F; 表明该注解可以在类上使用
+@Retention(RetentionPolicy.RUNTIME) &#x2F;&#x2F; 表明该注解会保留在运行时阶段
+@Import(CommonImportSelector.class) &#x2F;&#x2F; 导入刚刚编写的配置总类
+public @interface EnableCommonConfig &#123;
+    &#x2F;&#x2F; 不用写其他内容
+&#125;</code></pre>
+<p>这样在启动类中只需要使用 <code>@EnableCommonConfig</code> 即可。</p>
+</details>
+</details>
+]]></content>
+      <categories>
+        <category>springboot</category>
+      </categories>
+      <tags>
+        <tag>springboot</tag>
+        <tag>bean</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GitHubPages+hexo 部署个人在线博客</title>
+    <url>/Ant-Blog/13345652.html</url>
+    <content><![CDATA[<p>系统环境： windows11</p>
+<h1 id="安装-hexo"><a class="markdownIt-Anchor" href="#安装-hexo"></a> 安装 hexo</h1>
+<p>先决条件： <code>nodejs</code> 和 <code>git</code> 环境，这里不赘述。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install -g hexo-cli</code></pre>
+<p>验证是否安装成功：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo -v</code></pre>
+<h1 id="本地部署"><a class="markdownIt-Anchor" href="#本地部署"></a> 本地部署</h1>
+<p>初始化：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo init &lt;floder&gt;
+cd &lt;floder&gt;
+npm install</code></pre>
+<p>部署：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo server</code></pre>
+<p>在<a href="http://localhost:4000">localhost:4000</a>查看博客界面。</p>
+<h1 id="部署到-github-pages"><a class="markdownIt-Anchor" href="#部署到-github-pages"></a> 部署到 github pages</h1>
+<h2 id="生成-sshkey"><a class="markdownIt-Anchor" href="#生成-sshkey"></a> 生成 sshkey</h2>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ssh-keygen -r rsa -C &quot;youremail@example.com&quot;</code></pre>
+<p>一直按回车即可。如果提示 sshkey 已存在，选择覆盖（后果自负）。</p>
+<p>生成的密钥保存在 <code>C:\Users\yourusername\.ssh\id_rsa.pub</code> 这个文件中，下一步要用。</p>
+<h2 id="创建-github-pages-仓库"><a class="markdownIt-Anchor" href="#创建-github-pages-仓库"></a> 创建 github pages 仓库</h2>
+<p>在 github 上创建名为 <code>yourusername.github.io</code> 的仓库。</p>
+<p>在 github 上打开个人设置，在侧边栏找到 <code>SSH and GPG keys</code> ，点击它。之后在右边找到 <code>New SSH key</code> ，点击它。</p>
+<p><code>Title</code> 随意填写，<code>Key type</code> 选择 <code>Authentication Key</code> 。用任意文本编辑器打开上一步生成的密钥文件，复制里面所有内容，粘贴到 <code>key</code> 部分。然后点击 <code>Add SSH key</code> 确认。</p>
+<h2 id="填写仓库配置"><a class="markdownIt-Anchor" href="#填写仓库配置"></a> 填写仓库配置</h2>
+<p>回到本地博客的文件夹内，找到 <code>_config.yml</code> 这个文件，打开。</p>
+<p>在文件末尾找到：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">deploy:
+  type: &#39;&#39;</code></pre>
+<p>改成：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">deploy:
+  type: git
+  repository: https:&#x2F;&#x2F;github.com&#x2F;explame&#x2F;explame.github.io.git # 你的仓库的 git 链接
+  branch: main # 也可能是 master ，具体查看自己的仓库。</code></pre>
+<h2 id="安装一键部署工具并上传"><a class="markdownIt-Anchor" href="#安装一键部署工具并上传"></a> 安装一键部署工具并上传</h2>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install hexo-deployer-git --save</code></pre>
+<p>清理文件并上传：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo clean &amp;&amp; hexo deploy</code></pre>
+<p>片刻之后可以查看名为你的仓库名的URL，看看是否部署成功。</p>
+<p>例子： <a href="http://yourusername.github.io">http://yourusername.github.io</a></p>
+<hr />
+<p>参考文章</p>
+<p><a href="https://hexo.io/zh-cn/docs/github-pages.html">hexo官方文档</a></p>
+]]></content>
+      <categories>
+        <category>软件工具</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>windows</tag>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Acvitity 初识</title>
-    <url>/1273076805.html</url>
+    <url>/Ant-Blog/1273076805.html</url>
     <content><![CDATA[<h1 id="要素"><a class="markdownIt-Anchor" href="#要素"></a> 要素</h1>
 <p>创建一个 Activity 需要以下要素：</p>
 <p>Activity 类：</p>
@@ -796,63 +851,8 @@ FirstActivity</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>GitHubPages+hexo 部署个人在线博客</title>
-    <url>/13345652.html</url>
-    <content><![CDATA[<p>系统环境： windows11</p>
-<h1 id="安装-hexo"><a class="markdownIt-Anchor" href="#安装-hexo"></a> 安装 hexo</h1>
-<p>先决条件： <code>nodejs</code> 和 <code>git</code> 环境，这里不赘述。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install -g hexo-cli</code></pre>
-<p>验证是否安装成功：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo -v</code></pre>
-<h1 id="本地部署"><a class="markdownIt-Anchor" href="#本地部署"></a> 本地部署</h1>
-<p>初始化：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo init &lt;floder&gt;
-cd &lt;floder&gt;
-npm install</code></pre>
-<p>部署：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo server</code></pre>
-<p>在<a href="http://localhost:4000">localhost:4000</a>查看博客界面。</p>
-<h1 id="部署到-github-pages"><a class="markdownIt-Anchor" href="#部署到-github-pages"></a> 部署到 github pages</h1>
-<h2 id="生成-sshkey"><a class="markdownIt-Anchor" href="#生成-sshkey"></a> 生成 sshkey</h2>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ssh-keygen -r rsa -C &quot;youremail@example.com&quot;</code></pre>
-<p>一直按回车即可。如果提示 sshkey 已存在，选择覆盖（后果自负）。</p>
-<p>生成的密钥保存在 <code>C:\Users\yourusername\.ssh\id_rsa.pub</code> 这个文件中，下一步要用。</p>
-<h2 id="创建-github-pages-仓库"><a class="markdownIt-Anchor" href="#创建-github-pages-仓库"></a> 创建 github pages 仓库</h2>
-<p>在 github 上创建名为 <code>yourusername.github.io</code> 的仓库。</p>
-<p>在 github 上打开个人设置，在侧边栏找到 <code>SSH and GPG keys</code> ，点击它。之后在右边找到 <code>New SSH key</code> ，点击它。</p>
-<p><code>Title</code> 随意填写，<code>Key type</code> 选择 <code>Authentication Key</code> 。用任意文本编辑器打开上一步生成的密钥文件，复制里面所有内容，粘贴到 <code>key</code> 部分。然后点击 <code>Add SSH key</code> 确认。</p>
-<h2 id="填写仓库配置"><a class="markdownIt-Anchor" href="#填写仓库配置"></a> 填写仓库配置</h2>
-<p>回到本地博客的文件夹内，找到 <code>_config.yml</code> 这个文件，打开。</p>
-<p>在文件末尾找到：</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">deploy:
-  type: &#39;&#39;</code></pre>
-<p>改成：</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">deploy:
-  type: git
-  repository: https:&#x2F;&#x2F;github.com&#x2F;explame&#x2F;explame.github.io.git # 你的仓库的 git 链接
-  branch: main # 也可能是 master ，具体查看自己的仓库。</code></pre>
-<h2 id="安装一键部署工具并上传"><a class="markdownIt-Anchor" href="#安装一键部署工具并上传"></a> 安装一键部署工具并上传</h2>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install hexo-deployer-git --save</code></pre>
-<p>清理文件并上传：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo clean &amp;&amp; hexo deploy</code></pre>
-<p>片刻之后可以查看名为你的仓库名的URL，看看是否部署成功。</p>
-<p>例子： <a href="http://yourusername.github.io">http://yourusername.github.io</a></p>
-<hr />
-<p>参考文章</p>
-<p><a href="https://hexo.io/zh-cn/docs/github-pages.html">hexo官方文档</a></p>
-]]></content>
-      <categories>
-        <category>软件工具</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>windows</tag>
-        <tag>github</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Intent 意图</title>
-    <url>/3728271331.html</url>
+    <url>/Ant-Blog/3728271331.html</url>
     <content><![CDATA[<h1 id="intent-意图"><a class="markdownIt-Anchor" href="#intent-意图"></a> Intent 意图</h1>
 <ul>
 <li>在 Acitvity 之间跳转</li>
@@ -967,211 +967,8 @@ finish() &#x2F;&#x2F; 销毁当前活动</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>menu 控件</title>
-    <url>/3976894431.html</url>
-    <content><![CDATA[<h1 id="menu-控件"><a class="markdownIt-Anchor" href="#menu-控件"></a> menu 控件</h1>
-<p>这里的 menu 控件是指标题栏右上角的菜单按钮。</p>
-<p>在 <code>res/menu</code> 文件夹下创建一个 xml 文件，如 <code>main.xml</code>：</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;
-&lt;menu xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res&#x2F;android&quot;&gt;
-    &lt;item
-        android:id&#x3D;&quot;@+id&#x2F;add_item&quot;
-        android:title&#x3D;&quot;Add&quot;&#x2F;&gt;
-    &lt;item
-        android:id&#x3D;&quot;@+id&#x2F;remove_item&quot;
-        android:title&#x3D;&quot;Remove&quot;&#x2F;&gt;
-&lt;&#x2F;menu&gt;</code></pre>
-<p>在 Activity 中重写 <code>onCreateOptionsMenu</code> 方法：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onCreateOptionsMenu(menu: Menu?): Boolean &#123;
-    menuInflater.inflate(R.menu.main, menu) 
-    &#x2F;&#x2F; menuInflater 这一部分其实是 kotlin 的语法糖，已经自动调用了 getter 方法
-    &#x2F;* inflate 方法接收两个参数：
-    第一个是 menu 布局资源文件，
-    第二个是要设置这个布局的 menu 对象
-    （从哪里来到哪里去）*&#x2F;
-    return true
-    &#x2F;&#x2F; 返回 true 表示菜单允许菜单显示
-&#125;</code></pre>
-<p>之后在 Activity 中重写 <code>onOptionsItemSelected</code> 方法可以自定义菜单选项响应事件。</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onOptionsItemSelected(item: MenuItem): Boolean &#123;
-    when(item.itemId)&#123;
-        R.id.add_item -&gt; Toast.makeText(this, &quot;add item&quot;,Toast.LENGTH_SHORT).show()
-        R.id.remove_item -&gt; Toast.makeText(this,&quot;remove item&quot;,Toast.LENGTH_SHORT).show()
-    &#125;
-    return true
-&#125;</code></pre>
-<h2 id="显示toast"><a class="markdownIt-Anchor" href="#显示toast"></a> 显示Toast</h2>
-<p><code>makeText()</code> 方法的参数：</p>
-<ol>
-<li>上下文</li>
-<li>toast内容（字符串）</li>
-<li>显示时长</li>
-</ol>
-<p>最后再调用 <code>show()</code> 方法即可。</p>
-<h1 id="没有标题栏"><a class="markdownIt-Anchor" href="#没有标题栏"></a> 没有标题栏</h1>
-<p>在确保 <code>res/values/styles.xml</code> 文件中的 <code>AppTheme</code> 主题中设置了标题栏的情况下：</p>
-<ul>
-<li>如果使用 <code>ComponentActivity</code> 作为活动的父类，需要手动设置标题栏。</li>
-<li>使用 <code>AppCompatActivity</code> 作为活动的父类，可以自动设置标题栏。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>第一个安卓 app</category>
-        <category>布局和控件</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo+next 使用备忘</title>
-    <url>/1060342639.html</url>
-    <content><![CDATA[<h1 id="标签插件实现的高级块"><a class="markdownIt-Anchor" href="#标签插件实现的高级块"></a> 标签插件实现的高级块</h1>
-<h2 id="引用链接"><a class="markdownIt-Anchor" href="#引用链接"></a> 引用链接</h2>
-<pre class="line-numbers language-none"><code class="language-none">&#123;% lg %&#125;
-链接名 | 链接 | 说明 | 链接头图URL
-% ...
-&#123;% endlg %&#125;</code></pre>
-<p>一个块里可以有多个链接。可以用 <code>%</code> 注释一条链接。</p>
-<h3 id="例子"><a class="markdownIt-Anchor" href="#例子"></a> 例子</h3>
-<pre class="line-numbers language-none"><code class="language-none">&#123;% lg %&#125;
-EasyExcel 官方文档 | https:&#x2F;&#x2F;easyexcel.opensource.alibaba.com&#x2F;docs&#x2F;current&#x2F; | 关于Easyexcel | https:&#x2F;&#x2F;easyexcel.opensource.alibaba.com&#x2F;img&#x2F;favicon.ico
-Element UI 官方文档 | https:&#x2F;&#x2F;element.eleme.cn&#x2F;#&#x2F;zh-CN | Element UI | https:&#x2F;&#x2F;element.eleme.cn&#x2F;favicon.ico
-% Element UI 官方文档 | https:&#x2F;&#x2F;element.eleme.cn&#x2F;#&#x2F;zh-CN | Element UI | https:&#x2F;&#x2F;element.eleme.cn&#x2F;favicon.ico
-&#123;% endlg %&#125;</code></pre>
-<div class="link-grid"><div class="link-grid-container">
-<object class="link-grid-image" data="https://easyexcel.opensource.alibaba.com/img/favicon.ico"></object>
-<p>EasyExcel 官方文档</p><p>关于Easyexcel</p>
-<a href="https://easyexcel.opensource.alibaba.com/docs/current/"></a>
-</div><div class="link-grid-container">
-<object class="link-grid-image" data="https://element.eleme.cn/favicon.ico"></object>
-<p>Element UI 官方文档</p><p>Element UI</p>
-<a href="https://element.eleme.cn/#/zh-CN"></a>
-</div></div>
-<hr />
-<h2 id="note-块"><a class="markdownIt-Anchor" href="#note-块"></a> note 块</h2>
-<pre class="line-numbers language-none"><code class="language-none">&#123;% note [class] [no-icon] [summary] %&#125;
-Any content (support inline tags too).
-&#123;% endnote %&#125;</code></pre>
-<p><code>[class]</code> ：可选参数，支持的值： default | primary | success | info | warning | danger。<br />
-<code>[no-icon]</code> ：可选参数。禁用注释中的图标。<br />
-<code>[summary]</code> ：可选参数。可选的注释摘要。</p>
-<h3 id="例子-2"><a class="markdownIt-Anchor" href="#例子-2"></a> 例子</h3>
-<pre class="line-numbers language-none"><code class="language-none">&#123;% note %&#125;
-无样式 note 块
-&#123;% endnote %&#125;</code></pre>
-<div class="note "><p>无样式 note 块</p>
-</div>
-<pre class="line-numbers language-none"><code class="language-none">&#123;% note default %&#125;
-default 块
-&#123;% endnote %&#125;</code></pre>
-<div class="note default"><p>default 块</p>
-</div>
-<div class="note info"><p>info 块</p>
-</div>
-<div class="note danger"><p>danger 块</p>
-</div>
-<div class="note success"><p>success 块</p>
-</div>
-<pre class="line-numbers language-none"><code class="language-none">&#123;% note primary 摘要 %&#125;
-这是一个具有摘要的 primary 样式的 note 块
-&#123;% endnote %&#125;</code></pre>
-<details class="note primary"><summary><p>摘要</p>
-</summary>
-<p>这是一个具有摘要的 primary 样式的 note 块</p>
-
-</details>
-<p>在 note 块中的 markdown 语法和在块外面是一样的。</p>
-<div class="link-grid"><div class="link-grid-container">
-<object class="link-grid-image" data="https://theme-next.js.org/images/next.png"></object>
-<p>Next 主题标签插件</p><p>note</p>
-<a href="https://theme-next.js.org/docs/tag-plugins/note"></a>
-</div></div>
-<hr />
-<h1 id="mermaid-渲染"><a class="markdownIt-Anchor" href="#mermaid-渲染"></a> mermaid 渲染</h1>
-<p>如果使用 markdown 语法绘制mermaid，需要引入 js 。在 <code>themes\next\layout\_partials\footer.njk</code> 中添加以下内容：</p>
-<pre class="line-numbers language-njk" data-language="njk"><code class="language-njk">&#123;%- if theme.mermaid.enable  %&#125;
-  &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;mermaid@11.5.0&#x2F;dist&#x2F;mermaid.min.js&#39;&gt;&lt;&#x2F;script&gt;
-  &lt;script&gt;
-    if (window.mermaid) &#123;
-      mermaid.initialize(&#123;theme: &#39;default&#39;&#125;);
-    &#125;
-  &lt;&#x2F;script&gt;
-&#123;% endif %&#125;</code></pre>
-<p>如果使用 next 主题提供的 mermaid 渲染，在主题配置中打开即可：</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># Mermaid tag
-mermaid:
-  enable: true
-  # Available themes: default | dark | forest | neutral
-  theme:
-    light: forest
-    dark: dark</code></pre>
-<div class="note info"><p>以上只是本人的猜测，未经测试。</p>
-</div>
-<h2 id="例子-3"><a class="markdownIt-Anchor" href="#例子-3"></a> 例子</h2>
-<pre class="line-numbers language-none"><code class="language-none">&#123;% mermaid graph LR %&#125;
-A[Hard] --&gt;|Text| B(Round)
-B --&gt; C&#123;Decision&#125;
-C --&gt;|One| D[Result 1]
-C --&gt;|Two| E[Result 2]
-&#123;% endmermaid %&#125;
-
-&#96; &#96; &#96;mermaid
-graph LR
-A[Hard] --&gt;|Text| B(Round)
-B --&gt; C&#123;Decision&#125;
-C --&gt;|One| D[Result 1]
-C --&gt;|Two| E[Result 2]
-&#96; &#96; &#96;</code></pre>
-<p>next 的 mermaid 块：</p>
-<pre>
-<code class="mermaid">
-graph LR
-A[Hard] --&gt;|Text| B(Round)
-B --&gt; C{Decision}
-C --&gt;|One| D[Result 1]
-C --&gt;|Two| E[Result 2]
-</code>
-</pre>
-<p>markdown 的 mermaid 块：</p>
-<pre class="mermaid">graph LR
-A[Hard] -->|Text| B(Round)
-B --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]</pre>
-<p>为啥 markdown 绘制的图有背景？</p>
-<div class="link-grid"><div class="link-grid-container">
-<object class="link-grid-image" data="\images\apple-touch-icon-next.png"></object>
-<p>Next主题</p><p>mermaid 标签</p>
-<a href="https://theme-next.js.org/docs/tag-plugins/mermaid"></a>
-</div></div>
-<h1 id="为博客增加版权声明"><a class="markdownIt-Anchor" href="#为博客增加版权声明"></a> 为博客增加版权声明</h1>
-<p>next 主题自带此功能，只需要在 <code>_config.next.yaml</code> 中打开即可：</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">creative_commons:
-  # Available values: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | cc-zero
-  license: by-nc-sa
-  # Available values: big | small
-  size: small
-  sidebar: true # 在侧边栏显示
-  post: true # 为每篇博客显示</code></pre>
-<p>可以自定义样式，具体参考：</p>
-<div class="link-grid"><div class="link-grid-container">
-<object class="link-grid-image" data="https://i.imgur.com/kWTWXvI.jpg"></object>
-<p>Gui Blog</p><p>网站的工具人</p>
-<a href="https://guiblogs.com/hexo30-21/"></a>
-</div></div>
-]]></content>
-      <categories>
-        <category>软件工具</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>next</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>kotlin 基本语法</title>
-    <url>/2766814441.html</url>
+    <url>/Ant-Blog/2766814441.html</url>
     <content><![CDATA[<h1 id="hello-kotlin"><a class="markdownIt-Anchor" href="#hello-kotlin"></a> hello kotlin</h1>
 <p>在 IDEA 中新建一个 kotlin 项目，添加“ kotlin 文件”（注意不是类），输入以下代码，然后构建并运行，即可在终端看到输出。</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun main()&#123;
@@ -1480,164 +1277,53 @@ doAction()</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>常用控件</title>
-    <url>/3355239386.html</url>
-    <content><![CDATA[<h1 id="textview"><a class="markdownIt-Anchor" href="#textview"></a> TextView</h1>
-<p>用于显示文本。</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;TextView
-    android:id&#x3D;&quot;@+id&#x2F;textView&quot;
-    android:layout_width&#x3D;&quot;match_parent&quot;
-    android:layout_height&#x3D;&quot;wrap_content&quot;
-    android:gravity&#x3D;&quot;center&quot;
-    android:text&#x3D;&quot;This is TextView&quot;&#x2F;&gt;</code></pre>
-<p><code>android:gravity</code> 指定文字的对齐方式。</p>
-]]></content>
-      <categories>
-        <category>第一个安卓 app</category>
-        <category>布局和控件</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>界面布局</title>
-    <url>/3340243686.html</url>
-    <content><![CDATA[<h1 id="常用布局"><a class="markdownIt-Anchor" href="#常用布局"></a> 常用布局</h1>
-<h2 id="linearlayout"><a class="markdownIt-Anchor" href="#linearlayout"></a> LinearLayout</h2>
-<p>线性布局，元素呈线性排列，不多解释。</p>
-<p><code>android:orientation</code> 属性可以指定控件的排列方式，默认为水平排列。</p>
-<p>控件常用属性：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">属性名</th>
-<th style="text-align:center">值</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">android:layout_<mark>gravity</mark></td>
-<td style="text-align:center">top,bottom,left,right</td>
-<td style="text-align:center">对齐方向</td>
-</tr>
-</tbody>
-</table>
-<h2 id="relativelayout"><a class="markdownIt-Anchor" href="#relativelayout"></a> RelativeLayout</h2>
-<p>相对布局，元素可以相对于父容器确定位置，也可以相对于其他控件。</p>
-<p>控件常用属性：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">属性名</th>
-<th style="text-align:center">值</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">android:layout_<mark>centerInParent</mark></td>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">处于父容器<mark>中心</mark></td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>alignParentTop</mark></td>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">与父容器<mark>顶部</mark>对齐</td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>alignParentBottom</mark></td>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">与父容器<mark>底部</mark>对齐</td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>alignParentLeft</mark></td>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">与父容器<mark>左边</mark>对齐</td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>alignParentRight</mark></td>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">与父容器<mark>右边</mark>对齐</td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>above</mark></td>
-<td style="text-align:center">控件引用</td>
-<td style="text-align:center">位于控件<mark>上方</mark></td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>below</mark></td>
-<td style="text-align:center">控件引用</td>
-<td style="text-align:center">位于控件<mark>下方</mark></td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>toLeftOf</mark></td>
-<td style="text-align:center">控件引用</td>
-<td style="text-align:center">位于控件<mark>左侧</mark></td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>toRightOf</mark></td>
-<td style="text-align:center">控件引用</td>
-<td style="text-align:center">位于控件<mark>右侧</mark></td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>alignTop</mark></td>
-<td style="text-align:center">控件引用</td>
-<td style="text-align:center">与控件<mark>上边缘</mark>对齐</td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>alignBottom</mark></td>
-<td style="text-align:center">控件引用</td>
-<td style="text-align:center">与控件<mark>下边缘</mark>对齐</td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>alignLeft</mark></td>
-<td style="text-align:center">控件引用</td>
-<td style="text-align:center">与控件<mark>左边缘</mark>对齐</td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>alignRight</mark></td>
-<td style="text-align:center">控件引用</td>
-<td style="text-align:center">与控件<mark>右边缘</mark>对齐</td>
-</tr>
-</tbody>
-</table>
-<h2 id="framelayout"><a class="markdownIt-Anchor" href="#framelayout"></a> FrameLayout</h2>
-<p>帧布局。不够灵活，应用较少。</p>
-<h1 id="自定义控件"><a class="markdownIt-Anchor" href="#自定义控件"></a> 自定义控件</h1>
-<p>安卓中的布局与控件的继承关系：</p>
-<pre class="mermaid">graph TD
-    View --> TextView
-    View --> ImageView
-    View --> ViewGroup
-    TextView --> EditText
-    TextView --> Button
-    ViewGroup --> LinearLayout
-    ViewGroup --> RelativeLayout
-    ViewGroup --> Others[……]</pre>
-<p>View是Android中最基本的一种UI组件，它可以在屏幕上绘制一块矩形区域，并能响应这块区域的各种事件。</p>
-<p>ViewGroup是一种特殊的View，它可以包含很多子View和子ViewGroup，是一个用于放置控件和布局的容器。</p>
-<h2 id="步骤"><a class="markdownIt-Anchor" href="#步骤"></a> 步骤</h2>
-<p>布局与布局之间是可以相互嵌套的；控件必须依赖于布局。所以实际上就是自定义布局，其中有自定义的控件。</p>
-<pre class="mermaid">graph LR
-    xml文件设计布局 --> |加载| A[class文件控制逻辑]
-    A --> |完整类路径| 其他布局文件中引入</pre>
-<ul>
-<li>编写一个 class 作为逻辑控制，并与自定义的布局绑定（在 class 文件中编写加载布局等逻辑）。</li>
-</ul>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class YourLayout(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) &#123;
-    &#x2F;&#x2F; 如果自定义控件依赖于 LinearLayout 布局，那么对应的 class 也继承于 LinearLayout 类。
-    init &#123;
-        LayoutInflater.from(context).inflate(R.layout.title, this) &#x2F;&#x2F; 绑定自定义的布局
-       &#x2F;&#x2F; code ...
-    &#125;
+    <title>menu 控件</title>
+    <url>/Ant-Blog/3976894431.html</url>
+    <content><![CDATA[<h1 id="menu-控件"><a class="markdownIt-Anchor" href="#menu-控件"></a> menu 控件</h1>
+<p>这里的 menu 控件是指标题栏右上角的菜单按钮。</p>
+<p>在 <code>res/menu</code> 文件夹下创建一个 xml 文件，如 <code>main.xml</code>：</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;
+&lt;menu xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res&#x2F;android&quot;&gt;
+    &lt;item
+        android:id&#x3D;&quot;@+id&#x2F;add_item&quot;
+        android:title&#x3D;&quot;Add&quot;&#x2F;&gt;
+    &lt;item
+        android:id&#x3D;&quot;@+id&#x2F;remove_item&quot;
+        android:title&#x3D;&quot;Remove&quot;&#x2F;&gt;
+&lt;&#x2F;menu&gt;</code></pre>
+<p>在 Activity 中重写 <code>onCreateOptionsMenu</code> 方法：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onCreateOptionsMenu(menu: Menu?): Boolean &#123;
+    menuInflater.inflate(R.menu.main, menu) 
+    &#x2F;&#x2F; menuInflater 这一部分其实是 kotlin 的语法糖，已经自动调用了 getter 方法
+    &#x2F;* inflate 方法接收两个参数：
+    第一个是 menu 布局资源文件，
+    第二个是要设置这个布局的 menu 对象
+    （从哪里来到哪里去）*&#x2F;
+    return true
+    &#x2F;&#x2F; 返回 true 表示菜单允许菜单显示
 &#125;</code></pre>
+<p>之后在 Activity 中重写 <code>onOptionsItemSelected</code> 方法可以自定义菜单选项响应事件。</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onOptionsItemSelected(item: MenuItem): Boolean &#123;
+    when(item.itemId)&#123;
+        R.id.add_item -&gt; Toast.makeText(this, &quot;add item&quot;,Toast.LENGTH_SHORT).show()
+        R.id.remove_item -&gt; Toast.makeText(this,&quot;remove item&quot;,Toast.LENGTH_SHORT).show()
+    &#125;
+    return true
+&#125;</code></pre>
+<h2 id="显示toast"><a class="markdownIt-Anchor" href="#显示toast"></a> 显示Toast</h2>
+<p><code>makeText()</code> 方法的参数：</p>
+<ol>
+<li>上下文</li>
+<li>toast内容（字符串）</li>
+<li>显示时长</li>
+</ol>
+<p>最后再调用 <code>show()</code> 方法即可。</p>
+<h1 id="没有标题栏"><a class="markdownIt-Anchor" href="#没有标题栏"></a> 没有标题栏</h1>
+<p>在确保 <code>res/values/styles.xml</code> 文件中的 <code>AppTheme</code> 主题中设置了标题栏的情况下：</p>
 <ul>
-<li>在布局中引入。需要写入完整的类路径。</li>
+<li>如果使用 <code>ComponentActivity</code> 作为活动的父类，需要手动设置标题栏。</li>
+<li>使用 <code>AppCompatActivity</code> 作为活动的父类，可以自动设置标题栏。</li>
 </ul>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;com.example.YourPackage.YourLayout
-... &#x2F;&gt;</code></pre>
 ]]></content>
       <categories>
         <category>第一个安卓 app</category>
@@ -1649,7 +1335,7 @@ doAction()</code></pre>
   </entry>
   <entry>
     <title>windows 本地部署 photoPrism</title>
-    <url>/2888069175.html</url>
+    <url>/Ant-Blog/2888069175.html</url>
     <content><![CDATA[<h1 id="起因"><a class="markdownIt-Anchor" href="#起因"></a> 起因</h1>
 <p>把带地理位置信息的照片上传到 google 相册后，可以在地图中查看每张照片在地图上的标点。但是 google 相册云空间有限；使用 mod 的话总感觉有风险；并且上传照片到云上也怕隐私泄露（ google 之前拿用户照片来训练 ai ）。</p>
 <p>安卓端开源的 <a href="https://github.com/deckerst/aves">Aves 相册</a>也有这个功能，但是照片必须在本地。然而我不会把大量照片放在一部手机上，更偏向于放在桌面端设备。</p>
@@ -1702,8 +1388,175 @@ docker compose up -d</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>hexo+next 使用备忘</title>
+    <url>/Ant-Blog/1060342639.html</url>
+    <content><![CDATA[<h1 id="标签插件实现的高级块"><a class="markdownIt-Anchor" href="#标签插件实现的高级块"></a> 标签插件实现的高级块</h1>
+<h2 id="引用链接"><a class="markdownIt-Anchor" href="#引用链接"></a> 引用链接</h2>
+<pre class="line-numbers language-none"><code class="language-none">&#123;% lg %&#125;
+链接名 | 链接 | 说明 | 链接头图URL
+% ...
+&#123;% endlg %&#125;</code></pre>
+<p>一个块里可以有多个链接。可以用 <code>%</code> 注释一条链接。</p>
+<h3 id="例子"><a class="markdownIt-Anchor" href="#例子"></a> 例子</h3>
+<pre class="line-numbers language-none"><code class="language-none">&#123;% lg %&#125;
+EasyExcel 官方文档 | https:&#x2F;&#x2F;easyexcel.opensource.alibaba.com&#x2F;docs&#x2F;current&#x2F; | 关于Easyexcel | https:&#x2F;&#x2F;easyexcel.opensource.alibaba.com&#x2F;img&#x2F;favicon.ico
+Element UI 官方文档 | https:&#x2F;&#x2F;element.eleme.cn&#x2F;#&#x2F;zh-CN | Element UI | https:&#x2F;&#x2F;element.eleme.cn&#x2F;favicon.ico
+% Element UI 官方文档 | https:&#x2F;&#x2F;element.eleme.cn&#x2F;#&#x2F;zh-CN | Element UI | https:&#x2F;&#x2F;element.eleme.cn&#x2F;favicon.ico
+&#123;% endlg %&#125;</code></pre>
+<div class="link-grid"><div class="link-grid-container">
+<object class="link-grid-image" data="https://easyexcel.opensource.alibaba.com/img/favicon.ico"></object>
+<p>EasyExcel 官方文档</p><p>关于Easyexcel</p>
+<a href="https://easyexcel.opensource.alibaba.com/docs/current/"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://element.eleme.cn/favicon.ico"></object>
+<p>Element UI 官方文档</p><p>Element UI</p>
+<a href="https://element.eleme.cn/#/zh-CN"></a>
+</div></div>
+<hr />
+<h2 id="note-块"><a class="markdownIt-Anchor" href="#note-块"></a> note 块</h2>
+<pre class="line-numbers language-none"><code class="language-none">&#123;% note [class] [no-icon] [summary] %&#125;
+Any content (support inline tags too).
+&#123;% endnote %&#125;</code></pre>
+<p><code>[class]</code> ：可选参数，支持的值： default | primary | success | info | warning | danger。<br />
+<code>[no-icon]</code> ：可选参数。禁用注释中的图标。<br />
+<code>[summary]</code> ：可选参数。可选的注释摘要。</p>
+<h3 id="例子-2"><a class="markdownIt-Anchor" href="#例子-2"></a> 例子</h3>
+<pre class="line-numbers language-none"><code class="language-none">&#123;% note %&#125;
+无样式 note 块
+&#123;% endnote %&#125;</code></pre>
+<div class="note "><p>无样式 note 块</p>
+</div>
+<pre class="line-numbers language-none"><code class="language-none">&#123;% note default %&#125;
+default 块
+&#123;% endnote %&#125;</code></pre>
+<div class="note default"><p>default 块</p>
+</div>
+<div class="note info"><p>info 块</p>
+</div>
+<div class="note danger"><p>danger 块</p>
+</div>
+<div class="note success"><p>success 块</p>
+</div>
+<pre class="line-numbers language-none"><code class="language-none">&#123;% note primary 摘要 %&#125;
+这是一个具有摘要的 primary 样式的 note 块
+&#123;% endnote %&#125;</code></pre>
+<details class="note primary"><summary><p>摘要</p>
+</summary>
+<p>这是一个具有摘要的 primary 样式的 note 块</p>
+
+</details>
+<p>在 note 块中的 markdown 语法和在块外面是一样的。</p>
+<div class="link-grid"><div class="link-grid-container">
+<object class="link-grid-image" data="https://theme-next.js.org/images/next.png"></object>
+<p>Next 主题标签插件</p><p>note</p>
+<a href="https://theme-next.js.org/docs/tag-plugins/note"></a>
+</div></div>
+<hr />
+<h1 id="mermaid-渲染"><a class="markdownIt-Anchor" href="#mermaid-渲染"></a> mermaid 渲染</h1>
+<p>如果使用 markdown 语法绘制mermaid，需要引入 js 。在 <code>themes\next\layout\_partials\footer.njk</code> 中添加以下内容：</p>
+<pre class="line-numbers language-njk" data-language="njk"><code class="language-njk">&#123;%- if theme.mermaid.enable  %&#125;
+  &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;mermaid@11.5.0&#x2F;dist&#x2F;mermaid.min.js&#39;&gt;&lt;&#x2F;script&gt;
+  &lt;script&gt;
+    if (window.mermaid) &#123;
+      mermaid.initialize(&#123;theme: &#39;default&#39;&#125;);
+    &#125;
+  &lt;&#x2F;script&gt;
+&#123;% endif %&#125;</code></pre>
+<p>如果使用 next 主题提供的 mermaid 渲染，在主题配置中打开即可：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># Mermaid tag
+mermaid:
+  enable: true
+  # Available themes: default | dark | forest | neutral
+  theme:
+    light: forest
+    dark: dark</code></pre>
+<div class="note info"><p>以上只是本人的猜测，未经测试。</p>
+</div>
+<h2 id="例子-3"><a class="markdownIt-Anchor" href="#例子-3"></a> 例子</h2>
+<pre class="line-numbers language-none"><code class="language-none">&#123;% mermaid graph LR %&#125;
+A[Hard] --&gt;|Text| B(Round)
+B --&gt; C&#123;Decision&#125;
+C --&gt;|One| D[Result 1]
+C --&gt;|Two| E[Result 2]
+&#123;% endmermaid %&#125;
+
+&#96; &#96; &#96;mermaid
+graph LR
+A[Hard] --&gt;|Text| B(Round)
+B --&gt; C&#123;Decision&#125;
+C --&gt;|One| D[Result 1]
+C --&gt;|Two| E[Result 2]
+&#96; &#96; &#96;</code></pre>
+<p>next 的 mermaid 块：</p>
+<pre>
+<code class="mermaid">
+graph LR
+A[Hard] --&gt;|Text| B(Round)
+B --&gt; C{Decision}
+C --&gt;|One| D[Result 1]
+C --&gt;|Two| E[Result 2]
+</code>
+</pre>
+<p>markdown 的 mermaid 块：</p>
+<pre class="mermaid">graph LR
+A[Hard] -->|Text| B(Round)
+B --> C{Decision}
+C -->|One| D[Result 1]
+C -->|Two| E[Result 2]</pre>
+<p>为啥 markdown 绘制的图有背景？</p>
+<div class="link-grid"><div class="link-grid-container">
+<object class="link-grid-image" data="\images\apple-touch-icon-next.png"></object>
+<p>Next主题</p><p>mermaid 标签</p>
+<a href="https://theme-next.js.org/docs/tag-plugins/mermaid"></a>
+</div></div>
+<h1 id="为博客增加版权声明"><a class="markdownIt-Anchor" href="#为博客增加版权声明"></a> 为博客增加版权声明</h1>
+<p>next 主题自带此功能，只需要在 <code>_config.next.yaml</code> 中打开即可：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">creative_commons:
+  # Available values: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | cc-zero
+  license: by-nc-sa
+  # Available values: big | small
+  size: small
+  sidebar: true # 在侧边栏显示
+  post: true # 为每篇博客显示</code></pre>
+<p>可以自定义样式，具体参考：</p>
+<div class="link-grid"><div class="link-grid-container">
+<object class="link-grid-image" data="https://i.imgur.com/kWTWXvI.jpg"></object>
+<p>Gui Blog</p><p>网站的工具人</p>
+<a href="https://guiblogs.com/hexo30-21/"></a>
+</div></div>
+]]></content>
+      <categories>
+        <category>软件工具</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>next</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用控件</title>
+    <url>/Ant-Blog/3355239386.html</url>
+    <content><![CDATA[<h1 id="textview"><a class="markdownIt-Anchor" href="#textview"></a> TextView</h1>
+<p>用于显示文本。</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;TextView
+    android:id&#x3D;&quot;@+id&#x2F;textView&quot;
+    android:layout_width&#x3D;&quot;match_parent&quot;
+    android:layout_height&#x3D;&quot;wrap_content&quot;
+    android:gravity&#x3D;&quot;center&quot;
+    android:text&#x3D;&quot;This is TextView&quot;&#x2F;&gt;</code></pre>
+<p><code>android:gravity</code> 指定文字的对齐方式。</p>
+]]></content>
+      <categories>
+        <category>第一个安卓 app</category>
+        <category>布局和控件</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>开发日记</title>
-    <url>/786968787.html</url>
+    <url>/Ant-Blog/786968787.html</url>
     <content><![CDATA[<h1 id="后端生成并返回-excel-表格前端下载"><a class="markdownIt-Anchor" href="#后端生成并返回-excel-表格前端下载"></a> 后端生成并返回 excel 表格，前端下载</h1>
 <p>后端 Controller ：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">@GetMapping(&quot;&#x2F;excel&#x2F;&#123;id&#125;&quot;)
@@ -1932,6 +1785,153 @@ TypeError: date.getHours is not a function ...
       <tags>
         <tag>springboot</tag>
         <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>界面布局</title>
+    <url>/Ant-Blog/3340243686.html</url>
+    <content><![CDATA[<h1 id="常用布局"><a class="markdownIt-Anchor" href="#常用布局"></a> 常用布局</h1>
+<h2 id="linearlayout"><a class="markdownIt-Anchor" href="#linearlayout"></a> LinearLayout</h2>
+<p>线性布局，元素呈线性排列，不多解释。</p>
+<p><code>android:orientation</code> 属性可以指定控件的排列方式，默认为水平排列。</p>
+<p>控件常用属性：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性名</th>
+<th style="text-align:center">值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">android:layout_<mark>gravity</mark></td>
+<td style="text-align:center">top,bottom,left,right</td>
+<td style="text-align:center">对齐方向</td>
+</tr>
+</tbody>
+</table>
+<h2 id="relativelayout"><a class="markdownIt-Anchor" href="#relativelayout"></a> RelativeLayout</h2>
+<p>相对布局，元素可以相对于父容器确定位置，也可以相对于其他控件。</p>
+<p>控件常用属性：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性名</th>
+<th style="text-align:center">值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">android:layout_<mark>centerInParent</mark></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">处于父容器<mark>中心</mark></td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignParentTop</mark></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">与父容器<mark>顶部</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignParentBottom</mark></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">与父容器<mark>底部</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignParentLeft</mark></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">与父容器<mark>左边</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignParentRight</mark></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">与父容器<mark>右边</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>above</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">位于控件<mark>上方</mark></td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>below</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">位于控件<mark>下方</mark></td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>toLeftOf</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">位于控件<mark>左侧</mark></td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>toRightOf</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">位于控件<mark>右侧</mark></td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignTop</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">与控件<mark>上边缘</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignBottom</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">与控件<mark>下边缘</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignLeft</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">与控件<mark>左边缘</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignRight</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">与控件<mark>右边缘</mark>对齐</td>
+</tr>
+</tbody>
+</table>
+<h2 id="framelayout"><a class="markdownIt-Anchor" href="#framelayout"></a> FrameLayout</h2>
+<p>帧布局。不够灵活，应用较少。</p>
+<h1 id="自定义控件"><a class="markdownIt-Anchor" href="#自定义控件"></a> 自定义控件</h1>
+<p>安卓中的布局与控件的继承关系：</p>
+<pre class="mermaid">graph TD
+    View --> TextView
+    View --> ImageView
+    View --> ViewGroup
+    TextView --> EditText
+    TextView --> Button
+    ViewGroup --> LinearLayout
+    ViewGroup --> RelativeLayout
+    ViewGroup --> Others[……]</pre>
+<p>View是Android中最基本的一种UI组件，它可以在屏幕上绘制一块矩形区域，并能响应这块区域的各种事件。</p>
+<p>ViewGroup是一种特殊的View，它可以包含很多子View和子ViewGroup，是一个用于放置控件和布局的容器。</p>
+<h2 id="步骤"><a class="markdownIt-Anchor" href="#步骤"></a> 步骤</h2>
+<p>布局与布局之间是可以相互嵌套的；控件必须依赖于布局。所以实际上就是自定义布局，其中有自定义的控件。</p>
+<pre class="mermaid">graph LR
+    xml文件设计布局 --> |加载| A[class文件控制逻辑]
+    A --> |完整类路径| 其他布局文件中引入</pre>
+<ul>
+<li>编写一个 class 作为逻辑控制，并与自定义的布局绑定（在 class 文件中编写加载布局等逻辑）。</li>
+</ul>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class YourLayout(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) &#123;
+    &#x2F;&#x2F; 如果自定义控件依赖于 LinearLayout 布局，那么对应的 class 也继承于 LinearLayout 类。
+    init &#123;
+        LayoutInflater.from(context).inflate(R.layout.title, this) &#x2F;&#x2F; 绑定自定义的布局
+       &#x2F;&#x2F; code ...
+    &#125;
+&#125;</code></pre>
+<ul>
+<li>在布局中引入。需要写入完整的类路径。</li>
+</ul>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;com.example.YourPackage.YourLayout
+... &#x2F;&gt;</code></pre>
+]]></content>
+      <categories>
+        <category>第一个安卓 app</category>
+        <category>布局和控件</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
       </tags>
   </entry>
 </search>
