@@ -222,7 +222,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2025-04-02 20:58:04 / 修改时间：22:49:14" itemprop="dateCreated datePublished" datetime="2025-04-02T20:58:04+08:00">2025-04-02</time>
+      <time title="创建时间：2025-04-02 20:58:04 / 修改时间：23:08:23" itemprop="dateCreated datePublished" datetime="2025-04-02T20:58:04+08:00">2025-04-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -244,13 +244,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <!--
-# 三个路径的区别
-
-- hexo/站点根目录：该目录下保存博客所有相关文件，以 `/` 表示。
-- 主题目录：`/theme/yourTheme/...`
-- source 目录：`/source/...`
-
+          <h1 id="三个路径的区别"><a class="markdownIt-Anchor" href="#三个路径的区别"></a> 三个路径的区别</h1>
+<ul>
+<li>hexo/站点根目录：该目录下保存博客所有相关文件，以 <code>/</code> 表示。</li>
+<li>主题目录：<code>/theme/yourTheme/...</code></li>
+<li>source 目录：<code>/source/...</code></li>
+</ul>
+<!--
 # 使用注入功能
 
 在主题目录下的 `scripts` 中添加自定义的 js 。这里以添加 `filters` 为例。完整路径为 `/theme/yourTheme/scripts/filters/...` 。
@@ -263,7 +263,12 @@
     &lt;p&gt;本文发布距今已超过一年，内容可能过时！&lt;&#x2F;p&gt;
 &lt;&#x2F;div&gt;</code></pre>
 <h2 id="配置-js"><a class="markdownIt-Anchor" href="#配置-js"></a> 配置 js</h2>
-<p>在 <code>/source/scripts/</code> 目录下新建 <code>date-validate.js</code> ：</p>
+<p>在 <code>/theme/yourTheme/source/js</code> 目录下新建 <code>date-validate.js</code> ：</p>
+<details class="note info"><summary><p>为什么是这里？</p>
+</summary>
+<p>hexo 在生成静态网站的时候，会把该目录下除了 <code>images</code> 文件夹之外的其他文件夹都作为资源复制到静态网站的文件夹（public）中，这是为了避免部署网站后文件丢失。</p>
+
+</details>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;**
  * 判断文章是否过期（超过 365 天）
  * 如果过期，则返回 true；未过期，则移除 id 为 date_validate 的 div 并返回 false
@@ -413,14 +418,13 @@ document.addEventListener(&quot;DOMContentLoaded&quot;, checkPostOutdated);
 &#125;
 &lt;&#x2F;style&gt;</code></pre>
 </details>
-<!-- 
 <details class="note "><summary><p>dager 缺陷</p>
 </summary>
-<p>这样的问题是，hexo生成的每个静态页面都是包含过期提示的。</p>
+<p>这样的问题是，hexo生成的每个静态页面都是包含过期提示的。所以<strong>每次打开页面</strong>都会有这个提示，需要手动刷新一次才可以。</p>
 
-</details> -->
+</details>
 <div class="link-grid"><div class="link-grid-container">
-<object class="link-grid-image" data="\images\apple-touch-icon-next.png"></object>
+<object class="link-grid-image" data="/images/apple-touch-icon-next.png"></object>
 <p>Next 官方文档</p><p>Custom Files</p>
 <a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/advanced-settings/custom-files"></a>
 </div></div>

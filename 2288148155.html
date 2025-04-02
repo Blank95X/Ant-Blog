@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blank95x.github.io","root":"/Ant-Blog/","images":"/Ant-Blog/images","scheme":"Muse","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":16,"offset":12},"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/Ant-Blog/search.xml","localsearch":{"enable":true,"top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/Ant-Blog/js/config.js"></script>
 
-    <meta name="description" content="例子：添加文章时效性提示  文章注入内容 在 source&#x2F;_data&#x2F; 下新建 post-body-start.njk : &#x2F;&#x2F; 文章开头注入内容 &lt;div id&#x3D;&quot;date-validate&quot; class&#x3D;&quot;post-warning&quot;&gt;     &lt;p&gt;本文发布距今已超过一年，内容可能过时">
+    <meta name="description" content="三个路径的区别  hexo&#x2F;站点根目录：该目录下保存博客所有相关文件，以 &#x2F; 表示。 主题目录：&#x2F;theme&#x2F;yourTheme&#x2F;... source 目录：&#x2F;source&#x2F;...    例子：添加文章时效性提示  文章注入内容 在 source&#x2F;_data&#x2F; 下新建 post-body-start.njk : &#x2F;&#x2F; 文章开头注入内容 &lt;div id&#x3D;&amp;quo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="next 主题中如何使用 custom file 功能">
 <meta property="og:url" content="https://blank95x.github.io/Ant-Blog/2288148155.html">
 <meta property="og:site_name" content="Ant&#39;s blog">
-<meta property="og:description" content="例子：添加文章时效性提示  文章注入内容 在 source&#x2F;_data&#x2F; 下新建 post-body-start.njk : &#x2F;&#x2F; 文章开头注入内容 &lt;div id&#x3D;&quot;date-validate&quot; class&#x3D;&quot;post-warning&quot;&gt;     &lt;p&gt;本文发布距今已超过一年，内容可能过时">
+<meta property="og:description" content="三个路径的区别  hexo&#x2F;站点根目录：该目录下保存博客所有相关文件，以 &#x2F; 表示。 主题目录：&#x2F;theme&#x2F;yourTheme&#x2F;... source 目录：&#x2F;source&#x2F;...    例子：添加文章时效性提示  文章注入内容 在 source&#x2F;_data&#x2F; 下新建 post-body-start.njk : &#x2F;&#x2F; 文章开头注入内容 &lt;div id&#x3D;&amp;quo">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-04-02T12:58:04.000Z">
-<meta property="article:modified_time" content="2025-04-02T14:49:14.811Z">
+<meta property="article:modified_time" content="2025-04-02T15:08:23.039Z">
 <meta property="article:author" content="Ant">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="next">
@@ -145,7 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E6%97%B6%E6%95%88%E6%80%A7%E6%8F%90%E7%A4%BA"><span class="nav-number">1.</span> <span class="nav-text"> 例子：添加文章时效性提示</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E6%B3%A8%E5%85%A5%E5%86%85%E5%AE%B9"><span class="nav-number">1.1.</span> <span class="nav-text"> 文章注入内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-js"><span class="nav-number">1.2.</span> <span class="nav-text"> 配置 js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E6%A0%B7%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text"> 准备样式</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E4%B8%AA%E8%B7%AF%E5%BE%84%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.</span> <span class="nav-text"> 三个路径的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E6%97%B6%E6%95%88%E6%80%A7%E6%8F%90%E7%A4%BA"><span class="nav-number">2.</span> <span class="nav-text"> 例子：添加文章时效性提示</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E6%B3%A8%E5%85%A5%E5%86%85%E5%AE%B9"><span class="nav-number">2.1.</span> <span class="nav-text"> 文章注入内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-js"><span class="nav-number">2.2.</span> <span class="nav-text"> 配置 js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E6%A0%B7%E5%BC%8F"><span class="nav-number">2.3.</span> <span class="nav-text"> 准备样式</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -228,7 +228,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2025-04-02 20:58:04 / 修改时间：22:49:14" itemprop="dateCreated datePublished" datetime="2025-04-02T20:58:04+08:00">2025-04-02</time>
+      <time title="创建时间：2025-04-02 20:58:04 / 修改时间：23:08:23" itemprop="dateCreated datePublished" datetime="2025-04-02T20:58:04+08:00">2025-04-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -251,13 +251,13 @@
     
     <div class="post-body" itemprop="articleBody"><div id="date-validate" class="post-warning">
     <p>本文发布距今已超过一年，内容可能过时！</p>
-</div><!--
-# 三个路径的区别
-
-- hexo/站点根目录：该目录下保存博客所有相关文件，以 `/` 表示。
-- 主题目录：`/theme/yourTheme/...`
-- source 目录：`/source/...`
-
+</div><h1 id="三个路径的区别"><a class="markdownIt-Anchor" href="#三个路径的区别"></a> 三个路径的区别</h1>
+<ul>
+<li>hexo/站点根目录：该目录下保存博客所有相关文件，以 <code>/</code> 表示。</li>
+<li>主题目录：<code>/theme/yourTheme/...</code></li>
+<li>source 目录：<code>/source/...</code></li>
+</ul>
+<!--
 # 使用注入功能
 
 在主题目录下的 `scripts` 中添加自定义的 js 。这里以添加 `filters` 为例。完整路径为 `/theme/yourTheme/scripts/filters/...` 。
@@ -270,7 +270,12 @@
     &lt;p&gt;本文发布距今已超过一年，内容可能过时！&lt;&#x2F;p&gt;
 &lt;&#x2F;div&gt;</code></pre>
 <h2 id="配置-js"><a class="markdownIt-Anchor" href="#配置-js"></a> 配置 js</h2>
-<p>在 <code>/source/scripts/</code> 目录下新建 <code>date-validate.js</code> ：</p>
+<p>在 <code>/theme/yourTheme/source/js</code> 目录下新建 <code>date-validate.js</code> ：</p>
+<details class="note info"><summary><p>为什么是这里？</p>
+</summary>
+<p>hexo 在生成静态网站的时候，会把该目录下除了 <code>images</code> 文件夹之外的其他文件夹都作为资源复制到静态网站的文件夹（public）中，这是为了避免部署网站后文件丢失。</p>
+
+</details>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;**
  * 判断文章是否过期（超过 365 天）
  * 如果过期，则返回 true；未过期，则移除 id 为 date_validate 的 div 并返回 false
@@ -420,14 +425,13 @@ document.addEventListener(&quot;DOMContentLoaded&quot;, checkPostOutdated);
 &#125;
 &lt;&#x2F;style&gt;</code></pre>
 </details>
-<!-- 
 <details class="note "><summary><p>dager 缺陷</p>
 </summary>
-<p>这样的问题是，hexo生成的每个静态页面都是包含过期提示的。</p>
+<p>这样的问题是，hexo生成的每个静态页面都是包含过期提示的。所以<strong>每次打开页面</strong>都会有这个提示，需要手动刷新一次才可以。</p>
 
-</details> -->
+</details>
 <div class="link-grid"><div class="link-grid-container">
-<object class="link-grid-image" data="\images\apple-touch-icon-next.png"></object>
+<object class="link-grid-image" data="/images/apple-touch-icon-next.png"></object>
 <p>Next 官方文档</p><p>Custom Files</p>
 <a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/advanced-settings/custom-files"></a>
 </div></div>
