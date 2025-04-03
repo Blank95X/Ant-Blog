@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>springboot 初识</title>
-    <url>/Ant-Blog/1266698458.html</url>
+    <url>/1266698458.html</url>
     <content><![CDATA[<h1 id="springboot-是什么"><a class="markdownIt-Anchor" href="#springboot-是什么"></a> springboot 是什么</h1>
 <p>springboot 是 spring 框架的一个子部件，用于快速构建 spring web 项目。</p>
 <h2 id="快速构建"><a class="markdownIt-Anchor" href="#快速构建"></a> 快速构建</h2>
@@ -96,7 +96,7 @@ public class getConfigInfo &#123;
   </entry>
   <entry>
     <title>新建博客时自动以时间命名文件</title>
-    <url>/Ant-Blog/3338553697.html</url>
+    <url>/3338553697.html</url>
     <content><![CDATA[<h1 id="配置-js-脚本"><a class="markdownIt-Anchor" href="#配置-js-脚本"></a> 配置 js 脚本</h1>
 <p>在 blog 根目录下新建文件 <code>new_post_with_date.js</code> ：</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">const &#123; exec &#125; &#x3D; require(&#39;child_process&#39;);
@@ -133,40 +133,8 @@ exec(&#96;hexo new &quot;$&#123;title&#125;&quot;&#96;, (error, stdout, stderr) 
       </tags>
   </entry>
   <entry>
-    <title>PowerShell：在此系统上禁止运行脚本</title>
-    <url>/Ant-Blog/2106263798.html</url>
-    <content><![CDATA[<p>查看当前用户的执行策略：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">get-executionpolicy</code></pre>
-<p>返回 <code>Restricted</code> （默认）则是无法执行脚本。</p>
-<p>解除限制：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">set-executionpolicy remotesigned</code></pre>
-<p>如果运行后提示：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">Windows PowerShell 已成功更新你的执行策略，但在更具体的作业域中定义的策略覆盖该设置了。由于发生覆盖，你的外壳程序将保留当前的有效执行策略受限制。</code></pre>
-<p>说明当前用户的策略还未更改，继续执行：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">Set-ExecutionPolicy RemoteSigned -Scope CurrentUser</code></pre>
-<p>再次查看当前用户的执行策略，发现已更改。</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">&gt; get-executionpolicy
-RemoteSigned</code></pre>
-<p>之后就可以执行脚本了。</p>
-<div class="link-grid"><div class="link-grid-container">
-<object class="link-grid-image" data="https://syxdevcode.github.io/images/favicon-32x32-next.png"></object>
-<p>syxdevcode的博客</p><p>PowerShell：因为在此系统上禁止运行脚本，解决方法</p>
-<a href="https://syxdevcode.github.io/2021/09/04/PowerShell%EF%BC%9A%E5%9B%A0%E4%B8%BA%E5%9C%A8%E6%AD%A4%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%A6%81%E6%AD%A2%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC%EF%BC%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"></a>
-</div><div class="link-grid-container">
-<object class="link-grid-image" data="https://smallsquare.github.io/img/creeper.png"></object>
-<p>smallsquare的博客</p><p>解决Powershell阻止脚本运行遇到的问题 Powershell禁用运行脚本的解决方案</p>
-<a href="https://smallsquare.github.io/Powershell-disable-runing-scripts/"></a>
-</div></div>]]></content>
-      <categories>
-        <category>疑难杂症</category>
-      </categories>
-      <tags>
-        <tag>windows</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>bean 对象</title>
-    <url>/Ant-Blog/978272554.html</url>
+    <url>/978272554.html</url>
     <content><![CDATA[<h1 id="自动扫描-bean-对象"><a class="markdownIt-Anchor" href="#自动扫描-bean-对象"></a> 自动扫描 bean 对象</h1>
 <p>在 springboot 中，扫描 bean 的路径由注解 <code>@ComponentScan</code> 指定：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">@ComponentScan(basePackages &#x3D; &quot;com.example.demo&quot;)</code></pre>
@@ -343,203 +311,8 @@ public @interface EnableCommonConfig &#123;
       </tags>
   </entry>
   <entry>
-    <title>next 主题中如何使用 custom file 功能</title>
-    <url>/Ant-Blog/2288148155.html</url>
-    <content><![CDATA[<h1 id="三个路径的区别"><a class="markdownIt-Anchor" href="#三个路径的区别"></a> 三个路径的区别</h1>
-<ul>
-<li>hexo/站点根目录：该目录下保存博客所有相关文件，以 <code>/</code> 表示。</li>
-<li>主题目录：<code>/theme/yourTheme/...</code></li>
-<li>source 目录：<code>/source/...</code></li>
-</ul>
-<!--
-# 使用注入功能
-
-在主题目录下的 `scripts` 中添加自定义的 js 。这里以添加 `filters` 为例。完整路径为 `/theme/yourTheme/scripts/filters/...` 。
--->
-<h1 id="例子添加文章时效性提示"><a class="markdownIt-Anchor" href="#例子添加文章时效性提示"></a> 例子：添加文章时效性提示</h1>
-<h2 id="文章注入内容"><a class="markdownIt-Anchor" href="#文章注入内容"></a> 文章注入内容</h2>
-<p>在 <code>source/_data/</code> 下新建 <code>post-body-start.njk</code> :</p>
-<pre class="line-numbers language-njk" data-language="njk"><code class="language-njk">&#x2F;&#x2F; 文章开头注入内容
-&lt;div id&#x3D;&quot;date-validate&quot; class&#x3D;&quot;post-warning&quot;&gt;
-    &lt;p&gt;本文发布距今已超过一年，内容可能过时！&lt;&#x2F;p&gt;
-&lt;&#x2F;div&gt;</code></pre>
-<h2 id="配置-js"><a class="markdownIt-Anchor" href="#配置-js"></a> 配置 js</h2>
-<p>在 <code>/theme/yourTheme/source/js</code> 目录下新建 <code>date-validate.js</code> ：</p>
-<details class="note info"><summary><p>为什么是这里？</p>
-</summary>
-<p>hexo 在生成静态网站的时候，会把该目录下除了 <code>images</code> 文件夹之外的其他文件夹都作为资源复制到静态网站的文件夹（public）中，这是为了避免部署网站后文件丢失。</p>
-
-</details>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;**
- * 判断文章是否过期（超过 365 天）
- * 如果过期，则返回 true；未过期，则移除 id 为 date_validate 的 div 并返回 false
- * @param &#123;string&#125; date - 文章发布日期 (YYYY-MM-DD 格式)
- * @returns &#123;boolean&#125; 是否过期
- *&#x2F;
-function isOutdated(date) &#123;
-    &#x2F;&#x2F; 计算是否过期
-    const outdated &#x3D; moment().diff(moment(date, &#39;YYYY-MM-DD&#39;), &#39;days&#39;) &gt; 365;
-
-    if (outdated) &#123;
-        return true; &#x2F;&#x2F; 已过期，不做改变
-    &#125;
-
-    &#x2F;&#x2F; 未过期，移除提示框
-    const element &#x3D; document.getElementById(&#39;date-validate&#39;);
-    if (element) &#123;
-        element.remove();
-    &#125;
-
-    return false;
-&#125;
-
-&#x2F;**
- * 获取文章发布日期并判断是否过期
- *&#x2F;
-function checkPostOutdated() &#123;
-    const timeElement &#x3D; document.querySelector(&#39;.post-meta-item time&#39;);
-    if (timeElement) &#123;
-        const dateText &#x3D; timeElement.textContent.trim(); &#x2F;&#x2F; 获取文本内容
-        if (isOutdated(dateText)) &#123;
-            console.log(&#39;文章已过期:&#39;, dateText);
-        &#125; else &#123;
-            console.log(&#39;文章未过期:&#39;, dateText);
-        &#125;
-    &#125;
-&#125;
-
-&#x2F;&#x2F; 等待 DOM 加载完成后执行
-document.addEventListener(&quot;DOMContentLoaded&quot;, checkPostOutdated);</code></pre>
-<p>引入 js 。在 <code>source/_data/</code> 下新建 <code>head.njk</code> :</p>
-<pre class="line-numbers language-njk" data-language="njk"><code class="language-njk">&#x2F;&#x2F; 注入时效性校验脚本
-&lt;script src&#x3D;&quot;&#x2F;scripts&#x2F;date-validate.js&quot;&gt;&lt;&#x2F;script&gt;</code></pre>
-<h2 id="准备样式"><a class="markdownIt-Anchor" href="#准备样式"></a> 准备样式</h2>
-<p>在 <code>source/_data/</code> 下新建 <code>styles.styl</code> :</p>
-<pre class="line-numbers language-scss" data-language="scss"><code class="language-scss">&#x2F;&#x2F; 警告框样式
-.post-warning &#123;
-    background: linear-gradient(135deg, #fff3cd 0%, #ffecb3 100%);
-    color: #856404;
-    padding: 15px;
-    border-left: 6px solid #ff9800;
-    margin-bottom: 20px;
-    font-size: 16px;
-    font-weight: 500;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, opacity 0.3s ease;
-&#125;
-
-.post-warning p &#123;
-    margin: 0;
-    line-height: 1.6;
-&#125;
-
-.post-warning strong &#123;
-    font-weight: 700;
-&#125;
-
-
-.archive .collection-title &#123;
-  display: none !important;
-&#125;</code></pre>
-<p>这样就可以了。</p>
-<details class="note info"><summary><p>想看警告框长什么样？</p>
-</summary>
-<p>自行到 html 在线渲染网站运行代码：</p>
-<p><a href="https://www.toolhelper.cn/Html/Preview">在线运行 html -锤子工具</a></p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;div id&#x3D;&quot;date-validate&quot; class&#x3D;&quot;post-warning&quot;&gt;&lt;p&gt;本文发布距今已超一年，内容可能过时！&lt;&#x2F;p&gt;&lt;&#x2F;div&gt;
-&lt;script&gt;
-&#x2F;**
- * 判断文章是否过期（超过 365 天）
- * 如果过期，则返回 true；未过期，则移除 id 为 date_validate 的 div 并返回 false
- * @param &#123;string&#125; date - 文章发布日期 (YYYY-MM-DD 格式)
- * @returns &#123;boolean&#125; 是否过期
- *&#x2F;
-function isOutdated(date) &#123;
-    &#x2F;&#x2F; 计算是否过期
-    const outdated &#x3D; moment().diff(moment(date, &#39;YYYY-MM-DD&#39;), &#39;days&#39;) &gt; 365;
-
-    if (outdated) &#123;
-        return true; &#x2F;&#x2F; 已过期，不做改变
-    &#125;
-
-    &#x2F;&#x2F; 未过期，移除提示框
-    const element &#x3D; document.getElementById(&#39;date-validate&#39;);
-    if (element) &#123;
-        element.remove();
-    &#125;
-
-    return false;
-&#125;
-
-&#x2F;**
- * 获取文章发布日期并判断是否过期
- *&#x2F;
-function checkPostOutdated() &#123;
-    const timeElement &#x3D; document.querySelector(&#39;.post-meta-item time&#39;);
-    if (timeElement) &#123;
-        const dateText &#x3D; timeElement.textContent.trim(); &#x2F;&#x2F; 获取文本内容
-        if (isOutdated(dateText)) &#123;
-            console.log(&#39;文章已过期:&#39;, dateText);
-        &#125; else &#123;
-            console.log(&#39;文章未过期:&#39;, dateText);
-        &#125;
-    &#125;
-&#125;
-
-&#x2F;&#x2F; 等待 DOM 加载完成后执行
-document.addEventListener(&quot;DOMContentLoaded&quot;, checkPostOutdated);
-&lt;&#x2F;script&gt;
-
-&lt;style&gt;
-&#x2F;*警告框样式*&#x2F;
-.post-warning &#123;
-    background: linear-gradient(135deg, #fff3cd 0%, #ffecb3 100%);
-    color: #856404;
-    padding: 15px;
-    border-left: 6px solid #ff9800;
-    margin-bottom: 20px;
-    font-size: 16px;
-    font-weight: 500;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, opacity 0.3s ease;
-&#125;
-
-.post-warning p &#123;
-    margin: 0;
-    line-height: 1.6;
-&#125;
-
-.post-warning strong &#123;
-    font-weight: 700;
-&#125;
-
-
-.archive .collection-title &#123;
-  display: none !important;
-&#125;
-&lt;&#x2F;style&gt;</code></pre>
-</details>
-<details class="note "><summary><p>dager 缺陷</p>
-</summary>
-<p>这样的问题是，hexo生成的每个静态页面都是包含过期提示的。所以<strong>每次打开页面</strong>都会有这个提示，需要手动刷新一次才可以。</p>
-
-</details>
-<div class="link-grid"><div class="link-grid-container">
-<object class="link-grid-image" data="/images/apple-touch-icon-next.png"></object>
-<p>Next 官方文档</p><p>Custom Files</p>
-<a href="https://theme-next.js.org/docs/advanced-settings/custom-files"></a>
-</div></div>]]></content>
-      <categories>
-        <category>软件工具</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>next</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>GitHubPages+hexo 部署个人在线博客</title>
-    <url>/Ant-Blog/13345652.html</url>
+    <url>/13345652.html</url>
     <content><![CDATA[<p>系统环境： windows11</p>
 <h1 id="安装-hexo"><a class="markdownIt-Anchor" href="#安装-hexo"></a> 安装 hexo</h1>
 <p>先决条件： <code>nodejs</code> 和 <code>git</code> 环境，这里不赘述。</p>
@@ -593,8 +366,40 @@ npm install</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>PowerShell：在此系统上禁止运行脚本</title>
+    <url>/2106263798.html</url>
+    <content><![CDATA[<p>查看当前用户的执行策略：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">get-executionpolicy</code></pre>
+<p>返回 <code>Restricted</code> （默认）则是无法执行脚本。</p>
+<p>解除限制：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">set-executionpolicy remotesigned</code></pre>
+<p>如果运行后提示：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">Windows PowerShell 已成功更新你的执行策略，但在更具体的作业域中定义的策略覆盖该设置了。由于发生覆盖，你的外壳程序将保留当前的有效执行策略受限制。</code></pre>
+<p>说明当前用户的策略还未更改，继续执行：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">Set-ExecutionPolicy RemoteSigned -Scope CurrentUser</code></pre>
+<p>再次查看当前用户的执行策略，发现已更改。</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">&gt; get-executionpolicy
+RemoteSigned</code></pre>
+<p>之后就可以执行脚本了。</p>
+<div class="link-grid"><div class="link-grid-container">
+<object class="link-grid-image" data="https://syxdevcode.github.io/images/favicon-32x32-next.png"></object>
+<p>syxdevcode的博客</p><p>PowerShell：因为在此系统上禁止运行脚本，解决方法</p>
+<a href="https://syxdevcode.github.io/2021/09/04/PowerShell%EF%BC%9A%E5%9B%A0%E4%B8%BA%E5%9C%A8%E6%AD%A4%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%A6%81%E6%AD%A2%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC%EF%BC%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://smallsquare.github.io/img/creeper.png"></object>
+<p>smallsquare的博客</p><p>解决Powershell阻止脚本运行遇到的问题 Powershell禁用运行脚本的解决方案</p>
+<a href="https://smallsquare.github.io/Powershell-disable-runing-scripts/"></a>
+</div></div>]]></content>
+      <categories>
+        <category>疑难杂症</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Acvitity 初识</title>
-    <url>/Ant-Blog/1273076805.html</url>
+    <url>/1273076805.html</url>
     <content><![CDATA[<h1 id="要素"><a class="markdownIt-Anchor" href="#要素"></a> 要素</h1>
 <p>创建一个 Activity 需要以下要素：</p>
 <p>Activity 类：</p>
@@ -856,7 +661,7 @@ FirstActivity</code></pre>
   </entry>
   <entry>
     <title>Intent 意图</title>
-    <url>/Ant-Blog/3728271331.html</url>
+    <url>/3728271331.html</url>
     <content><![CDATA[<h1 id="intent-意图"><a class="markdownIt-Anchor" href="#intent-意图"></a> Intent 意图</h1>
 <ul>
 <li>在 Acitvity 之间跳转</li>
@@ -971,65 +776,8 @@ finish() &#x2F;&#x2F; 销毁当前活动</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>menu 控件</title>
-    <url>/Ant-Blog/3976894431.html</url>
-    <content><![CDATA[<h1 id="menu-控件"><a class="markdownIt-Anchor" href="#menu-控件"></a> menu 控件</h1>
-<p>这里的 menu 控件是指标题栏右上角的菜单按钮。</p>
-<p>在 <code>res/menu</code> 文件夹下创建一个 xml 文件，如 <code>main.xml</code>：</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;
-&lt;menu xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res&#x2F;android&quot;&gt;
-    &lt;item
-        android:id&#x3D;&quot;@+id&#x2F;add_item&quot;
-        android:title&#x3D;&quot;Add&quot;&#x2F;&gt;
-    &lt;item
-        android:id&#x3D;&quot;@+id&#x2F;remove_item&quot;
-        android:title&#x3D;&quot;Remove&quot;&#x2F;&gt;
-&lt;&#x2F;menu&gt;</code></pre>
-<p>在 Activity 中重写 <code>onCreateOptionsMenu</code> 方法：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onCreateOptionsMenu(menu: Menu?): Boolean &#123;
-    menuInflater.inflate(R.menu.main, menu) 
-    &#x2F;&#x2F; menuInflater 这一部分其实是 kotlin 的语法糖，已经自动调用了 getter 方法
-    &#x2F;* inflate 方法接收两个参数：
-    第一个是 menu 布局资源文件，
-    第二个是要设置这个布局的 menu 对象
-    （从哪里来到哪里去）*&#x2F;
-    return true
-    &#x2F;&#x2F; 返回 true 表示菜单允许菜单显示
-&#125;</code></pre>
-<p>之后在 Activity 中重写 <code>onOptionsItemSelected</code> 方法可以自定义菜单选项响应事件。</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onOptionsItemSelected(item: MenuItem): Boolean &#123;
-    when(item.itemId)&#123;
-        R.id.add_item -&gt; Toast.makeText(this, &quot;add item&quot;,Toast.LENGTH_SHORT).show()
-        R.id.remove_item -&gt; Toast.makeText(this,&quot;remove item&quot;,Toast.LENGTH_SHORT).show()
-    &#125;
-    return true
-&#125;</code></pre>
-<h2 id="显示toast"><a class="markdownIt-Anchor" href="#显示toast"></a> 显示Toast</h2>
-<p><code>makeText()</code> 方法的参数：</p>
-<ol>
-<li>上下文</li>
-<li>toast内容（字符串）</li>
-<li>显示时长</li>
-</ol>
-<p>最后再调用 <code>show()</code> 方法即可。</p>
-<h1 id="没有标题栏"><a class="markdownIt-Anchor" href="#没有标题栏"></a> 没有标题栏</h1>
-<p>在确保 <code>res/values/styles.xml</code> 文件中的 <code>AppTheme</code> 主题中设置了标题栏的情况下：</p>
-<ul>
-<li>如果使用 <code>ComponentActivity</code> 作为活动的父类，需要手动设置标题栏。</li>
-<li>使用 <code>AppCompatActivity</code> 作为活动的父类，可以自动设置标题栏。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>第一个安卓 app</category>
-        <category>布局和控件</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo+next 使用备忘</title>
-    <url>/Ant-Blog/1060342639.html</url>
+    <url>/1060342639.html</url>
     <content><![CDATA[<h1 id="标签插件实现的高级块"><a class="markdownIt-Anchor" href="#标签插件实现的高级块"></a> 标签插件实现的高级块</h1>
 <h2 id="引用链接"><a class="markdownIt-Anchor" href="#引用链接"></a> 引用链接</h2>
 <pre class="line-numbers language-none"><code class="language-none">&#123;% lg %&#125;
@@ -1175,7 +923,7 @@ C -->|Two| E[Result 2]</pre>
   </entry>
   <entry>
     <title>windows 本地部署 photoPrism</title>
-    <url>/Ant-Blog/2888069175.html</url>
+    <url>/2888069175.html</url>
     <content><![CDATA[<h1 id="起因"><a class="markdownIt-Anchor" href="#起因"></a> 起因</h1>
 <p>把带地理位置信息的照片上传到 google 相册后，可以在地图中查看每张照片在地图上的标点。但是 google 相册云空间有限；使用 mod 的话总感觉有风险；并且上传照片到云上也怕隐私泄露（ google 之前拿用户照片来训练 ai ）。</p>
 <p>安卓端开源的 <a href="https://github.com/deckerst/aves">Aves 相册</a>也有这个功能，但是照片必须在本地。然而我不会把大量照片放在一部手机上，更偏向于放在桌面端设备。</p>
@@ -1228,155 +976,8 @@ docker compose up -d</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>界面布局</title>
-    <url>/Ant-Blog/3340243686.html</url>
-    <content><![CDATA[<h1 id="常用布局"><a class="markdownIt-Anchor" href="#常用布局"></a> 常用布局</h1>
-<h2 id="linearlayout"><a class="markdownIt-Anchor" href="#linearlayout"></a> LinearLayout</h2>
-<p>线性布局，元素呈线性排列，不多解释。</p>
-<p><code>android:orientation</code> 属性可以指定控件的排列方式，默认为水平排列。</p>
-<p>控件常用属性：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">属性名</th>
-<th style="text-align:center">值</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">android:layout_<mark>gravity</mark></td>
-<td style="text-align:center">top,bottom,left,right</td>
-<td style="text-align:center">对齐方向</td>
-</tr>
-</tbody>
-</table>
-<h2 id="relativelayout"><a class="markdownIt-Anchor" href="#relativelayout"></a> RelativeLayout</h2>
-<p>相对布局，元素可以相对于父容器确定位置，也可以相对于其他控件。</p>
-<p>控件常用属性：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">属性名</th>
-<th style="text-align:center">值</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">android:layout_<mark>centerInParent</mark></td>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">处于父容器<mark>中心</mark></td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>alignParentTop</mark></td>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">与父容器<mark>顶部</mark>对齐</td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>alignParentBottom</mark></td>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">与父容器<mark>底部</mark>对齐</td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>alignParentLeft</mark></td>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">与父容器<mark>左边</mark>对齐</td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>alignParentRight</mark></td>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">与父容器<mark>右边</mark>对齐</td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>above</mark></td>
-<td style="text-align:center">控件引用</td>
-<td style="text-align:center">位于控件<mark>上方</mark></td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>below</mark></td>
-<td style="text-align:center">控件引用</td>
-<td style="text-align:center">位于控件<mark>下方</mark></td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>toLeftOf</mark></td>
-<td style="text-align:center">控件引用</td>
-<td style="text-align:center">位于控件<mark>左侧</mark></td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>toRightOf</mark></td>
-<td style="text-align:center">控件引用</td>
-<td style="text-align:center">位于控件<mark>右侧</mark></td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>alignTop</mark></td>
-<td style="text-align:center">控件引用</td>
-<td style="text-align:center">与控件<mark>上边缘</mark>对齐</td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>alignBottom</mark></td>
-<td style="text-align:center">控件引用</td>
-<td style="text-align:center">与控件<mark>下边缘</mark>对齐</td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>alignLeft</mark></td>
-<td style="text-align:center">控件引用</td>
-<td style="text-align:center">与控件<mark>左边缘</mark>对齐</td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>alignRight</mark></td>
-<td style="text-align:center">控件引用</td>
-<td style="text-align:center">与控件<mark>右边缘</mark>对齐</td>
-</tr>
-</tbody>
-</table>
-<h2 id="framelayout"><a class="markdownIt-Anchor" href="#framelayout"></a> FrameLayout</h2>
-<p>帧布局。不够灵活，应用较少。</p>
-<h1 id="自定义控件"><a class="markdownIt-Anchor" href="#自定义控件"></a> 自定义控件</h1>
-<p>安卓中的布局与控件的继承关系：</p>
-<pre class="mermaid">graph TD
-    View --> TextView
-    View --> ImageView
-    View --> ViewGroup
-    TextView --> EditText
-    TextView --> Button
-    ViewGroup --> LinearLayout
-    ViewGroup --> RelativeLayout
-    ViewGroup --> Others[……]</pre>
-<p>View是Android中最基本的一种UI组件，它可以在屏幕上绘制一块矩形区域，并能响应这块区域的各种事件。</p>
-<p>ViewGroup是一种特殊的View，它可以包含很多子View和子ViewGroup，是一个用于放置控件和布局的容器。</p>
-<h2 id="步骤"><a class="markdownIt-Anchor" href="#步骤"></a> 步骤</h2>
-<p>布局与布局之间是可以相互嵌套的；控件必须依赖于布局。所以实际上就是自定义布局，其中有自定义的控件。</p>
-<pre class="mermaid">graph LR
-    xml文件设计布局 --> |加载| A[class文件控制逻辑]
-    A --> |完整类路径| 其他布局文件中引入</pre>
-<ul>
-<li>编写一个 class 作为逻辑控制，并与自定义的布局绑定（在 class 文件中编写加载布局等逻辑）。</li>
-</ul>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class YourLayout(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) &#123;
-    &#x2F;&#x2F; 如果自定义控件依赖于 LinearLayout 布局，那么对应的 class 也继承于 LinearLayout 类。
-    init &#123;
-        LayoutInflater.from(context).inflate(R.layout.title, this) &#x2F;&#x2F; 绑定自定义的布局
-       &#x2F;&#x2F; code ...
-    &#125;
-&#125;</code></pre>
-<ul>
-<li>在布局中引入。需要写入完整的类路径。</li>
-</ul>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;com.example.YourPackage.YourLayout
-... &#x2F;&gt;</code></pre>
-]]></content>
-      <categories>
-        <category>第一个安卓 app</category>
-        <category>布局和控件</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>kotlin 基本语法</title>
-    <url>/Ant-Blog/2766814441.html</url>
+    <url>/2766814441.html</url>
     <content><![CDATA[<h1 id="hello-kotlin"><a class="markdownIt-Anchor" href="#hello-kotlin"></a> hello kotlin</h1>
 <p>在 IDEA 中新建一个 kotlin 项目，添加“ kotlin 文件”（注意不是类），输入以下代码，然后构建并运行，即可在终端看到输出。</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun main()&#123;
@@ -1686,7 +1287,7 @@ doAction()</code></pre>
   </entry>
   <entry>
     <title>常用控件</title>
-    <url>/Ant-Blog/3355239386.html</url>
+    <url>/3355239386.html</url>
     <content><![CDATA[<h1 id="textview"><a class="markdownIt-Anchor" href="#textview"></a> TextView</h1>
 <p>用于显示文本。</p>
 <pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;TextView
@@ -1706,8 +1307,212 @@ doAction()</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>menu 控件</title>
+    <url>/3976894431.html</url>
+    <content><![CDATA[<h1 id="menu-控件"><a class="markdownIt-Anchor" href="#menu-控件"></a> menu 控件</h1>
+<p>这里的 menu 控件是指标题栏右上角的菜单按钮。</p>
+<p>在 <code>res/menu</code> 文件夹下创建一个 xml 文件，如 <code>main.xml</code>：</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;
+&lt;menu xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res&#x2F;android&quot;&gt;
+    &lt;item
+        android:id&#x3D;&quot;@+id&#x2F;add_item&quot;
+        android:title&#x3D;&quot;Add&quot;&#x2F;&gt;
+    &lt;item
+        android:id&#x3D;&quot;@+id&#x2F;remove_item&quot;
+        android:title&#x3D;&quot;Remove&quot;&#x2F;&gt;
+&lt;&#x2F;menu&gt;</code></pre>
+<p>在 Activity 中重写 <code>onCreateOptionsMenu</code> 方法：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onCreateOptionsMenu(menu: Menu?): Boolean &#123;
+    menuInflater.inflate(R.menu.main, menu) 
+    &#x2F;&#x2F; menuInflater 这一部分其实是 kotlin 的语法糖，已经自动调用了 getter 方法
+    &#x2F;* inflate 方法接收两个参数：
+    第一个是 menu 布局资源文件，
+    第二个是要设置这个布局的 menu 对象
+    （从哪里来到哪里去）*&#x2F;
+    return true
+    &#x2F;&#x2F; 返回 true 表示菜单允许菜单显示
+&#125;</code></pre>
+<p>之后在 Activity 中重写 <code>onOptionsItemSelected</code> 方法可以自定义菜单选项响应事件。</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onOptionsItemSelected(item: MenuItem): Boolean &#123;
+    when(item.itemId)&#123;
+        R.id.add_item -&gt; Toast.makeText(this, &quot;add item&quot;,Toast.LENGTH_SHORT).show()
+        R.id.remove_item -&gt; Toast.makeText(this,&quot;remove item&quot;,Toast.LENGTH_SHORT).show()
+    &#125;
+    return true
+&#125;</code></pre>
+<h2 id="显示toast"><a class="markdownIt-Anchor" href="#显示toast"></a> 显示Toast</h2>
+<p><code>makeText()</code> 方法的参数：</p>
+<ol>
+<li>上下文</li>
+<li>toast内容（字符串）</li>
+<li>显示时长</li>
+</ol>
+<p>最后再调用 <code>show()</code> 方法即可。</p>
+<h1 id="没有标题栏"><a class="markdownIt-Anchor" href="#没有标题栏"></a> 没有标题栏</h1>
+<p>在确保 <code>res/values/styles.xml</code> 文件中的 <code>AppTheme</code> 主题中设置了标题栏的情况下：</p>
+<ul>
+<li>如果使用 <code>ComponentActivity</code> 作为活动的父类，需要手动设置标题栏。</li>
+<li>使用 <code>AppCompatActivity</code> 作为活动的父类，可以自动设置标题栏。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>第一个安卓 app</category>
+        <category>布局和控件</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>界面布局</title>
+    <url>/3340243686.html</url>
+    <content><![CDATA[<h1 id="常用布局"><a class="markdownIt-Anchor" href="#常用布局"></a> 常用布局</h1>
+<h2 id="linearlayout"><a class="markdownIt-Anchor" href="#linearlayout"></a> LinearLayout</h2>
+<p>线性布局，元素呈线性排列，不多解释。</p>
+<p><code>android:orientation</code> 属性可以指定控件的排列方式，默认为水平排列。</p>
+<p>控件常用属性：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性名</th>
+<th style="text-align:center">值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">android:layout_<mark>gravity</mark></td>
+<td style="text-align:center">top,bottom,left,right</td>
+<td style="text-align:center">对齐方向</td>
+</tr>
+</tbody>
+</table>
+<h2 id="relativelayout"><a class="markdownIt-Anchor" href="#relativelayout"></a> RelativeLayout</h2>
+<p>相对布局，元素可以相对于父容器确定位置，也可以相对于其他控件。</p>
+<p>控件常用属性：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性名</th>
+<th style="text-align:center">值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">android:layout_<mark>centerInParent</mark></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">处于父容器<mark>中心</mark></td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignParentTop</mark></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">与父容器<mark>顶部</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignParentBottom</mark></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">与父容器<mark>底部</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignParentLeft</mark></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">与父容器<mark>左边</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignParentRight</mark></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">与父容器<mark>右边</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>above</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">位于控件<mark>上方</mark></td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>below</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">位于控件<mark>下方</mark></td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>toLeftOf</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">位于控件<mark>左侧</mark></td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>toRightOf</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">位于控件<mark>右侧</mark></td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignTop</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">与控件<mark>上边缘</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignBottom</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">与控件<mark>下边缘</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignLeft</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">与控件<mark>左边缘</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignRight</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">与控件<mark>右边缘</mark>对齐</td>
+</tr>
+</tbody>
+</table>
+<h2 id="framelayout"><a class="markdownIt-Anchor" href="#framelayout"></a> FrameLayout</h2>
+<p>帧布局。不够灵活，应用较少。</p>
+<h1 id="自定义控件"><a class="markdownIt-Anchor" href="#自定义控件"></a> 自定义控件</h1>
+<p>安卓中的布局与控件的继承关系：</p>
+<pre class="mermaid">graph TD
+    View --> TextView
+    View --> ImageView
+    View --> ViewGroup
+    TextView --> EditText
+    TextView --> Button
+    ViewGroup --> LinearLayout
+    ViewGroup --> RelativeLayout
+    ViewGroup --> Others[……]</pre>
+<p>View是Android中最基本的一种UI组件，它可以在屏幕上绘制一块矩形区域，并能响应这块区域的各种事件。</p>
+<p>ViewGroup是一种特殊的View，它可以包含很多子View和子ViewGroup，是一个用于放置控件和布局的容器。</p>
+<h2 id="步骤"><a class="markdownIt-Anchor" href="#步骤"></a> 步骤</h2>
+<p>布局与布局之间是可以相互嵌套的；控件必须依赖于布局。所以实际上就是自定义布局，其中有自定义的控件。</p>
+<pre class="mermaid">graph LR
+    xml文件设计布局 --> |加载| A[class文件控制逻辑]
+    A --> |完整类路径| 其他布局文件中引入</pre>
+<ul>
+<li>编写一个 class 作为逻辑控制，并与自定义的布局绑定（在 class 文件中编写加载布局等逻辑）。</li>
+</ul>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class YourLayout(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) &#123;
+    &#x2F;&#x2F; 如果自定义控件依赖于 LinearLayout 布局，那么对应的 class 也继承于 LinearLayout 类。
+    init &#123;
+        LayoutInflater.from(context).inflate(R.layout.title, this) &#x2F;&#x2F; 绑定自定义的布局
+       &#x2F;&#x2F; code ...
+    &#125;
+&#125;</code></pre>
+<ul>
+<li>在布局中引入。需要写入完整的类路径。</li>
+</ul>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;com.example.YourPackage.YourLayout
+... &#x2F;&gt;</code></pre>
+]]></content>
+      <categories>
+        <category>第一个安卓 app</category>
+        <category>布局和控件</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>开发日记</title>
-    <url>/Ant-Blog/786968787.html</url>
+    <url>/786968787.html</url>
     <content><![CDATA[<h1 id="后端生成并返回-excel-表格前端下载"><a class="markdownIt-Anchor" href="#后端生成并返回-excel-表格前端下载"></a> 后端生成并返回 excel 表格，前端下载</h1>
 <p>后端 Controller ：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">@GetMapping(&quot;&#x2F;excel&#x2F;&#123;id&#125;&quot;)
