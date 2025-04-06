@@ -1,46 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>新建博客时自动以时间命名文件</title>
-    <url>/Ant-Blog/3338553697.html</url>
-    <content><![CDATA[<h1 id="配置-js-脚本"><a class="markdownIt-Anchor" href="#配置-js-脚本"></a> 配置 js 脚本</h1>
-<p>在 blog 根目录下新建文件 <code>new_post_with_date.js</code> ：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">const &#123; exec &#125; &#x3D; require(&#39;child_process&#39;);
-const moment &#x3D; require(&#39;moment&#39;);
-
-&#x2F;&#x2F; 获取当前日期时间，格式为 &#39;YYYY-MM-DD-HH-mm-ss&#39;
-const dateTime &#x3D; moment().format(&#39;YYYY-MM-DD-HH-mm-ss&#39;);
-
-&#x2F;&#x2F; 定义文章标题
-const title &#x3D; &#96;$&#123;dateTime&#125;&#96;;
-
-&#x2F;&#x2F; 执行 Hexo new 命令创建新文章
-exec(&#96;hexo new &quot;$&#123;title&#125;&quot;&#96;, (error, stdout, stderr) &#x3D;&gt; &#123;
-    if (error) &#123;
-        console.error(&#96;执行出错: $&#123;error&#125;&#96;);
-        return;
-    &#125;
-    console.log(stdout);
-    if (stderr) &#123;
-        console.error(&#96;标准错误: $&#123;stderr&#125;&#96;);
-    &#125;
-&#125;);</code></pre>
-<p>之后安装 <code>moment</code> 库来处理时间和日期：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install monent</code></pre>
-<h1 id="新建博客"><a class="markdownIt-Anchor" href="#新建博客"></a> 新建博客</h1>
-<p>这样新建博客需要使用 <code>node new_post_with_date.js</code> 命令，生成的文件自动以当前时间命名。</p>
-<p>可以修改 <code>new_post_with_date.js</code> 文件来自定义生成的文件名。</p>
-]]></content>
-      <categories>
-        <category>软件工具</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>springboot 初识</title>
-    <url>/Ant-Blog/1266698458.html</url>
+    <url>/1266698458.html</url>
     <content><![CDATA[<h1 id="springboot-是什么"><a class="markdownIt-Anchor" href="#springboot-是什么"></a> springboot 是什么</h1>
 <p>springboot 是 spring 框架的一个子部件，用于快速构建 spring web 项目。</p>
 <h2 id="快速构建"><a class="markdownIt-Anchor" href="#快速构建"></a> 快速构建</h2>
@@ -133,8 +95,46 @@ public class getConfigInfo &#123;
       </tags>
   </entry>
   <entry>
+    <title>新建博客时自动以时间命名文件</title>
+    <url>/3338553697.html</url>
+    <content><![CDATA[<h1 id="配置-js-脚本"><a class="markdownIt-Anchor" href="#配置-js-脚本"></a> 配置 js 脚本</h1>
+<p>在 blog 根目录下新建文件 <code>new_post_with_date.js</code> ：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">const &#123; exec &#125; &#x3D; require(&#39;child_process&#39;);
+const moment &#x3D; require(&#39;moment&#39;);
+
+&#x2F;&#x2F; 获取当前日期时间，格式为 &#39;YYYY-MM-DD-HH-mm-ss&#39;
+const dateTime &#x3D; moment().format(&#39;YYYY-MM-DD-HH-mm-ss&#39;);
+
+&#x2F;&#x2F; 定义文章标题
+const title &#x3D; &#96;$&#123;dateTime&#125;&#96;;
+
+&#x2F;&#x2F; 执行 Hexo new 命令创建新文章
+exec(&#96;hexo new &quot;$&#123;title&#125;&quot;&#96;, (error, stdout, stderr) &#x3D;&gt; &#123;
+    if (error) &#123;
+        console.error(&#96;执行出错: $&#123;error&#125;&#96;);
+        return;
+    &#125;
+    console.log(stdout);
+    if (stderr) &#123;
+        console.error(&#96;标准错误: $&#123;stderr&#125;&#96;);
+    &#125;
+&#125;);</code></pre>
+<p>之后安装 <code>moment</code> 库来处理时间和日期：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install monent</code></pre>
+<h1 id="新建博客"><a class="markdownIt-Anchor" href="#新建博客"></a> 新建博客</h1>
+<p>这样新建博客需要使用 <code>node new_post_with_date.js</code> 命令，生成的文件自动以当前时间命名。</p>
+<p>可以修改 <code>new_post_with_date.js</code> 文件来自定义生成的文件名。</p>
+]]></content>
+      <categories>
+        <category>软件工具</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PowerShell：在此系统上禁止运行脚本</title>
-    <url>/Ant-Blog/2106263798.html</url>
+    <url>/2106263798.html</url>
     <content><![CDATA[<p>查看当前用户的执行策略：</p>
 <pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">get-executionpolicy</code></pre>
 <p>返回 <code>Restricted</code> （默认）则是无法执行脚本。</p>
@@ -165,63 +165,8 @@ RemoteSigned</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>GitHubPages+hexo 部署个人在线博客</title>
-    <url>/Ant-Blog/13345652.html</url>
-    <content><![CDATA[<p>系统环境： windows11</p>
-<h1 id="安装-hexo"><a class="markdownIt-Anchor" href="#安装-hexo"></a> 安装 hexo</h1>
-<p>先决条件： <code>nodejs</code> 和 <code>git</code> 环境，这里不赘述。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install -g hexo-cli</code></pre>
-<p>验证是否安装成功：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo -v</code></pre>
-<h1 id="本地部署"><a class="markdownIt-Anchor" href="#本地部署"></a> 本地部署</h1>
-<p>初始化：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo init &lt;floder&gt;
-cd &lt;floder&gt;
-npm install</code></pre>
-<p>部署：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo server</code></pre>
-<p>在<a href="http://localhost:4000">localhost:4000</a>查看博客界面。</p>
-<h1 id="部署到-github-pages"><a class="markdownIt-Anchor" href="#部署到-github-pages"></a> 部署到 github pages</h1>
-<h2 id="生成-sshkey"><a class="markdownIt-Anchor" href="#生成-sshkey"></a> 生成 sshkey</h2>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ssh-keygen -r rsa -C &quot;youremail@example.com&quot;</code></pre>
-<p>一直按回车即可。如果提示 sshkey 已存在，选择覆盖（后果自负）。</p>
-<p>生成的密钥保存在 <code>C:\Users\yourusername\.ssh\id_rsa.pub</code> 这个文件中，下一步要用。</p>
-<h2 id="创建-github-pages-仓库"><a class="markdownIt-Anchor" href="#创建-github-pages-仓库"></a> 创建 github pages 仓库</h2>
-<p>在 github 上创建名为 <code>yourusername.github.io</code> 的仓库。</p>
-<p>在 github 上打开个人设置，在侧边栏找到 <code>SSH and GPG keys</code> ，点击它。之后在右边找到 <code>New SSH key</code> ，点击它。</p>
-<p><code>Title</code> 随意填写，<code>Key type</code> 选择 <code>Authentication Key</code> 。用任意文本编辑器打开上一步生成的密钥文件，复制里面所有内容，粘贴到 <code>key</code> 部分。然后点击 <code>Add SSH key</code> 确认。</p>
-<h2 id="填写仓库配置"><a class="markdownIt-Anchor" href="#填写仓库配置"></a> 填写仓库配置</h2>
-<p>回到本地博客的文件夹内，找到 <code>_config.yml</code> 这个文件，打开。</p>
-<p>在文件末尾找到：</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">deploy:
-  type: &#39;&#39;</code></pre>
-<p>改成：</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">deploy:
-  type: git
-  repository: https:&#x2F;&#x2F;github.com&#x2F;explame&#x2F;explame.github.io.git # 你的仓库的 git 链接
-  branch: main # 也可能是 master ，具体查看自己的仓库。</code></pre>
-<h2 id="安装一键部署工具并上传"><a class="markdownIt-Anchor" href="#安装一键部署工具并上传"></a> 安装一键部署工具并上传</h2>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install hexo-deployer-git --save</code></pre>
-<p>清理文件并上传：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo clean &amp;&amp; hexo deploy</code></pre>
-<p>片刻之后可以查看名为你的仓库名的URL，看看是否部署成功。</p>
-<p>例子： <a href="http://yourusername.github.io">http://yourusername.github.io</a></p>
-<hr />
-<p>参考文章</p>
-<p><a href="https://hexo.io/zh-cn/docs/github-pages.html">hexo官方文档</a></p>
-]]></content>
-      <categories>
-        <category>软件工具</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>windows</tag>
-        <tag>github</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>bean 对象</title>
-    <url>/Ant-Blog/978272554.html</url>
+    <url>/978272554.html</url>
     <content><![CDATA[<h1 id="自动扫描-bean-对象"><a class="markdownIt-Anchor" href="#自动扫描-bean-对象"></a> 自动扫描 bean 对象</h1>
 <p>在 springboot 中，扫描 bean 的路径由注解 <code>@ComponentScan</code> 指定：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">@ComponentScan(basePackages &#x3D; &quot;com.example.demo&quot;)</code></pre>
@@ -398,8 +343,63 @@ public @interface EnableCommonConfig &#123;
       </tags>
   </entry>
   <entry>
+    <title>GitHubPages+hexo 部署个人在线博客</title>
+    <url>/13345652.html</url>
+    <content><![CDATA[<p>系统环境： windows11</p>
+<h1 id="安装-hexo"><a class="markdownIt-Anchor" href="#安装-hexo"></a> 安装 hexo</h1>
+<p>先决条件： <code>nodejs</code> 和 <code>git</code> 环境，这里不赘述。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install -g hexo-cli</code></pre>
+<p>验证是否安装成功：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo -v</code></pre>
+<h1 id="本地部署"><a class="markdownIt-Anchor" href="#本地部署"></a> 本地部署</h1>
+<p>初始化：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo init &lt;floder&gt;
+cd &lt;floder&gt;
+npm install</code></pre>
+<p>部署：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo server</code></pre>
+<p>在<a href="http://localhost:4000">localhost:4000</a>查看博客界面。</p>
+<h1 id="部署到-github-pages"><a class="markdownIt-Anchor" href="#部署到-github-pages"></a> 部署到 github pages</h1>
+<h2 id="生成-sshkey"><a class="markdownIt-Anchor" href="#生成-sshkey"></a> 生成 sshkey</h2>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ssh-keygen -r rsa -C &quot;youremail@example.com&quot;</code></pre>
+<p>一直按回车即可。如果提示 sshkey 已存在，选择覆盖（后果自负）。</p>
+<p>生成的密钥保存在 <code>C:\Users\yourusername\.ssh\id_rsa.pub</code> 这个文件中，下一步要用。</p>
+<h2 id="创建-github-pages-仓库"><a class="markdownIt-Anchor" href="#创建-github-pages-仓库"></a> 创建 github pages 仓库</h2>
+<p>在 github 上创建名为 <code>yourusername.github.io</code> 的仓库。</p>
+<p>在 github 上打开个人设置，在侧边栏找到 <code>SSH and GPG keys</code> ，点击它。之后在右边找到 <code>New SSH key</code> ，点击它。</p>
+<p><code>Title</code> 随意填写，<code>Key type</code> 选择 <code>Authentication Key</code> 。用任意文本编辑器打开上一步生成的密钥文件，复制里面所有内容，粘贴到 <code>key</code> 部分。然后点击 <code>Add SSH key</code> 确认。</p>
+<h2 id="填写仓库配置"><a class="markdownIt-Anchor" href="#填写仓库配置"></a> 填写仓库配置</h2>
+<p>回到本地博客的文件夹内，找到 <code>_config.yml</code> 这个文件，打开。</p>
+<p>在文件末尾找到：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">deploy:
+  type: &#39;&#39;</code></pre>
+<p>改成：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">deploy:
+  type: git
+  repository: https:&#x2F;&#x2F;github.com&#x2F;explame&#x2F;explame.github.io.git # 你的仓库的 git 链接
+  branch: main # 也可能是 master ，具体查看自己的仓库。</code></pre>
+<h2 id="安装一键部署工具并上传"><a class="markdownIt-Anchor" href="#安装一键部署工具并上传"></a> 安装一键部署工具并上传</h2>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install hexo-deployer-git --save</code></pre>
+<p>清理文件并上传：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo clean &amp;&amp; hexo deploy</code></pre>
+<p>片刻之后可以查看名为你的仓库名的URL，看看是否部署成功。</p>
+<p>例子： <a href="http://yourusername.github.io">http://yourusername.github.io</a></p>
+<hr />
+<p>参考文章</p>
+<p><a href="https://hexo.io/zh-cn/docs/github-pages.html">hexo官方文档</a></p>
+]]></content>
+      <categories>
+        <category>软件工具</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>windows</tag>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Acvitity 初识</title>
-    <url>/Ant-Blog/1273076805.html</url>
+    <url>/1273076805.html</url>
     <content><![CDATA[<h1 id="要素"><a class="markdownIt-Anchor" href="#要素"></a> 要素</h1>
 <p>创建一个 Activity 需要以下要素：</p>
 <p>Activity 类：</p>
@@ -661,7 +661,7 @@ FirstActivity</code></pre>
   </entry>
   <entry>
     <title>menu 控件</title>
-    <url>/Ant-Blog/3976894431.html</url>
+    <url>/3976894431.html</url>
     <content><![CDATA[<h1 id="menu-控件"><a class="markdownIt-Anchor" href="#menu-控件"></a> menu 控件</h1>
 <p>这里的 menu 控件是指标题栏右上角的菜单按钮。</p>
 <p>在 <code>res/menu</code> 文件夹下创建一个 xml 文件，如 <code>main.xml</code>：</p>
@@ -717,8 +717,124 @@ FirstActivity</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>Intent 意图</title>
+    <url>/3728271331.html</url>
+    <content><![CDATA[<h1 id="intent-意图"><a class="markdownIt-Anchor" href="#intent-意图"></a> Intent 意图</h1>
+<ul>
+<li>在 Acitvity 之间跳转</li>
+<li>传递数据</li>
+<li>启动其他应用的 Activity</li>
+</ul>
+<p>能被外部启动的 Activity 都需要在 AndroidManifest.xml 文件中注册 <code>android:exported=&quot;true&quot;</code> 属性。</p>
+<h2 id="显式-intent"><a class="markdownIt-Anchor" href="#显式-intent"></a> 显式 Intent</h2>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val intent &#x3D; Intent(this, TargetActivity::class.java)
+startActivity(intent)</code></pre>
+<p><code>Intent</code> 构造函数的参数：</p>
+<ol>
+<li>上下文</li>
+<li>目标活动的类名</li>
+</ol>
+<p><code>SecondActivity::class.java</code> 相当于 java 中 <code>SecondActivity.class</code> 的写法。</p>
+<h2 id="隐式-intent"><a class="markdownIt-Anchor" href="#隐式-intent"></a> 隐式 Intent</h2>
+<p>如果一个活动可以被隐式调用，需要在 AndroidManifest.xml 文件中注册：</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;activity android:name&#x3D;&quot;.TargetActivity&quot;&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name&#x3D;&quot;com.example.activitytest.ACTION_START&quot; &#x2F;&gt;
+        &lt;category android:name&#x3D;&quot;android.intent.category.DEFAULT&quot; &#x2F;&gt;
+        &lt;!-- &lt;category android:name&#x3D;&quot;com.example.activitytest.MY_CATEGORY&quot;&#x2F;&gt; --&gt;
+        &lt;!-- action 只能有一个， category 可以有多个--&gt;
+    &lt;&#x2F;intent-filter&gt;
+&lt;&#x2F;activity&gt;</code></pre>
+<p>调用：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val intent &#x3D; Intent(&quot;com.example.activitytest.ACTION_START&quot;)
+startActivity(intent)</code></pre>
+<p>一个 Intent 可以指定一个 action 和多个 category，只有当 action 和 category 全部匹配时，意图才会被响应。</p>
+<h2 id="传递数据"><a class="markdownIt-Anchor" href="#传递数据"></a> 传递数据</h2>
+<p>活动1存放数据：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val intent &#x3D; Intent(this, TargetActivity::class.java)
+intent.putExtra(&quot;extra_data&quot;, &quot;Hello, TargetActivity&quot;) &#x2F;&#x2F; key-value
+startActivity(intent)</code></pre>
+<p>活动2提取数据：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val extraData &#x3D; intent.getStringExtra(&quot;extra_data&quot;)</code></pre>
+<h1 id="隐式传递的更多用法"><a class="markdownIt-Anchor" href="#隐式传递的更多用法"></a> 隐式传递的更多用法</h1>
+<p>安卓系统中有一个内置 action <code>Intent.ACTION_VIEW</code> 可以打开浏览器：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val intent &#x3D; Intent(Intent.ACTION_VIEW)
+intent.data &#x3D; Uri.parse(&quot;http:&#x2F;&#x2F;www.baidu.com&quot;) &#x2F;&#x2F; 设置网址，可选
+startActivity(intent)</code></pre>
+<p>当一个活动在 AndroidManifest.xml 中注册了 action 为 <code>Intent.ACTION_VIEW</code> 时，那么这个活动就可以响应打开网页的请求。</p>
+<p>同时，还可以 <code>intent-filter</code> 标签中再配置一个 <code>data</code> 标签，用于更精确地指定当前 Activity 能够响应的数据。data 标签中主要可以配置以下内容：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>android:scheme</code></td>
+<td style="text-align:center">指定协议</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>android:host</code></td>
+<td style="text-align:center">指定主机名</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>android:port</code></td>
+<td style="text-align:center">指定端口</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>android:path</code></td>
+<td style="text-align:center">指定访问路径</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>android:mimeType</code></td>
+<td style="text-align:center">指定可以处理的数据类型，允许使用通配符</td>
+</tr>
+</tbody>
+</table>
+<p>只有当 data 标签中指定的内容和 Intent 中携带的 Data 完全一致时，当前 Activity 才能够响应该 Intent 。</p>
+<blockquote>
+<p>如果所有配置都正确，但是跳转的时候打开了系统默认的浏览器，将其禁用再尝试是否可以正常接收跳转浏览器的意图。</p>
+</blockquote>
+<h1 id="返回数据给上一个活动"><a class="markdownIt-Anchor" href="#返回数据给上一个活动"></a> 返回数据给上一个活动</h1>
+<p>在父活动中使用 <code>startActivityForResult</code> 方法启动子活动：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val intent &#x3D; Intent(this, TargetActivity::class.java)
+startActivityForResult(intent, 1) &#x2F;&#x2F; 1 是请求码，用于在之后的回调中判断数据来源</code></pre>
+<p>子活动返回数据：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">&#x2F;&#x2F; 主逻辑
+val intent &#x3D; Intent()
+intent.putExtra(&quot;data_return&quot;, &quot;Hello, MainActivity&quot;)
+setResult(RESULT_OK, intent)
+finish() &#x2F;&#x2F; 销毁当前活动</code></pre>
+<p>父活动接收数据：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) &#123;
+    when (requestCode) &#123;
+        1 -&gt; &#123;
+            if (resultCode &#x3D;&#x3D; Activity.RESULT_OK) &#123;
+                val returnedData &#x3D; data?.getStringExtra(&quot;data_return&quot;)
+                Log.d(&quot;MainActivity&quot;, &quot;returned data is $returnedData&quot;)
+            &#125;
+        &#125;
+    &#125;
+&#125;</code></pre>
+<p>通过返回键返回时，子活动中重写 <code>onBackPressed</code> 方法即可：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onBackPressed() &#123;
+    &#x2F;&#x2F; code...
+&#125;</code></pre>
+]]></content>
+      <categories>
+        <category>第一个安卓 app</category>
+        <category>Activity</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>Intent</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo+next 使用备忘</title>
-    <url>/Ant-Blog/1060342639.html</url>
+    <url>/1060342639.html</url>
     <content><![CDATA[<h1 id="标签插件实现的高级块"><a class="markdownIt-Anchor" href="#标签插件实现的高级块"></a> 标签插件实现的高级块</h1>
 <h2 id="引用链接"><a class="markdownIt-Anchor" href="#引用链接"></a> 引用链接</h2>
 <pre class="line-numbers language-none"><code class="language-none">&#123;% lg %&#125;
@@ -863,124 +979,8 @@ C -->|Two| E[Result 2]</pre>
       </tags>
   </entry>
   <entry>
-    <title>Intent 意图</title>
-    <url>/Ant-Blog/3728271331.html</url>
-    <content><![CDATA[<h1 id="intent-意图"><a class="markdownIt-Anchor" href="#intent-意图"></a> Intent 意图</h1>
-<ul>
-<li>在 Acitvity 之间跳转</li>
-<li>传递数据</li>
-<li>启动其他应用的 Activity</li>
-</ul>
-<p>能被外部启动的 Activity 都需要在 AndroidManifest.xml 文件中注册 <code>android:exported=&quot;true&quot;</code> 属性。</p>
-<h2 id="显式-intent"><a class="markdownIt-Anchor" href="#显式-intent"></a> 显式 Intent</h2>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val intent &#x3D; Intent(this, TargetActivity::class.java)
-startActivity(intent)</code></pre>
-<p><code>Intent</code> 构造函数的参数：</p>
-<ol>
-<li>上下文</li>
-<li>目标活动的类名</li>
-</ol>
-<p><code>SecondActivity::class.java</code> 相当于 java 中 <code>SecondActivity.class</code> 的写法。</p>
-<h2 id="隐式-intent"><a class="markdownIt-Anchor" href="#隐式-intent"></a> 隐式 Intent</h2>
-<p>如果一个活动可以被隐式调用，需要在 AndroidManifest.xml 文件中注册：</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;activity android:name&#x3D;&quot;.TargetActivity&quot;&gt;
-    &lt;intent-filter&gt;
-        &lt;action android:name&#x3D;&quot;com.example.activitytest.ACTION_START&quot; &#x2F;&gt;
-        &lt;category android:name&#x3D;&quot;android.intent.category.DEFAULT&quot; &#x2F;&gt;
-        &lt;!-- &lt;category android:name&#x3D;&quot;com.example.activitytest.MY_CATEGORY&quot;&#x2F;&gt; --&gt;
-        &lt;!-- action 只能有一个， category 可以有多个--&gt;
-    &lt;&#x2F;intent-filter&gt;
-&lt;&#x2F;activity&gt;</code></pre>
-<p>调用：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val intent &#x3D; Intent(&quot;com.example.activitytest.ACTION_START&quot;)
-startActivity(intent)</code></pre>
-<p>一个 Intent 可以指定一个 action 和多个 category，只有当 action 和 category 全部匹配时，意图才会被响应。</p>
-<h2 id="传递数据"><a class="markdownIt-Anchor" href="#传递数据"></a> 传递数据</h2>
-<p>活动1存放数据：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val intent &#x3D; Intent(this, TargetActivity::class.java)
-intent.putExtra(&quot;extra_data&quot;, &quot;Hello, TargetActivity&quot;) &#x2F;&#x2F; key-value
-startActivity(intent)</code></pre>
-<p>活动2提取数据：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val extraData &#x3D; intent.getStringExtra(&quot;extra_data&quot;)</code></pre>
-<h1 id="隐式传递的更多用法"><a class="markdownIt-Anchor" href="#隐式传递的更多用法"></a> 隐式传递的更多用法</h1>
-<p>安卓系统中有一个内置 action <code>Intent.ACTION_VIEW</code> 可以打开浏览器：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val intent &#x3D; Intent(Intent.ACTION_VIEW)
-intent.data &#x3D; Uri.parse(&quot;http:&#x2F;&#x2F;www.baidu.com&quot;) &#x2F;&#x2F; 设置网址，可选
-startActivity(intent)</code></pre>
-<p>当一个活动在 AndroidManifest.xml 中注册了 action 为 <code>Intent.ACTION_VIEW</code> 时，那么这个活动就可以响应打开网页的请求。</p>
-<p>同时，还可以 <code>intent-filter</code> 标签中再配置一个 <code>data</code> 标签，用于更精确地指定当前 Activity 能够响应的数据。data 标签中主要可以配置以下内容：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">属性</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>android:scheme</code></td>
-<td style="text-align:center">指定协议</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>android:host</code></td>
-<td style="text-align:center">指定主机名</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>android:port</code></td>
-<td style="text-align:center">指定端口</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>android:path</code></td>
-<td style="text-align:center">指定访问路径</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>android:mimeType</code></td>
-<td style="text-align:center">指定可以处理的数据类型，允许使用通配符</td>
-</tr>
-</tbody>
-</table>
-<p>只有当 data 标签中指定的内容和 Intent 中携带的 Data 完全一致时，当前 Activity 才能够响应该 Intent 。</p>
-<blockquote>
-<p>如果所有配置都正确，但是跳转的时候打开了系统默认的浏览器，将其禁用再尝试是否可以正常接收跳转浏览器的意图。</p>
-</blockquote>
-<h1 id="返回数据给上一个活动"><a class="markdownIt-Anchor" href="#返回数据给上一个活动"></a> 返回数据给上一个活动</h1>
-<p>在父活动中使用 <code>startActivityForResult</code> 方法启动子活动：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val intent &#x3D; Intent(this, TargetActivity::class.java)
-startActivityForResult(intent, 1) &#x2F;&#x2F; 1 是请求码，用于在之后的回调中判断数据来源</code></pre>
-<p>子活动返回数据：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">&#x2F;&#x2F; 主逻辑
-val intent &#x3D; Intent()
-intent.putExtra(&quot;data_return&quot;, &quot;Hello, MainActivity&quot;)
-setResult(RESULT_OK, intent)
-finish() &#x2F;&#x2F; 销毁当前活动</code></pre>
-<p>父活动接收数据：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) &#123;
-    when (requestCode) &#123;
-        1 -&gt; &#123;
-            if (resultCode &#x3D;&#x3D; Activity.RESULT_OK) &#123;
-                val returnedData &#x3D; data?.getStringExtra(&quot;data_return&quot;)
-                Log.d(&quot;MainActivity&quot;, &quot;returned data is $returnedData&quot;)
-            &#125;
-        &#125;
-    &#125;
-&#125;</code></pre>
-<p>通过返回键返回时，子活动中重写 <code>onBackPressed</code> 方法即可：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onBackPressed() &#123;
-    &#x2F;&#x2F; code...
-&#125;</code></pre>
-]]></content>
-      <categories>
-        <category>第一个安卓 app</category>
-        <category>Activity</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-        <tag>Intent</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>常用控件</title>
-    <url>/Ant-Blog/3355239386.html</url>
+    <url>/3355239386.html</url>
     <content><![CDATA[<h1 id="textview"><a class="markdownIt-Anchor" href="#textview"></a> TextView</h1>
 <p>用于显示文本。</p>
 <pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;TextView
@@ -1000,62 +1000,8 @@ finish() &#x2F;&#x2F; 销毁当前活动</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>windows 本地部署 photoPrism</title>
-    <url>/Ant-Blog/2888069175.html</url>
-    <content><![CDATA[<h1 id="起因"><a class="markdownIt-Anchor" href="#起因"></a> 起因</h1>
-<p>把带地理位置信息的照片上传到 google 相册后，可以在地图中查看每张照片在地图上的标点。但是 google 相册云空间有限；使用 mod 的话总感觉有风险；并且上传照片到云上也怕隐私泄露（ google 之前拿用户照片来训练 ai ）。</p>
-<p>安卓端开源的 <a href="https://github.com/deckerst/aves">Aves 相册</a>也有这个功能，但是照片必须在本地。然而我不会把大量照片放在一部手机上，更偏向于放在桌面端设备。</p>
-<p>在网上搜索开源照片管理工具，找到了这篇<a href="https://www.cnblogs.com/ryanyangcs/p/18322866">云部署教程</a>推荐。</p>
-<h1 id="photoprism-介绍"><a class="markdownIt-Anchor" href="#photoprism-介绍"></a> photoPrism 介绍</h1>
-<ul>
-<li>开源</li>
-<li>google 相册平替</li>
-<li>具有基本的 AI 分类功能</li>
-</ul>
-<h1 id="部署-photoprism"><a class="markdownIt-Anchor" href="#部署-photoprism"></a> 部署 photoPrism</h1>
-<p>先决条件： 安装 Docker Desktop ，这里不赘述。</p>
-<h2 id="下载配置文件"><a class="markdownIt-Anchor" href="#下载配置文件"></a> 下载配置文件</h2>
-<p>打开<a href="https://www.photoprism.app/plus/kb/quickstart">官方文档</a>，找到<a href="https://www.photoprism.app/plus/kb/quickstart#:~:text=Step%201%3A%20Customize%20Configuration">Step 1: Customize Configuration 部分</a>，点击 windows 右边的下载链接，下载配置文件 <code>compose.yaml</code> 。</p>
-<h2 id="初始化和启动"><a class="markdownIt-Anchor" href="#初始化和启动"></a> 初始化和启动</h2>
-<p>在配置文件的路径下打开 cmd 。注意，接下来的命令会在配置文件的路径下创建 photoPrism 实例（刚开始没注意，放在桌面启动， C 盘差点炸了）。</p>
-<p>依次输入官方提供的两条命令：</p>
-<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">docker compose pull
-docker compose up -d</code></pre>
-<p>第一条命令会下载所需的 image 以及数据库；第二条命令则是以当前配置启动 photoprism 。</p>
-<p>photoPrism 默认运行在<a href="localhost:2342">本地 2342 端口</a>。启动后打开浏览器， 等待界面加载完毕。登录的账号密码为:</p>
-<pre class="line-numbers language-none"><code class="language-none">账号：admin
-密码：insecure</code></pre>
-<p>后续可以在配置文件中修改：</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">environment:
-    PHOTOPRISM_ADMIN_USER: &quot;admin&quot;
-    PHOTOPRISM_ADMIN_PASSWORD: &quot;insecure&quot;</code></pre>
-<p>登陆后，点击左边侧边栏中的 Settings ，之后在右上角找到 language ，可以将界面改为中文。</p>
-<h1 id="如何加载已有图片"><a class="markdownIt-Anchor" href="#如何加载已有图片"></a> 如何加载已有图片</h1>
-<p>打开配置文件，转到95行，可以看到 photoprism 的文件挂载路径。将 <code>~/Photos:/photoprism/originals</code> 其中的 <code>~/Photos</code> 修改为你的照片文件的路径。</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">volumes:
-    # &quot;C:&#x2F;user&#x2F;username&#x2F;folder:&#x2F;photoprism&#x2F;folder&quot;       # example
-    - &quot;~&#x2F;Pictures:&#x2F;photoprism&#x2F;originals&quot;                 # original media files (photos and videos)
-    # - &quot;D:&#x2F;example&#x2F;family:&#x2F;photoprism&#x2F;originals&#x2F;family&quot; # *additional* media folders can be mounted like this
-    # - &quot;E:&#x2F;:&#x2F;photoprism&#x2F;import&quot;                         # *optional* base folder from which files can be imported to originals
-    - &quot;.&#x2F;storage:&#x2F;photoprism&#x2F;storage&quot;                    # *writable* storage folder for cache, database, and sidecar files (never remove)</code></pre>
-<p>重新启动 photoPrism （可以在 Docker Desktop 中手动重启）。</p>
-<p>点击侧边栏的资料库，确认顶部 tab 栏的选项卡为索引，点击开始，等待加载完毕即可。加载时间取决于电脑性能以及照片数量。</p>
-<hr />
-<p>参考文档</p>
-<p><a href="https://www.cnblogs.com/ryanyangcs/p/18322866">米开朗基杨的博客</a></p>
-<p><a href="https://www.photoprism.app/plus/kb/quickstart">photoPrism 官方文档</a></p>
-]]></content>
-      <categories>
-        <category>软件工具</category>
-      </categories>
-      <tags>
-        <tag>windows</tag>
-        <tag>docker</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>kotlin 基本语法</title>
-    <url>/Ant-Blog/2766814441.html</url>
+    <url>/2766814441.html</url>
     <content><![CDATA[<h1 id="hello-kotlin"><a class="markdownIt-Anchor" href="#hello-kotlin"></a> hello kotlin</h1>
 <p>在 IDEA 中新建一个 kotlin 项目，添加“ kotlin 文件”（注意不是类），输入以下代码，然后构建并运行，即可在终端看到输出。</p>
 <pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">fun main()&#123;
@@ -1364,155 +1310,62 @@ doAction()</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>界面布局</title>
-    <url>/Ant-Blog/3340243686.html</url>
-    <content><![CDATA[<h1 id="常用布局"><a class="markdownIt-Anchor" href="#常用布局"></a> 常用布局</h1>
-<h2 id="linearlayout"><a class="markdownIt-Anchor" href="#linearlayout"></a> LinearLayout</h2>
-<p>线性布局，元素呈线性排列，不多解释。</p>
-<p><code>android:orientation</code> 属性可以指定控件的排列方式，默认为水平排列。</p>
-<p>控件常用属性：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">属性名</th>
-<th style="text-align:center">值</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">android:layout_<mark>gravity</mark></td>
-<td style="text-align:center">top,bottom,left,right</td>
-<td style="text-align:center">对齐方向</td>
-</tr>
-</tbody>
-</table>
-<h2 id="relativelayout"><a class="markdownIt-Anchor" href="#relativelayout"></a> RelativeLayout</h2>
-<p>相对布局，元素可以相对于父容器确定位置，也可以相对于其他控件。</p>
-<p>控件常用属性：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">属性名</th>
-<th style="text-align:center">值</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">android:layout_<mark>centerInParent</mark></td>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">处于父容器<mark>中心</mark></td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>alignParentTop</mark></td>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">与父容器<mark>顶部</mark>对齐</td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>alignParentBottom</mark></td>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">与父容器<mark>底部</mark>对齐</td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>alignParentLeft</mark></td>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">与父容器<mark>左边</mark>对齐</td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>alignParentRight</mark></td>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">与父容器<mark>右边</mark>对齐</td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>above</mark></td>
-<td style="text-align:center">控件引用</td>
-<td style="text-align:center">位于控件<mark>上方</mark></td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>below</mark></td>
-<td style="text-align:center">控件引用</td>
-<td style="text-align:center">位于控件<mark>下方</mark></td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>toLeftOf</mark></td>
-<td style="text-align:center">控件引用</td>
-<td style="text-align:center">位于控件<mark>左侧</mark></td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>toRightOf</mark></td>
-<td style="text-align:center">控件引用</td>
-<td style="text-align:center">位于控件<mark>右侧</mark></td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>alignTop</mark></td>
-<td style="text-align:center">控件引用</td>
-<td style="text-align:center">与控件<mark>上边缘</mark>对齐</td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>alignBottom</mark></td>
-<td style="text-align:center">控件引用</td>
-<td style="text-align:center">与控件<mark>下边缘</mark>对齐</td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>alignLeft</mark></td>
-<td style="text-align:center">控件引用</td>
-<td style="text-align:center">与控件<mark>左边缘</mark>对齐</td>
-</tr>
-<tr>
-<td style="text-align:center">android:layout_<mark>alignRight</mark></td>
-<td style="text-align:center">控件引用</td>
-<td style="text-align:center">与控件<mark>右边缘</mark>对齐</td>
-</tr>
-</tbody>
-</table>
-<h2 id="framelayout"><a class="markdownIt-Anchor" href="#framelayout"></a> FrameLayout</h2>
-<p>帧布局。不够灵活，应用较少。</p>
-<h1 id="自定义控件"><a class="markdownIt-Anchor" href="#自定义控件"></a> 自定义控件</h1>
-<p>安卓中的布局与控件的继承关系：</p>
-<pre class="mermaid">graph TD
-    View --> TextView
-    View --> ImageView
-    View --> ViewGroup
-    TextView --> EditText
-    TextView --> Button
-    ViewGroup --> LinearLayout
-    ViewGroup --> RelativeLayout
-    ViewGroup --> Others[……]</pre>
-<p>View是Android中最基本的一种UI组件，它可以在屏幕上绘制一块矩形区域，并能响应这块区域的各种事件。</p>
-<p>ViewGroup是一种特殊的View，它可以包含很多子View和子ViewGroup，是一个用于放置控件和布局的容器。</p>
-<h2 id="步骤"><a class="markdownIt-Anchor" href="#步骤"></a> 步骤</h2>
-<p>布局与布局之间是可以相互嵌套的；控件必须依赖于布局。所以实际上就是自定义布局，其中有自定义的控件。</p>
-<pre class="mermaid">graph LR
-    xml文件设计布局 --> |加载| A[class文件控制逻辑]
-    A --> |完整类路径| 其他布局文件中引入</pre>
+    <title>windows 本地部署 photoPrism</title>
+    <url>/2888069175.html</url>
+    <content><![CDATA[<h1 id="起因"><a class="markdownIt-Anchor" href="#起因"></a> 起因</h1>
+<p>把带地理位置信息的照片上传到 google 相册后，可以在地图中查看每张照片在地图上的标点。但是 google 相册云空间有限；使用 mod 的话总感觉有风险；并且上传照片到云上也怕隐私泄露（ google 之前拿用户照片来训练 ai ）。</p>
+<p>安卓端开源的 <a href="https://github.com/deckerst/aves">Aves 相册</a>也有这个功能，但是照片必须在本地。然而我不会把大量照片放在一部手机上，更偏向于放在桌面端设备。</p>
+<p>在网上搜索开源照片管理工具，找到了这篇<a href="https://www.cnblogs.com/ryanyangcs/p/18322866">云部署教程</a>推荐。</p>
+<h1 id="photoprism-介绍"><a class="markdownIt-Anchor" href="#photoprism-介绍"></a> photoPrism 介绍</h1>
 <ul>
-<li>编写一个 class 作为逻辑控制，并与自定义的布局绑定（在 class 文件中编写加载布局等逻辑）。</li>
+<li>开源</li>
+<li>google 相册平替</li>
+<li>具有基本的 AI 分类功能</li>
 </ul>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class YourLayout(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) &#123;
-    &#x2F;&#x2F; 如果自定义控件依赖于 LinearLayout 布局，那么对应的 class 也继承于 LinearLayout 类。
-    init &#123;
-        LayoutInflater.from(context).inflate(R.layout.title, this) &#x2F;&#x2F; 绑定自定义的布局
-       &#x2F;&#x2F; code ...
-    &#125;
-&#125;</code></pre>
-<ul>
-<li>在布局中引入。需要写入完整的类路径。</li>
-</ul>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;com.example.YourPackage.YourLayout
-... &#x2F;&gt;</code></pre>
+<h1 id="部署-photoprism"><a class="markdownIt-Anchor" href="#部署-photoprism"></a> 部署 photoPrism</h1>
+<p>先决条件： 安装 Docker Desktop ，这里不赘述。</p>
+<h2 id="下载配置文件"><a class="markdownIt-Anchor" href="#下载配置文件"></a> 下载配置文件</h2>
+<p>打开<a href="https://www.photoprism.app/plus/kb/quickstart">官方文档</a>，找到<a href="https://www.photoprism.app/plus/kb/quickstart#:~:text=Step%201%3A%20Customize%20Configuration">Step 1: Customize Configuration 部分</a>，点击 windows 右边的下载链接，下载配置文件 <code>compose.yaml</code> 。</p>
+<h2 id="初始化和启动"><a class="markdownIt-Anchor" href="#初始化和启动"></a> 初始化和启动</h2>
+<p>在配置文件的路径下打开 cmd 。注意，接下来的命令会在配置文件的路径下创建 photoPrism 实例（刚开始没注意，放在桌面启动， C 盘差点炸了）。</p>
+<p>依次输入官方提供的两条命令：</p>
+<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">docker compose pull
+docker compose up -d</code></pre>
+<p>第一条命令会下载所需的 image 以及数据库；第二条命令则是以当前配置启动 photoprism 。</p>
+<p>photoPrism 默认运行在<a href="localhost:2342">本地 2342 端口</a>。启动后打开浏览器， 等待界面加载完毕。登录的账号密码为:</p>
+<pre class="line-numbers language-none"><code class="language-none">账号：admin
+密码：insecure</code></pre>
+<p>后续可以在配置文件中修改：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">environment:
+    PHOTOPRISM_ADMIN_USER: &quot;admin&quot;
+    PHOTOPRISM_ADMIN_PASSWORD: &quot;insecure&quot;</code></pre>
+<p>登陆后，点击左边侧边栏中的 Settings ，之后在右上角找到 language ，可以将界面改为中文。</p>
+<h1 id="如何加载已有图片"><a class="markdownIt-Anchor" href="#如何加载已有图片"></a> 如何加载已有图片</h1>
+<p>打开配置文件，转到95行，可以看到 photoprism 的文件挂载路径。将 <code>~/Photos:/photoprism/originals</code> 其中的 <code>~/Photos</code> 修改为你的照片文件的路径。</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">volumes:
+    # &quot;C:&#x2F;user&#x2F;username&#x2F;folder:&#x2F;photoprism&#x2F;folder&quot;       # example
+    - &quot;~&#x2F;Pictures:&#x2F;photoprism&#x2F;originals&quot;                 # original media files (photos and videos)
+    # - &quot;D:&#x2F;example&#x2F;family:&#x2F;photoprism&#x2F;originals&#x2F;family&quot; # *additional* media folders can be mounted like this
+    # - &quot;E:&#x2F;:&#x2F;photoprism&#x2F;import&quot;                         # *optional* base folder from which files can be imported to originals
+    - &quot;.&#x2F;storage:&#x2F;photoprism&#x2F;storage&quot;                    # *writable* storage folder for cache, database, and sidecar files (never remove)</code></pre>
+<p>重新启动 photoPrism （可以在 Docker Desktop 中手动重启）。</p>
+<p>点击侧边栏的资料库，确认顶部 tab 栏的选项卡为索引，点击开始，等待加载完毕即可。加载时间取决于电脑性能以及照片数量。</p>
+<hr />
+<p>参考文档</p>
+<p><a href="https://www.cnblogs.com/ryanyangcs/p/18322866">米开朗基杨的博客</a></p>
+<p><a href="https://www.photoprism.app/plus/kb/quickstart">photoPrism 官方文档</a></p>
 ]]></content>
       <categories>
-        <category>第一个安卓 app</category>
-        <category>布局和控件</category>
+        <category>软件工具</category>
       </categories>
       <tags>
-        <tag>Android</tag>
+        <tag>windows</tag>
+        <tag>docker</tag>
       </tags>
   </entry>
   <entry>
     <title>开发日记</title>
-    <url>/Ant-Blog/786968787.html</url>
+    <url>/786968787.html</url>
     <content><![CDATA[<h1 id="后端生成并返回-excel-表格前端下载"><a class="markdownIt-Anchor" href="#后端生成并返回-excel-表格前端下载"></a> 后端生成并返回 excel 表格，前端下载</h1>
 <p>后端 Controller ：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">@GetMapping(&quot;&#x2F;excel&#x2F;&#123;id&#125;&quot;)
@@ -1741,6 +1594,153 @@ TypeError: date.getHours is not a function ...
       <tags>
         <tag>springboot</tag>
         <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>界面布局</title>
+    <url>/3340243686.html</url>
+    <content><![CDATA[<h1 id="常用布局"><a class="markdownIt-Anchor" href="#常用布局"></a> 常用布局</h1>
+<h2 id="linearlayout"><a class="markdownIt-Anchor" href="#linearlayout"></a> LinearLayout</h2>
+<p>线性布局，元素呈线性排列，不多解释。</p>
+<p><code>android:orientation</code> 属性可以指定控件的排列方式，默认为水平排列。</p>
+<p>控件常用属性：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性名</th>
+<th style="text-align:center">值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">android:layout_<mark>gravity</mark></td>
+<td style="text-align:center">top,bottom,left,right</td>
+<td style="text-align:center">对齐方向</td>
+</tr>
+</tbody>
+</table>
+<h2 id="relativelayout"><a class="markdownIt-Anchor" href="#relativelayout"></a> RelativeLayout</h2>
+<p>相对布局，元素可以相对于父容器确定位置，也可以相对于其他控件。</p>
+<p>控件常用属性：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性名</th>
+<th style="text-align:center">值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">android:layout_<mark>centerInParent</mark></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">处于父容器<mark>中心</mark></td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignParentTop</mark></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">与父容器<mark>顶部</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignParentBottom</mark></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">与父容器<mark>底部</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignParentLeft</mark></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">与父容器<mark>左边</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignParentRight</mark></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">与父容器<mark>右边</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>above</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">位于控件<mark>上方</mark></td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>below</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">位于控件<mark>下方</mark></td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>toLeftOf</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">位于控件<mark>左侧</mark></td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>toRightOf</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">位于控件<mark>右侧</mark></td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignTop</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">与控件<mark>上边缘</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignBottom</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">与控件<mark>下边缘</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignLeft</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">与控件<mark>左边缘</mark>对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">android:layout_<mark>alignRight</mark></td>
+<td style="text-align:center">控件引用</td>
+<td style="text-align:center">与控件<mark>右边缘</mark>对齐</td>
+</tr>
+</tbody>
+</table>
+<h2 id="framelayout"><a class="markdownIt-Anchor" href="#framelayout"></a> FrameLayout</h2>
+<p>帧布局。不够灵活，应用较少。</p>
+<h1 id="自定义控件"><a class="markdownIt-Anchor" href="#自定义控件"></a> 自定义控件</h1>
+<p>安卓中的布局与控件的继承关系：</p>
+<pre class="mermaid">graph TD
+    View --> TextView
+    View --> ImageView
+    View --> ViewGroup
+    TextView --> EditText
+    TextView --> Button
+    ViewGroup --> LinearLayout
+    ViewGroup --> RelativeLayout
+    ViewGroup --> Others[……]</pre>
+<p>View是Android中最基本的一种UI组件，它可以在屏幕上绘制一块矩形区域，并能响应这块区域的各种事件。</p>
+<p>ViewGroup是一种特殊的View，它可以包含很多子View和子ViewGroup，是一个用于放置控件和布局的容器。</p>
+<h2 id="步骤"><a class="markdownIt-Anchor" href="#步骤"></a> 步骤</h2>
+<p>布局与布局之间是可以相互嵌套的；控件必须依赖于布局。所以实际上就是自定义布局，其中有自定义的控件。</p>
+<pre class="mermaid">graph LR
+    xml文件设计布局 --> |加载| A[class文件控制逻辑]
+    A --> |完整类路径| 其他布局文件中引入</pre>
+<ul>
+<li>编写一个 class 作为逻辑控制，并与自定义的布局绑定（在 class 文件中编写加载布局等逻辑）。</li>
+</ul>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class YourLayout(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) &#123;
+    &#x2F;&#x2F; 如果自定义控件依赖于 LinearLayout 布局，那么对应的 class 也继承于 LinearLayout 类。
+    init &#123;
+        LayoutInflater.from(context).inflate(R.layout.title, this) &#x2F;&#x2F; 绑定自定义的布局
+       &#x2F;&#x2F; code ...
+    &#125;
+&#125;</code></pre>
+<ul>
+<li>在布局中引入。需要写入完整的类路径。</li>
+</ul>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;com.example.YourPackage.YourLayout
+... &#x2F;&gt;</code></pre>
+]]></content>
+      <categories>
+        <category>第一个安卓 app</category>
+        <category>布局和控件</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
       </tags>
   </entry>
 </search>
