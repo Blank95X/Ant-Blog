@@ -76,8 +76,9 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
-<script src="/js/third-party/math/mathjax.js" defer></script>
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js" defer></script>
 
 
 <script src='https://cdn.jsdelivr.net/npm/mermaid@11.5.0/dist/mermaid.min.js'>
@@ -187,7 +188,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -217,6 +218,344 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://xici.github.io/1273076805.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="xici">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xici's blog">
+      <meta itemprop="description" content="春风若有怜花意">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | xici's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1273076805.html" class="post-title-link" itemprop="url">Acvitity 初识</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-03-15 17:13:22" itemprop="dateCreated datePublished" datetime="2025-03-15T17:13:22+08:00">2025-03-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-30 22:07:11" itemprop="dateModified" datetime="2025-03-30T22:07:11+08:00">2025-03-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AE%89%E5%8D%93-app/" itemprop="url" rel="index"><span itemprop="name">第一个安卓 app</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AE%89%E5%8D%93-app/Activity/" itemprop="url" rel="index"><span itemprop="name">Activity</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="要素"><a class="markdownIt-Anchor" href="#要素"></a> 要素</h1>
+<p>创建一个 Activity 需要以下要素：</p>
+<p>Activity 类：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class ActivityName : ComponentActivity() &#123;
+	override fun onCreate(savedInstanceState: Bundle?) &#123;
+        super.onCreate(savedInstanceState)
+        &#x2F;&#x2F; code..
+    &#125;
+&#125;</code></pre>
+<p>布局文件： <code>src/main/res/layout/activity_name.xml</code></p>
+<p>在 AndroidManifest.xml 文件中注册：</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;activity android:name&#x3D;&quot;.ActivityName&quot; 
+    android:label&#x3D;&quot;This is ActivityName&quot;&gt;
+    &lt;!--如果需要作为主界面，还需要以下两个属性--&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name&#x3D;&quot;android.intent.action.MAIN&quot; &#x2F;&gt; 
+        &lt;category android:name&#x3D;&quot;android.intent.category.LAUNCHER&quot; &#x2F;&gt;
+    &lt;&#x2F;intent-filter&gt;
+&lt;&#x2F;activity&gt;</code></pre>
+<h1 id="获取控件"><a class="markdownIt-Anchor" href="#获取控件"></a> 获取控件</h1>
+<p>一般使用 <code>findViewById</code> 方法获取控件：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val textView &#x3D; findViewById&lt;TextView&gt;(R.id.textView)</code></pre>
+<p>使用 kotlin 的安卓项目中，可以在模块级 <code>build.gradle</code> 文件中启用 <code>viewBindding</code>：</p>
+<pre class="line-numbers language-gradle" data-language="gradle"><code class="language-gradle">android &#123;
+    ...
+    viewBinding &#123;
+        enabled &#x3D; true
+    &#125;
+&#125;</code></pre>
+<p>这样就可以直接使用控件 id 获取控件：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val binding &#x3D; ActivityMainBinding.inflate(layoutInflater)
+setContentView(binding.root)
+val button1 &#x3D; binding.button1</code></pre>
+<p>同时 Android Studio 会自动生成一个 <code>import com.example.app.databinding.ActivityMainBinding</code> 语句。</p>
+<h1 id="生命周期"><a class="markdownIt-Anchor" href="#生命周期"></a> 生命周期</h1>
+<p>安卓系统使用 task 来管理 Activity ，一个 task 就是存放在返回栈中的 Activity 集合。</p>
+<p>每个 Activity 都有一个生命周期，包括以下几个状态：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">状态</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">运行状态</td>
+<td style="text-align:center">完全可见，位于栈顶</td>
+</tr>
+<tr>
+<td style="text-align:center">暂停状态</td>
+<td style="text-align:center">可见，不位于栈顶</td>
+</tr>
+<tr>
+<td style="text-align:center">停止状态</td>
+<td style="text-align:center">完全不可见，不位于栈顶</td>
+</tr>
+<tr>
+<td style="text-align:center">销毁状态</td>
+<td style="text-align:center">从栈中移除</td>
+</tr>
+</tbody>
+</table>
+<p>对应的回调方法：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>onCreate</code></td>
+<td style="text-align:center">创建时调用</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>onStart</code></td>
+<td style="text-align:center">启动时调用</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>onResume</code></td>
+<td style="text-align:center">恢复时调用</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>onPause</code></td>
+<td style="text-align:center">暂停时调用</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>onStop</code></td>
+<td style="text-align:center">停止（完全不可见）时调用</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>onReStart</code></td>
+<td style="text-align:center">重启时调用</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>onDestroy</code></td>
+<td style="text-align:center">销毁时调用</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid">graph TD
+    A((启动Activity)) --> B[onCreate]
+    B --> C[onStart]
+    C --> D[onResume]
+    D --> E((Activity运行中))
+
+    E --> |其他Activity来到前台| F[onPause] 
+
+    F --> |Activity不再可见| G[onStop]
+    G --> |Activity被销毁| H[onDestroy]
+    H --> I((关闭Activity))
+
+    F --> |返回上一个Activity| D
+    
+    G --> |返回上一个Activity| K[onReStart]
+    K --> C
+
+    G & F --> |其他优先级高的程序需要内存| J((杀掉进程))
+    J --> |返回上一个Activity| B</pre>
+<h2 id="临时保存数据"><a class="markdownIt-Anchor" href="#临时保存数据"></a> 临时保存数据</h2>
+<p>在 Activity 生命周期中，有时需要保存数据，可以使用 <code>onSaveInstanceState</code> 方法：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onSaveInstanceState(outState: Bundle) &#123;
+    super.onSaveInstanceState(outState)
+    outState.putString(&quot;key&quot;, &quot;value&quot;)
+&#125;</code></pre>
+<p>在 <code>onCreate</code> 方法中获取：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onCreate(savedInstanceState: Bundle?) &#123;
+    super.onCreate(savedInstanceState)
+    if (savedInstanceState !&#x3D; null) &#123;
+        val value &#x3D; savedInstanceState.getString(&quot;key&quot;)
+    &#125;
+&#125;</code></pre>
+<h1 id="启动模式"><a class="markdownIt-Anchor" href="#启动模式"></a> 启动模式</h1>
+<p>Activity 的启动模式有以下几种：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">模式</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>standard</code>（默认）</td>
+<td style="text-align:center">每次启动都会创建一个新的 Activity 实例，不管栈中是否已经存在</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>singleTop</code></td>
+<td style="text-align:center">如果栈顶是该 Activity 实例，则直接使用；否则创建新实例</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>singleTask</code></td>
+<td style="text-align:center">如果栈中已经存在该 Activity 实例，则将其上方的 Activity 实例全部出栈；否则创建新实例</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>singleInstance</code></td>
+<td style="text-align:center">该 Activity 实例独立于其他 Activity 实例，单独存在一个任务栈中</td>
+</tr>
+</tbody>
+</table>
+<p>singleInstance 模式图解：</p>
+<pre class="mermaid">graph LR
+    subgraph 返回栈A
+        A1[Activity1]
+        A2[Activity2]
+
+        A1 --> |返回| A2
+    end
+
+    subgraph 返回栈B
+        A3[Activity3]
+    end
+
+        A2 --> |返回| A3
+        A2 --> |启动新Activity| A3
+
+        A3 --> |启动新Activity| A1</pre>
+<p>Activity 的启动模式可以在 AndroidManifest.xml 文件中设置：</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;activity android:name&#x3D;&quot;.ActivityName&quot; 
+    android:launchMode&#x3D;&quot;singleTop&quot;&gt;
+&lt;&#x2F;activity&gt;</code></pre>
+<h1 id="一些实践"><a class="markdownIt-Anchor" href="#一些实践"></a> 一些实践</h1>
+<h2 id="查看当前所在-activity"><a class="markdownIt-Anchor" href="#查看当前所在-activity"></a> 查看当前所在 Activity</h2>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">Log.d(TAG, this.toString())
+Log.d(TAG, this.javaClass.simpleName)
+Log.d(TAG, javaClass.simpleName)</code></pre>
+<p>this 是当前 Activity 的实例引用，this.javaClass.simpleName 和 javaClass.simpleName 都是当前 Activity 的类名。</p>
+<p>输出：</p>
+<pre class="line-numbers language-none"><code class="language-none">com.example.activitytest.FirstActivity@86bde1c
+FirstActivity
+FirstActivity</code></pre>
+<p><code>@86bde1c</code>是当前 Activity 的哈希码，默认是内存地址的十六进制表示。</p>
+<h2 id="一次性结束所有-activity"><a class="markdownIt-Anchor" href="#一次性结束所有-activity"></a> 一次性结束所有 Activity</h2>
+<p>维护一个单例类 ActivityCollector 作为当前所有 Activity 的集合：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">object ActivityCollector &#123;
+    private val activities &#x3D; ArrayList&lt;Activity&gt;()
+
+    fun addActivity(activity: Activity) &#123;
+        activities.add(activity) &#x2F;&#x2F; 添加 Activity
+    &#125;
+
+    fun removeActivity(activity: Activity) &#123;
+        activities.remove(activity) &#x2F;&#x2F; 移除 Activity
+    &#125;
+
+    fun finishAll() &#123;
+        for (activity in activities) &#123;
+            if (!activity.isFinishing) &#123; &#x2F;&#x2F; 判断 Activity 是否正在销毁
+                activity.finish() &#x2F;&#x2F; 销毁 Activity
+            &#125;
+        &#125;
+    &#125;
+&#125;</code></pre>
+<p>之后，在具体的 Activity 中重写 <code>onDestroy</code> 方法：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onDestroy() &#123;
+    super.onDestroy()
+    ActivityCollector.removeActivity(this)
+&#125;</code></pre>
+<p>这样，在任意处，只要调用 <code>ActivityCollector.finishAll()</code> 方法，就可以一次性结束所有 Activity，达到一次性退出程序的目的。</p>
+<h2 id="基本类"><a class="markdownIt-Anchor" href="#基本类"></a> 基本类</h2>
+<p>创建一个基本类 BaseActivity，继承自 AppCompatActivity：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">open class BaseActivity : AppCompatActivity() &#123;
+    override fun onCreate(savedInstanceState: Bundle?) &#123;
+        super.onCreate(savedInstanceState)
+        Log.d(TAG, javaClass.simpleName)
+        ActivityCollector.addActivity(this)
+    &#125;
+
+    override fun onDestroy() &#123;
+        super.onDestroy()
+        ActivityCollector.removeActivity(this)
+    &#125;
+&#125;</code></pre>
+<p>之后，所有 Activity 都继承自 BaseActivity，这样就不必重写许多基本的方法。</p>
+<h2 id="启动-activity-的最佳写法"><a class="markdownIt-Anchor" href="#启动-activity-的最佳写法"></a> 启动 Activity 的最佳写法</h2>
+<p>如果一个 Activity 启动时需要传递数据，最佳写法是定义一个静态方法 <code>actionStart</code> ：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class YourActivity : BaseActivity() &#123;
+    companion object &#123;
+        fun actionStart(context: Context, data1: String, data2: String) &#123;
+            val intent &#x3D; Intent(context, YourActivity::class.java)
+            intent.putExtra(&quot;param1&quot;, data1)
+            intent.putExtra(&quot;param2&quot;, data2)
+            context.startActivity(intent)
+        &#125;
+    &#125;
+&#125;</code></pre>
+<p>kotlin规定，所有定义在 <code>companion object</code> 中的方法都可以使用类似于 java 静态方法的形式调用。</p>
+<p>这样在其他地方启动 Activity 时，只需要调用 <code>YourActivity.actionStart(context, data1, data2)</code> 方法即可。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 

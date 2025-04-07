@@ -76,8 +76,9 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
-<script src="/js/third-party/math/mathjax.js" defer></script>
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js" defer></script>
 
 
 <script src='https://cdn.jsdelivr.net/npm/mermaid@11.5.0/dist/mermaid.min.js'>
@@ -187,7 +188,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -217,6 +218,340 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://xici.github.io/3054489829.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="xici">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xici's blog">
+      <meta itemprop="description" content="春风若有怜花意">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | xici's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/3054489829.html" class="post-title-link" itemprop="url">编译原理 第一章 概论</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-04-07 14:51:33 / 修改时间：17:13:22" itemprop="dateCreated datePublished" datetime="2025-04-07T14:51:33+08:00">2025-04-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">编译原理</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="概论"><a class="markdownIt-Anchor" href="#概论"></a> 概论</h1>
+<h2 id="什么是编译程序"><a class="markdownIt-Anchor" href="#什么是编译程序"></a> 什么是编译程序</h2>
+<h3 id="程序语言"><a class="markdownIt-Anchor" href="#程序语言"></a> 程序语言</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">对象</th>
+<th style="text-align:center">内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">低级语言</td>
+<td style="text-align:center">机器语言、汇编语言等<strong>面向机器</strong>的语言</td>
+</tr>
+<tr>
+<td style="text-align:center">高级语言</td>
+<td style="text-align:center">C、C++、Java等<strong>接近自然语言</strong>的语言</td>
+</tr>
+</tbody>
+</table>
+<p>使用<strong>翻译程序</strong>从高级翻译到机器语言。</p>
+<h4 id="翻译程序"><a class="markdownIt-Anchor" href="#翻译程序"></a> 翻译程序</h4>
+<p>翻译程序可分为：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">对象</th>
+<th style="text-align:center">内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">解释程序</td>
+<td style="text-align:center">边解释边执行</td>
+</tr>
+<tr>
+<td style="text-align:center">汇编程序</td>
+<td style="text-align:center">汇编语言-&gt;机器语言</td>
+</tr>
+<tr>
+<td style="text-align:center">编译程序</td>
+<td style="text-align:center">生成<strong>完全独立于源程序、经优化的</strong>目标语言代码；屏蔽硬件细节</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid">graph TD
+    HL[高级语言]
+    AL[汇编语言]
+    ML[机器语言]
+    compiling{编译}
+    assembling{汇编}
+
+    HL --> compiling
+    compiling --> AL
+    AL --> assembling
+    assembling --> ML
+    compiling --> ML</pre>
+<h3 id="高级语言程序执行过程"><a class="markdownIt-Anchor" href="#高级语言程序执行过程"></a> 高级语言程序执行过程</h3>
+<p>编译阶段：完成源程序到目标程序的<strong>翻译</strong>。</p>
+<p>运行阶段：必须有<strong>系统库</strong>支持。</p>
+<pre class="mermaid">graph TD
+    A[源程序]
+    B{编译程序}
+    H{汇编程序}
+    C[机器语言目标程序]
+    D(系统库)
+    E(初始数据)
+    F[结果]
+    G[汇编语言目标程序]
+
+    A --> B
+    B --> G
+    subgraph 若汇编语言为目标语言
+        G -.-> H
+    end
+    H --> C
+    D --> C
+    E --> C
+    C --> F</pre>
+<h3 id="编译系统"><a class="markdownIt-Anchor" href="#编译系统"></a> 编译系统</h3>
+<p>将编译程序、链接程序、系统库、源程序编辑程序等软件合称为编译系统。</p>
+<p>编译程序还可以进一步分类：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">分类</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">诊断编译程序</td>
+<td style="text-align:center">帮助程序开发和调试</td>
+</tr>
+<tr>
+<td style="text-align:center">优化编译程序</td>
+<td style="text-align:center">提高目标代码效率</td>
+</tr>
+<tr>
+<td style="text-align:center">交叉编译程序</td>
+<td style="text-align:center">在一种机器上编译另一种机器的程序</td>
+</tr>
+<tr>
+<td style="text-align:center">可变目标编译程序</td>
+<td style="text-align:center">生成多种目标代码</td>
+</tr>
+</tbody>
+</table>
+<h2 id="编译的过程"><a class="markdownIt-Anchor" href="#编译的过程"></a> 编译的过程</h2>
+<h3 id="词法分析"><a class="markdownIt-Anchor" href="#词法分析"></a> 词法分析</h3>
+<p>对构成源程序的字符串进行分解，根据源程序的程序语言的词法规则，识别词法单元（单词符号，也叫符号）。</p>
+<h4 id="词法规则"><a class="markdownIt-Anchor" href="#词法规则"></a> 词法规则</h4>
+<p>单词符号的形成规则，用<strong>正规式</strong>和<strong>有限自动机</strong>描述。</p>
+<details class="note default"><summary><p>例子</p>
+</summary>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">float r,h,s;
+s&#x3D;2*3.1416*r*(h+r);</code></pre>
+<p>识别出如下单词符号：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">单词符号</th>
+<th style="text-align:center">类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">float</td>
+<td style="text-align:center">关键字</td>
+</tr>
+<tr>
+<td style="text-align:center">r</td>
+<td style="text-align:center">标识符</td>
+</tr>
+<tr>
+<td style="text-align:center">h</td>
+<td style="text-align:center">标识符</td>
+</tr>
+<tr>
+<td style="text-align:center">s</td>
+<td style="text-align:center">标识符</td>
+</tr>
+<tr>
+<td style="text-align:center">=</td>
+<td style="text-align:center">运算符</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">常数</td>
+</tr>
+<tr>
+<td style="text-align:center">3.1416</td>
+<td style="text-align:center">常数</td>
+</tr>
+<tr>
+<td style="text-align:center">*</td>
+<td style="text-align:center">运算符</td>
+</tr>
+<tr>
+<td style="text-align:center">(</td>
+<td style="text-align:center">界符</td>
+</tr>
+<tr>
+<td style="text-align:center">)</td>
+<td style="text-align:center">界符</td>
+</tr>
+<tr>
+<td style="text-align:center">;</td>
+<td style="text-align:center">界符</td>
+</tr>
+<tr>
+<td style="text-align:center">*</td>
+<td style="text-align:center">运算符</td>
+</tr>
+</tbody>
+</table>
+
+</details>
+<h3 id="语法分析"><a class="markdownIt-Anchor" href="#语法分析"></a> 语法分析</h3>
+<p>在词法分析的基础上，根据语法规则识别出语法单元，并进行语法检查。</p>
+<h4 id="语法规则"><a class="markdownIt-Anchor" href="#语法规则"></a> 语法规则</h4>
+<p>规定单词符号如何形成语法单元，用<strong>上下文无关法</strong>描述。</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;赋值语句&gt; -&gt; &lt;变量&gt; &#x3D; &lt;表达式&gt;</code></pre>
+<h3 id="语义分析和生成中间代码"><a class="markdownIt-Anchor" href="#语义分析和生成中间代码"></a> 语义分析和生成中间代码</h3>
+<p>对每个语法单元进行静态语义审查，分析其含义，然后用中间语言来描述这种语义。</p>
+<h4 id="语义规则"><a class="markdownIt-Anchor" href="#语义规则"></a> 语义规则</h4>
+<p>用<strong>属性文法</strong>来描述语义规则。</p>
+<h3 id="代码优化"><a class="markdownIt-Anchor" href="#代码优化"></a> 代码优化</h3>
+<p>对中间代码进行等价的变换或改造，提高时间和空间效率</p>
+<h3 id="生成目标代码"><a class="markdownIt-Anchor" href="#生成目标代码"></a> 生成目标代码</h3>
+<p>将中间代码变为目标代码。</p>
+<h3 id="表格管理和错误处理"><a class="markdownIt-Anchor" href="#表格管理和错误处理"></a> 表格管理和错误处理</h3>
+<p>编译的各个阶段都涉及操作相关表格的信息，必须要有程序来管理表格。</p>
+<h2 id="编译程序的结构"><a class="markdownIt-Anchor" href="#编译程序的结构"></a> 编译程序的结构</h2>
+<pre class="mermaid">graph TD
+    error[错误处理程序]
+    table[表格管理程序]
+
+    table <-.->  B 
+    table <-.->  C 
+    table <-.->  D 
+    table <-.->  E 
+    table <-.->  F 
+
+    B <-.-> error
+    C <-.-> error
+    D <-.-> error
+    E <-.-> error
+    F <-.-> error
+
+        A[源程序（字符串）] --> B[词法分析程序]
+    subgraph 编译过程
+        B --> C[语法分析程序]
+        C --> D[语义分析和中间代码生成程序]
+        D --> E[代码优化程序]
+        E --> F[目标代码生成程序]
+    end
+        F --> G[目标程序]</pre>
+<p>设计编译程序的逻辑：</p>
+<ol>
+<li>分析源语言和目标语言</li>
+<li>设计编译算法</li>
+<li>选择编译程序的语言</li>
+<li>调试</li>
+<li>提交文档</li>
+</ol>
+<h3 id="编译程序的前后端"><a class="markdownIt-Anchor" href="#编译程序的前后端"></a> 编译程序的前后端</h3>
+<p>前端：与<strong>源语言有关</strong>、与<strong>目标语言无关</strong>的部分。</p>
+<p>前端包括：词法分析、语法分析、语义分析、中间代码生成、符号表管理、机器无关代码优化。</p>
+<p>后端：与<strong>目标语言有关</strong>的部分。</p>
+<p>后端包括：机器有关代码优化、目标代码生成、错误处理、符号表操作。</p>
+<h3 id="扫描"><a class="markdownIt-Anchor" href="#扫描"></a> 扫描</h3>
+<p>对<strong>源程序或中间代码</strong>进行扫描并加工，产生新的中间代码或目标程序。</p>
+<p>采用不同的扫描遍数和分遍方式，会造成编译程序在具体结构上的差别。</p>
+<p>分遍的主要好处：</p>
+<ul>
+<li>减少内存占用；</li>
+<li>优化更充分，目标程序的质量更高；</li>
+<li>将编译程序的前端和后端分开，便于移植。</li>
+</ul>
+<p>分遍的主要缺点：增加重复工作，降低编译效率。</p>
+<p>是否分遍和分遍次数，要根据具体情况来决定（计算机内存大小、程序语言的简繁、目标程序质量高低等）。</p>
+<h2 id="编译程序的生成"><a class="markdownIt-Anchor" href="#编译程序的生成"></a> 编译程序的生成</h2>
+<p>任何一个编译程序都涉及到3个语言：<strong>源语言、目标语言、编写编译器的语言</strong>。</p>
+<p>由于编写<strong>第一个编译器</strong>时不存在任何其他编译器，因而该编译程序只能用<strong>机器语言编写</strong>。</p>
+<p>假定一个编译程序的<strong>源语言</strong>为A，<strong>目标语言</strong>为B，<strong>编写语言</strong>为C。用T型图表示三个语言的关系：</p>
+<p><img data-src="https://i.meee.com.tw/4YOj1IM.png" alt="三个语言的关系" /></p>
+<h3 id="自展"><a class="markdownIt-Anchor" href="#自展"></a> 自展</h3>
+<p>使用目标语言自身编写编译程序（自己编译自己）。</p>
+<p>对于源语言A、编写语言C：</p>
+<ul>
+<li>首先使用C编写A的一个核心子集 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">A_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 的编译器。</li>
+<li>使用源语言A编写一个更为完整的子集 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">A_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 的编译器（ <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mn>1</mn></msub><mo>∈</mo><msub><mi>A</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">A_1 \in A_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> ），使用上一步得到的编译器进行编译。</li>
+<li>重复上一步，直到编译器的功能达到要求。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -990,9 +1325,15 @@ public class getConfigInfo &#123;
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2025-03-30 12:26:09 / 修改时间：22:42:16" itemprop="dateCreated datePublished" datetime="2025-03-30T12:26:09+08:00">2025-03-30</time>
+      <time title="创建时间：2025-03-30 12:26:09" itemprop="dateCreated datePublished" datetime="2025-03-30T12:26:09+08:00">2025-03-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-04-07 17:21:24" itemprop="dateModified" datetime="2025-04-07T17:21:24+08:00">2025-04-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1077,25 +1418,21 @@ default 块
 </div></div>
 <hr />
 <h1 id="mermaid-渲染"><a class="markdownIt-Anchor" href="#mermaid-渲染"></a> mermaid 渲染</h1>
-<p>如果使用 markdown 语法绘制mermaid，需要引入 js 。在 <code>themes\next\layout\_partials\footer.njk</code> 中添加以下内容：</p>
-<pre class="line-numbers language-njk" data-language="njk"><code class="language-njk">&#123;%- if theme.mermaid.enable  %&#125;
-  &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;mermaid@11.5.0&#x2F;dist&#x2F;mermaid.min.js&#39;&gt;&lt;&#x2F;script&gt;
-  &lt;script&gt;
+<p>引入 js 。使用 next 提供的 <code>custom_file</code> 功能，在 <code>source\_data\head.njk</code> 中添加以下内容：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">&lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;mermaid@11.5.0&#x2F;dist&#x2F;mermaid.min.js&#39;&gt;
     if (window.mermaid) &#123;
-      mermaid.initialize(&#123;theme: &#39;default&#39;&#125;);
-    &#125;
-  &lt;&#x2F;script&gt;
-&#123;% endif %&#125;</code></pre>
-<p>如果使用 next 主题提供的 mermaid 渲染，在主题配置中打开即可：</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># Mermaid tag
+    mermaid.initialize(&#123;theme: &#39;default&#39;&#125;);
+  &#125;
+&lt;&#x2F;script&gt;</code></pre>
+<p>如果使用 next 主题提供的 mermaid 块来标记，在主题配置中打开：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># _config.next.yml
+# Mermaid tag
 mermaid:
   enable: true
   # Available themes: default | dark | forest | neutral
   theme:
     light: forest
     dark: dark</code></pre>
-<div class="note info"><p>以上只是本人的猜测，未经测试。</p>
-</div>
 <h2 id="例子-3"><a class="markdownIt-Anchor" href="#例子-3"></a> 例子</h2>
 <pre class="line-numbers language-none"><code class="language-none">&#123;% mermaid graph LR %&#125;
 A[Hard] --&gt;|Text| B(Round)
@@ -1148,6 +1485,36 @@ C -->|Two| E[Result 2]</pre>
 <p>Gui Blog</p><p>网站的工具人</p>
 <a target="_blank" rel="noopener" href="https://guiblogs.com/hexo30-21/"></a>
 </div></div>
+<h1 id="latex-公式渲染问题"><a class="markdownIt-Anchor" href="#latex-公式渲染问题"></a> latex 公式渲染问题</h1>
+<p>公式与<code>$</code>符号之间有无间隔会导致渲染是否成功。（也可能是<code>markdown</code>渲染器的问题？我用的是<code>markdown-it-plus</code>）</p>
+<p>经测试，是 latex 公式渲染器的问题。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">渲染方式</th>
+<th style="text-align:center"><code>$A_1$</code>（无空格）</th>
+<th style="text-align:center"><code>$ A_1 $</code>（有空格）</th>
+<th style="text-align:center"><code>$$...$$</code> 块公式</th>
+<th style="text-align:center">问题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>KaTeX</code></td>
+<td style="text-align:center">✅ 正常渲染</td>
+<td style="text-align:center">❌ 不渲染/被识别为普通文本</td>
+<td style="text-align:center">✅ 正常渲染</td>
+<td style="text-align:center">不能有空格</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>MathJax</code></td>
+<td style="text-align:center">❌ 不渲染（常失败）</td>
+<td style="text-align:center">✅ 渲染成功</td>
+<td style="text-align:center">⚠️ 有时会重复</td>
+<td style="text-align:center">行内公式必须有空格，兼容性差</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -1874,344 +2241,6 @@ finish() &#x2F;&#x2F; 销毁当前活动</code></pre>
 <li>如果使用 <code>ComponentActivity</code> 作为活动的父类，需要手动设置标题栏。</li>
 <li>使用 <code>AppCompatActivity</code> 作为活动的父类，可以自动设置标题栏。</li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://xici.github.io/1273076805.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="xici">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="xici's blog">
-      <meta itemprop="description" content="春风若有怜花意">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | xici's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1273076805.html" class="post-title-link" itemprop="url">Acvitity 初识</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-03-15 17:13:22" itemprop="dateCreated datePublished" datetime="2025-03-15T17:13:22+08:00">2025-03-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-30 22:07:11" itemprop="dateModified" datetime="2025-03-30T22:07:11+08:00">2025-03-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AE%89%E5%8D%93-app/" itemprop="url" rel="index"><span itemprop="name">第一个安卓 app</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AE%89%E5%8D%93-app/Activity/" itemprop="url" rel="index"><span itemprop="name">Activity</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="要素"><a class="markdownIt-Anchor" href="#要素"></a> 要素</h1>
-<p>创建一个 Activity 需要以下要素：</p>
-<p>Activity 类：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class ActivityName : ComponentActivity() &#123;
-	override fun onCreate(savedInstanceState: Bundle?) &#123;
-        super.onCreate(savedInstanceState)
-        &#x2F;&#x2F; code..
-    &#125;
-&#125;</code></pre>
-<p>布局文件： <code>src/main/res/layout/activity_name.xml</code></p>
-<p>在 AndroidManifest.xml 文件中注册：</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;activity android:name&#x3D;&quot;.ActivityName&quot; 
-    android:label&#x3D;&quot;This is ActivityName&quot;&gt;
-    &lt;!--如果需要作为主界面，还需要以下两个属性--&gt;
-    &lt;intent-filter&gt;
-        &lt;action android:name&#x3D;&quot;android.intent.action.MAIN&quot; &#x2F;&gt; 
-        &lt;category android:name&#x3D;&quot;android.intent.category.LAUNCHER&quot; &#x2F;&gt;
-    &lt;&#x2F;intent-filter&gt;
-&lt;&#x2F;activity&gt;</code></pre>
-<h1 id="获取控件"><a class="markdownIt-Anchor" href="#获取控件"></a> 获取控件</h1>
-<p>一般使用 <code>findViewById</code> 方法获取控件：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val textView &#x3D; findViewById&lt;TextView&gt;(R.id.textView)</code></pre>
-<p>使用 kotlin 的安卓项目中，可以在模块级 <code>build.gradle</code> 文件中启用 <code>viewBindding</code>：</p>
-<pre class="line-numbers language-gradle" data-language="gradle"><code class="language-gradle">android &#123;
-    ...
-    viewBinding &#123;
-        enabled &#x3D; true
-    &#125;
-&#125;</code></pre>
-<p>这样就可以直接使用控件 id 获取控件：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">val binding &#x3D; ActivityMainBinding.inflate(layoutInflater)
-setContentView(binding.root)
-val button1 &#x3D; binding.button1</code></pre>
-<p>同时 Android Studio 会自动生成一个 <code>import com.example.app.databinding.ActivityMainBinding</code> 语句。</p>
-<h1 id="生命周期"><a class="markdownIt-Anchor" href="#生命周期"></a> 生命周期</h1>
-<p>安卓系统使用 task 来管理 Activity ，一个 task 就是存放在返回栈中的 Activity 集合。</p>
-<p>每个 Activity 都有一个生命周期，包括以下几个状态：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">状态</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">运行状态</td>
-<td style="text-align:center">完全可见，位于栈顶</td>
-</tr>
-<tr>
-<td style="text-align:center">暂停状态</td>
-<td style="text-align:center">可见，不位于栈顶</td>
-</tr>
-<tr>
-<td style="text-align:center">停止状态</td>
-<td style="text-align:center">完全不可见，不位于栈顶</td>
-</tr>
-<tr>
-<td style="text-align:center">销毁状态</td>
-<td style="text-align:center">从栈中移除</td>
-</tr>
-</tbody>
-</table>
-<p>对应的回调方法：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">方法</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>onCreate</code></td>
-<td style="text-align:center">创建时调用</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>onStart</code></td>
-<td style="text-align:center">启动时调用</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>onResume</code></td>
-<td style="text-align:center">恢复时调用</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>onPause</code></td>
-<td style="text-align:center">暂停时调用</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>onStop</code></td>
-<td style="text-align:center">停止（完全不可见）时调用</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>onReStart</code></td>
-<td style="text-align:center">重启时调用</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>onDestroy</code></td>
-<td style="text-align:center">销毁时调用</td>
-</tr>
-</tbody>
-</table>
-<pre class="mermaid">graph TD
-    A((启动Activity)) --> B[onCreate]
-    B --> C[onStart]
-    C --> D[onResume]
-    D --> E((Activity运行中))
-
-    E --> |其他Activity来到前台| F[onPause] 
-
-    F --> |Activity不再可见| G[onStop]
-    G --> |Activity被销毁| H[onDestroy]
-    H --> I((关闭Activity))
-
-    F --> |返回上一个Activity| D
-    
-    G --> |返回上一个Activity| K[onReStart]
-    K --> C
-
-    G & F --> |其他优先级高的程序需要内存| J((杀掉进程))
-    J --> |返回上一个Activity| B</pre>
-<h2 id="临时保存数据"><a class="markdownIt-Anchor" href="#临时保存数据"></a> 临时保存数据</h2>
-<p>在 Activity 生命周期中，有时需要保存数据，可以使用 <code>onSaveInstanceState</code> 方法：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onSaveInstanceState(outState: Bundle) &#123;
-    super.onSaveInstanceState(outState)
-    outState.putString(&quot;key&quot;, &quot;value&quot;)
-&#125;</code></pre>
-<p>在 <code>onCreate</code> 方法中获取：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onCreate(savedInstanceState: Bundle?) &#123;
-    super.onCreate(savedInstanceState)
-    if (savedInstanceState !&#x3D; null) &#123;
-        val value &#x3D; savedInstanceState.getString(&quot;key&quot;)
-    &#125;
-&#125;</code></pre>
-<h1 id="启动模式"><a class="markdownIt-Anchor" href="#启动模式"></a> 启动模式</h1>
-<p>Activity 的启动模式有以下几种：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">模式</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>standard</code>（默认）</td>
-<td style="text-align:center">每次启动都会创建一个新的 Activity 实例，不管栈中是否已经存在</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>singleTop</code></td>
-<td style="text-align:center">如果栈顶是该 Activity 实例，则直接使用；否则创建新实例</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>singleTask</code></td>
-<td style="text-align:center">如果栈中已经存在该 Activity 实例，则将其上方的 Activity 实例全部出栈；否则创建新实例</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>singleInstance</code></td>
-<td style="text-align:center">该 Activity 实例独立于其他 Activity 实例，单独存在一个任务栈中</td>
-</tr>
-</tbody>
-</table>
-<p>singleInstance 模式图解：</p>
-<pre class="mermaid">graph LR
-    subgraph 返回栈A
-        A1[Activity1]
-        A2[Activity2]
-
-        A1 --> |返回| A2
-    end
-
-    subgraph 返回栈B
-        A3[Activity3]
-    end
-
-        A2 --> |返回| A3
-        A2 --> |启动新Activity| A3
-
-        A3 --> |启动新Activity| A1</pre>
-<p>Activity 的启动模式可以在 AndroidManifest.xml 文件中设置：</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;activity android:name&#x3D;&quot;.ActivityName&quot; 
-    android:launchMode&#x3D;&quot;singleTop&quot;&gt;
-&lt;&#x2F;activity&gt;</code></pre>
-<h1 id="一些实践"><a class="markdownIt-Anchor" href="#一些实践"></a> 一些实践</h1>
-<h2 id="查看当前所在-activity"><a class="markdownIt-Anchor" href="#查看当前所在-activity"></a> 查看当前所在 Activity</h2>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">Log.d(TAG, this.toString())
-Log.d(TAG, this.javaClass.simpleName)
-Log.d(TAG, javaClass.simpleName)</code></pre>
-<p>this 是当前 Activity 的实例引用，this.javaClass.simpleName 和 javaClass.simpleName 都是当前 Activity 的类名。</p>
-<p>输出：</p>
-<pre class="line-numbers language-none"><code class="language-none">com.example.activitytest.FirstActivity@86bde1c
-FirstActivity
-FirstActivity</code></pre>
-<p><code>@86bde1c</code>是当前 Activity 的哈希码，默认是内存地址的十六进制表示。</p>
-<h2 id="一次性结束所有-activity"><a class="markdownIt-Anchor" href="#一次性结束所有-activity"></a> 一次性结束所有 Activity</h2>
-<p>维护一个单例类 ActivityCollector 作为当前所有 Activity 的集合：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">object ActivityCollector &#123;
-    private val activities &#x3D; ArrayList&lt;Activity&gt;()
-
-    fun addActivity(activity: Activity) &#123;
-        activities.add(activity) &#x2F;&#x2F; 添加 Activity
-    &#125;
-
-    fun removeActivity(activity: Activity) &#123;
-        activities.remove(activity) &#x2F;&#x2F; 移除 Activity
-    &#125;
-
-    fun finishAll() &#123;
-        for (activity in activities) &#123;
-            if (!activity.isFinishing) &#123; &#x2F;&#x2F; 判断 Activity 是否正在销毁
-                activity.finish() &#x2F;&#x2F; 销毁 Activity
-            &#125;
-        &#125;
-    &#125;
-&#125;</code></pre>
-<p>之后，在具体的 Activity 中重写 <code>onDestroy</code> 方法：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">override fun onDestroy() &#123;
-    super.onDestroy()
-    ActivityCollector.removeActivity(this)
-&#125;</code></pre>
-<p>这样，在任意处，只要调用 <code>ActivityCollector.finishAll()</code> 方法，就可以一次性结束所有 Activity，达到一次性退出程序的目的。</p>
-<h2 id="基本类"><a class="markdownIt-Anchor" href="#基本类"></a> 基本类</h2>
-<p>创建一个基本类 BaseActivity，继承自 AppCompatActivity：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">open class BaseActivity : AppCompatActivity() &#123;
-    override fun onCreate(savedInstanceState: Bundle?) &#123;
-        super.onCreate(savedInstanceState)
-        Log.d(TAG, javaClass.simpleName)
-        ActivityCollector.addActivity(this)
-    &#125;
-
-    override fun onDestroy() &#123;
-        super.onDestroy()
-        ActivityCollector.removeActivity(this)
-    &#125;
-&#125;</code></pre>
-<p>之后，所有 Activity 都继承自 BaseActivity，这样就不必重写许多基本的方法。</p>
-<h2 id="启动-activity-的最佳写法"><a class="markdownIt-Anchor" href="#启动-activity-的最佳写法"></a> 启动 Activity 的最佳写法</h2>
-<p>如果一个 Activity 启动时需要传递数据，最佳写法是定义一个静态方法 <code>actionStart</code> ：</p>
-<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">class YourActivity : BaseActivity() &#123;
-    companion object &#123;
-        fun actionStart(context: Context, data1: String, data2: String) &#123;
-            val intent &#x3D; Intent(context, YourActivity::class.java)
-            intent.putExtra(&quot;param1&quot;, data1)
-            intent.putExtra(&quot;param2&quot;, data2)
-            context.startActivity(intent)
-        &#125;
-    &#125;
-&#125;</code></pre>
-<p>kotlin规定，所有定义在 <code>companion object</code> 中的方法都可以使用类似于 java 静态方法的形式调用。</p>
-<p>这样在其他地方启动 Activity 时，只需要调用 <code>YourActivity.actionStart(context, data1, data2)</code> 方法即可。</p>
 
       
     </div>
