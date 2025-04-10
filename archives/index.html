@@ -227,6 +227,385 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://xici.github.io/26493311.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="xici">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xici's blog">
+      <meta itemprop="description" content="春风若有怜花意">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | xici's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/26493311.html" class="post-title-link" itemprop="url">编译原理 第三章 语法分析</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-04-10 16:13:43 / 修改时间：22:49:57" itemprop="dateCreated datePublished" datetime="2025-04-10T16:13:43+08:00">2025-04-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">编译原理</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="语法分析"><a class="markdownIt-Anchor" href="#语法分析"></a> 语法分析</h1>
+<h2 id="非形式描述方法"><a class="markdownIt-Anchor" href="#非形式描述方法"></a> 非形式描述方法</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">角度</th>
+<th style="text-align:center">内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">语法</td>
+<td style="text-align:center">描述语言的结构</td>
+</tr>
+<tr>
+<td style="text-align:center">语义</td>
+<td style="text-align:center">描述语言的含义</td>
+</tr>
+<tr>
+<td style="text-align:center">语用</td>
+<td style="text-align:center">描述语言的作用</td>
+</tr>
+</tbody>
+</table>
+<p>从以上三个角度去描述语言是<strong>非形式化的</strong>。而<strong>形式化的描述方法</strong>，是用严格定义的符号来描述。</p>
+<h2 id="形式化描述方法"><a class="markdownIt-Anchor" href="#形式化描述方法"></a> 形式化描述方法</h2>
+<p><strong>字母表（符号表）</strong>：是元素的<strong>非空有穷</strong>集合，用大写字母表示。</p>
+<div class="note default"><ul>
+<li>字母表非空。</li>
+<li>集合中的元素可以是字母、数字、其他符号。</li>
+</ul>
+</div>
+<p><strong>符号（字符）</strong>：字母表中的元素。</p>
+<p><strong>符号串</strong>：符号的有穷序列。符号串必须<strong>基于字母表</strong>，由其中的<strong>有穷多个符号组成</strong>。</p>
+<p><strong>符号串的运算</strong>：</p>
+<p>设有符号串<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>a</mi><mi>b</mi><mi>c</mi><mo separator="true">,</mo><mi>y</mi><mo>=</mo><mi>d</mi><mi>e</mi><mi>f</mi></mrow><annotation encoding="application/x-tex">x=abc,y=def</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">b</span><span class="mord mathnormal">c</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span>。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">定义</th>
+<th style="text-align:center">例子</th>
+<th style="text-align:center">结果</th>
+<th style="text-align:center">特例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">长度</td>
+<td style="text-align:center">符号串中包含符号的个数</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∣</mi><mi>x</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">| x |</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal">x</span><span class="mord">∣</span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∣</mi><mi>ϵ</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">| \epsilon |</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal">ϵ</span><span class="mord">∣</span></span></span></span>=0</td>
+</tr>
+<tr>
+<td style="text-align:center">连结</td>
+<td style="text-align:center">连接两个符号串</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">xy</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>b</mi><mi>c</mi><mi>d</mi><mi>e</mi><mi>f</mi></mrow><annotation encoding="application/x-tex">abcdef</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">b</span><span class="mord mathnormal">c</span><span class="mord mathnormal">d</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϵ</mi><mi>x</mi><mo>=</mo><mi>x</mi><mi>ϵ</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">\epsilon x = x \epsilon = x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">ϵ</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">x</span><span class="mord mathnormal">ϵ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">x</span></span></span></span></td>
+</tr>
+<tr>
+<td style="text-align:center">幂运算</td>
+<td style="text-align:center">符号串的幂运算（多次连结？）</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">x^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mi>n</mi></msup><mo>=</mo><mi>x</mi><msup><mi>x</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup><mo stretchy="false">(</mo><mi>n</mi><mo>&gt;</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">x^n = xx^{n-1}(n &gt; 0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathnormal">x</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mn>0</mn></msup><mo>=</mo><mi>ϵ</mi></mrow><annotation encoding="application/x-tex">x^0 = \epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">ϵ</span></span></span></span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>前缀、后缀、子串</strong>：</p>
+<p>在符号串中不同位置截去任意个（<strong>含0个</strong>）符号后的<strong>剩余部分</strong>。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">对象</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">前缀</td>
+<td style="text-align:center">尾部截去</td>
+</tr>
+<tr>
+<td style="text-align:center">后缀</td>
+<td style="text-align:center">头部截去</td>
+</tr>
+<tr>
+<td style="text-align:center">子串</td>
+<td style="text-align:center">除去前后缀的剩余部分</td>
+</tr>
+</tbody>
+</table>
+<details class="note default"><summary><p>例子</p>
+</summary>
+<p>设<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>a</mi><mi>b</mi><mi>c</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">x=abcd</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">b</span><span class="mord mathnormal">c</span><span class="mord mathnormal">d</span></span></span></span>。则：</p>
+<p>前缀：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϵ</mi><mo separator="true">,</mo><mi>a</mi><mo separator="true">,</mo><mi>a</mi><mi>b</mi><mo separator="true">,</mo><mi>a</mi><mi>b</mi><mi>c</mi><mo separator="true">,</mo><mi>a</mi><mi>b</mi><mi>c</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">\epsilon,a,ab,abc,abcd</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">ϵ</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">b</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">b</span><span class="mord mathnormal">c</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">b</span><span class="mord mathnormal">c</span><span class="mord mathnormal">d</span></span></span></span></p>
+<p>后缀：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>b</mi><mi>c</mi><mi>d</mi><mo separator="true">,</mo><mi>b</mi><mi>c</mi><mi>d</mi><mo separator="true">,</mo><mi>c</mi><mi>d</mi><mo separator="true">,</mo><mi>d</mi><mo separator="true">,</mo><mi>ϵ</mi></mrow><annotation encoding="application/x-tex">abcd,bcd,cd,d,\epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">b</span><span class="mord mathnormal">c</span><span class="mord mathnormal">d</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal">c</span><span class="mord mathnormal">d</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">c</span><span class="mord mathnormal">d</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">d</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">ϵ</span></span></span></span></p>
+<p>子串：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϵ</mi><mo separator="true">,</mo><mi>a</mi><mo separator="true">,</mo><mi>a</mi><mi>b</mi><mo separator="true">,</mo><mi>a</mi><mi>b</mi><mi>c</mi><mo separator="true">,</mo><mi>a</mi><mi>b</mi><mi>c</mi><mi>d</mi><mo separator="true">,</mo><mi>b</mi><mi>c</mi><mi>d</mi><mo separator="true">,</mo><mi>c</mi><mi>d</mi><mo separator="true">,</mo><mi>d</mi></mrow><annotation encoding="application/x-tex">\epsilon,a,ab,abc,abcd,bcd,cd,d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">ϵ</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">b</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">b</span><span class="mord mathnormal">c</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">b</span><span class="mord mathnormal">c</span><span class="mord mathnormal">d</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal">c</span><span class="mord mathnormal">d</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">c</span><span class="mord mathnormal">d</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">d</span></span></span></span></p>
+<p>显然对于同一个符号串，子串包含前缀和后缀。</p>
+
+</details>
+<p><strong>集合的运算</strong>：</p>
+<p>设<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy="false">{</mo><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">}</mo><mo separator="true">,</mo><mi>B</mi><mo>=</mo><mo stretchy="false">{</mo><mi>c</mi><mo separator="true">,</mo><mi>d</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">A=\{a,b\},B=\{c,d\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">b</span><span class="mclose">}</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal">c</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">d</span><span class="mclose">}</span></span></span></span>。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">定义</th>
+<th style="text-align:center">例子</th>
+<th style="text-align:center">结果</th>
+<th style="text-align:center">特例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">乘积</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>B</mi><mo>=</mo><mo stretchy="false">{</mo><mi>x</mi><mi>y</mi><mi mathvariant="normal">∣</mi><mi>x</mi><mo>∈</mo><mi>A</mi><mo separator="true">,</mo><mi>y</mi><mo>∈</mo><mi>B</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">AB = \{xy | x \in A ,y \in B\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord">∣</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">}</span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">AB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">{</mo><mi>a</mi><mi>c</mi><mo separator="true">,</mo><mi>a</mi><mi>d</mi><mo separator="true">,</mo><mi>b</mi><mi>c</mi><mo separator="true">,</mo><mi>b</mi><mi>d</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{ac,ad,bc,bd\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal">a</span><span class="mord mathnormal">c</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">d</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal">c</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal">d</span><span class="mclose">}</span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">{</mo><mi>ϵ</mi><mo stretchy="false">}</mo><mi>A</mi><mo>=</mo><mi>A</mi><mo stretchy="false">{</mo><mi>ϵ</mi><mo stretchy="false">}</mo><mo>=</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">\{ \epsilon \}A = A\{ \epsilon \} = A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal">ϵ</span><span class="mclose">}</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">A</span><span class="mopen">{</span><span class="mord mathnormal">ϵ</span><span class="mclose">}</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span></span></span></span></td>
+</tr>
+<tr>
+<td style="text-align:center">幂运算</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>A</mi><mi>n</mi></msup><mo>=</mo><mi>A</mi><msup><mi>A</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup><mo stretchy="false">(</mo><mi>n</mi><mo>&gt;</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">A^n = AA^{n-1}(n&gt;0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathnormal">A</span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>A</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">A^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">{</mo><mi>a</mi><mi>a</mi><mo separator="true">,</mo><mi>a</mi><mi>b</mi><mo separator="true">,</mo><mi>b</mi><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mi>b</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{ aa,ab,ba,bb \}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal">a</span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">b</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal">b</span><span class="mclose">}</span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>A</mi><mn>0</mn></msup><mo>=</mo><mo stretchy="false">{</mo><mi>ϵ</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">A^0=\{\epsilon\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal">ϵ</span><span class="mclose">}</span></span></span></span></td>
+</tr>
+<tr>
+<td style="text-align:center">正闭包</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>A</mi><mo>+</mo></msup><mo>=</mo><msup><mi>A</mi><mn>1</mn></msup><mo>∪</mo><msup><mi>A</mi><mn>2</mn></msup><mo>∪</mo><msup><mi>A</mi><mn>3</mn></msup><mo>∪</mo><mo>⋯</mo><mo>∪</mo><msup><mi>A</mi><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">A^+ = A^1 \cup A^2 \cup A^3 \cup \dots \cup A^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.771331em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.771331em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.55556em;vertical-align:0em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span></span></td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">闭包</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>A</mi><mo>∗</mo></msup><mo>=</mo><mo stretchy="false">{</mo><mi>ϵ</mi><mo stretchy="false">}</mo><mo>∪</mo><msup><mi>A</mi><mo>+</mo></msup></mrow><annotation encoding="application/x-tex">A^* = \{ \epsilon \} \cup A^+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.688696em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal">ϵ</span><span class="mclose">}</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.771331em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.771331em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span></td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="语言"><a class="markdownIt-Anchor" href="#语言"></a> 语言</h2>
+<p><strong>语言</strong>是字母表上<strong>符号串的集合</strong>，这些符号串都具有<strong>一定的语法结构</strong>。</p>
+<p>若语言用<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">L</span></span></span></span>表示，字母表用<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Σ</mi></mrow><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">Σ</span></span></span></span>表示，则<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>⊂</mo><msup><mi mathvariant="normal">Σ</mi><mo>∗</mo></msup></mrow><annotation encoding="application/x-tex">L \subset \Sigma^*</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">L</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">⊂</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.688696em;vertical-align:0em;"></span><span class="mord"><span class="mord">Σ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span>。</p>
+<p>同一个字母表上可以有多个语言。</p>
+<p>如何表示语言的语法结构：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">语言类型</th>
+<th style="text-align:center">描述方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">有限</td>
+<td style="text-align:center">枚举、文法</td>
+</tr>
+<tr>
+<td style="text-align:center">无限</td>
+<td style="text-align:center">文法</td>
+</tr>
+</tbody>
+</table>
+<details class="note default"><summary><p>例子</p>
+</summary>
+<p><img data-src="image-8.png" alt="alt text" /></p>
+<p><img data-src="image-9.png" alt="alt text" /></p>
+
+</details>
+<h2 id="文法"><a class="markdownIt-Anchor" href="#文法"></a> 文法</h2>
+<h3 id="文法规则产生式"><a class="markdownIt-Anchor" href="#文法规则产生式"></a> 文法规则（产生式）</h3>
+<p>设符号<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi></mrow><annotation encoding="application/x-tex">U</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span></span></span></span>和符号串<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">x</span></span></span></span>。则<strong>一个符号与一个符号串的有序对</strong>：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo stretchy="false">(</mo><mi>U</mi><mo separator="true">,</mo><mi>x</mi><mo stretchy="false">)</mo><mo>:</mo><mspace width="1em"/><mi>U</mi><mo>→</mo><mi>x</mi><mspace width="1em"/><mi>o</mi><mi>r</mi><mspace width="1em"/><mi>U</mi><mo>:</mo><mo>:</mo><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">(U,x): \quad U \rightarrow x \quad or \quad U ::= x
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:1em;"></span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:1em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">x</span></span></span></span></span></p>
+<p>称为规则。它定义如何用其中的<strong>符号串生成语言的序列</strong>。</p>
+<p><strong>符号的分类</strong>：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类别</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">表示</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">终结符号</td>
+<td style="text-align:center">字母表中的符号</td>
+<td style="text-align:center">语言中不可再分的基本符号</td>
+<td style="text-align:center">小写字母</td>
+</tr>
+<tr>
+<td style="text-align:center">非终结符号</td>
+<td style="text-align:center">不属于终结符号的其他符号</td>
+<td style="text-align:center">出现在规则左部，表示一定符号串的集合</td>
+<td style="text-align:center">大写字母或尖括号包裹</td>
+</tr>
+</tbody>
+</table>
+<h3 id="文法的定义"><a class="markdownIt-Anchor" href="#文法的定义"></a> 文法的定义</h3>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>G</mi><mo stretchy="false">[</mo><mi>S</mi><mo stretchy="false">]</mo><mo>=</mo><mo stretchy="false">(</mo><msub><mi>V</mi><mi>N</mi></msub><mo separator="true">,</mo><msub><mi>V</mi><mi>T</mi></msub><mo separator="true">,</mo><mi>P</mi><mo separator="true">,</mo><mi>S</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">G[S]=(V_N,V_T,P,S)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">G</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mclose">)</span></span></span></span></span></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">元素</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mi>N</mi></msub></mrow><annotation encoding="application/x-tex">V_N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></td>
+<td style="text-align:center">非终结符号的<strong>集合</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mi>T</mi></msub></mrow><annotation encoding="application/x-tex">V_T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></td>
+<td style="text-align:center">终结符号的<strong>集合</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span></td>
+<td style="text-align:center">文法规则的<strong>集合</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span></td>
+<td style="text-align:center">文法的开始<strong>符号</strong>（或识别符号）</td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><msub><mi>V</mi><mi>N</mi></msub><mo>∪</mo><msub><mi>V</mi><mi>T</mi></msub></mrow><annotation encoding="application/x-tex">V=V_N \cup V_T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></td>
+<td style="text-align:center">该文法的字汇表</td>
+</tr>
+</tbody>
+</table>
+<p>补充：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> 是一个<strong>非终结符号</strong>，至少要在一条文法规则的左部出现。</p>
+<h3 id="bnf-巴斯克范式"><a class="markdownIt-Anchor" href="#bnf-巴斯克范式"></a> BNF 巴斯克范式</h3>
+<p>有若干规则：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.24999999999999992em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mi>A</mi></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>→</mo><msub><mi>α</mi><mn>1</mn></msub></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mi>A</mi></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>→</mo><msub><mi>α</mi><mn>2</mn></msub></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>…</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mi>A</mi></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>→</mo><msub><mi>α</mi><mi>n</mi></msub></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+A &amp;\rightarrow \alpha_1
+\\
+A &amp;\rightarrow \alpha_2
+\\
+&amp;\dots
+\\
+A &amp;\rightarrow \alpha_n
+\end{aligned}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:6em;vertical-align:-2.7500000000000004em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.25em;"><span style="top:-5.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">A</span></span></span><span style="top:-3.91em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">A</span></span></span><span style="top:-2.4099999999999993em;"><span class="pstrut" style="height:3em;"></span><span class="mord"></span></span><span style="top:-0.9099999999999997em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.7500000000000004em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.25em;"><span style="top:-5.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.91em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.4099999999999993em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">…</span></span></span><span style="top:-0.9099999999999997em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.7500000000000004em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>可缩写为：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>A</mi><mo>→</mo><msub><mi>α</mi><mn>1</mn></msub><mi mathvariant="normal">∣</mi><msub><mi>α</mi><mn>2</mn></msub><mi mathvariant="normal">∣</mi><mo>…</mo><mi mathvariant="normal">∣</mi><msub><mi>α</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">A \rightarrow \alpha_1|\alpha_2|\dots|\alpha_n
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">∣</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">∣</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+<p>其中每个 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\alpha_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 也称 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span></span></span></span> 的一个候选式。</p>
+<h3 id="递归规则与递归文法"><a class="markdownIt-Anchor" href="#递归规则与递归文法"></a> 递归规则与递归文法</h3>
+<p>规则<strong>左右部含有相同非终结符</strong>的规则称为递归规则。</p>
+<p>至少含有一条递归规则的文法称为递归文法。</p>
+<details class="note info"><summary><p>已知语言，如何求其对应文法？</p>
+</summary>
+<p>找规律…</p>
+
+</details>
+<h2 id="推导和规约"><a class="markdownIt-Anchor" href="#推导和规约"></a> 推导和规约</h2>
+<p>设有：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.24999999999999992em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mtext>文法</mtext></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mspace width="1em"/><mi>G</mi><mo stretchy="false">[</mo><mi>S</mi><mo stretchy="false">]</mo><mo>=</mo><mo stretchy="false">(</mo><msub><mi>V</mi><mi>N</mi></msub><mo separator="true">,</mo><msub><mi>V</mi><mi>T</mi></msub><mo separator="true">,</mo><mi>P</mi><mo separator="true">,</mo><mi>S</mi><mo stretchy="false">)</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mtext>规则</mtext></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mspace width="1em"/><mi>U</mi><mo>→</mo><mi>u</mi><mo>∈</mo><mi>P</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mtext>符号串</mtext></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mspace width="1em"/><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo>∈</mo><msup><mi>V</mi><mo>∗</mo></msup></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+\text{文法} &amp;\quad G[S] = (V_N,V_T,P,S)
+\\
+\text{规则} &amp;\quad U \rightarrow u \in P
+\\
+\text{符号串} &amp;\quad x,y \in V^*
+\end{aligned}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:4.500000000000002em;vertical-align:-2.000000000000001em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.5000000000000004em;"><span style="top:-4.66em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord cjk_fallback">文法</span></span></span></span><span style="top:-3.16em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord cjk_fallback">规则</span></span></span></span><span style="top:-1.6599999999999993em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord cjk_fallback">符号串</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.000000000000001em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.5000000000000004em;"><span style="top:-4.66em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:1em;"></span><span class="mord mathnormal">G</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mclose">)</span></span></span><span style="top:-3.16em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:1em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathnormal">u</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span><span style="top:-1.6599999999999993em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:1em;"></span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.738696em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.000000000000001em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>若 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mi>U</mi><mi>y</mi><mo>∈</mo><msup><mi>V</mi><mo>∗</mo></msup></mrow><annotation encoding="application/x-tex">xUy \in V^*</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.688696em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span>，用规则 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>→</mo><mi>u</mi></mrow><annotation encoding="application/x-tex">U \rightarrow u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">u</span></span></span></span> 的右部替换左部，可得到新的符号串 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mi>u</mi><mi>y</mi><mo>∈</mo><msup><mi>V</mi><mo>∗</mo></msup></mrow><annotation encoding="application/x-tex">xuy \in V^*</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335400000000001em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">x</span><span class="mord mathnormal">u</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.688696em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span>。则有如下表述：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">表述</th>
+<th style="text-align:center">别称</th>
+<th style="text-align:center">记号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mi>u</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">xuy</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">x</span><span class="mord mathnormal">u</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> 是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mi>U</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">xUy</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> 的直接推导</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mi>U</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">xUy</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> 直接推导到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mi>u</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">xuy</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">x</span><span class="mord mathnormal">u</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mi>U</mi><mi>y</mi><mo>⇒</mo><mi>x</mi><mi>u</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">xUy \Rightarrow xuy</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">⇒</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">x</span><span class="mord mathnormal">u</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mi>U</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">xUy</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> 是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mi>u</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">xuy</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">x</span><span class="mord mathnormal">u</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> 的直接规约</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mi>u</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">xuy</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">x</span><span class="mord mathnormal">u</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> 直接归约到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mi>U</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">xUy</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mi>u</mi><mi>y</mi><mo><munder><mo><mo>⇒</mo></mo><mi mathvariant="normal">Δ</mi></munder></mo><mi>x</mi><mi>U</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">xuy \underset{\Delta} \Rightarrow xUy</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1748910000000001em;vertical-align:-0.7443310000000001em;"></span><span class="mord mathnormal">x</span><span class="mord mathnormal">u</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel"><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3668699999999998em;"><span style="top:-2.355669em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">Δ</span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop">⇒</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7443310000000001em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span></td>
+</tr>
+</tbody>
+</table>
+<p><img data-src="image-16.png" alt="alt text" /></p>
+<p>例子：<img data-src="image-17.png" alt="alt text" /></p>
+<p>区别：<img data-src="image-18.png" alt="alt text" /></p>
+<p>直接推导/规约序列定义：<img data-src="image-19.png" alt="alt text" /></p>
+<p><img data-src="image-20.png" alt="alt text" /></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://xici.github.io/1612050299.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2020,311 +2399,6 @@ C -->|Two| E[Result 2]</pre>
 </tr>
 </tbody>
 </table>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://xici.github.io/786968787.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="xici">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="xici's blog">
-      <meta itemprop="description" content="春风若有怜花意">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | xici's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/786968787.html" class="post-title-link" itemprop="url">开发日记</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-03-24 20:04:11" itemprop="dateCreated datePublished" datetime="2025-03-24T20:04:11+08:00">2025-03-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-04-07 20:06:27" itemprop="dateModified" datetime="2025-04-07T20:06:27+08:00">2025-04-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%96%BD%E5%B7%A5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">施工数据采集系统</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="后端生成并返回-excel-表格前端下载"><a class="markdownIt-Anchor" href="#后端生成并返回-excel-表格前端下载"></a> 后端生成并返回 excel 表格，前端下载</h1>
-<p>后端 Controller ：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">@GetMapping(&quot;&#x2F;excel&#x2F;&#123;id&#125;&quot;)
-public ResponseEntity&lt;byte[]&gt; exportExcel(@PathVariable(&quot;id&quot;) Long id) throws IOException &#123;
-    try &#123;
-        &#x2F;&#x2F; 1. 读取 Excel 模板
-        ClassPathResource resource &#x3D; new ClassPathResource(&quot;template&#x2F;bridge&#x2F;bridgeSJ29.xlsx&quot;);
-        InputStream templateInputStream &#x3D; resource.getInputStream();
-
-        &#x2F;&#x2F; 2. 获取数据
-        BridgeSJ29 excelData &#x3D; bridgeSJ29Service.selectBridgeSJ29ById(id);
-        if (excelData &#x3D;&#x3D; null) &#123;
-            return ResponseEntity.notFound().build();
-        &#125;
-
-        &#x2F;&#x2F; 处理时间格式
-        &#x2F;&#x2F; code...
-
-        &#x2F;&#x2F; 3. 使用 ByteArrayOutputStream 代替本地文件
-        ByteArrayOutputStream outputStream &#x3D; new ByteArrayOutputStream();
-
-        &#x2F;&#x2F; 4. 使用 EasyExcel 进行填充
-        EasyExcel.write(outputStream)
-                .withTemplate(templateInputStream) &#x2F;&#x2F; 绑定模板
-                .sheet()  &#x2F;&#x2F; 选择第一个 Sheet
-                .doFill(excelData); &#x2F;&#x2F; 填充数据
-
-        &#x2F;&#x2F; 5. 关闭流
-        templateInputStream.close();
-        outputStream.close();
-
-        &#x2F;&#x2F; 6. 获取字节数组
-        byte[] excelBytes &#x3D; outputStream.toByteArray();
-
-        &#x2F;&#x2F; 7. 设置 HTTP 头
-        HttpHeaders headers &#x3D; new HttpHeaders();
-        headers.add(HttpHeaders.CONTENT_DISPOSITION, &quot;attachment; filename&#x3D;bridgeSJ29_&quot; + id + &quot;.xlsx&quot;);
-        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
-        headers.setContentLength(excelBytes.length);
-
-        &#x2F;&#x2F; 8. 返回字节数组，而不是 ByteArrayResource
-        return ResponseEntity.ok()
-                .headers(headers)
-                .body(excelBytes);
-    &#125; catch (Exception e) &#123;
-        e.printStackTrace();
-        return ResponseEntity.status(500).build();
-    &#125;
-&#125;</code></pre>
-<p>这样写返回的就是 excel 文件的 blob 数据，前端直接触发下载即可：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;**导出Excel *&#x2F;
-async handleExportExcel() &#123;
-    try &#123;
-    const response &#x3D; await exportExcel(this.rowid);&#x2F;&#x2F; 后端返回的response就是一个blob对象，直接下载即可
-
-    &#x2F;&#x2F; 创建 Blob 并触发下载
-    const blob &#x3D; new Blob([response], &#123; type: &#39;application&#x2F;octet-stream&#39; &#125;);
-    const link &#x3D; document.createElement(&#39;a&#39;);
-    link.href &#x3D; URL.createObjectURL(blob);
-    link.download &#x3D; &#39;混凝土施工记录表SJ29_&#39; + new Date().getTime() + &#39;_.xlsx&#39;;  &#x2F;&#x2F; 使用固定的文件名
-    document.body.appendChild(link);
-    link.click();
-
-    &#x2F;&#x2F; 清理Url对象
-    URL.revokeObjectURL(link.href);
-    document.body.removeChild(link);
-
-    this.$message.success(&#39;Excel 下载成功！&#39;);
-    &#125; catch (error) &#123;
-    console.error(&#39;Excel 下载失败:&#39;, error);
-    this.$message.error(&#39;下载失败，请重试！&#39;);
-    &#125; finally &#123;
-    this.loading &#x3D; false;
-    &#125;
-&#125;,</code></pre>
-<p>之前写的时候 ai 一直说需要从 response 中读取头部来获取文件名，但是实际上返回的 response 没有头部。直接就是 blob 数据，连data部分都没有。所以直接下载即可。</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 创建 Blob 并触发下载
-const blob &#x3D; new Blob([response], &#123; type: &#39;application&#x2F;octet-stream&#39; &#125;);
-&#x2F;&#x2F; 之前一直写的是 response.data ，一直是 undefined</code></pre>
-<div class="link-grid"><div class="link-grid-container">
-<object class="link-grid-image" data="https://easyexcel.opensource.alibaba.com/img/favicon.ico"></object>
-<p>EasyExcel 官方文档</p><p>最简单的填充</p>
-<a target="_blank" rel="noopener" href="https://easyexcel.opensource.alibaba.com/docs/current/quickstart/fill#%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E5%A1%AB%E5%85%85"></a>
-</div></div>
-<h1 id="后端返回的实体类字段名与定义的字段名不一致"><a class="markdownIt-Anchor" href="#后端返回的实体类字段名与定义的字段名不一致"></a> 后端返回的实体类字段名与定义的字段名不一致</h1>
-<h2 id="问题"><a class="markdownIt-Anchor" href="#问题"></a> 问题</h2>
-<p>数据库中有数据，后端能接收到数据，但是前端web页面的表格中没有显示数据。</p>
-<h2 id="排查"><a class="markdownIt-Anchor" href="#排查"></a> 排查</h2>
-<ul>
-<li>前端表格中对应的字段名均正确；</li>
-<li>后端实体类中对应的属性名均正确；</li>
-<li>数据库中对应的字段名均正确；</li>
-</ul>
-<h2 id="解决"><a class="markdownIt-Anchor" href="#解决"></a> 解决</h2>
-<ol>
-<li>在前端中<strong>打印后端发送来的数据，发现与期望字段名不一致</strong>。比如期望<code>sgphb_wjj</code>，收到的却是<code>ssgxb_wjj</code>。</li>
-<li>在<strong>后端中查找相应字符串</strong>，发现实体类中的<code>getter</code>和<code>setter</code>方法的<strong>方法名与错误的字段名对应</strong>，方法体中的<strong>属性名与正确的字段名对应</strong>。猜测是<strong>方法名错误导致返回前端的字段名错误</strong>。</li>
-<li>修正方法名后，问题解决。</li>
-</ol>
-<p><img data-src="https://raw.githubusercontent.com/xici/blog-sources/main/images/20250407200502522.jpeg" alt="方法名对比" /></p>
-<h2 id="原理"><a class="markdownIt-Anchor" href="#原理"></a> 原理</h2>
-<p>截取部分AI解释如下。</p>
-<p><img data-src="https://raw.githubusercontent.com/xici/blog-sources/main/images/20250407200519258.jpeg" alt="AI 解释" /></p>
-<p><img data-src="https://raw.githubusercontent.com/xici/blog-sources/main/images/20250407200537230.jpeg" alt="AI 解释反射机制" /></p>
-<p>在这个过程中，当首字母之后连续的字母都是大写时，通常会将整个大写部分都视为一个整体，然后统一将首字母小写：</p>
-<p><code>SJ28Item1List -&gt; sj28Item1List</code></p>
-<h2 id="jsonproperty-注解"><a class="markdownIt-Anchor" href="#jsonproperty-注解"></a> <code>@JsonProperty</code> 注解</h2>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">import com.fasterxml.jackson.annotation.JsonProperty;
-
-public class Example &#123;
-    @JsonProperty(&quot;customName&quot;)
-    private String name;
-
-    public String getName() &#123;
-        return name;
-    &#125;
-
-    public void setName(String name) &#123;
-        this.name &#x3D; name;
-    &#125;
-&#125;</code></pre>
-<p>在上述代码中，尽管 <code>getter</code> 和 <code>setter</code> 方法遵循 Java Bean 规范，但是由于使用了 <code>@JsonProperty(&quot;customName&quot;)</code> 注解，该属性在序列化后会被命名为 <code>customName</code> 而不是 <code>name</code>。</p>
-<p>总之，一般情况下是根据 Java Bean 规范，由 <code>getter</code> 和 <code>setter</code> 方法名来决定最终返回给前端的字段名，但可以通过注解等方式来进行自定义修改，避免受到方法名的限制。</p>
-<h1 id="easyexcel-实现列表填充"><a class="markdownIt-Anchor" href="#easyexcel-实现列表填充"></a> EasyExcel 实现列表填充</h1>
-<p>这里填充的是图片。模板内的占位符为 <code>&#123;.imageCell&#125;</code> 。</p>
-<p>实体类内的静态类：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">@Getter
-@Setter
-public static class Image &#123;
-    private WriteCellData&lt;Void&gt; imageCell;
-
-    &#x2F;*
-    * 为了实现单张图片的格式化（例如占多个单元格等），使用 ImageData 。
-    * EasyExcel 根据一个 WriteCellData 对象来对一个单元格进行操作。
-    * *&#x2F;
-
-    public Image(URL imageURL) throws IOException &#123;
-        this.imageCell &#x3D; createWriteCellData(imageURL);
-    &#125;
-
-    private WriteCellData&lt;Void&gt; createWriteCellData(URL url) throws IOException &#123;
-        WriteCellData&lt;Void&gt; cellData &#x3D; new WriteCellData&lt;&gt;(); &#x2F;&#x2F; 单元格操作对象
-        ImageData imageData &#x3D; new ImageData(); &#x2F;&#x2F; 图片数据对象
-
-        imageData.setImage(downloadImage(url));
-        imageData.setImageType(ImageData.ImageType.PICTURE_TYPE_PNG);
-
-        imageData.setRelativeFirstRowIndex(0);&#x2F;&#x2F; 距离占位符单元格 0 行
-        imageData.setRelativeFirstColumnIndex(0); &#x2F;&#x2F; 距离占位符单元格 0 列
-        &#x2F;&#x2F; 以上两句可以不写，毕竟本来就要填充到占位符的地方
-
-        imageData.setRelativeLastRowIndex(0); &#x2F;&#x2F; 图片占 1 行
-        imageData.setRelativeLastColumnIndex(1); &#x2F;&#x2F; 图片横向占 2 列
-
-        cellData.setImageDataList(List.of(imageData));&#x2F;&#x2F; 将图片数据对象放入一个不可变列表中，并将这个列表返回给单元格操作对象
-
-        return cellData;
-    &#125;
-
-    private byte[] downloadImage(URL url) throws IOException &#123;
-        &#x2F;&#x2F; 下载图片保存为二进制文件
-    &#125;
-&#125;</code></pre>
-<p>填充列表</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 构建 ExcelWriter 对象，并禁用自动关闭流，实现多次操作
-ExcelWriter excelWriter &#x3D; EasyExcel.write(outputStream)
-        .withTemplate(templateInputStream)
-        .autoCloseStream(false)
-        .build();
-
-&#x2F;&#x2F; 构建默认的 WriteSheet（这里假设只有一个 sheet）
-WriteSheet sheet &#x3D; EasyExcel.writerSheet().build();
-
-&#x2F;&#x2F; 使用 List&lt;Image&gt; 让 EasyExcel 按行填充
-List&lt;SJ24.Image&gt; imageList &#x3D; new ArrayList&lt;&gt;();
-imageList.add(new SJ24.Image(new URL(excelData.getCrackDistributionMap15()))); &#x2F;&#x2F; 第一张图片
-imageList.add(new SJ24.Image(new URL(excelData.getCrackDistributionMap25()))); &#x2F;&#x2F; 第二张图片
-excelWriter.fill(imageList, sheet);
-
-&#x2F;&#x2F; 填充文字数据
-excelWriter.fill(excelData,sheet);
-
-&#x2F;&#x2F; 结束写入，刷新数据到流中
-excelWriter.finish();</code></pre>
-<div class="link-grid"><div class="link-grid-container">
-<object class="link-grid-image" data="https://easyexcel.opensource.alibaba.com/img/favicon.ico"></object>
-<p>EasyExcel 官方文档</p><p>填充列表</p>
-<a target="_blank" rel="noopener" href="https://easyexcel.opensource.alibaba.com/docs/current/quickstart/fill#%E5%A1%AB%E5%85%85%E5%88%97%E8%A1%A8"></a>
-</div></div>
-<h1 id="element-ui-前端时间选择问题"><a class="markdownIt-Anchor" href="#element-ui-前端时间选择问题"></a> Element UI 前端时间选择问题</h1>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">&lt;el-form-item label&#x3D;&quot;施工日期&quot; prop&#x3D;&quot;constructionTime&quot;&gt;
-    &lt;el-date-picker clearable v-model&#x3D;&quot;form.constructionTime&quot; type&#x3D;&quot;date&quot; placeholder&#x3D;&quot;请选择施工日期&quot;
-    format&#x3D;&quot;yyyy&#x2F;MM&#x2F;dd&quot; value-format&#x3D;&quot;yyyy&#x2F;MM&#x2F;dd&quot; &#x2F;&gt;
-&lt;&#x2F;el-form-item&gt;
-
-&lt;el-form-item label&#x3D;&quot;开始时间&quot; prop&#x3D;&quot;startTime&quot;&gt;
-    &lt;el-time-picker clearable v-model&#x3D;&quot;form.startTime&quot; placeholder&#x3D;&quot;请选择开始时间&quot; disabled-seconds format&#x3D;&quot;H:mm&quot;
-    value-format&#x3D;&quot;H:mm&quot; &#x2F;&gt;
-&lt;&#x2F;el-form-item&gt;
-
-&lt;el-form-item label&#x3D;&quot;结束时间&quot; prop&#x3D;&quot;endTime&quot;&gt;
-    &lt;el-time-picker clearable v-model&#x3D;&quot;form.endTime&quot; placeholder&#x3D;&quot;请选择结束时间&quot; disabled-seconds format&#x3D;&quot;H:mm&quot;
-    value-format&#x3D;&quot;H:mm&quot; &#x2F;&gt;
-&lt;&#x2F;el-form-item&gt;</code></pre>
-<p>以<strong>施工日期</strong>字段为例，因为设置了 <code>value-format</code> 属性，所以若<strong>数据库里</strong>的对应字段的格式与<strong>该属性规定</strong>的格式不符，前端选择时就会报错。</p>
-<p>比如数据库返回的字段值是 <code>yyyy-MM-dd</code> ， <code>value-format</code> 属性设置为 <code>yyyy/MM/dd</code> ，则在操作这个组件的时候就会报错：</p>
-<pre class="line-numbers language-none"><code class="language-none">TypeError: date.getFullYear is not a function ...
-TypeError: date.getHours is not a function ...
-...</code></pre>
-<details class="note info"><summary><p>为什么是 <code>date</code> ？</p>
-</summary>
-<p>可能是组件无法解析绑定值的格式的时候默认解析为 <code>Date</code> 对象了吧。</p>
-
-</details>
-<p>所以选择将数据库中有关时间的字段设置为 <code>varchar</code> 类型，方便更改格式。（ <code>date</code> 类型的字段的格式只能是 <code>yyyy-MM-dd</code> ）</p>
-<div class="link-grid"><div class="link-grid-container">
-<object class="link-grid-image" data="https://element.eleme.cn/favicon.ico"></object>
-<p>Element UI 官方文档</p><p>日期选择器</p>
-<a target="_blank" rel="noopener" href="https://element.eleme.cn/#/zh-CN/component/date-picker#ri-qi-ge-shi"></a>
-</div></div>
-<p>&lt;%- mail_to(‘Ant.567@qq.com’) %&gt;</p>
 
       
     </div>
